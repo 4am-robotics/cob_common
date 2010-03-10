@@ -1,0 +1,4 @@
+std_msgs/String operationMode
+---
+bool success
+std_msgs/String errorMessage

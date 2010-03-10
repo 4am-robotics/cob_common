@@ -1,0 +1,22 @@
+<package>
+  <description brief="cob_vision_utils">
+
+     cob_vision_utils
+
+  </description>
+  <author>Jan Fischer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_vision_utils</url>
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="libwm4"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/common/include" lflags="-Wl,-rpath,${prefix}/common/lib -L${prefix}/common/lib -lcob_vision_utils"/>
+  </export>
+
+
+</package>
+
+

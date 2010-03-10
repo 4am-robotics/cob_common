@@ -1,0 +1,3 @@
+---
+int64 success
+std_msgs/String errorMessage

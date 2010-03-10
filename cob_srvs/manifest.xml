@@ -1,0 +1,21 @@
+<package>
+  <description brief="cob3_srvs">
+
+     cob3_srvs
+
+  </description>
+  <author>Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://www.care-o-bot.org</url>
+  
+  <depend package="std_srvs"/>
+  <depend package="std_msgs"/>
+  <depend package="cob3_msgs"/>
+  <depend package="sensor_msgs"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/srv/cpp"/>
+  </export>
+
+</package>
