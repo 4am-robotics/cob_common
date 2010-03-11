@@ -7,9 +7,10 @@
   <author>Maintained by Florian Weisshardt, email: florian.weisshardt@ipa.fhg.de</author>
   <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
-  <url>http://www.care-o-bot.org</url>
-  
+  <url>http://ros.org/wiki/cob_common</url>
+  <depend stack="cob_extern" /> <!-- libpcan, libwm4 -->
   <depend stack="common_msgs" /> <!-- sensor_msgs -->
-  <depend stack="ros" /> <!-- std_srvs, roslib, std_msgs -->
+  <depend stack="ros" /> <!-- std_msgs, roslib, std_srvs, roscpp -->
+  <depend stack="vision_opencv" /> <!-- opencv2 -->
 
 </stack>
