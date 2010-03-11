@@ -37,5 +37,5 @@ rosbuild_add_library(${PROJECT_NAME}_peaksysusb common/src/CanPeakSysUSB.cpp)
 rosbuild_add_library(${PROJECT_NAME}_peaksys common/src/CanPeakSys.cpp)
 
 # link libraries
-target_link_libraries(${PROJECT_NAME}_peaksysusb pcan cob3_utilities)
-target_link_libraries(${PROJECT_NAME}_peaksys pcan cob3_utilities)
+target_link_libraries(${PROJECT_NAME}_peaksysusb pcan cob_utilities)
+target_link_libraries(${PROJECT_NAME}_peaksys pcan cob_utilities)

@@ -1,2 +1,2 @@
 ---
-cob3_msgs/ColoredPointCloud coloredPointCloud
+cob_msgs/ColoredPointCloud coloredPointCloud

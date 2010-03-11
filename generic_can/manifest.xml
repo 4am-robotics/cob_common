@@ -11,7 +11,7 @@
 
   <!-- Dependencies from other packages or external libs-->
   <depend package="roscpp"/>
-  <depend package="cob3_utilities"/>
+  <depend package="cob_utilities"/>
   <depend package="libpcan"/>
 
   <!-- As we deviate from the standard ROS Repository-Structure we have to tell ROS where to find header and lib -->
