@@ -1,10 +1,10 @@
 <stack>
-  <description brief="cob3_common">
+  <description brief="cob_common">
 
-     cob3_common
+     The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc...
 
   </description>
-  <author>Maintained by Florian Weisshardt, email: florian.weisshardt@ipa.fhg.de</author>
+  <author>Maintained by Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
   <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
