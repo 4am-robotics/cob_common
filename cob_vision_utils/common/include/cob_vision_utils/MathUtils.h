@@ -76,7 +76,7 @@
 
 #include <Wm4ApprPolyFit2.h>
 
-#include "Vision/Utilities/GlobalDefines.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/GlobalDefines.h"
 #endif
 
 #include <vector>

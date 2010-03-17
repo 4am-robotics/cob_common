@@ -54,7 +54,7 @@
 #ifdef __COB_ROS__
 #include "cob_vision_utils/OpenCVUtils.h"
 #else
-#include "OpenCVUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/OpenCVUtils.h"
 #endif
 
 namespace ipa_Utils {

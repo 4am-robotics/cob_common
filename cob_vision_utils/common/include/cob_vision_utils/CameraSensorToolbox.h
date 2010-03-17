@@ -73,19 +73,19 @@
 #endif
 
 #ifdef __COB_ROS__
-#include <opencv/highgui.h>
-#include <opencv/cv.h>
+	#include <opencv/highgui.h>
+	#include <opencv/cv.h>
  
-#include "tinyxml/tinyxml.h"
-#include "cob_vision_utils/CameraSensorTypes.h"
-#include "cob_vision_utils/OpenCVUtils.h"
+	#include "tinyxml/tinyxml.h"
+	#include "cob_vision_utils/CameraSensorTypes.h"
+	#include "cob_vision_utils/OpenCVUtils.h"
 #else
-#include <highgui.h>
-#include <cv.h>
+	#include <highgui.h>
+	#include <cv.h>
 
-#include "Vision/Extern/TinyXml/tinyxml.h"
-#include "Vision/CameraSensors/CameraSensorTypes.h"
-#include "Vision/Utilities/OpenCVUtils.h"
+	#include "Vision/Extern/TinyXml/tinyxml.h"
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/CameraSensorTypes.h"
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/OpenCVUtils.h"
 #endif
 
 #include <map>
