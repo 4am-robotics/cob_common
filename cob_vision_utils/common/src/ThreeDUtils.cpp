@@ -57,7 +57,7 @@
 #ifdef __COB_ROS__
 #include "cob_vision_utils/ThreeDUtils.h"
 #else
-#include "ThreeDUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/ThreeDUtils.h"
 #endif
 
 namespace ipa_Utils {

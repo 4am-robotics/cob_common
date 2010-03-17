@@ -54,7 +54,7 @@
 #ifdef __COB_ROS__
 #include "cob_vision_utils/MathUtils.h"
 #else
-#include "MathUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
 #endif
 
 /// @file MathUtils.cpp
