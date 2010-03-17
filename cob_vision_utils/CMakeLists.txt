@@ -31,7 +31,9 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/common/lib)
 
 # add project libraries
 rosbuild_add_library(cob_vision_utils	common/src/MathUtils.cpp
-					common/src/OpenCVUtils.cpp)	
+					common/src/OpenCVUtils.cpp
+					common/src/ThreeDUtils.cpp
+					common/src/CameraSensorToolbox.cpp)	
 # add include search paths
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/common/include)
 
