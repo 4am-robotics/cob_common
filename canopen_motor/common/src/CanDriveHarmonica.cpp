@@ -258,6 +258,12 @@ bool CanDriveHarmonica::evalReceivedMsg(CanMsg& msg)
 	if (msg.m_iID == m_ParamCanOpen.iTxSDO)
 	{
 		m_WatchdogTime.SetNow();
+        
+        if( (msg.getAt(0) >> 5) == 0) { //Received Upload SDO Segment
+            receivedSDODataSegment(msg);
+        } else if( (msg.getAt(0) & 0x02) == 0) { //Received SDO Upload, that is not expedited -> segmented upload
+            receivedSDODataSegment(msg);
+        }
 
 		bRet = true;
 	}
@@ -1204,3 +1210,111 @@ void CanDriveHarmonica::getMotorTorque(double* dTorqueNm)
 	*dTorqueNm = m_DriveParam.getSign() * m_dMotorCurr * m_DriveParam.getCurrToTorque();
 	
 }
+//----------------
+//----------------
+//Functions that proceed Elmo recorder readout
+
+//-----------------------------------------------
+bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
+    //returns true if collecting has finished
+    //flag = 0: clear recordings and query new upload
+    //flag = 1: give back data or continue collecting
+
+    int iObjIndex, iObjSubIndex;
+
+    if(flag == 0) {
+        //initialize Upload of Recorded Data (object 0x2030)
+        iObjIndex = 0x2030;
+        iObjSubIndex = 1 << 0;
+        sendSDOUpload(iObjIndex, iObjSubIndex);
+    } else if(flag == 1) {
+        if(rec_Data.finishedTransmission == true) {
+            *output = &rec_Data;
+            return true;
+        } else {
+            output = NULL;
+            return false;
+        }
+    }
+    return false;
+}
+
+//-----------------------------------------------
+int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
+    
+    if( (msg.getAt(0) >> 5) == 2) { //Initiate_SDO_Upload answer received, scs = 2, doesn't contain data
+        rec_ToggleBit = 0;
+        
+        int debugOut;
+        debugOut = (msg.getAt(0) & 0x3);
+        //maybe bytes 4 to 7 already contain data??
+        std::cout << "Number of flags e and s is: " << debugOut << std::endl;
+        //        
+        sendSDOUploadSegmentConfirmation(rec_ToggleBit);
+
+        
+
+
+    } else if( (msg.getAt(0) >> 5) == 0) { //Received Upload SDO Segment
+        if( (msg.getAt(0) & 0x10) != (rec_ToggleBit << 4) ) {
+
+            //Toggle Bit error
+        }
+        
+        if( (msg.getAt(0) & 0x01) == 0x00) { //Finished bit
+            rec_Data.finishedTransmission = false;
+        } else {
+            rec_Data.finishedTransmission = true;
+        };
+
+        for(int i=1;i<8;i++) {
+            rec_Data.data.push_back(msg.getAt(i));
+            rec_Data.bytesReceived ++;
+            std::cout << msg.getAt(i);
+        }
+
+        rec_ToggleBit = !rec_ToggleBit;
+        if(!rec_Data.finishedTransmission) sendSDOUploadSegmentConfirmation(rec_ToggleBit);
+    }
+
+    return 0;
+}
+
+void CanDriveHarmonica::sendSDOUploadSegmentConfirmation(bool toggleBit) {
+    CanMsg CMsgTr;
+    int iConfirmSegment = 0x60; //first three bits must be css = 3 : 011 00000
+    iConfirmSegment = iConfirmSegment | (toggleBit << 4); //fourth bit is toggle bit: 011T0000
+	
+	CMsgTr.m_iLen = 8;
+	CMsgTr.m_iID = m_ParamCanOpen.iRxSDO;
+
+	unsigned char cMsg[8];
+	
+	cMsg[0] = iConfirmSegment;
+	cMsg[1] = 0x00;
+	cMsg[2] = 0x00;
+	cMsg[3] = 0x00;
+	cMsg[4] = 0x00;
+	cMsg[5] = 0x00;
+	cMsg[6] = 0x00;
+	cMsg[7] = 0x00;
+
+	CMsgTr.set(cMsg[0], cMsg[1], cMsg[2], cMsg[3], cMsg[4], cMsg[5], cMsg[6], cMsg[7]);
+	m_pCanCtrl->transmitMsg(CMsgTr);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
