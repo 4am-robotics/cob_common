@@ -68,9 +68,25 @@ class recData {
         recData() {
             singleDataWidthByte = 0;
             bytesReceived = 0;
+            finishedTransmission = false;
+            locked = false;
+            objectID = 0x00;
+            objectSubID = 0x00;
             }
 
         ~recData() {}
+
+        void resetTransferData() {
+            if (locked == false) {
+                singleDataWidthByte = 0;
+                bytesReceived = 0;
+                data.clear();
+                finishedTransmission = false;
+                objectID = 0x00;
+                objectSubID = 0x00;
+            }
+        }
+            
 
         //Header information of Recorder Upload Character Stream
         int singleDataWidthByte; //Length in Bytes of single transmitted data item
@@ -78,9 +94,14 @@ class recData {
         
         int bytesReceived; //number of data bytes already received in current SDO Upload process      
 
-        bool finishedTransmission; //no more segments to receive  
+        bool finishedTransmission; //no more segments to receive
 
-        std::vector<int> data;
+        bool locked; //prevent Data from beeing resetted before read out has been proceeded
+
+        int objectID;
+        int objectSubID;
+
+        std::vector<unsigned char> data; //this vector holds received bytes as a stream. Little endian conversion is already done during receive. 
 
 };
 

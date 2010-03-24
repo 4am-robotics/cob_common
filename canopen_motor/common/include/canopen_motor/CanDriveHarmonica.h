@@ -310,6 +310,11 @@ public:
 	 * Uploads a service data object. (in expedited transfer mode, means in only one message)
 	 */
 	void sendSDOUpload(int iObjIndex, int iObjSub);
+	
+    /**
+	 * This protocol cancels an active segmented transmission due to the given Error Code
+	 */
+    void sendSDOAbort(int iObjIndex, int iObjSubIndex, int errCode);
 
 	/**
 	 * Downloads a service data object. (in expedited transfer mode, means in only one message)
@@ -416,7 +421,9 @@ protected:
 
     recData rec_Data;
     
-    bool rec_ToggleBit;
+    bool m_SDOSegmentToggleBit;
+
+    int activeSDOSegmentUpload;
 
 
 	// ------------------------- Member functions
@@ -439,6 +446,8 @@ protected:
     void sendSDOUploadSegmentConfirmation(bool toggleBit);
     
     int receivedSDODataSegment(CanMsg& msg);
+
+    int initiateSDOSegmentedUpload(CanMsg& msg);
 
 };
 //-----------------------------------------------

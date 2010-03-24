@@ -259,9 +259,9 @@ bool CanDriveHarmonica::evalReceivedMsg(CanMsg& msg)
 	{
 		m_WatchdogTime.SetNow();
         
-        if( (msg.getAt(0) >> 5) == 0) { //Received Upload SDO Segment
+        if( (msg.getAt(0) >> 5) == 0) { //Received Upload SDO Segment (scs = 0)
             receivedSDODataSegment(msg);
-        } else if( (msg.getAt(0) & 0x02) == 0) { //Received SDO Upload, that is not expedited -> segmented upload
+        } else if( (msg.getAt(0) & 0x02) == 0) { //Received Initiate SDO Upload, that is not expedited -> start segmented upload (scs = 2 AND expedited flag = 0)
             receivedSDODataSegment(msg);
         }
 
@@ -950,6 +950,30 @@ void CanDriveHarmonica::sendSDOUpload(int iObjIndex, int iObjSubIndex)
 }
 
 //-----------------------------------------------
+void CanDriveHarmonica::sendSDOAbort(int iObjIndex, int iObjSubIndex, int errCode)
+{
+	CanMsg CMsgTr;
+	const int ciAbortTransferReq = 0x04 << 5;
+	
+	CMsgTr.m_iLen = 8;
+	CMsgTr.m_iID = m_ParamCanOpen.iRxSDO;
+
+	unsigned char cMsg[8];
+	
+	cMsg[0] = ciAbortTransferReq;
+	cMsg[1] = iObjIndex;
+	cMsg[2] = iObjIndex >> 8;
+	cMsg[3] = iObjSubIndex;
+	cMsg[4] = errCode;
+	cMsg[5] = errCode >> 8;
+	cMsg[6] = errCode >> 16;
+	cMsg[7] = errCode >> 24;
+
+	CMsgTr.set(cMsg[0], cMsg[1], cMsg[2], cMsg[3], cMsg[4], cMsg[5], cMsg[6], cMsg[7]);
+	m_pCanCtrl->transmitMsg(CMsgTr);
+}
+
+//-----------------------------------------------
 void CanDriveHarmonica::sendSDODownload(int iObjIndex, int iObjSubIndex, int iData)
 {
 	CanMsg CMsgTr;
@@ -1217,22 +1241,22 @@ void CanDriveHarmonica::getMotorTorque(double* dTorqueNm)
 //-----------------------------------------------
 bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
     //returns true if collecting has finished
-    //flag = 0: clear recordings and query new upload
-    //flag = 1: give back data or continue collecting
 
     int iObjIndex, iObjSubIndex;
 
-    if(flag == 0) {
+    if(flag == 0) { //flag = 0: clear recordings and query new upload
         //initialize Upload of Recorded Data (object 0x2030)
+        rec_Data.locked = false;
+        
         iObjIndex = 0x2030;
         iObjSubIndex = 1 << 0;
         sendSDOUpload(iObjIndex, iObjSubIndex);
-    } else if(flag == 1) {
+    } else if(flag == 1) { //flag = 1: give back data or continue collecting
         if(rec_Data.finishedTransmission == true) {
             *output = &rec_Data;
             return true;
         } else {
-            output = NULL;
+            *output = NULL;
             return false;
         }
     }
@@ -1240,42 +1264,52 @@ bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
 }
 
 //-----------------------------------------------
-int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
-    
-    if( (msg.getAt(0) >> 5) == 2) { //Initiate_SDO_Upload answer received, scs = 2, doesn't contain data
-        rec_ToggleBit = 0;
-        
-        int debugOut;
-        debugOut = (msg.getAt(0) & 0x3);
-        //maybe bytes 4 to 7 already contain data??
-        std::cout << "Number of flags e and s is: " << debugOut << std::endl;
-        //        
-        sendSDOUploadSegmentConfirmation(rec_ToggleBit);
+int CanDriveHarmonica::initiateSDOSegmentedUpload(CanMsg& msg) {
+    m_SDOSegmentToggleBit = 0;
 
-        
+    if(rec_Data.locked == false) { //only accept new SDO Segmented Upload if rec_Data message is open for write
+        rec_Data.resetTransferData();
 
+        //read out objectIDs
+        evalSDO(msg, &rec_Data.objectID, &rec_Data.objectSubID);
 
-    } else if( (msg.getAt(0) >> 5) == 0) { //Received Upload SDO Segment
-        if( (msg.getAt(0) & 0x10) != (rec_ToggleBit << 4) ) {
+        //data in byte 4 to 7 contain the number of bytes to be uploaded (if Size indicator flag is set)
 
-            //Toggle Bit error
-        }
-        
-        if( (msg.getAt(0) & 0x01) == 0x00) { //Finished bit
-            rec_Data.finishedTransmission = false;
-        } else {
-            rec_Data.finishedTransmission = true;
-        };
-
-        for(int i=1;i<8;i++) {
-            rec_Data.data.push_back(msg.getAt(i));
-            rec_Data.bytesReceived ++;
-            std::cout << msg.getAt(i);
-        }
-
-        rec_ToggleBit = !rec_ToggleBit;
-        if(!rec_Data.finishedTransmission) sendSDOUploadSegmentConfirmation(rec_ToggleBit);
+        sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
     }
+
+    return 0;
+}
+
+//-----------------------------------------------
+int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
+    int numEmptyBytes = 0;    
+
+    if( (msg.getAt(0) & 0x10) != (m_SDOSegmentToggleBit << 4) ) { 
+        std::cout << "Toggle Bit error, send Abort SDO with \"Toggle bit not alternated\" error" << std::endl;
+        sendSDOAbort(rec_Data.objectID, rec_Data.objectSubID, 0x05030000);
+        return 1;
+    }
+        
+    if( (msg.getAt(0) & 0x01) == 0x00) { //Finished bit is set
+        rec_Data.finishedTransmission = false;
+    } else {
+        rec_Data.finishedTransmission = true;
+        rec_Data.locked = true;
+    };
+
+    numEmptyBytes = (msg.getAt(0) >> 1) & 0x07; //Byte 1: SSS T NNN C | SSS=Cmd-Specifier, T=ToggleBit, NNN=num of empty bytes, C=Finished
+
+    std::cout << std::endl << "NUM unused bytes :" << numEmptyBytes << std::endl;
+
+    for(int i=7-numEmptyBytes;i>=1;i--) { //because of "little endian", start to read bytes from the "end" to the beginning
+        rec_Data.data.push_back(msg.getAt(i));
+        rec_Data.bytesReceived ++;
+        std::cout << msg.getAt(i);
+    }
+
+    m_SDOSegmentToggleBit = !m_SDOSegmentToggleBit;
+    if(!rec_Data.finishedTransmission) sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
 
     return 0;
 }
