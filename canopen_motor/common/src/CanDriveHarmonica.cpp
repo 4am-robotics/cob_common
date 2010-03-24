@@ -1234,34 +1234,6 @@ void CanDriveHarmonica::getMotorTorque(double* dTorqueNm)
 	*dTorqueNm = m_DriveParam.getSign() * m_dMotorCurr * m_DriveParam.getCurrToTorque();
 	
 }
-//----------------
-//----------------
-//Functions that proceed Elmo recorder readout
-
-//-----------------------------------------------
-bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
-    //returns true if collecting has finished
-
-    int iObjIndex, iObjSubIndex;
-
-    if(flag == 0) { //flag = 0: clear recordings and query new upload
-        //initialize Upload of Recorded Data (object 0x2030)
-        rec_Data.locked = false;
-        
-        iObjIndex = 0x2030;
-        iObjSubIndex = 1 << 0;
-        sendSDOUpload(iObjIndex, iObjSubIndex);
-    } else if(flag == 1) { //flag = 1: give back data or continue collecting
-        if(rec_Data.finishedTransmission == true) {
-            *output = &rec_Data;
-            return true;
-        } else {
-            *output = NULL;
-            return false;
-        }
-    }
-    return false;
-}
 
 //-----------------------------------------------
 int CanDriveHarmonica::initiateSDOSegmentedUpload(CanMsg& msg) {
@@ -1274,6 +1246,9 @@ int CanDriveHarmonica::initiateSDOSegmentedUpload(CanMsg& msg) {
         evalSDO(msg, &rec_Data.objectID, &rec_Data.objectSubID);
 
         //data in byte 4 to 7 contain the number of bytes to be uploaded (if Size indicator flag is set)
+        if( (msg.getAt(0) & 0x01) == 1) {
+            rec_Data.numTotalBytes = msg.getAt(4) | msg.getAt(5) << 8 | msg.getAt(6) << 16 | msg.getAt(7) << 24;
+        } else rec_Data.numTotalBytes = 0;
 
         sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
     }
@@ -1299,14 +1274,18 @@ int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
     };
 
     numEmptyBytes = (msg.getAt(0) >> 1) & 0x07; //Byte 1: SSS T NNN C | SSS=Cmd-Specifier, T=ToggleBit, NNN=num of empty bytes, C=Finished
-
-    std::cout << std::endl << "NUM unused bytes :" << numEmptyBytes << std::endl;
+    //std::cout << std::endl << "NUM unused bytes :" << numEmptyBytes << std::endl;
+    //For now, get all bytes, even empty/unused ones!
+    numEmptyBytes = 0;
 
     for(int i=7-numEmptyBytes;i>=1;i--) { //because of "little endian", start to read bytes from the "end" to the beginning
         rec_Data.data.push_back(msg.getAt(i));
         rec_Data.bytesReceived ++;
+        
         std::cout << msg.getAt(i);
     }
+    
+    std::cout << "MESSAGE END" << std::endl;
 
     m_SDOSegmentToggleBit = !m_SDOSegmentToggleBit;
     if(!rec_Data.finishedTransmission) sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
@@ -1338,6 +1317,35 @@ void CanDriveHarmonica::sendSDOUploadSegmentConfirmation(bool toggleBit) {
 }
 
 
+//----------------
+//----------------
+//Functions that proceed Elmo recorder readout
+
+//-----------------------------------------------
+bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
+    //returns true if collecting has finished
+
+    int iObjIndex, iObjSubIndex;
+
+    if(flag == 0) { //flag = 0: clear recordings and query new upload
+        //initialize Upload of Recorded Data (object 0x2030)
+        rec_Data.locked = false;
+        
+        iObjIndex = 0x2030;
+        iObjSubIndex = 1 << 0; //shift this bit, according to the specified recording sources in RC
+        sendSDOUpload(iObjIndex, iObjSubIndex);
+
+    } else if(flag == 1) { //flag = 1: give back data or continue collecting
+        if(rec_Data.finishedTransmission == true) {
+            *output = &rec_Data;
+            return true;
+        } else {
+            *output = NULL;
+            return false;
+        }
+    }
+    return false;
+}
 
 
 

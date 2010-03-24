@@ -58,7 +58,7 @@
 //-----------------------------------------------
 #include <generic_can/CanItf.h>
 #include <canopen_motor/DriveParam.h>
-#include <canopen_motor/RecorderData.h>
+#include <canopen_motor/SDOSegmented.h>
 //-----------------------------------------------
 
 /**

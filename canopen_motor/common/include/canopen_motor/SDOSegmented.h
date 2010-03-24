@@ -10,7 +10,7 @@
  * Project name: care-o-bot
  * ROS stack name: cob3_common
  * ROS package name: canopen_motor
- * Description: Holds data received from the ElmoController via CAN
+ * Description: Holds data, that is collected during a SDO Segmented Upload process
  *								
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  *			
@@ -66,7 +66,6 @@ class recData {
     public:
         
         recData() {
-            singleDataWidthByte = 0;
             bytesReceived = 0;
             finishedTransmission = false;
             locked = false;
@@ -78,7 +77,6 @@ class recData {
 
         void resetTransferData() {
             if (locked == false) {
-                singleDataWidthByte = 0;
                 bytesReceived = 0;
                 data.clear();
                 finishedTransmission = false;
@@ -87,11 +85,9 @@ class recData {
             }
         }
             
-
-        //Header information of Recorder Upload Character Stream
-        int singleDataWidthByte; //Length in Bytes of single transmitted data item
-        int numDataItems; //Total number of data items beeing transmitted
         
+        unsigned int numTotalBytes; //contains the number of bytes to be uploaded (if specified)
+
         int bytesReceived; //number of data bytes already received in current SDO Upload process      
 
         bool finishedTransmission; //no more segments to receive
