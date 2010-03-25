@@ -11,6 +11,7 @@
   <depend package="roscpp"/>
   <depend package="opencv2"/>
   <depend package="libwm4"/>
+  <depend package="tinyxml"/>
 
   <export>
     <cpp cflags="-I${prefix}/common/include" lflags="-Wl,-rpath,${prefix}/common/lib -L${prefix}/common/lib -lcob_vision_utils"/>
