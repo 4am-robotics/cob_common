@@ -1261,7 +1261,7 @@ int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
     int numEmptyBytes = 0;    
 
     if( (msg.getAt(0) & 0x10) != (m_SDOSegmentToggleBit << 4) ) { 
-        std::cout << "Toggle Bit error, send Abort SDO with \"Toggle bit not alternated\" error" << std::endl;
+        //std::cout << "Toggle Bit error, send Abort SDO with \"Toggle bit not alternated\" error" << std::endl;
         sendSDOAbort(rec_Data.objectID, rec_Data.objectSubID, 0x05030000);
         return 1;
     }
@@ -1285,7 +1285,7 @@ int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
         std::cout << msg.getAt(i);
     }
     
-    std::cout << "MESSAGE END" << std::endl;
+    //std::cout << "MESSAGE END" << std::endl;
 
     m_SDOSegmentToggleBit = !m_SDOSegmentToggleBit;
     if(!rec_Data.finishedTransmission) sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
