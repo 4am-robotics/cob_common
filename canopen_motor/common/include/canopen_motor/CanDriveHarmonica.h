@@ -59,7 +59,7 @@
 
 //-----------------------------------------------
 #include <canopen_motor/CanDriveItf.h>
-#include <canopen_motor/TimeStamp.h>
+#include <cob3_utilities/TimeStamp.h>
 //-----------------------------------------------
 
 /**
