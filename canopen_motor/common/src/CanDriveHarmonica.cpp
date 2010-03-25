@@ -1236,7 +1236,12 @@ void CanDriveHarmonica::getMotorTorque(double* dTorqueNm)
 }
 
 //-----------------------------------------------
+//Upload data from Elmo Recorder, cpc-pk
+
+
+//-----------------------------------------------
 int CanDriveHarmonica::initiateSDOSegmentedUpload(CanMsg& msg) {
+/*
     m_SDOSegmentToggleBit = 0;
 
     if(rec_Data.locked == false) { //only accept new SDO Segmented Upload if rec_Data message is open for write
@@ -1252,12 +1257,14 @@ int CanDriveHarmonica::initiateSDOSegmentedUpload(CanMsg& msg) {
 
         sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
     }
-
+*/
     return 0;
+
 }
 
 //-----------------------------------------------
 int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
+/*
     int numEmptyBytes = 0;    
 
     if( (msg.getAt(0) & 0x10) != (m_SDOSegmentToggleBit << 4) ) { 
@@ -1290,10 +1297,13 @@ int CanDriveHarmonica::receivedSDODataSegment(CanMsg& msg){
     m_SDOSegmentToggleBit = !m_SDOSegmentToggleBit;
     if(!rec_Data.finishedTransmission) sendSDOUploadSegmentConfirmation(m_SDOSegmentToggleBit);
 
+*/
+
     return 0;
 }
 
 void CanDriveHarmonica::sendSDOUploadSegmentConfirmation(bool toggleBit) {
+/*
     CanMsg CMsgTr;
     int iConfirmSegment = 0x60; //first three bits must be css = 3 : 011 00000
     iConfirmSegment = iConfirmSegment | (toggleBit << 4); //fourth bit is toggle bit: 011T0000
@@ -1314,6 +1324,7 @@ void CanDriveHarmonica::sendSDOUploadSegmentConfirmation(bool toggleBit) {
 
 	CMsgTr.set(cMsg[0], cMsg[1], cMsg[2], cMsg[3], cMsg[4], cMsg[5], cMsg[6], cMsg[7]);
 	m_pCanCtrl->transmitMsg(CMsgTr);
+*/
 }
 
 
@@ -1323,6 +1334,7 @@ void CanDriveHarmonica::sendSDOUploadSegmentConfirmation(bool toggleBit) {
 
 //-----------------------------------------------
 bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
+/*
     //returns true if collecting has finished
 
     int iObjIndex, iObjSubIndex;
@@ -1344,19 +1356,8 @@ bool CanDriveHarmonica::collectRecordedData(int flag, recData ** output) {
             return false;
         }
     }
+
+*/
     return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
