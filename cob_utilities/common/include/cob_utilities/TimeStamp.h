@@ -55,7 +55,7 @@
 #define _TimeStamp_H
 
 #include <time.h>
-#include <cob3_utilities/StrUtil.h>
+#include <cob_utilities/StrUtil.h>
 
 //-------------------------------------------------------------------
 
