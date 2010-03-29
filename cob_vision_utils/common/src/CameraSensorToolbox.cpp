@@ -54,7 +54,7 @@
 #ifdef __COB_ROS__
 #include "cob_vision_utils/CameraSensorToolbox.h"
 #else
-#include "cob_driver/cob_camera_sensors/common/include/cob_camera_sensors/CameraSensorToolbox.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/CameraSensorToolbox.h"
 #endif
 
 using namespace ipa_CameraSensors;

@@ -9,15 +9,15 @@
  *
  * Project name: care-o-bot
  * ROS stack name: cob3_common
- * ROS package name: cob3_utilities
- * Description:
+ * ROS package name: canopen_motor
+ * Description: Holds data, that is collected during a SDO Segmented Upload process
  *								
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  *			
- * Author: Christian Connette, email:christian.connette@ipa.fhg.de
+ * Author: Philipp Köhler
  * Supervised by: Christian Connette, email:christian.connette@ipa.fhg.de
  *
- * Date of creation: Feb 2010
+ * Date of creation: Mar 2010
  * ToDo:
  *
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -51,9 +51,54 @@
  *
  ****************************************************************/
 
+#ifndef _RecorderData_H
+#define _RecorderData_H
 
-#include <cob_utilities/MathSup.h>
+#include <vector>
 
-const double MathSup::PI = 3.14159265358979323846;
-const double MathSup::TWO_PI = 6.283185307179586476925286766559;
-const double MathSup::HALF_PI = 1.5707963267948966192313216916398;
+/** Measure system time.
+ * Use this class for measure system time accurately. Under Windows, it uses
+ * QueryPerformanceCounter(), which has a resolution of approx. one micro-second.
+ * The difference between two time stamps can be calculated.
+ */
+
+class recData {
+    public:
+        
+        recData() {
+            bytesReceived = 0;
+            finishedTransmission = false;
+            locked = false;
+            objectID = 0x00;
+            objectSubID = 0x00;
+            }
+
+        ~recData() {}
+
+        void resetTransferData() {
+            if (locked == false) {
+                bytesReceived = 0;
+                data.clear();
+                finishedTransmission = false;
+                objectID = 0x00;
+                objectSubID = 0x00;
+            }
+        }
+            
+        
+        unsigned int numTotalBytes; //contains the number of bytes to be uploaded (if specified)
+
+        int bytesReceived; //number of data bytes already received in current SDO Upload process      
+
+        bool finishedTransmission; //no more segments to receive
+
+        bool locked; //prevent Data from beeing resetted before read out has been proceeded
+
+        int objectID;
+        int objectSubID;
+
+        std::vector<unsigned char> data; //this vector holds received bytes as a stream. Little endian conversion is already done during receive. 
+
+};
+
+#endif
