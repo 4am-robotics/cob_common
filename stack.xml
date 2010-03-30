@@ -8,8 +8,12 @@
   <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
-  <depend stack="cob_extern" /> <!-- libpcan, libwm4 -->
+  <depend stack="cob_extern" /> <!-- libwm4 -->
+  <depend stack="common" /> <!-- tinyxml -->
   <depend stack="common_msgs" /> <!-- sensor_msgs -->
+  <depend stack="pr2_controllers" /> <!-- robot_mechanism_controllers -->
+  <depend stack="pr2_mechanism" /> <!-- pr2_controller_manager -->
+  <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
   <depend stack="ros" /> <!-- std_msgs, roslib, std_srvs, roscpp -->
   <depend stack="vision_opencv" /> <!-- opencv2 -->
 
