@@ -9,7 +9,7 @@
  *
  * Project name: care-o-bot
  * ROS stack name: cob3_common
- * ROS package name: cob3_utilities
+ * ROS package name: generic_can
  * Description:
  *								
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -17,8 +17,8 @@
  * Author: Christian Connette, email:christian.connette@ipa.fhg.de
  * Supervised by: Christian Connette, email:christian.connette@ipa.fhg.de
  *
- * Date of creation: Feb 2010
- * ToDo:
+ * Date of creation: Feb 2009
+ * ToDo: Check if this is still neccessary. Can we use the ROS-Infrastructure within the implementation?
  *
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  *
@@ -51,9 +51,83 @@
  *
  ****************************************************************/
 
+#ifndef _TimeStamp_H
+#define _TimeStamp_H
 
-#include <cob_utilities/MathSup.h>
+#include <time.h>
+#include <cob_utilities/StrUtil.h>
 
-const double MathSup::PI = 3.14159265358979323846;
-const double MathSup::TWO_PI = 6.283185307179586476925286766559;
-const double MathSup::HALF_PI = 1.5707963267948966192313216916398;
+//-------------------------------------------------------------------
+
+/** Measure system time.
+ * Use this class for measure system time accurately. Under Windows, it uses
+ * QueryPerformanceCounter(), which has a resolution of approx. one micro-second.
+ * The difference between two time stamps can be calculated.
+ */
+class TimeStamp
+{
+	public:
+		/// Constructor.
+		TimeStamp();
+
+		/// Destructor.
+		virtual ~TimeStamp() {};
+
+		/// Makes time measurement.
+		void SetNow();
+
+		/// Retrieves time difference in seconds.
+		double operator- ( const TimeStamp& EarlierTime ) const;
+
+		/// Increase the timestamp by TimeS seconds.
+		/** @param TimeS must be >0!.
+		 */
+		void operator+= ( double TimeS );
+
+		/// Reduces the timestamp by TimeS seconds.
+		/** @param TimeS must be >0!.
+		 */
+		void operator-= ( double TimeS );
+
+		/// Checks if this time is after time "Time".
+		bool operator> ( const TimeStamp& Time );
+
+		/// Checks if this time is before time "Time".
+		bool operator< ( const TimeStamp& Time );
+
+		/**
+		 * Gets seconds and nanoseconds of the timestamp.
+		 */
+		void getTimeStamp ( long& lSeconds, long& lNanoSeconds );
+
+		/**
+		 * Sets timestamp from seconds and nanoseconds.
+		 */
+		void setTimeStamp ( const long& lSeconds, const long& lNanoSeconds );
+
+		/**
+		 * return the current time as string, in long format YYYY-MM-DD HH:MM:SS.ssssss
+		 *** Attention *** call SetNow() before calling this function
+		 */
+		std::string CurrentToString();
+
+		std::string ToString();
+
+	protected:
+
+		/// Internal time stamp data.
+		timespec m_TimeStamp;
+
+	private:
+
+		/// Conversion timespec -> double
+		static double TimespecToDouble ( const ::timespec& LargeInt );
+
+		/// Conversion double -> timespec
+		static ::timespec DoubleToTimespec ( double TimeS );
+
+};
+
+
+#endif
+

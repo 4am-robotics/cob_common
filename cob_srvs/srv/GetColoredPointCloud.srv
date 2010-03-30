@@ -1,2 +1,4 @@
 ---
-cob_msgs/ColoredPointCloud coloredPointCloud
+sensor_msgs/Image colorImage
+sensor_msgs/Image xyzImage
+sensor_msgs/Image greyImage

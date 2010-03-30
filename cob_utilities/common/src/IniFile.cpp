@@ -51,7 +51,7 @@
  *
  ****************************************************************/
 
-#include <cob3_utilities/IniFile.h>
+#include <cob_utilities/IniFile.h>
 
 #include <math.h>
 #include <string.h>
