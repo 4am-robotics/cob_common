@@ -5,7 +5,7 @@
 	xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
 	<!-- include gazebo defs-->
-	<include filename="$(find cob3_defs)/ros/defs/gazebo.urdf" />
+	<include filename="$(find cob_defs)/ros/defs/gazebo.urdf" />
 	
 	<!-- create joint to world -->
 	<joint name="joint_world_torso" type="fixed">
@@ -15,7 +15,7 @@
 	</joint>
 	
 	<!-- include torso defs-->
-	<include filename="$(find cob3_defs)/ros/defs/torso.urdf" />
+	<include filename="$(find cob_defs)/ros/defs/torso.urdf" />
 	
 	<joint name="joint_basePlate_torso" type="fixed">
 		<origin xyz="0 0 0.1126" rpy="0 0 0" />
@@ -24,7 +24,7 @@
 	</joint>
 	
 	<!-- include arm defs-->
-	<include filename="$(find cob3_defs)/ros/defs/arm.urdf" />
+	<include filename="$(find cob_defs)/ros/defs/arm.urdf" />
 
 	<joint name="joint_torso_arm0" type="fixed">
 		<origin xyz="-0.1 0 0.3" rpy="0.5 0 0" />
@@ -33,7 +33,7 @@
 	</joint>
 
 	<!-- include sdh defs-->
-	<include filename="$(find cob3_defs)/ros/defs/sdh.urdf" />
+	<include filename="$(find cob_defs)/ros/defs/sdh.urdf" />
 
   	<joint name="joint_arm7_palm" type="fixed">
 		<origin xyz="0 0 0.1126" rpy="0 0 0" />
