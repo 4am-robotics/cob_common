@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-	<rosparam file="$(find cob3_defs)/ros/controller/sdh_controller.yaml" command="load"/>
+	<rosparam file="$(find cob_defs)/ros/controller/sdh_controller.yaml" command="load"/>
 
 	<node name="spawn_sdh_controller" pkg="pr2_controller_manager" type="spawner" args="
 		controller_palm_finger11

@@ -15,13 +15,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="1.5707963 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm0.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm0.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="1.5707963 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm0.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm0.stl" />
 			</geometry>
 		</collision>
 	</link>
@@ -35,13 +35,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm1.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm1.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm1.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm1.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -55,13 +55,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm2.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm2.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm2.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm2.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -75,13 +75,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm3.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm3.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm3.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm3.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -95,13 +95,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm4.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm4.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm4.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm4.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -115,13 +115,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm5.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm5.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm5.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm5.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -135,13 +135,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm6.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm6.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm6.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm6.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -155,13 +155,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm7.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/arm7.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/arm7.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/arm7.stl"/>
 			</geometry>
 		</collision>
 	</link>

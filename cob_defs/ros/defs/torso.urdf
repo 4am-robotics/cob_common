@@ -17,13 +17,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/platform.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/platform.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/platform.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -202,13 +202,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0.707 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/tray.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/tray.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0.707 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/tray.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/tray.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -243,13 +243,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/neck.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/neck.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/neck.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/neck.stl"/>
 			</geometry>
 		</collision>
 
@@ -285,13 +285,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/head.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/head.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/head.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/head.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -305,13 +305,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/head_cover.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/head_cover.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/head_cover.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/head_cover.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -327,14 +327,14 @@
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.1 0.1 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl" /> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" /> -->
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.1 0.1 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl"/> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/> -->
 			</geometry>
 		</collision>
 	</link>
@@ -349,14 +349,14 @@
 			<origin xyz="0 0 0.005" rpy="M_PI 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl" /> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" /> -->
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl"/> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/> -->
 			</geometry>
 		</collision>
 	</link>
@@ -371,14 +371,14 @@
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl" /> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" /> -->
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl"/> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/> -->
 			</geometry>
 		</collision>
 	</link>
@@ -393,14 +393,14 @@
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl" /> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" /> -->
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
-<!--				<mesh filename="package://cob3_defs/common/files/meshes/finger_tip.stl"/> -->
+<!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/> -->
 			</geometry>
 		</collision>
 	</link>

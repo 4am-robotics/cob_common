@@ -5,7 +5,7 @@
 	xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
 	<!-- include gazebo defs-->
-	<include filename="$(find cob3_defs)/ros/defs/gazebo.urdf" />
+	<include filename="$(find cob_defs)/ros/defs/gazebo.urdf" />
 
 	<!-- create joint to world -->
 	<joint name="joint_world_palm" type="fixed">
@@ -15,6 +15,6 @@
 	</joint>
 
 	<!-- include sdh defs-->
-	<include filename="$(find cob3_defs)/ros/defs/sdh.urdf" />
+	<include filename="$(find cob_defs)/ros/defs/sdh.urdf" />
 
 </robot>
