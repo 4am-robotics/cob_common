@@ -3,8 +3,8 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
-  <include filename="$(find cob3_defs)/ros/defs/pr2base_gazebo.xacro" />
-  <include filename="$(find cob3_defs)/ros/defs/pr2base_transmission.xacro" />
+  <include filename="$(find cob_defs)/ros/defs/pr2base_gazebo.xacro" />
+  <include filename="$(find cob_defs)/ros/defs/pr2base_transmission.xacro" />
 
   <property name="M_PI" value="3.1415926535897931" />
 
@@ -139,7 +139,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob3_defs/common/files/meshes/platform.stl"/>
+          <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
         </geometry>
         <material name="Green" />
       </visual>
@@ -197,13 +197,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/neck.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/neck.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/neck.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/neck.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -222,13 +222,13 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/head.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/head.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob3_defs/common/files/meshes/head.stl"/>
+				<mesh filename="package://cob_defs/common/files/meshes/head.stl"/>
 			</geometry>
 		</collision>
 	</link>
