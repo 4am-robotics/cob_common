@@ -18,14 +18,14 @@
 			<origin xyz="0 0 0.05" rpy="0 0 0" />
 			<geometry>
 <!--		        <box size="0.6 0.4 0.3"/> -->
-				<mesh filename="package://cob3_defs/common/files/meshes/platform.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/platform.stl" />
 			</geometry>
 		</visual>
 		<collision>
 			<origin xyz="0 0 0.05" rpy="0 0 0" />
 			<geometry>
 <!--		        <box size="0.6 0.4 0.3"/> -->
-				<mesh filename="package://cob3_defs/common/files/meshes/platform.stl" />
+				<mesh filename="package://cob_defs/common/files/meshes/platform.stl" />
 			</geometry>
 		</collision>
 	</link>
