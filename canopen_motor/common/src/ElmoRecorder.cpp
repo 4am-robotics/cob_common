@@ -10,7 +10,7 @@
  * Project name: care-o-bot
  * ROS stack name: cob3_common
  * ROS package name: canopen_motor
- * Description: Holds data, that is collected during a SDO Segmented Upload process
+ * Description:
  *								
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  *			
@@ -51,47 +51,6 @@
  *
  ****************************************************************/
 
-#ifndef _RecorderData_H
-#define _RecorderData_H
+#include <canopen_motor/ElmoRecorder.h>
 
-#include <vector>
 
-class segData {
-	public:
-        
-		segData() {
-			bytesReceived = 0;
-			finishedTransmission = false;
-			locked = false;
-			objectID = 0x00;
-			objectSubID = 0x00;
-			}
-
-		~segData() {}
-
-		void resetTransferData() {
-			if (locked == false) {
-				bytesReceived = 0;
-				data.clear();
-				finishedTransmission = false;
-				objectID = 0x00;
-				objectSubID = 0x00;
-			}
-		}
-        
-		unsigned int numTotalBytes; //contains the number of bytes to be uploaded (if specified)
-
-		int bytesReceived; //number of data bytes already received in current SDO Upload process      
-
-		bool finishedTransmission; //no more segments to receive
-
-		bool locked; //prevent Data from beeing resetted before read out has been proceeded
-
-		int objectID;
-		int objectSubID;
-
-		std::vector<unsigned char> data; //this vector holds received bytes as a stream. Little endian conversion is already done during receive. 
-
-};
-
-#endif

@@ -58,7 +58,6 @@
 //-----------------------------------------------
 #include <generic_can/CanItf.h>
 #include <canopen_motor/DriveParam.h>
-#include <canopen_motor/SDOSegmented.h>
 //-----------------------------------------------
 
 /**
@@ -255,9 +254,9 @@ public:
 	virtual void IntprtSetInt(int iDataLen, char cCmdChar1, char cCmdChar2, int iIndex, int iData) = 0;
 
     /**
-     *Read out Recorder Data from Elmo Controller. cpc-pk
+     *Provides several functions for recording purposes. By now, only implemented for the Elmo-recorder. cpc-pk
      */
-    virtual bool collectRecordedData(int flag, recData ** output) = 0;
+    virtual bool setRecorder(int flag) = 0;
 
 	/**
 	 * Sends Requests for "active current" to motor via CAN

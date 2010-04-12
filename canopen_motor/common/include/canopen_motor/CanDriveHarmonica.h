@@ -60,6 +60,9 @@
 //-----------------------------------------------
 #include <canopen_motor/CanDriveItf.h>
 #include <canopen_motor/TimeStamp.h>
+
+#include <canopen_motor/SDOSegmented.h>
+#include <canopen_motor/ElmoRecorder.h>
 //-----------------------------------------------
 
 /**
@@ -364,11 +367,12 @@ public:
 	 */
 	void getMotorTorque(double* dTorqueNm);
     
-    /**
-     *Read out Recorder Data from Elmo Controller. cpc-pk
-     */
-    bool collectRecordedData(int flag, recData ** output);
 
+	/**
+	 *Provides several functions for recording purposes. By now, only implemented for the Elmo-recorder. cpc-pk
+	*/
+	bool setRecorder(int flag);
+    
 protected:
 	// ------------------------- Parameters
 	ParamCanOpenType m_ParamCanOpen;
@@ -379,6 +383,8 @@ protected:
 	// ------------------------- Variables
 	CanItf* m_pCanCtrl;
 	CanMsg m_CanMsgLast;
+
+	ElmoRecorder ElmoRec;
 
 	int m_iTypeMotion;
 	int m_iStatusCtrl;
@@ -419,7 +425,7 @@ protected:
 
 	bool m_bWatchdogActive;
 
-    recData rec_Data;
+    segData seg_Data;
     
     bool m_SDOSegmentToggleBit;
 
@@ -447,7 +453,7 @@ protected:
     
     int receivedSDODataSegment(CanMsg& msg);
 
-    int initiateSDOSegmentedUpload(CanMsg& msg);
+    int receivedSDOSegmentedInitiation(CanMsg& msg);
 
 };
 //-----------------------------------------------
