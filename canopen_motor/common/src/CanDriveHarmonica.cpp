@@ -92,7 +92,9 @@ CanDriveHarmonica::CanDriveHarmonica()
 	m_bOutputOfFailure = false;
 	
 	m_bIsInitialized = false;
+	
 
+	ElmoRec = new ElmoRecorder(this);
 
 }
 

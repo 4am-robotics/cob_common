@@ -384,7 +384,7 @@ protected:
 	CanItf* m_pCanCtrl;
 	CanMsg m_CanMsgLast;
 
-	ElmoRecorder ElmoRec;
+	ElmoRecorder* ElmoRec;
 
 	int m_iTypeMotion;
 	int m_iStatusCtrl;

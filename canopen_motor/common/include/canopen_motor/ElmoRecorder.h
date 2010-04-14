@@ -54,13 +54,18 @@
 #ifndef _ElmoRecorder_H
 #define _ElmoRecorder_H
 
+//#include <canopen_motor/CanDriveHarmonica.h>
+class CanDriveHarmonica;
 
 class ElmoRecorder {
 	public:
 		
-		ElmoRecorder() {}
+		ElmoRecorder(CanDriveHarmonica * pParentHarmonicaDrive);
 
-		~ElmoRecorder() {}
+		~ElmoRecorder();
+		
+	private:
+		CanDriveHarmonica* pHarmonicaDrive;
 };
 
 #endif

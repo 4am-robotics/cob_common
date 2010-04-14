@@ -52,5 +52,15 @@
  ****************************************************************/
 
 #include <canopen_motor/ElmoRecorder.h>
+#include <canopen_motor/CanDriveHarmonica.h>
+
+ElmoRecorder::ElmoRecorder(CanDriveHarmonica * pParentHarmonicaDrive) {
+	pHarmonicaDrive = pParentHarmonicaDrive;
+	
+	pHarmonicaDrive->setEMStop();
+}
+
+ElmoRecorder::~ElmoRecorder() {
+}
 
 
