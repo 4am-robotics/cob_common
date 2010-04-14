@@ -65,8 +65,8 @@
 #include "cob_vision_utils/MathUtils.h"
 #include "cob_vision_utils/GlobalDefines.h"
 #else
-#include "Vision/Utilities/MathUtils.h"
-#include "Vision/Utilities/GlobalDefines.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/GlobalDefines.h"
 #endif
 #include <list>
 #include <map>

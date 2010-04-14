@@ -69,8 +69,8 @@
 #include <cv.h>
 #include <highgui.h>
 
-#include "Vision/Utilities/MathUtils.h"
-#include "Vision/Utilities/ThreeDUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/ThreeDUtils.h"
 #endif
 
 #include <iostream>
