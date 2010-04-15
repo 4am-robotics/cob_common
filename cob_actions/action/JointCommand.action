@@ -1,0 +1,8 @@
+#goal definition
+cob_msgs/JointCommand command
+---
+#result definition
+std_msgs/String result
+---
+#feedback definition
+bool isMoving
