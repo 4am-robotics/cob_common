@@ -109,7 +109,7 @@ namespace ipa_CameraSensors {
 		CAM_IC,					///< Imaging source camera (blue camera)
 		CAM_AVTPIKE,			///< AVT Pike camera (red camera)
 		CAM_AXIS,				///< Axis 2100 IP camera
-		CAM_PROSILICA,				///< Prosilica GigE camera
+		CAM_PROSILICA,			///< Prosilica GigE camera
 		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAMCUBE			///< PMD Cam Cube camera
 	};
