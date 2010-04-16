@@ -1,6 +1,4 @@
-#tactile sensor data in 2D grid
-uint32 maxtrix_id
-float32 cells_y
-float32 cells_x
-float32[] texel_data
-
+uint32 matrix_id
+int16 cells_x
+int16 cells_y
+int16[] tactile_array
