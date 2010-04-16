@@ -839,7 +839,7 @@ void CoordDisplayImageConversionOnlyZSpectral(IplImage* CoordImg, IplImage* Out,
 	cvCvtColor(Out, Out, CV_HSV2RGB);
 }
 
-void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, double MinZ, double MaxZ)
+void CoordDisplayImageConversionOnlyZGrey(IplImage* CoordImg, IplImage* Out, double MinZ, double MaxZ)
 {
 	double wr=MaxZ-MinZ;
 	for(int j=0; j<CoordImg->height; j++)
@@ -850,8 +850,8 @@ void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, dou
 			double z = Val.val[2];
 			if(z>MaxZ) z=MaxZ;
 			if(z<MinZ) z=MinZ;
-			int Gray = cvRound(255.0 * (z-MinZ)/wr);
-			CvScalar Color = CV_RGB(Gray, Gray, Gray);
+			int Grey = cvRound(255.0 * (z-MinZ)/wr);
+			CvScalar Color = CV_RGB(Grey, Grey, Grey);
 			cvSet2D(Out, j, i, Color);
 		}
 	}

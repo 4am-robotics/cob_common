@@ -35,3 +35,5 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/common/include)
 # add project libs
 rosbuild_add_library(${PROJECT_NAME} common/src/IniFile.cpp)
 rosbuild_add_library(${PROJECT_NAME} common/src/MathSup.cpp)
+rosbuild_add_library(${PROJECT_NAME} common/src/StrUtil.cpp)
+rosbuild_add_library(${PROJECT_NAME} common/src/TimeStamp.cpp)

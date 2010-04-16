@@ -1,0 +1,24 @@
+<package>
+  <description brief="cob_actions">
+
+     cob_actions
+
+  </description>
+  <author></author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_actions</url>
+
+  <depend package="std_msgs"/>
+  <depend package="actionlib"/>
+  <depend package="actionlib_msgs"/>
+  <depend package="trajectory_msgs"/>
+  <depend package="cob_msgs"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/msg/cpp"/>
+  </export>
+
+</package>
+
+

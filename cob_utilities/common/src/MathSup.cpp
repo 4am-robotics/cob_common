@@ -52,7 +52,7 @@
  ****************************************************************/
 
 
-#include <cob3_utilities/MathSup.h>
+#include <cob_utilities/MathSup.h>
 
 const double MathSup::PI = 3.14159265358979323846;
 const double MathSup::TWO_PI = 6.283185307179586476925286766559;
