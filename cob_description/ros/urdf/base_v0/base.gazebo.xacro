@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <xacro:macro name="cob_wheel_gazebo_v0" params="suffix parent">
+    <gazebo reference="${parent}_${suffix}_wheel_link">
+      <mu1 value="100.0" />
+      <mu2 value="100.0" />
+      <kp  value="1000000.0" />
+      <kd  value="1.0" />
+      <material value="PR2/wheel_${suffix}" />
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:macro name="cob_caster_gazebo_v0" params="suffix">
+    <gazebo reference="${suffix}_caster_rotation_link">
+      <material value="PR2/caster_texture" />
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:macro name="cob_base_gazebo_v0" params="name">
+    <gazebo reference="${name}_link">
+      <selfCollide>true</selfCollide>
+      <sensor:contact name="${name}_contact_sensor">
+        <geom>${name}_link_geom</geom>
+        <updateRate>100.0</updateRate>
+        <controller:gazebo_ros_bumper name="${name}_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>100.0</updateRate>
+          <bumperTopicName>${name}_bumper</bumperTopicName>
+          <interface:bumper name="${name}_bumper_iface" />
+        </controller:gazebo_ros_bumper>
+      </sensor:contact>
+      <material value="PR2/Grey" />
+    </gazebo>
+
+    <gazebo>
+      <controller:gazebo_ros_p3d name="p3d_base_controller" plugin="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>100.0</updateRate>
+        <bodyName>${name}_link</bodyName>
+        <topicName>${name}_pose_ground_truth</topicName>
+        <gaussianNoise>0.01</gaussianNoise>
+        <frameName>map</frameName>
+        <xyzOffsets>25.7 25.7 0</xyzOffsets> <!-- initialize odometry for fake localization-->
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <interface:position name="p3d_base_position"/>
+      </controller:gazebo_ros_p3d>
+      <canonicalBody>${name}_footprint</canonicalBody>
+    </gazebo>
+  </xacro:macro>
+
+</robot>

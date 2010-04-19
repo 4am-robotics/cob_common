@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.transmission.xacro" />
+
+<!--####################################################################-->
+                       <!--Fix Some Parameters Later-->
+<!--####################################################################-->
+
+  <xacro:macro name="cob_torso_v0" params="name parent *origin">
+    <!--joint between base_link and torso_tray_link -->
+    <joint name="${name}_tray_joint" type="revolute">
+       <origin xyz="0.21864 0.20061 0.83196" rpy="-0.707 0 0" />
+       <parent link="${parent}"/>
+       <child link="${name}_tray_link"/>
+       <axis xyz="0 0 1" />
+       <calibration reference_position="0.0"/>
+       <dynamics damping="1.0" />
+       <limit effort="100" lower="0" upper="3.31612" velocity="5"/>
+    </joint>
+   
+    <link name="${name}_tray_link">
+       <inertial>
+	  <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <mass value="0.1"/>
+	  <inertia ixx="0.000482611007"  ixy="-0.000144683999"  ixz="0.000110076136"
+                 iyy="0.0005218991412"  iyz="-0.000314239509"  izz="0.0008618784925" />
+       </inertial>
+
+       <visual>
+	 <origin xyz="0 0 0" rpy="0.707 0 0" />
+	 <geometry>
+	    <mesh filename="package://cob_defs/common/files/meshes/tray.stl" />
+	 </geometry>
+
+         <material name="Green" />
+       </visual>
+
+       <collision>
+	 <origin xyz="0 0 0" rpy="0.707 0 0" />
+	 <geometry>
+	  <mesh filename="package://cob_defs/common/files/meshes/tray.stl" />
+	 </geometry>
+       </collision>
+    </link>
+
+    <!--joint between base_link and torso_neckZ_link-->
+    <joint name="${name}_neckZ_joint" type="revolute">  
+      <insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_neckZ_link"/>
+      <axis xyz="0 0 1" />
+      <dynamics damping="0.1" />
+      <calibration reference_position="0.0344"/>
+      <limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/> 
+    </joint>
+
+    <link name="${name}_neckZ_link">
+	<inertial>
+	   <origin xyz="0 0 0" rpy="0 0 0"/>
+	   <mass value="0.1"/>
+	   <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+	</inertial>
+
+	<visual>
+	   <origin xyz="0 0 0.0005" rpy="0 0 0" />
+	   <geometry>
+	      <box size="0.001 0.001 0.001"/>
+	   </geometry>
+           <material name="Blue" />
+	</visual>
+
+	<collision>
+	   <origin xyz="0 0 0.0005" rpy="0 0 0" />
+	   <geometry>
+	      <box size="0.001 0.001 0.001"/>
+	   </geometry>
+	</collision>
+    </link>
+
+    <!--joint between torso_neckZ_link and torso_neck_link-->
+    <joint name="${name}_neck_joint" type="revolute">  
+      <origin xyz="0 0 0" rpy="0 0.293 0" />   <!--FIX pitch angle Later-->
+      <parent link="${name}_neckZ_link"/>
+      <child link="${name}_neck_link"/>
+      <axis xyz="0 1 0" />
+      <dynamics damping="0.1" />
+      <calibration reference_position="0.0344"/>
+      <limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/> 
+    </joint>
+
+    <link name="${name}_neck_link">
+       <inertial>
+	  <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <mass value="3"/>
+	  <inertia ixx="0.0001"  ixy="0"  ixz="0"
+                 iyy="0.0001"  iyz="0"  izz="0.0001" />
+       </inertial>
+
+       <visual>
+	 <origin xyz="0 0 0" rpy="0 0 0" />
+	 <geometry>
+	    <mesh filename="package://cob_defs/common/files/meshes/neck.stl" />
+	 </geometry>
+
+         <material name="Red" />
+       </visual>
+
+       <collision>
+	 <origin xyz="0 0 0" rpy="0 0 0" />
+	 <geometry>
+	    <mesh filename="package://cob_defs/common/files/meshes/neck.stl" />
+	 </geometry>
+       </collision>
+    </link>
+
+    <!--joint between torso_neck_link and torso_headZ_link-->
+    <joint name="${name}_headZ_joint" type="revolute">  
+      <origin xyz="-0.09039 0 0.30489" rpy="0 0 0" />
+      <parent link="${name}_neck_link"/>
+      <child link="${name}_headZ_link"/>
+      <axis xyz="0 0 1" />
+      <dynamics damping="0.1" />
+      <calibration reference_position="0.022078"/>
+      <limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
+    </joint>
+
+    <link name="${name}_headZ_link">
+	<inertial>
+	   <origin xyz="0 0 0" rpy="0 0 0"/>
+	   <mass value="1"/>
+	   <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+        </inertial>
+
+	<visual>
+	   <origin xyz="0 0 0" rpy="0 0 0" />
+	   <geometry>
+              <box size="0.001 0.001 0.001"/>
+	   </geometry>
+           <material name="Blue" />
+	</visual>
+
+	<collision>
+	   <origin xyz="0 0 0" rpy="0 0 0" />
+	   <geometry>
+              <box size="0.001 0.001 0.001"/>
+	   </geometry>
+	</collision>
+    </link>
+
+    <!--joint between torso_headZ_link and torso_headbase_link-->
+    <joint name="${name}_headbase_joint" type="revolute">  
+      <origin xyz="0 0 0" rpy="0 -0.26 0" /> <!---0.392699075-->
+      <parent link="${name}_headZ_link"/>
+      <child link="${name}_headbase_link"/>
+      <axis xyz="0 1 0" />
+      <dynamics damping="0.1" />
+      <calibration reference_position="0.022078"/>
+      <limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
+    </joint>
+
+    <link name="${name}_headbase_link">
+	<inertial>
+	   <origin xyz="0 0 0" rpy="0 0 0"/>
+	   <mass value="1"/>
+	   <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+        </inertial>
+
+	<visual>
+	   <origin xyz="0 0 0" rpy="0 0 0" />
+	   <geometry>
+              <mesh filename="package://cob_defs/common/files/meshes/head.stl" />
+	   </geometry>
+           <material name="Grey" />
+	</visual>
+
+	<collision>
+	   <origin xyz="0 0 0" rpy="0 0 0" />
+	   <geometry>
+              <mesh filename="package://cob_defs/common/files/meshes/head.stl" />
+	   </geometry>
+	</collision>
+    </link>
+
+    <!--joint between torso_headbase_link and torso_headcover_link-->
+    <joint name="${name}_headcover_joint" type="fixed">  
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${name}_headbase_link"/>
+      <child link="${name}_headcover_link"/>
+    </joint>
+
+    <link name="${name}_headcover_link">
+	<inertial>
+	   <origin xyz="0 0 0" rpy="0 0 0"/>
+	   <mass value="0.5"/>
+	   <inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+        </inertial>
+
+	<visual>
+	   <origin xyz="0 0 0" rpy="0 0 0" />
+	   <geometry>
+              <mesh filename="package://cob_defs/common/files/meshes/head_cover.stl" />
+	   </geometry>
+           <material name="Blue" />
+	</visual>
+
+	<collision>
+	   <origin xyz="0 0 0" rpy="0 0 0" />
+	   <geometry>
+              <mesh filename="package://cob_defs/common/files/meshes/head_cover.stl" />
+	   </geometry>
+	</collision>
+    </link>
+
+
+    <!-- extensions -->
+    <xacro:cob_torso_gazebo_v0 name="${name}" />
+    <xacro:cob_torso_transmission_v0 name="${name}" />
+
+  </xacro:macro>
+</robot>
+
+

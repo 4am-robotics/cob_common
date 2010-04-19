@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="cob_torso_transmission_v0" params="name">
+
+    <transmission name="${name}_neckZ_trans" type="SimpleTransmission">
+		<actuator name="${name}_neckZ_motor"/>
+		<joint name="${name}_neckZ_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+    <transmission name="${name}_neck_trans" type="SimpleTransmission">
+		<actuator name="${name}_neck_motor"/>
+		<joint name="${name}_neck_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+    <transmission name="${name}_tray_trans" type="SimpleTransmission">
+		<actuator name="${name}_tray_motor"/>
+		<joint name="${name}_tray_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+    <transmission name="${name}_headZ_trans" type="SimpleTransmission">
+		<actuator name="${name}_headZ_motor"/>
+		<joint name="${name}_headZ_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+    <transmission name="${name}_headbase_trans" type="SimpleTransmission">
+		<actuator name="${name}_headbase_motor"/>
+		<joint name="${name}_headbase_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>
