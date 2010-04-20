@@ -526,15 +526,17 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 							maskVal = maskMax;
 						}*/
 						V = (float)z;
-						vMask= (float)maskVal;
+						//vMask= (float)maskVal;
+						vMask = 65000;
 
 					}
 					else
 					{
-						V = 0;
-						vMask = 0;
-						c_dest_ptr[destIndex] = V;
-						c_dest_ptr[destIndex + 1] = V;
+						V = 65000;
+						vMask = 0.0;
+						//std::cout << i << ", " << j << " filtered" << std::endl;
+						//c_dest_ptr[destIndex] = V;
+						//c_dest_ptr[destIndex + 1] = V;
 					}
 
 					c_dest_ptr[destIndex + 2] = V;
@@ -550,7 +552,6 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 			std::cout << "\t ... Image depth of source not supported.\n";
 			return RET_FAILED;
 		}
-
 
 		return RET_OK;
 }
