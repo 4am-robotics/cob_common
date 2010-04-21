@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="head">
+
+	<include filename="$(find cob_defs)/ros/calibration/cob3-1.xacro" />
+
+	<!-- color camera -->
+	<xacro:macro name="color_camera" params="parent prefix pos">
+		<link name="${prefix}_color_camera_${pos}_link"/>
+
+		<joint name="${prefix}_color_camera_${pos}_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${prefix}_color_camera_${pos}_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- tof camera -->
+	<xacro:macro name="tof_camera" params="parent prefix">
+		<link name="${prefix}_tof_camera_link"/>
+
+		<joint name="${prefix}_tof_camera_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${prefix}_tof_camera_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- compose robot -->
+	<xacro:macro name="head" params="name parent">
+		<link name="${name}_link"/>
+		<joint name="${name}_joint" type="fixed">
+			<parent link="${parent}_upper_neck_tilt_link"/>
+			<child link="${name}_link"/>
+		</joint>
+		<xacro:color_camera parent="${name}" prefix="${name}" pos="r"/>
+		<xacro:color_camera parent="${name}" prefix="${name}" pos="l"/>
+		<xacro:tof_camera parent="${name}" prefix="${name}"/>
+	</xacro:macro>
+</robot>
