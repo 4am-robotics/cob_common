@@ -200,15 +200,15 @@ void RangeDisplayImageConversion(IplImage* Range, IplImage* Intensity, IplImage*
 /// @param Max The maximal (x,y,z)-values of the image
 void CoordDisplayImageConversion(IplImage* CoordImg, IplImage* Out, Point3Dbl* Min=NULL, Point3Dbl* Max=NULL);
 void CoordDisplayImageConversionOnlyZSpectral(IplImage* CoordImg, IplImage* Out, double MinZ=0.0, double MaxZ=7.5);
-/// Creates a grayscale image out of a image with given cartesian coordinates.
-/// The given cartesian depth value is transformed in a corresponding gray value. The gray is darker,
+/// Creates a greyscale image out of a image with given cartesian coordinates.
+/// The given cartesian depth value is transformed in a corresponding grey value. The grey is darker,
 /// the closer an object is located relative to the camera.
 /// @param CoordImg The image with cartesian coordinates.
-/// @param Out The resulting grayscale image.
-/// @param MinZ Minimal z-value that is considered for grayscaling.
-/// @param MaxZ Maximal z-value that is considered for grayscaling.
+/// @param Out The resulting greyscale image.
+/// @param MinZ Minimal z-value that is considered for greyscaling.
+/// @param MaxZ Maximal z-value that is considered for greyscaling.
 
-void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, double MinZ=0.0, double MaxZ=7.5);
+void CoordDisplayImageConversionOnlyZGrey(IplImage* CoordImg, IplImage* Out, double MinZ=0.0, double MaxZ=7.5);
 
 // save and load
 void SaveImageAsMatrix(std::string FileName, IplImage* RangeImage);

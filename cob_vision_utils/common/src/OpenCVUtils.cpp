@@ -526,15 +526,17 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 							maskVal = maskMax;
 						}*/
 						V = (float)z;
-						vMask= (float)maskVal;
+						//vMask= (float)maskVal;
+						vMask = 65000;
 
 					}
 					else
 					{
-						V = 0;
-						vMask = 0;
-						c_dest_ptr[destIndex] = V;
-						c_dest_ptr[destIndex + 1] = V;
+						V = 65000;
+						vMask = 0.0;
+						//std::cout << i << ", " << j << " filtered" << std::endl;
+						//c_dest_ptr[destIndex] = V;
+						//c_dest_ptr[destIndex + 1] = V;
 					}
 
 					c_dest_ptr[destIndex + 2] = V;
@@ -550,7 +552,6 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 			std::cout << "\t ... Image depth of source not supported.\n";
 			return RET_FAILED;
 		}
-
 
 		return RET_OK;
 }
@@ -839,7 +840,7 @@ void CoordDisplayImageConversionOnlyZSpectral(IplImage* CoordImg, IplImage* Out,
 	cvCvtColor(Out, Out, CV_HSV2RGB);
 }
 
-void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, double MinZ, double MaxZ)
+void CoordDisplayImageConversionOnlyZGrey(IplImage* CoordImg, IplImage* Out, double MinZ, double MaxZ)
 {
 	double wr=MaxZ-MinZ;
 	for(int j=0; j<CoordImg->height; j++)
@@ -850,8 +851,8 @@ void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, dou
 			double z = Val.val[2];
 			if(z>MaxZ) z=MaxZ;
 			if(z<MinZ) z=MinZ;
-			int Gray = cvRound(255.0 * (z-MinZ)/wr);
-			CvScalar Color = CV_RGB(Gray, Gray, Gray);
+			int Grey = cvRound(255.0 * (z-MinZ)/wr);
+			CvScalar Color = CV_RGB(Grey, Grey, Grey);
 			cvSet2D(Out, j, i, Color);
 		}
 	}
