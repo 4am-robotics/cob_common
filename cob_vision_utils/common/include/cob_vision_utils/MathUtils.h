@@ -869,7 +869,7 @@ void HueToCol(int h, int hueVals, int& r, int& g, int& b);
 /// @param b blue component [0..255]
 /// @param h hue output component [0.0..1.0]
 /// @param s saturation output component [0.0..1.0]
-/// @param v value (gray) output component [0.0..1.0]
+/// @param v value (grey) output component [0.0..1.0]
 void GetHSV(double r, double g, double b, double& h, double& s, double& v);
 
 /// Computes red, green and blue.
@@ -877,7 +877,7 @@ void GetHSV(double r, double g, double b, double& h, double& s, double& v);
 /// Note that hue, saturation and value are between [0.0..1.0].
 /// @param h hue component [0.0..1.0]
 /// @param s saturation component [0.0..1.0]
-/// @param v value (gray) component [0.0..1.0]
+/// @param v value (grey) component [0.0..1.0]
 /// @param r red output component [0..255]
 /// @param g green output component [0..255]
 /// @param b blue output component [0..255]
