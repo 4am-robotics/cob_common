@@ -16,7 +16,7 @@
   <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
 
   <!-- cob eyes-->
-  <include filename="$(find cob_description)/ros/urdf/headeyes_v0/headeyes.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.urdf.xacro" />
 
   <!-- cob arm-->
   <!--include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" /-->
@@ -43,9 +43,9 @@
     <origin xyz="0.24627 0 0.7798" rpy="0 0 0" />
   </xacro:cob_torso_v0>
 
-  <xacro:cob_headeyes_v0 name="headeyes" parent="torso_headbase_link">
+  <xacro:cob_head_cameras_v0 name="head" parent="torso_upper_neck_tilt_link">
     <origin xyz="0 0 0.154" rpy="0 0 0" />
-  </xacro:cob_headeyes_v0>
+  </xacro:cob_head_cameras_v0>
 
  
 </robot>

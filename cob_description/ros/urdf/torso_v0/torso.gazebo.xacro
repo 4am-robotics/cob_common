@@ -12,27 +12,27 @@
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <gazebo reference="${name}_neckZ_link">
+    <gazebo reference="${name}_lower_neck_pan_link">
       <material value="PR2/Blue" />
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <gazebo reference="${name}_neck_link">
+    <gazebo reference="${name}_lower_neck_tilt_link">
       <material value="PR2/Red" />
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
     
-    <gazebo reference="${name}_headZ_link">
+    <gazebo reference="${name}_upper_neck_pan_link">
       <material value="PR2/Blue" />
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <gazebo reference="${name}_headbase_link">
+    <gazebo reference="${name}_upper_neck_tilt_link">
       <material value="PR2/Grey" />
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <gazebo reference="${name}_headcover_link">
+    <gazebo reference="head_cover_link">
       <material value="PR2/Blue" />
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
