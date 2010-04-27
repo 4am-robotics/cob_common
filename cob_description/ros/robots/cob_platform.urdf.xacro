@@ -10,14 +10,13 @@
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
   
   <!-- cob base -->
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" />
+  <!--include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" /-->
  
   <!-- cob torse-->
   <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
 
   <!-- cob eyes-->
   <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.urdf.xacro" />
-
   <!-- cob arm-->
   <!--include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" /-->
 
