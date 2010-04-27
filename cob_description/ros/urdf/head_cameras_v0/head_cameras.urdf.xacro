@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.transmission.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/sensors/cameraone.urdf.xacro" /> 
+  <include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /> 
+
+<!--####################################################################-->
+                       <!--Fix Some Parameters Later-->
+<!--####################################################################-->
+  <xacro:macro name="cob_head_cameras_v0" params="name parent *origin">
+    
+    <!--joint between torso_upper_neck_tilt_link and head_camera_axis_link-->
+    <joint name="${name}_camera_axis_joint" type="revolute">
+       <insert_block name="origin" />
+       <parent link="${parent}"/>
+       <child link="${name}_camera_axis_link"/>
+       <axis xyz="0 1 0" />
+       <dynamics damping="0.1" />
+       <calibration reference_position="-3.14"/>
+       <limit effort="100" lower="-0.1745" upper="3.316" velocity="0.5"/> 
+    </joint>
+   
+    <link name="${name}_camera_axis_link">
+       <inertial>
+	  <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <mass value="0.1"/>
+	  <inertia ixx="0.0001"  ixy="0"  ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+       </inertial>
+
+       <visual>
+	 <origin xyz="0 0 0" rpy="0 0 0" />
+	 <geometry>
+	    <box size="0.1 0.1 0.01"/>
+	 </geometry>
+         <material name="Green" />
+       </visual>
+
+       <collision>
+	 <origin xyz="0 0 0" rpy="0 0 0" />
+	 <geometry>
+            <box size="0.1 0.1 0.01"/>
+	 </geometry>
+       </collision>
+    </link>
+
+    <!--##################################################-->
+    <!-- camera test here -->
+    <xacro:cob_cameraone_v0 name="${name}_color_camera_l" parent="${name}_camera_axis_link">
+      <origin xyz="0 0.05 0" rpy="0 0 0" />
+    </xacro:cob_cameraone_v0>
+
+    <xacro:cob_cameraone_v0 name="${name}_color_camera_r" parent="${name}_camera_axis_link">
+      <origin xyz="0 -0.05 0" rpy="0 0 0" />
+    </xacro:cob_cameraone_v0>
+
+    <!-- hokuyo_SR400_laser test here-->
+    <xacro:hokuyo_SR400_laser_v0 name="${name}_tof_camera" parent="${name}_camera_axis" ros_topic="head_scan" update_rate="54" min_angle="-0.302" max_angle="0.302" >
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:hokuyo_SR400_laser_v0>
+
+    <!-- extensions -->
+    <xacro:cob_head_cameras_gazebo_v0 name="${name}" />
+    <xacro:cob_head_cameras_transmission_v0 name="${name}" />
+
+
+  </xacro:macro>
+
+</robot>
+
+
