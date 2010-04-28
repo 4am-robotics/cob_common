@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="base">
+
+	<include filename="$(find cob_defs)/ros/calibration/cob3-1.xacro" />
+
+	<!-- drive modul -->
+	<xacro:macro name="drive_module" params="parent pos">
+		<link name="${parent}_steer_${pos}_link"/>
+		<link name="${parent}_drive_${pos}_link"/>
+
+		<joint name="${parent}_steer_${pos}_joint" type="fixed">
+			<origin xyz="${base_offset_x} ${base_offset_y} 0" rpy="0 0 0" />
+			<parent link="${parent}_link"/>
+			<child link="${parent}_steer_${pos}_link"/>
+		</joint>
+		<joint name="${parent}_drive_${pos}_joint" type="fixed">
+			<parent link="${parent}_steer_${pos}_link"/>
+			<child link="${parent}_drive_${pos}_link"/>
+		</joint>
+	</xacro:macro>
+	
+	<!-- scanner -->
+	<xacro:macro name="scanner" params="parent pos">
+		<link name="${parent}_scanner_${pos}_link"/>
+
+		<joint name="${parent}_scanner_${pos}_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${parent}_scanner_${pos}_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- compose robot -->
+	<xacro:macro name="base" params="name">
+		<link name="${name}_link"/>
+		<xacro:scanner parent="${name}" pos="front"/>
+		<xacro:scanner parent="${name}" pos="rear"/>
+		<xacro:scanner parent="${name}" pos="top"/>
+		<xacro:drive_module parent="${name}" pos="fr"/>
+		<xacro:drive_module parent="${name}" pos="fl"/>
+		<xacro:drive_module parent="${name}" pos="rr"/>
+		<xacro:drive_module parent="${name}" pos="rl"/>
+	</xacro:macro>
+</robot>

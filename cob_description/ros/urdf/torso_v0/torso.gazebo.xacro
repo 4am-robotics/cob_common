@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="cob_torso_gazebo_v0" params="name">
+    
+    <gazebo reference="${name}_tray_link">
+      <material>PR2/Green</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="${name}_neckZ_link">
+      <material value="PR2/Blue" />
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="${name}_neck_link">
+      <material value="PR2/Red" />
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    
+    <gazebo reference="${name}_headZ_link">
+      <material value="PR2/Blue" />
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="${name}_headbase_link">
+      <material value="PR2/Grey" />
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="${name}_headcover_link">
+      <material value="PR2/Blue" />
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+  </xacro:macro>
+
+
+</robot>

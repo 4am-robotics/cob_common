@@ -1,0 +1,23 @@
+<package>
+  <description brief="cob_description">
+
+     cob_description
+
+  </description>
+  <author>cob</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_description</url>
+
+  <depend package="convex_decomposition"/>
+  <depend package="ivcon"/>
+  <depend package="urdf"/>
+
+  <!-- deps for testing -->
+  <depend package="rospy"/> 
+  <depend package="actionlib"/>
+  <depend package="pr2_controllers_msgs"/>
+
+</package>
+
+

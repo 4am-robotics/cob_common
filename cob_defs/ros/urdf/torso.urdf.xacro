@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="torso">
+
+	<!-- pan tilt unit -->
+	<xacro:macro name="pan_tilt" params="name parent prefix">
+		<link name="${prefix}_${name}_pan_link"/>
+		<link name="${prefix}_${name}_tilt_link"/>
+
+		<joint name="${prefix}_${name}_pan_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${prefix}_${name}_pan_link"/>
+		</joint>
+		<joint name="${prefix}_${name}_tilt_joint" type="fixed">
+			<parent link="${prefix}_${name}_pan_link"/>
+			<child link="${prefix}_${name}_tilt_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- tray -->
+	<xacro:macro name="tray" params="parent prefix">
+		<link name="${prefix}_tray_link"/>
+		
+		<joint name="${prefix}_tray_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${prefix}_tray_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- compose robot -->
+	<xacro:macro name="torso" params="name parent">
+		<xacro:pan_tilt name="lower_neck" parent="${parent}" prefix="${name}"/>
+		<xacro:pan_tilt name="upper_neck" parent="${name}_lower_neck_tilt" prefix="${name}"/>
+		<xacro:tray parent="${parent}" prefix="${name}"/>
+	</xacro:macro>
+</robot>
