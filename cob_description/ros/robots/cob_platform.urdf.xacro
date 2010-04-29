@@ -17,8 +17,9 @@
 
   <!-- cob eyes-->
   <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.urdf.xacro" />
+
   <!-- cob arm-->
-  <!--include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" /-->
+  <include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" />
 
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
   <include filename="$(find cob_description)/ros/gazebo/gazebo.urdf.xacro" />
@@ -45,6 +46,10 @@
   <xacro:cob_head_cameras_v0 name="head" parent="torso_upper_neck_tilt_link">
     <origin xyz="0 0 0.154" rpy="0 0 0" />
   </xacro:cob_head_cameras_v0>
+
+  <xacro:cob_arm_v0 name="arm" parent="base_link">
+    <origin xyz="0.040 -0.005 0.83637" rpy="3.1415926 0.7854 -1.8326" />
+  </xacro:cob_arm_v0>
 
  
 </robot>
