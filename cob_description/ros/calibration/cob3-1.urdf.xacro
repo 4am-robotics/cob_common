@@ -4,10 +4,10 @@
   <property name="M_PI" value="3.1415926535897931" />
 
   <!-- torso reference position -->
-  <property name="torso_lower_neck_pan_ref" value="-0.5149" />
-  <property name="torso_lower_neck_tilt_ref" value="0.0344" />
-  <property name="torso_upper_neck_pan_ref" value="0.0247" />
-  <property name="torso_upper_neck_tilt_ref" value="0.022078" />
+  <property name="torso_lower_neck_pan_ref" value="-0.5306" />
+  <property name="torso_lower_neck_tilt_ref" value="0.0320" />
+  <property name="torso_upper_neck_pan_ref" value="0.5481" />
+  <property name="torso_upper_neck_tilt_ref" value="0.0229" />
   
   <!-- tray reference position -->
   <property name="torso_tray_ref" value="0.0" />
