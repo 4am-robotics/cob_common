@@ -34,7 +34,7 @@
           <interface:bumper name="${name}_bumper_iface" />
         </controller:gazebo_ros_bumper>
       </sensor:contact>
-      <material value="PR2/Grey" />
+      <material>Gazebo/Grey</material>
     </gazebo>
 
     <gazebo>

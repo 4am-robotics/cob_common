@@ -212,18 +212,18 @@
     </joint>
 
     <!--modify here for test: front,base and top lasers -->
-    <!-- base laser front -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="base_scan_front" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <!-- base scanner front -->
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_scanner_front" parent="${name}" ros_topic="base_scan_front" update_rate="20" min_angle="-1.35" max_angle="1.35" >
       <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 
-    <!-- base laser back -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_back" parent="${name}" ros_topic="base_scan_back" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <!-- base scanner rear -->
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_scanner_rear" parent="${name}" ros_topic="base_scan_back" update_rate="20" min_angle="-1.35" max_angle="1.35" >
       <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
     </xacro:hokuyo_lx30_laser_v0>
 
-    <!-- base laser top -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="base_scan_top" update_rate="10" min_angle="-2.094" max_angle="2.094" >
+    <!-- base scanner top -->
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_scanner_top" parent="${name}" ros_topic="base_scan_top" update_rate="10" min_angle="-2.094" max_angle="2.094" >
       <origin xyz="-0.252 0 0.42" rpy="0 0 ${M_PI}" />
     </xacro:hokuyo_lx30_laser_v0>
 

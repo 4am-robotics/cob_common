@@ -12,13 +12,14 @@
 <!--####################################################################-->
 
   <xacro:macro name="cob_torso_v0" params="name parent *origin">
+
     <!--joint between base_link and torso_tray_link -->
     <joint name="${name}_tray_joint" type="revolute">
        <origin xyz="0.21864 0.20061 0.83196" rpy="-0.707 0 0" />
        <parent link="${parent}"/>
        <child link="${name}_tray_link"/>
        <axis xyz="0 0 1" />
-       <calibration reference_position="0.0"/>
+       <calibration reference_position="${torso_tray_ref}"/>
        <dynamics damping="1.0" />
        <limit effort="100" lower="0" upper="3.31612" velocity="5"/>
     </joint>
@@ -54,8 +55,8 @@
       <parent link="${parent}"/>
       <child link="${name}_lower_neck_pan_link"/>
       <axis xyz="0 0 1" />
+      <calibration reference_position="${torso_lower_neck_pan_ref}"/>
       <dynamics damping="0.1" />
-      <calibration reference_position="-0.5149"/>
       <limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/> 
     </joint>
 
@@ -89,7 +90,7 @@
       <child link="${name}_lower_neck_tilt_link"/>
       <axis xyz="0 1 0" />
       <dynamics damping="0.1" />
-      <calibration reference_position="0.0344"/>
+      <calibration reference_position="${torso_lower_neck_tilt_ref}"/>
       <limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/> 
     </joint>
 
@@ -125,7 +126,7 @@
       <child link="${name}_upper_neck_pan_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.1" />
-      <calibration reference_position="0.0247"/>
+      <calibration reference_position="${torso_upper_neck_pan_ref}"/>
       <limit effort="4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
     </joint>
 
@@ -159,7 +160,7 @@
       <child link="${name}_upper_neck_tilt_link"/>
       <axis xyz="0 1 0" />
       <dynamics damping="0.1" />
-      <calibration reference_position="0.022078"/>
+      <calibration reference_position="${torso_upper_neck_tilt_ref}"/>
       <limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
     </joint>
 

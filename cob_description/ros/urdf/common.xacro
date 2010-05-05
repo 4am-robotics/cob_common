@@ -60,4 +60,5 @@
   <!-- Throwing in left arm constants to appease the xacro parser -->
   <property name="cal_l_shoulder_pan_flag" value="0.000000" />
   <property name="cal_l_wrist_roll_flag" value="0.0" />
+
 </robot>

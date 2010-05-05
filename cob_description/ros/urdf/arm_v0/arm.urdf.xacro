@@ -49,15 +49,15 @@
 		<parent link="${name}_0_link"/>
 		<child link="${name}_1_link"/>
 		<axis xyz="0 0 1"/>
-	        <calibration reference_position="1.47881"/>
+	        <calibration reference_position="${arm_1_ref}"/>
 		<limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/>
 	</joint>
 
 	<link name="${name}_1_link">
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0" />
-			<mass value="5.4"/>
-			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			<origin xyz="0 0.00923 0.1564" rpy="0 0 0" />
+			<mass value="5.9907"/>
+			<inertia ixx="0.184545"  ixy="0"  ixz="0" iyy="0.180577" iyz="0.000420" izz="0.016081" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -81,15 +81,15 @@
 		<parent link="${name}_1_link"/>
 		<child link="${name}_2_link"/>
 		<axis xyz="0 0 1"/>
-	        <calibration reference_position="1.47881"/>
+	        <calibration reference_position="${arm_2_ref}"/>
 		<limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/> 
 	</joint>
 
 	<link name="${name}_2_link">
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="2.8"/>
-			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			<origin xyz="0 -0.006249 0.008252" rpy="0 0 0"/>
+			<mass value="5.734939"/>
+			<inertia ixx="0.020715"  ixy="0"  ixz="0" iyy="0.017585" iyz="-0.000460" izz="0.014454" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -113,15 +113,15 @@
 		<parent link="${name}_2_link"/>
 		<child link="${name}_3_link"/>
 		<axis xyz="0 0 1"/>
-	        <calibration reference_position="-6.28087"/>
+	        <calibration reference_position="${arm_3_ref}"/>
 		<limit effort="176" velocity="0.4189" lower="-6.2831853" upper="6.2831853"/> 
 	</joint>
 
 	<link name="${name}_3_link">
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="2.0"/>
-			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			<origin xyz="0 0.007908 0.192805" rpy="0 0 0"/>
+			<mass value="4.214668"/>
+			<inertia ixx="0.192416"  ixy="0"  ixz="0" iyy="0.190323" iyz="0.000310" izz="0.008570" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" /> 
@@ -145,15 +145,15 @@
 		<parent link="${name}_3_link"/>
 		<child link="${name}_4_link"/>
 		<axis xyz="0 0 1" />
-	        <calibration reference_position="0.0192641"/>
+	        <calibration reference_position="${arm_4_ref}"/>
 		<limit effort="176" velocity="0.4189" upper="2.0943951" lower="-2.0943951" /> 
 	</joint>
 
 	<link name="${name}_4_link">
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="1.6"/>
-			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			<origin xyz="0 -0.006319 0.009681" rpy="0 0 0"/>
+			<mass value="3.669819"/>
+			<inertia ixx="0.010547"  ixy="0"  ixz="0" iyy="0.008708" iyz="-0.000335" izz="0.006913" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -177,15 +177,15 @@
 		<parent link="${name}_4_link"/>
 		<child link="${name}_5_link"/>
 		<axis xyz="0 0 1" />
-	        <calibration reference_position="-2.86457"/>
+	        <calibration reference_position="${arm_5_ref}"/>
 		<limit effort="41.6" velocity="0.4363" upper="6.2831853" lower="-6.2831853" />
 	</joint>
 
 	<link name="${name}_5_link">
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="1.2"/>
-			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			<origin xyz="0 -0.004963 0.008394" rpy="0 0 0"/>
+			<mass value="2.313272"/>
+			<inertia ixx="0.004108"  ixy="0"  ixz="0" iyy="0.003468" iyz="-0.000103" izz="0.002507" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -209,7 +209,7 @@
 		<parent link="${name}_5_link"/>
 		<child link="${name}_6_link"/>
 		<axis xyz="0 0 1" />
-	        <calibration reference_position="0.00414364"/>
+	        <calibration reference_position="${arm_6_ref}"/>
 		<limit effort="20.1" velocity="0.4363" upper="2.0943951" lower="-2.0943951" /> 
 	</joint>
 	
@@ -241,7 +241,7 @@
 		<parent link="${name}_6_link"/>
 		<child link="${name}_7_link"/>
 		<axis xyz="0 0 1" />
-	        <calibration reference_position="-0.000421242"/>
+	        <calibration reference_position="${arm_7_ref}"/>
 		<limit effort="9.6" velocity="0.8727" upper="6.2831853" lower="-6.2831853" /> 
 	</joint>
 	
