@@ -89,7 +89,7 @@
 
   </xacro:macro>
 
-  <!-- Macro for PR2 Caster hub only -->
+  <!-- Macro for Caster hub only -->
   <xacro:macro name="cob_caster_hub_v0" params="suffix parent *origin ref_position" >
     <joint name="${suffix}_rotation_joint" type="continuous">
       <axis xyz="0 0 1" />
@@ -206,7 +206,7 @@
     </link>
 
     <joint name="${name}_footprint_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0.051" rpy="0 0 0" />
       <child link="${name}_link" />
       <parent link="${name}_footprint"/>
     </joint>
@@ -218,7 +218,7 @@
     </xacro:hokuyo_lx30_laser_v0>
 
     <!-- base scanner rear -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_scanner_rear" parent="${name}" ros_topic="base_scan_back" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_scanner_rear" parent="${name}" ros_topic="base_scan_rear" update_rate="20" min_angle="-1.35" max_angle="1.35" >
       <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
     </xacro:hokuyo_lx30_laser_v0>
 
