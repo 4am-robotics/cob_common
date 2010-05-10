@@ -186,10 +186,12 @@ public:
 		{
 			result = atan(y/x);
 			if(x<0.0)
-				if(y>0.0)		// Quadrant 2 -> correct
-					result += PI;
-				else			// Quadrant 3 -> correct
-					result -= PI;		
+				{
+					if(y>0.0)		// Quadrant 2 -> correct
+						result += PI;
+					else			// Quadrant 3 -> correct
+						result -= PI;
+				}		
 		}	
 		normalizePi(result);
 		return result;

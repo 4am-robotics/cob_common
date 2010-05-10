@@ -1,4 +1,4 @@
-# This message holds the emergency stop (EMStop) status of the robot. It detects wether an EMŚtop is caused by the safety laserscanner or the emergency stop buttons. Moreover, it gives signalizes wether the EMStop was confirmed (after Button press stop) and the system is free again.
+# This message holds the emergency stop (EMStop) status of the robot. It detects wether an EMStop is caused by the safety laserscanner or the emergency stop buttons. Moreover, it gives signalizes wether the EMStop was confirmed (after Button press stop) and the system is free again.
 
 # Possible EMStop States
 int16 EMFREE = 0 		# system operatign normal
