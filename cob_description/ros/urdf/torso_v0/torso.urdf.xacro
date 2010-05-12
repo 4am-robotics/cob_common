@@ -15,7 +15,7 @@
 
     <!--joint between base_link and torso_tray_link -->
     <joint name="${name}_tray_joint" type="revolute">
-       <origin xyz="0.016 0.192 0.680" rpy="2.4346 0 0" />
+       <origin xyz="0.16 0.192 0.680" rpy="2.4346 0 0" />
        <parent link="${parent}"/>
        <child link="${name}_tray_link"/>
        <axis xyz="0 0 1" />
