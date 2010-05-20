@@ -9,7 +9,7 @@
 
   <xacro:macro name="cob_cameraone_v0" params="name parent *origin">
 
-    <joint name="${name}_frame_joint" type="fixed">
+    <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${name}_frame"/>

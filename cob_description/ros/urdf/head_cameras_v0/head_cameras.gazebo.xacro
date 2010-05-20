@@ -5,13 +5,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_headeyes_transmission_v0" params="name">
-
-    <transmission name="${name}_base_trans" type="SimpleTransmission">
-		<actuator name="${name}_base_motor"/>
-		<joint name="${name}_base_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-    </transmission>
+  <xacro:macro name="cob_head_cameras_gazebo_v0" params="name">
+    
+    <gazebo reference="${name}_camera_axis_link">
+      <material>PR2/Green</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
 
   </xacro:macro>
 

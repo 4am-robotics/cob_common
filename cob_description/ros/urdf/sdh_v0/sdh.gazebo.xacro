@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+   <xacro:macro name="cob_sdh_gazebo_v0" params="name">
+
+	<gazebo reference="${name}_palm_link">
+		<material>Gazebo/Grey</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+	
+	<gazebo reference="${name}_finger_11_link">
+		<material>Gazebo/Black</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+	
+	<gazebo reference="${name}_finger_12_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+        <gazebo reference="${name}_finger_13_link">
+           <selfCollide>true</selfCollide>
+              <sensor:contact name="${name}_finger_13_contact_sensor">
+                 <geom>${name}_finger_13_link_geom</geom>
+                 <updateRate>100.0</updateRate>
+                 <controller:gazebo_ros_bumper name="${name}_finger_13_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>100.0</updateRate>
+                    <bumperTopicName>${name}_finger_13_bumper</bumperTopicName>
+                    <interface:bumper name="${name}_finger_13_bumper_iface" />
+                 </controller:gazebo_ros_bumper>
+              </sensor:contact>
+              <material>Gazebo/Blue</material>
+        </gazebo>
+
+	<gazebo reference="${name}_finger_21_link">
+		<material>Gazebo/Black</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+	
+	<gazebo reference="${name}_finger_22_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+        <gazebo reference="${name}_finger_23_link">
+           <selfCollide>true</selfCollide>
+              <sensor:contact name="${name}_finger_23_contact_sensor">
+                 <geom>${name}_finger_23_link_geom</geom>
+                 <updateRate>100.0</updateRate>
+                 <controller:gazebo_ros_bumper name="${name}_finger_23_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>100.0</updateRate>
+                    <bumperTopicName>${name}_finger_23_bumper</bumperTopicName>
+                    <interface:bumper name="${name}_finger_23_bumper_iface" />
+                 </controller:gazebo_ros_bumper>
+              </sensor:contact>
+              <material>Gazebo/Blue</material>
+        </gazebo>
+
+	<gazebo reference="${name}_thumb_1_link">
+		<material>Gazebo/Black</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+	
+	<gazebo reference="${name}_thumb_2_link">
+		<material>Gazebo/Red</material>
+		<turnGravityOff>false</turnGravityOff>
+	</gazebo>
+
+        <gazebo reference="${name}_thumb_3_link">
+           <selfCollide>true</selfCollide>
+              <sensor:contact name="${name}_thumb_3_contact_sensor">
+                 <geom>${name}_thumb_3_link_geom</geom>
+                 <updateRate>100.0</updateRate>
+                 <controller:gazebo_ros_bumper name="${name}_thumb_3_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>100.0</updateRate>
+                    <bumperTopicName>${name}_thumb_3_bumper</bumperTopicName>
+                    <interface:bumper name="${name}_thumb_3_bumper_iface" />
+                 </controller:gazebo_ros_bumper>
+              </sensor:contact>
+              <material>Gazebo/Blue</material>
+        </gazebo>
+   </xacro:macro>
+</robot>
+
+    

@@ -2,7 +2,7 @@
 <launch>
   
   <!-- send cob urdf platform to param server -->
-  <include file="$(find cob_description)/ros/robots/upload_cob3-sim_base.launch" />
+  <include file="$(find cob_description)/ros/robots/upload_cob3-sim.launch" />
   
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="pr2_gazebo_model" pkg="gazebo_tools" type="gazebo_model" args="$(optenv ROBOT_INITIAL_POSE) -p robot_description spawn" respawn="false" output="screen" />
@@ -14,16 +14,10 @@
   <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
         args="pub /calibrated std_msgs/Bool true" />
 
-  <!-- Stereo image processing -->
-  <!--include file="$(find pr2_gazebo)/config/dualstereo_camera.launch" /-->
-
   <!-- diagnostics aggregator -->
   <node pkg="diagnostic_aggregator" type="aggregator_node" name="diag_agg" args="Robot" />
   <group ns="diag_agg">
     <include file="$(find pr2_gazebo)/config/no_arms/pr2_analyzers_no_arms_diff_simple.launch" />
-    <!--
-    <include file="$(find pr2_gazebo)/config/no_arms/pr2_analyzers_no_arms_diff_.launch" />
-    -->
   </group>
 
   <!-- Dashboard aggregation -->
@@ -41,7 +35,6 @@
   </node>
 
   <!-- Default Controllers -->
-  <!-- it tries to start arm controllers nevertheless, so some errors will be printed on startup -->
   <include file="$(find cob_controller_configuration_gazebo)/ros/controller/cob_default_controller.launch" />
 
 </launch>
