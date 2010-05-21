@@ -1,9 +1,0 @@
-#goal definition
-trajectory_msgs/JointTrajectory trajectory
----
-#result definition
-std_msgs/String result
----
-#feedback definition
-int64 pointNr # current number of trajectory point
-bool isMoving
