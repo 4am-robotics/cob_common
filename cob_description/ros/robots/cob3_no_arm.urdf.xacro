@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="cob" >
+  
+  <!-- The following included files set up definitions of parts of the robot body -->
+  <!-- misc common stuff? -->
+  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
+
+  <!-- cob calibration -->
+  <include filename="$(find cob_description)/ros/calibration/cob3-sim.urdf.xacro" />
+  
+  <!-- cob base -->
+  <include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" />
+ 
+  <!-- cob torse-->
+  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
+
+  <!-- cob cameras-->
+  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.urdf.xacro" />
+
+  <!-- cob arm-->
+  <!--include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" /-->
+
+  <!-- cob sdh-->
+  <!--include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" /-->
+
+  <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
+  <include filename="$(find cob_description)/ros/gazebo/gazebo.urdf.xacro" />
+  
+  <!-- materials for visualization -->
+  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+
+  <!-- Now we can start using the macros included above to define the actual cob -->
+
+  <!-- The first use of a macro.  This one was defined in base.urdf.xacro above.
+       A macro like this will expand to a set of link and joint definitions, and to additional
+       Gazebo-related extensions (sensor plugins, etc).  The macro takes an argument, name, 
+       that equals "base", and uses it to generate names for its component links and joints 
+       (e.g., base_link).  The included origin block is also an argument to the macro.  By convention, 
+       the origin block defines where the component is w.r.t its parent (in this case the parent 
+       is the world frame). For more, see http://www.ros.org/wiki/xacro -->
+
+  <xacro:cob_base_v0 name="base"/>
+
+  <xacro:cob_torso_v0 name="torso" parent="base_link">
+    <origin xyz="0.24627 0 0.7798" rpy="3.1415926 0 0" />
+  </xacro:cob_torso_v0>
+  
+  <xacro:cob_arm_v0 name="arm" parent="base_link">
+    <origin xyz="0.040 -0.005 0.83637" rpy="3.1415926 0.7854 -1.8326" />
+  </xacro:cob_arm_v0>
+  
+  <xacro:cob_head_cameras_v0 name="head" parent="torso_upper_neck_tilt_link">
+    <origin xyz="0 -0.154 0" rpy="-1.5708 0 0" />
+  </xacro:cob_head_cameras_v0>
+  
+  <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
+    <origin xyz="0 0 0" rpy="0 3.1415926 0" />
+  </xacro:cob_sdh_v0>
+  
+</robot>

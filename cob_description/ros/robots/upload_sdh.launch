@@ -2,6 +2,6 @@
 <launch>
 
     <!-- send cob sdh urdf platform to param server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/cob3_sdh.urdf.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/sdh.urdf.xacro'" />
 
 </launch>
