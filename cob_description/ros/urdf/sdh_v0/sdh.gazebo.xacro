@@ -17,8 +17,19 @@
 	</gazebo>
 	
 	<gazebo reference="${name}_finger_12_link">
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
+           <selfCollide>true</selfCollide>
+              <sensor:contact name="${name}_finger_12_contact_sensor">
+                 <geom>${name}_finger_12_link_geom</geom>
+                 <updateRate>100.0</updateRate>
+                 <controller:gazebo_ros_bumper name="${name}_finger_12_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>100.0</updateRate>
+                    <bumperTopicName>${name}_finger_12_bumper</bumperTopicName>
+                    <interface:bumper name="${name}_finger_12_bumper_iface" />
+                 </controller:gazebo_ros_bumper>
+              </sensor:contact>
+              <material>Gazebo/Red</material>
+	      <turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
         <gazebo reference="${name}_finger_13_link">
@@ -42,8 +53,19 @@
 	</gazebo>
 	
 	<gazebo reference="${name}_finger_22_link">
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
+           <selfCollide>true</selfCollide>
+              <sensor:contact name="${name}_finger_22_contact_sensor">
+                 <geom>${name}_finger_22_link_geom</geom>
+                 <updateRate>100.0</updateRate>
+                 <controller:gazebo_ros_bumper name="${name}_finger_22_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>100.0</updateRate>
+                    <bumperTopicName>${name}_finger_22_bumper</bumperTopicName>
+                    <interface:bumper name="${name}_finger_22_bumper_iface" />
+                 </controller:gazebo_ros_bumper>
+              </sensor:contact>
+	      <material>Gazebo/Red</material>
+	      <turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
         <gazebo reference="${name}_finger_23_link">
@@ -67,8 +89,19 @@
 	</gazebo>
 	
 	<gazebo reference="${name}_thumb_2_link">
-		<material>Gazebo/Red</material>
-		<turnGravityOff>false</turnGravityOff>
+           <selfCollide>true</selfCollide>
+              <sensor:contact name="${name}_thumb_2_contact_sensor">
+                 <geom>${name}_thumb_2_link_geom</geom>
+                 <updateRate>100.0</updateRate>
+                 <controller:gazebo_ros_bumper name="${name}_thumb_2_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>100.0</updateRate>
+                    <bumperTopicName>${name}_thumb_2_bumper</bumperTopicName>
+                    <interface:bumper name="${name}_thumb_2_bumper_iface" />
+                 </controller:gazebo_ros_bumper>
+              </sensor:contact>
+	      <material>Gazebo/Red</material>
+	      <turnGravityOff>false</turnGravityOff>
 	</gazebo>
 
         <gazebo reference="${name}_thumb_3_link">
