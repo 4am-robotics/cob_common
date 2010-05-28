@@ -23,9 +23,33 @@
   <!-- materials for visualization -->
   <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
 
+  <!-- foot for arm-->
+	<link name="base_link">
+		<inertial>
+		   <origin xyz="0 0 0" rpy="0 0 0"/>
+		   <mass value="10.0"/>
+		   <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+
+		<visual>
+		   <origin xyz="0 0 0.25" rpy="0 0 0" />
+		   <geometry>
+			  <cylinder radius="0.1" length="0.5"/>
+		   </geometry>
+		   <material name="Grey" />
+		</visual>
+
+		<collision>
+		   <origin xyz="0 0 0.25" rpy="0 0 0" />
+		   <geometry>
+			  <cylinder radius="0.1" length="0.5"/>
+		   </geometry>
+		</collision>
+	</link>
+
   <!-- arm -->
-  <xacro:cob_arm_v0 name="arm" parent="world">
-    <origin xyz="0 0 0.01" rpy="3.1415926 0 0" />
+  <xacro:cob_arm_v0 name="arm" parent="base_link">
+    <origin xyz="0 0 0.5" rpy="3.1415926 0 0" />
   </xacro:cob_arm_v0>
   
   <!-- sdh -->

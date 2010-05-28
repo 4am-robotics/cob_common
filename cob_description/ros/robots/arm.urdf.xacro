@@ -21,7 +21,7 @@
   <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
 
   <!-- foot for arm-->
-	<link name="foot_link">
+	<link name="base_link">
 		<inertial>
 		   <origin xyz="0 0 0" rpy="0 0 0"/>
 		   <mass value="10.0"/>
@@ -45,8 +45,8 @@
 	</link>
 
   <!-- cob arm-->
-  <xacro:cob_arm_v0 name="arm" parent="foot_link">
-    <origin xyz="0 0 0.51" rpy="3.1415926 0 0" />
+  <xacro:cob_arm_v0 name="arm" parent="base_link">
+    <origin xyz="0 0 0.5" rpy="3.1415926 0 0" />
   </xacro:cob_arm_v0>
 
 </robot>
