@@ -1,5 +1,0 @@
-<launch>
-    <!-- send cob urdf platform to param server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/cob_platform.urdf.xacro'" />
-
-</launch>

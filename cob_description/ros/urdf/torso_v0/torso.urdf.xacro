@@ -15,7 +15,7 @@
 
     <!--joint between base_link and torso_tray_link -->
     <joint name="${name}_tray_joint" type="revolute">
-       <origin xyz="0.16 0.192 0.680" rpy="2.4346 0 0" />
+       <origin xyz="0.2406 0.1900 0.8320" rpy="2.3561 0 0" />
        <parent link="${parent}"/>
        <child link="${name}_tray_link"/>
        <axis xyz="0 0 1" />
@@ -32,7 +32,7 @@
        </inertial>
 
        <visual>
-	 <origin xyz="0 0 0" rpy="0.707 0 0" />
+	 <origin xyz="0 0 0" rpy="0 0 0" />
 	 <geometry>
 	    <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
 	 </geometry>
@@ -41,9 +41,9 @@
        </visual>
 
        <collision>
-	 <origin xyz="0 0 0" rpy="0.707 0 0" />
+	 <origin xyz="0 0 0" rpy="0 0 0" />
 	 <geometry>
-	    <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
+	  <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
 	 </geometry>
        </collision>
     </link>
@@ -55,7 +55,7 @@
       <child link="${name}_lower_neck_pan_link"/>
       <axis xyz="0 0 1" />
       <calibration reference_position="${torso_lower_neck_pan_ref}"/>
-      <dynamics damping="15.0" friction="10.0"/>
+      <dynamics damping="25.0" friction="10.0"/>
       <limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/> 
     </joint>
 
@@ -88,7 +88,7 @@
       <parent link="${name}_lower_neck_pan_link"/>
       <child link="${name}_lower_neck_tilt_link"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="15.0" friction="10.0"/>
+      <dynamics damping="25.0" friction="10.0"/>
       <calibration reference_position="${torso_lower_neck_tilt_ref}"/>
       <limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/> 
     </joint>
@@ -124,7 +124,7 @@
       <parent link="${name}_lower_neck_tilt_link"/>
       <child link="${name}_upper_neck_pan_link"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="15.0" friction="10.0"/>
+      <dynamics damping="25.0" friction="10.0"/>
       <calibration reference_position="${torso_upper_neck_pan_ref}"/>
       <limit effort="4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
     </joint>
@@ -158,7 +158,7 @@
       <parent link="${name}_upper_neck_pan_link"/>
       <child link="${name}_upper_neck_tilt_link"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="15.0" friction="10.0"/>
+      <dynamics damping="25.0" friction="10.0"/>
       <calibration reference_position="${torso_upper_neck_tilt_ref}"/>
       <limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
     </joint>
