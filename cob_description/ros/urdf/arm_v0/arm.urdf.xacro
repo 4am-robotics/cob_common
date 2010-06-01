@@ -64,7 +64,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J1.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm1.stl" />
 			</geometry>
                         <material name="Blue" />  
 
@@ -72,7 +72,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J1.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm1.stl" />
 			</geometry>
 		</collision>
 	</link>
@@ -97,7 +97,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J2.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stl" />
 			</geometry>
                         <material name="Red" /> 
                          
@@ -105,7 +105,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J2.STL"/>
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -130,7 +130,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" /> 
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J3.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm3.stl" />
 			</geometry>
                         <material name="Blue" /> 
                           
@@ -138,7 +138,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J3.STL"/>
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm3.stl"/>
 			</geometry>
 		</collision>
 	</link>	
@@ -163,7 +163,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J4.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm4.stl" />
 			</geometry>
                         <material name="Red" /> 
                         
@@ -171,7 +171,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J4.STL"/>
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm4.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -196,7 +196,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J5.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm5.stl" />
 			</geometry>
                         <material name="Blue" /> 
                         
@@ -204,7 +204,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J5.STL"/>
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm5.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -229,7 +229,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J6.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm6.stl" />
 			</geometry>
                         <material name="Red" /> 
                        
@@ -237,7 +237,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J6.STL"/>
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm6.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -262,7 +262,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J7.STL" />
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm7.stl" />
 			</geometry>
                         <material name="Blue" /> 
                        
@@ -270,7 +270,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_description/ros/meshes/arm_v0/J7.STL"/>
+				<mesh filename="package://cob_description/ros/meshes/arm_v0/arm7.stl"/>
 			</geometry>
 		</collision>
 	</link>

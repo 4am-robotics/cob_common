@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <robot>
 
-  <property name="M_PI" value="3.1415926535897931" />
-
   <!-- torso reference position -->
   <property name="torso_lower_neck_pan_ref" value="0.0" />
   <property name="torso_lower_neck_tilt_ref" value="0.0" />
