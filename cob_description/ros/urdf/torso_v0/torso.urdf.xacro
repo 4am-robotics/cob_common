@@ -21,7 +21,7 @@
        <axis xyz="0 0 1" />
        <calibration reference_position="${torso_tray_ref}"/>
        <dynamics damping="5.0" friction="0.5"/>
-       <limit effort="100" lower="-3.31612" upper="0" velocity="5"/>
+       <limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
     </joint>
    
     <link name="${name}_tray_link">
