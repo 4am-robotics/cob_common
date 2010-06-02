@@ -9,7 +9,7 @@
   <!-- misc common stuff? -->
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
   
-  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/calibration/cob3-sim.urdf.xacro" />
 
   <!-- cob arm-->
   <include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" />
@@ -27,8 +27,8 @@
 	<link name="base_link">
 		<inertial>
 		   <origin xyz="0 0 0" rpy="0 0 0"/>
-		   <mass value="10.0"/>
-		   <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		   <mass value="100.0"/>
+		   <inertia ixx="10.0"  ixy="0"  ixz="0" iyy="100.0" iyz="0" izz="100.0" />
 		</inertial>
 
 		<visual>
