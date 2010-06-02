@@ -9,7 +9,7 @@
   <!-- misc common stuff? -->
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
   
-  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/calibration/cob3-sim.urdf.xacro" />
 
   <!-- cob arm-->
   <include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" />
