@@ -1,13 +1,18 @@
 <package>
   <description brief="cob_defs">
 
-     cob3_defs
+     This package contains the description (mechanical, kinematic, visual,
+  etc.) of the Care-O-bot robot. The files in this package are parsed and used by
+  a variety of other components. Most users will not interact directly
+  with this package.
+  
+  NOTE: This package is deprecated and will be substituted with cob_description!
 
   </description>
   <author>Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
-  <url>http://www.care-o-bot.org</url>
+  <url>http://ros.org/wiki/cob_defs</url>
 
   <depend package="urdf"/>
   <depend package="ivcon"/>

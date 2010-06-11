@@ -8,43 +8,43 @@
   <xacro:macro name="cob_arm_gazebo_v0" params="name">
     
 	<gazebo reference="${name}_0_link">
-		<material value="PR2/Red" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Red" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="${name}_1_link">
-		<material value="PR2/Blue" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Blue" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 	
 	<gazebo reference="${name}_2_link">
-		<material value="PR2/Red" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Red" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 	
 	<gazebo reference="${name}_3_link">
-		<material value="PR2/Blue" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Blue" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 	
 	<gazebo reference="${name}_4_link">
-		<material value="PR2/Red" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Red" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="${name}_5_link">
-		<material value="PR2/Blue" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Blue" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="${name}_6_link">
-		<material value="PR2/Red" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Red" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 
 	<gazebo reference="${name}_7_link">
-		<material value="PR2/Blue" />
-		<turnGravityOff>false</turnGravityOff>
+		<material value="Gazebo/Blue" />
+		<turnGravityOff>true</turnGravityOff>
 	</gazebo>
 
   </xacro:macro>
