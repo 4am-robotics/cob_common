@@ -97,38 +97,53 @@ unsigned long CameraSensorToolbox::Release()
 	std::map<std::string, IplImage*>::iterator iplImageIterator;
 
 	// Release intrinsic matrix
-	while (!m_intrinsicMatrices.empty())
+	if (!m_intrinsicMatrices.empty())
 	{
-		matrixIterator = m_intrinsicMatrices.begin();
-		m_intrinsicMatrices.erase(matrixIterator);
+		for (matrixIterator=m_intrinsicMatrices.begin(); matrixIterator!=m_intrinsicMatrices.end(); matrixIterator++)
+		{
+			cvReleaseMat(&matrixIterator->second);
+		}
+		m_intrinsicMatrices.erase(m_intrinsicMatrices.begin(), m_intrinsicMatrices.end());
 	}
 
 	// Release distortion parameters
-	while (!m_distortionCoeffs.empty())
+	if (!m_distortionCoeffs.empty())
 	{
-		matrixIterator = m_distortionCoeffs.begin();
-		m_distortionCoeffs.erase(matrixIterator);
+		for (matrixIterator=m_distortionCoeffs.begin(); matrixIterator!=m_distortionCoeffs.end(); matrixIterator++)
+		{
+			cvReleaseMat(&matrixIterator->second);
+		}
+		m_distortionCoeffs.erase(m_distortionCoeffs.begin(), m_distortionCoeffs.end());
 	}
 
 	// Release undistortion maps X
-	while (!m_undistortMapsX.empty())
+	if (!m_undistortMapsX.empty())
 	{
-		iplImageIterator = m_undistortMapsX.begin();
-		m_undistortMapsX.erase(iplImageIterator);
+		for (iplImageIterator=m_undistortMapsX.begin(); iplImageIterator!=m_undistortMapsX.end(); iplImageIterator++)
+		{
+			cvReleaseImage(&iplImageIterator->second);
+		}
+		m_undistortMapsX.erase(m_undistortMapsX.begin(), m_undistortMapsX.end());
 	}
 
 	// Release undistortion maps Y
-	while (!m_undistortMapsY.empty())
+	if (!m_undistortMapsY.empty())
 	{
-		iplImageIterator = m_undistortMapsY.begin();
-		m_undistortMapsY.erase(iplImageIterator);
+		for (iplImageIterator=m_undistortMapsY.begin(); iplImageIterator!=m_undistortMapsY.end(); iplImageIterator++)
+		{
+			cvReleaseImage(&iplImageIterator->second);
+		}
+		m_undistortMapsY.erase(m_undistortMapsY.begin(), m_undistortMapsY.end());
 	}
 
 	// Release extrinsic matrices
-	while (!m_extrinsicMatrices.empty())
+	if (!m_extrinsicMatrices.empty())
 	{
-		matrixIterator = m_extrinsicMatrices.begin();
-		m_extrinsicMatrices.erase(matrixIterator);
+		for (matrixIterator=m_extrinsicMatrices.begin(); matrixIterator!=m_extrinsicMatrices.end(); matrixIterator++)
+		{
+			cvReleaseMat(&matrixIterator->second);
+		}
+		m_extrinsicMatrices.erase(m_extrinsicMatrices.begin(), m_extrinsicMatrices.end());
 	}
 
 	return RET_OK;
@@ -136,6 +151,8 @@ unsigned long CameraSensorToolbox::Release()
 
 CameraSensorToolbox::CameraSensorToolbox(const CameraSensorToolbox& cst)
 {
+	Release();
+
 	std::map<std::string, CvMat*>::const_iterator matrixIterator;
 	std::map<std::string, IplImage*>::const_iterator iplImageIterator;
 
@@ -179,6 +196,8 @@ CameraSensorToolbox& CameraSensorToolbox::operator=(const CameraSensorToolbox& c
 	{
 		 return *this;
 	}
+
+	Release();
 
 	std::map<std::string, CvMat*>::const_iterator matrixIterator;
 	std::map<std::string, IplImage*>::const_iterator iplImageIterator;
@@ -323,12 +342,22 @@ unsigned long CameraSensorToolbox::ConvertCameraTypeToString(ipa_CameraSensors::
 
 CvMat* CameraSensorToolbox::GetExtrinsicParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex)
 {
-	CvMat* extrinsicMatrix = 0;
-	if (GetExtrinsicParameters(cameraType, cameraIndex, &extrinsicMatrix) & RET_FAILED)
+	std::stringstream ss;
+	std::string extrinsicMapName = "";
+
+	ConvertCameraTypeToString(cameraType, extrinsicMapName);
+	ss << extrinsicMapName << "_" << cameraIndex;
+
+	if (m_extrinsicMatrices.find(ss.str()) == m_extrinsicMatrices.end())
 	{
+		std::cout << "ERROR - CameraSensorToolbox::GetExtrinsicParameters:" << std::endl;
+		std::cout << "\t ... Extrinsic matrix to '" << ss.str() << "' not specified\n";
 		return 0;
 	}
-	return extrinsicMatrix;
+	else
+	{
+		return m_extrinsicMatrices[ss.str()];
+	}
 }
 
 unsigned long CameraSensorToolbox::GetExtrinsicParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, CvMat** _extrinsic_matrix)
@@ -347,7 +376,7 @@ unsigned long CameraSensorToolbox::GetExtrinsicParameters(ipa_CameraSensors::t_c
 	}
 	else
 	{
-		*_extrinsic_matrix = cvCloneMat(m_extrinsicMatrices[ss.str()]);
+		(*_extrinsic_matrix) = cvCloneMat(m_extrinsicMatrices[ss.str()]);
 		return RET_OK;
 	}
 }
@@ -400,12 +429,22 @@ unsigned long CameraSensorToolbox::SetExtrinsicParameters(std::string key,
 
 CvMat* CameraSensorToolbox::GetIntrinsicMatrix(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex)
 {
-	CvMat* intrinsicMatrix = 0;
-	if (GetIntrinsicMatrix(cameraType, cameraIndex, &intrinsicMatrix) & RET_FAILED)
+	std::stringstream ss;
+	std::string intrinsicMapName = "";
+
+	ConvertCameraTypeToString(cameraType, intrinsicMapName);
+	ss << intrinsicMapName << "_" << cameraIndex;
+
+	if (m_intrinsicMatrices.find(ss.str()) == m_intrinsicMatrices.end())
 	{
+		std::cout << "ERROR - CameraSensorToolbox::GetIntrinsicMatrix:" << std::endl;
+		std::cout << "\t ... Intrinsic matrix related to '" << ss.str() << "' not specified\n";
 		return 0;
 	}
-	return intrinsicMatrix;
+	else
+	{
+		return m_intrinsicMatrices[ss.str()];
+	}
 }
 
 unsigned long CameraSensorToolbox::GetIntrinsicMatrix(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, CvMat** _intrinsic_matrix)
@@ -424,7 +463,7 @@ unsigned long CameraSensorToolbox::GetIntrinsicMatrix(ipa_CameraSensors::t_camer
 	}
 	else
 	{
-		*_intrinsic_matrix = cvCloneMat(m_intrinsicMatrices[ss.str()]);
+		(*_intrinsic_matrix) = cvCloneMat(m_intrinsicMatrices[ss.str()]);
 		return RET_OK;
 	}
 }
@@ -517,12 +556,22 @@ unsigned long CameraSensorToolbox::SetIntrinsicParameters(std::string key,
 
 CvMat* CameraSensorToolbox::GetDistortionParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex)
 {
-	CvMat* distortionParameters = 0;
-	if (GetDistortionParameters(cameraType, cameraIndex, &distortionParameters) & RET_FAILED)
+	std::stringstream ss;
+	std::string distortionMapName = "";
+
+	ConvertCameraTypeToString(cameraType, distortionMapName);
+	ss << distortionMapName << "_" << cameraIndex;
+
+	if (m_distortionCoeffs.find(ss.str()) == m_distortionCoeffs.end())
 	{
+		std::cout << "ERROR - CameraSensorToolbox::GetDistortionParameters:" << std::endl;
+		std::cout << "\t ... Distortion parameters related to '" << ss.str() << "' not specified\n";
 		return 0;
 	}
-	return distortionParameters;
+	else
+	{
+		return m_distortionCoeffs[ss.str()];
+	}
 }
 
 unsigned long CameraSensorToolbox::GetDistortionParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, CvMat** _distortion_parameters)
@@ -548,12 +597,22 @@ unsigned long CameraSensorToolbox::GetDistortionParameters(ipa_CameraSensors::t_
 
 IplImage* CameraSensorToolbox::GetDistortionMapX(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex)
 {
-	IplImage* undistortMapX = 0;
-	if (GetDistortionMapX(cameraType, cameraIndex, &undistortMapX) & RET_FAILED)
+	std::stringstream ss;
+	std::string distortionMapName = "";
+
+	ConvertCameraTypeToString(cameraType, distortionMapName);
+	ss << distortionMapName << "_" << cameraIndex;
+
+	if (m_undistortMapsX.find(ss.str()) == m_undistortMapsX.end())
 	{
+		std::cout << "ERROR - CameraSensorToolbox::GetDistortionMapX:" << std::endl;
+		std::cout << "\t ... Undistortion map X related to '" << ss.str() << "' not specified\n";
 		return 0;
 	}
-	return undistortMapX;
+	else
+	{
+		return m_undistortMapsX[ss.str()];
+	}
 }
 
 unsigned long CameraSensorToolbox::GetDistortionMapX(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, IplImage** _undistort_map_X)
@@ -579,12 +638,22 @@ unsigned long CameraSensorToolbox::GetDistortionMapX(ipa_CameraSensors::t_camera
 
 IplImage* CameraSensorToolbox::GetDistortionMapY(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex)
 {
-	IplImage* undistortMapY = 0;
-	if (GetDistortionMapY(cameraType, cameraIndex, &undistortMapY) & RET_FAILED)
+	std::stringstream ss;
+	std::string distortionMapName = "";
+
+	ConvertCameraTypeToString(cameraType, distortionMapName);
+	ss << distortionMapName << "_" << cameraIndex;
+
+	if (m_undistortMapsY.find(ss.str()) == m_undistortMapsY.end())
 	{
+		std::cout << "ERROR - CameraSensorToolbox::GetDistortionMapY:" << std::endl;
+		std::cout << "\t ... Undistortion map Y related to '" << ss.str() << "' not specified\n";
 		return 0;
 	}
-	return undistortMapY;
+	else
+	{
+		return m_undistortMapsY[ss.str()];
+	}
 }
 
 unsigned long CameraSensorToolbox::GetDistortionMapY(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, IplImage** _undistort_map_Y)
@@ -693,7 +762,7 @@ unsigned long CameraSensorToolbox::LoadParameters(const char* filename, ipa_Came
 	ConvertCameraTypeToString(cameraType, xmlTagName);
 	ss << xmlTagName << "_" << cameraIndex;
 
-	TiXmlDocument* p_configXmlDocument = new TiXmlDocument( filename );
+	boost::shared_ptr<TiXmlDocument> p_configXmlDocument (new TiXmlDocument( filename ));
 	if (!p_configXmlDocument->LoadFile())
 	{
 		std::cerr << "ERROR - CameraSensorsToolbox::LoadParameters:" << std::endl;
