@@ -105,7 +105,6 @@ unsigned long CameraSensorToolbox::Release()
 		}
 		m_intrinsicMatrices.erase(m_intrinsicMatrices.begin(), m_intrinsicMatrices.end());
 	}
-
 	// Release distortion parameters
 	if (!m_distortionCoeffs.empty())
 	{
@@ -115,7 +114,6 @@ unsigned long CameraSensorToolbox::Release()
 		}
 		m_distortionCoeffs.erase(m_distortionCoeffs.begin(), m_distortionCoeffs.end());
 	}
-
 	// Release undistortion maps X
 	if (!m_undistortMapsX.empty())
 	{
@@ -125,7 +123,6 @@ unsigned long CameraSensorToolbox::Release()
 		}
 		m_undistortMapsX.erase(m_undistortMapsX.begin(), m_undistortMapsX.end());
 	}
-
 	// Release undistortion maps Y
 	if (!m_undistortMapsY.empty())
 	{
@@ -135,7 +132,6 @@ unsigned long CameraSensorToolbox::Release()
 		}
 		m_undistortMapsY.erase(m_undistortMapsY.begin(), m_undistortMapsY.end());
 	}
-
 	// Release extrinsic matrices
 	if (!m_extrinsicMatrices.empty())
 	{
@@ -145,7 +141,6 @@ unsigned long CameraSensorToolbox::Release()
 		}
 		m_extrinsicMatrices.erase(m_extrinsicMatrices.begin(), m_extrinsicMatrices.end());
 	}
-
 	return RET_OK;
 }
 
