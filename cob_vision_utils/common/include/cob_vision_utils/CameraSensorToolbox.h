@@ -91,6 +91,7 @@
 #include <map>
 #include <iostream>
 #include <sstream>
+#include <boost/shared_ptr.hpp>
 
 namespace ipa_CameraSensors {
 

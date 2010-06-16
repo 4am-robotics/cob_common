@@ -59,6 +59,38 @@
 
 namespace ipa_Utils {
 
+cv::Mat vstack(const std::vector<cv::Mat> &mats)
+{
+    if (mats.empty())
+        return cv::Mat();
+
+    // we need to know the total number of rows to create the stacked matrix
+    int nRows = 0;
+    int nCols = mats.front().cols;
+    int datatype = mats.front().type();
+    std::vector<cv::Mat>::const_iterator it;
+    for (it = mats.begin(); it != mats.end(); ++it)
+    {
+        nRows += it->rows;
+        // make sure all mats have same num of cols and data type
+        CV_Assert(it->cols == nCols);
+        CV_Assert(it->type() == datatype);
+    }
+
+    // copy data to stacked matrix
+    int startRow = 0;
+    int endRow = 0;
+    cv::Mat stacked(nRows, nCols, datatype);
+    for (it = mats.begin(); it != mats.end(); ++it)
+    {
+        startRow = endRow;
+        endRow = startRow + it->rows;
+       // it->copyTo(stacked.rowRange(startRow, endRow));
+    }
+
+    return stacked;
+}
+
 void DblMatrixList::PushBackIplImage(IplImage* Image)
 {
 	assert(Image->nChannels==1);

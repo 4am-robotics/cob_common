@@ -117,6 +117,11 @@ public:
 	void GetColumn(int k, int i, DblVector& Column, int Step=1);	
 };
 
+/// Combines different matrices row wise, so that the number of
+/// columns remains the same and the number of rows increases.
+/// @return The stacked matrix
+cv::Mat vstack(const std::vector<cv::Mat> &mats);
+
 void InitUndistortMap( const CvMat* A, const CvMat* dist_coeffs,
                     CvArr* mapxarr, CvArr* mapyarr );
 
