@@ -60,8 +60,8 @@
 /// This file and the corresponding .cpp file were written by Jens Kubacki and Jan Fischer in 2005-2008.
 /// Latest updates: November 2008.
 
-#ifndef MATHUTILS_H
-#define MATHUTILS_H
+#ifndef __IPA_MATHUTILS_H__
+#define __IPA_MATHUTILS_H__
 
 #ifdef __COB_ROS__
 #include <opencv/cv.h>
@@ -917,4 +917,4 @@ void GetVectorFromImage(IplImage* Img, DblVector& v, CvScalar* Scale=NULL);
 
 } // end namespace ipa_Utils
 
-#endif
+#endif // __IPA_MATHUTILS_H__
