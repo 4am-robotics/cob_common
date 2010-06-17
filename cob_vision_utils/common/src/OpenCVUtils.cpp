@@ -81,11 +81,13 @@ cv::Mat vstack(const std::vector<cv::Mat> &mats)
     int startRow = 0;
     int endRow = 0;
     cv::Mat stacked(nRows, nCols, datatype);
+    cv::Mat tmpMat;
     for (it = mats.begin(); it != mats.end(); ++it)
     {
         startRow = endRow;
         endRow = startRow + it->rows;
-       // it->copyTo(stacked.rowRange(startRow, endRow));
+	tmpMat = stacked.rowRange(startRow, endRow);
+        it->copyTo(tmpMat);
     }
 
     return stacked;
