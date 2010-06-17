@@ -24,12 +24,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/palm.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/palm.stl" />
 			</geometry>
                         <material name="Grey" />
 
@@ -37,7 +37,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/palm.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/palm.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -49,6 +49,7 @@
 		<parent link="${name}_palm_link"/>
 		<child link="${name}_finger_11_link"/>
 		<axis xyz="0 0 1" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -57,12 +58,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/knuckle.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl" />
 			</geometry>
                         <material name="Black" />
 
@@ -70,7 +71,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/knuckle.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -81,6 +82,7 @@
 		<parent link="${name}_finger_11_link"/>
 		<child link="${name}_finger_12_link"/>
 		<axis xyz="0 1 0" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -89,12 +91,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stl" />
 			</geometry>
                         <material name="Red" />
 
@@ -102,7 +104,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -113,6 +115,7 @@
 		<parent link="${name}_finger_12_link"/>
 		<child link="${name}_finger_13_link"/>
 		<axis xyz="0 1 0" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -121,12 +124,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stl" />
 			</geometry>
                         <material name="Blue" />
 
@@ -134,7 +137,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -146,6 +149,7 @@
 		<parent link="${name}_palm_link"/>
 		<child link="${name}_finger_21_link"/>
 		<axis xyz="0 0 1" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -154,12 +158,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/knuckle.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl" />
 			</geometry>
                         <material name="Black" />
 
@@ -167,7 +171,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="1.57079633 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/knuckle.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -178,6 +182,7 @@
 		<parent link="${name}_finger_21_link"/>
 		<child link="${name}_finger_22_link"/>
 		<axis xyz="0 1 0" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -186,12 +191,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stl" />
 			</geometry>
                         <material name="Red" />
 
@@ -199,7 +204,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -210,6 +215,7 @@
 		<parent link="${name}_finger_22_link"/>
 		<child link="${name}_finger_23_link"/>
 		<axis xyz="0 1 0" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -218,12 +224,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stl" />
 			</geometry>
                         <material name="Blue" />
 
@@ -231,7 +237,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -249,12 +255,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/knuckle.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl" />
 			</geometry>
                         <material name="Black" />
 
@@ -262,7 +268,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/knuckle.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -273,6 +279,7 @@
 		<parent link="${name}_thumb_1_link"/>
 		<child link="${name}_thumb_2_link"/>
 		<axis xyz="0 1 0" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
@@ -281,12 +288,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>	
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stl" />
 			</geometry>
                         <material name="Red" />
 
@@ -294,7 +301,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stl"/>
 			</geometry>
 		</collision>
 	</link>
@@ -305,6 +312,7 @@
 		<parent link="${name}_thumb_2_link"/>
 		<child link="${name}_thumb_3_link"/>
 		<axis xyz="0 1 0" />
+                <dynamics damping="1" />
 	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/>
 	</joint> 
@@ -313,12 +321,12 @@
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
-			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" />
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stl" />
 			</geometry>
                         <material name="Blue" />
 
@@ -326,7 +334,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl"/>
+				<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stl"/>
 			</geometry>
 		</collision>
 	</link>

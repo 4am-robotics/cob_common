@@ -25,7 +25,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <cylinder radius="0.01" length="0.01"/>
+          <cylinder radius="0.005" length="0.005"/>
         </geometry>
         <material name="Red" />
       </visual>
@@ -33,7 +33,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-           <cylinder radius="0.01" length="0.01"/>
+           <cylinder radius="0.001" length="0.001"/>
         </geometry>
       </collision >
     </link>

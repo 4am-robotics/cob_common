@@ -16,9 +16,4 @@
   <depend package="ivcon"/>
   <depend package="urdf"/>
 
-  <!-- deps for testing -->
-  <depend package="rospy"/> 
-  <depend package="actionlib"/>
-  <depend package="pr2_controllers_msgs"/>
-
 </package>
