@@ -536,7 +536,9 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 
 				float* c_dest_ptr = (float*) (dest->imageData + j*dest->widthStep);
 				float* c_destMask_ptr = (float*) (destMask->imageData + j*destMask->widthStep);
-				unsigned char* c_destMaskColor_ptr = (unsigned char*) (destMaskColor->imageData + j*destMaskColor->widthStep);
+				unsigned char* c_destMaskColor_ptr;
+				if(destMaskColor)
+					c_destMaskColor_ptr = (unsigned char*) (destMaskColor->imageData + j*destMaskColor->widthStep);
 
 				for(int i=0; i<source->width; i++)
 				{
@@ -550,53 +552,32 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 					double z = (double)f_source_ptr[sourceIndex + sourceChannel-1];
 					float maskVal = f_mask_ptr[maskIndex];
 
-					/*if(maskVal<1000)
+					if(destMaskColor)
 					{
-						c_destMaskColor_ptr[maskColorIndex]= 255;
-						c_destMaskColor_ptr[maskColorIndex+1]= 0;
-						c_destMaskColor_ptr[maskColorIndex+2]= 0;
-					}
-					else if(maskVal>1000 && maskVal<2000)
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 0;
-						c_destMaskColor_ptr[maskColorIndex+1]= 255;
-						c_destMaskColor_ptr[maskColorIndex+2]= 0;
-					}
-					else if(maskVal>2000 && maskVal<3000)
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 0;
-						c_destMaskColor_ptr[maskColorIndex+1]= 0;
-						c_destMaskColor_ptr[maskColorIndex+2]= 255;
-					}
-					else if(maskVal>3000 && maskVal<4000)
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 0;
-						c_destMaskColor_ptr[maskColorIndex+1]= 125;
-						c_destMaskColor_ptr[maskColorIndex+2]= 125;
-					}
-					else*/ if(maskVal>maxMaskThresh)
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 0;
-						c_destMaskColor_ptr[maskColorIndex+1]= 0;
-						c_destMaskColor_ptr[maskColorIndex+2]= 255;
-					}
-					else if(maskVal<minMaskThresh)
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 0;
-						c_destMaskColor_ptr[maskColorIndex+1]= 255;
-						c_destMaskColor_ptr[maskColorIndex+2]= 0;
-					}
-					else if(z<0.3)
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 255;
-						c_destMaskColor_ptr[maskColorIndex+1]= 0;
-						c_destMaskColor_ptr[maskColorIndex+2]= 0;
-					}
-					else
-					{
-						c_destMaskColor_ptr[maskColorIndex]= 0;
-						c_destMaskColor_ptr[maskColorIndex+1]= 0;
-						c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						if(maskVal>maxMaskThresh)
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 0;
+							c_destMaskColor_ptr[maskColorIndex+1]= 0;
+							c_destMaskColor_ptr[maskColorIndex+2]= 255;
+						}
+						else if(maskVal<minMaskThresh)
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 0;
+							c_destMaskColor_ptr[maskColorIndex+1]= 255;
+							c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						}
+						else if(z<0.3)
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 255;
+							c_destMaskColor_ptr[maskColorIndex+1]= 0;
+							c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						}
+						else
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 0;
+							c_destMaskColor_ptr[maskColorIndex+1]= 0;
+							c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						}
 					}
 
 					if (maskVal < maxMaskThresh &&
