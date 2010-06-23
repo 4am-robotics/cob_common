@@ -29,9 +29,9 @@
 		</inertial>
 
 		<visual>
-		   <origin xyz="0 0 0.005" rpy="0 0 0" />
+		   <origin xyz="0 0 0.09" rpy="0 0 0" />
 		   <geometry>
-		      <box size="0.01 0.01 0.01"/>
+		      <cylinder radius="0.045" length="0.18"/>
 		   </geometry>
 		   <material name="Red" />
 		</visual>
