@@ -964,7 +964,7 @@ unsigned long ConvertToShowImage(IplImage* source, IplImage* dest, int channel, 
 					char* c_dest_ptr = &((char*) (dest->imageData + j*dest->widthStep))[i*3];
 		
 					double z = (double)f_source_ptr[channel-1];
-					
+
 					if (z < min) z = min;
 					if (z > max) z = max;
 
