@@ -1,11 +1,11 @@
 <package>
   <description brief="cob_actions">
 
-     cob_actions
+     This Package contains Care-O-bot specific action definitions.
 
   </description>
-  <author></author>
-  <license>BSD</license>
+  <author>Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
+  <license>LGPL</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_actions</url>
 
@@ -13,11 +13,10 @@
   <depend package="actionlib"/>
   <depend package="actionlib_msgs"/>
   <depend package="trajectory_msgs"/>
+  <depend package="cob_msgs"/>
 
   <export>
     <cpp cflags="-I${prefix}/msg/cpp"/>
   </export>
 
 </package>
-
-

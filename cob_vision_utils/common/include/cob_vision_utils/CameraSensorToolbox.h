@@ -91,6 +91,7 @@
 #include <map>
 #include <iostream>
 #include <sstream>
+#include <boost/shared_ptr.hpp>
 
 namespace ipa_CameraSensors {
 
@@ -123,17 +124,20 @@ class CameraSensorToolbox
 		virtual unsigned long Init(std::string directory, ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, const CvSize imageSize);
 
 		/// Initialize the camera sensor toolbox.
-		/// @param intrinsicMatrix Intrinsic parameters [fx 0 cx; 0 fy cy; 0 0 1]
+		/// @param intrinsicMatrices Intrinsic parameters [fx 0 cx; 0 fy cy; 0 0 1]
 		/// @param distortionParameters Distortion coefficients [k1, k2, p1=0, p2=0]
-		/// @param extrinsicMatrix 3x4 matrix of the form (R|t), where R is a 3x3 rotation matrix
+		/// @param extrinsicMatrices 3x4 matrix of the form (R|t), where R is a 3x3 rotation matrix
 		/// and t a 3x1 translation vector.
-		/// @param undistortMapX The output array of x coordinates for the undistortion map
+		/// @param undistortMapsX The output array of x coordinates for the undistortion map
 		/// @param undistortMapY The output array of Y coordinates for the undistortion map
 		/// @param imageSize The Size of the image returned by the camera
 		/// @return Return code
-		virtual unsigned long Init(const CvMat* intrinsicMatrix, const CvMat* distortionParameters, 
-			const std::map<std::string, CvMat*>* extrinsicMatrices, 
-			const IplImage* undistortMapX, const IplImage* undistortMapY, const CvSize imageSize);
+		virtual unsigned long Init(const std::map<std::string, CvMat*>* intrinsicMatrices,
+									const std::map<std::string, CvMat*>* distortionParameters,
+									const std::map<std::string, CvMat*>* extrinsicMatrices,
+									const std::map<std::string, IplImage*>* undistortMapsX,
+									const std::map<std::string, IplImage*>* undistortMapY,
+									const CvSize imageSize);
 
 		/// Returns a matrix of the camera's extrinsic parameters.
 		/// The extrinsic matrix is a 4x3 matrix of the format (R|t), where R desribes a 3x3 rotation matrix and
@@ -174,50 +178,64 @@ class CameraSensorToolbox
 			const CvMat* _rotation, const CvMat* _translation);
 
 		/// Returns a matrix of the camera's intrinsic parameters.
-		/// @param _intrinsic_matrix The OpenCV matrix that should refer to the intrinsic parameters.
-		/// @return Return code.
-		virtual unsigned long GetIntrinsicParameters(CvMat** _intrinsic_matrix); 
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @return The OpenCV matrix that should refer to the intrinsic parameters
+		virtual CvMat* GetIntrinsicMatrix(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex);
 
 		/// Returns a matrix of the camera's intrinsic parameters.
-		/// @return The OpenCV matrix that should refer to the intrinsic parameters.
-		virtual CvMat* GetIntrinsicParameters(); 
-
-		/// Initializes the intrinsic parameters of the camera.
-		/// The following equations apply: (x,y,z) = R*(X,Y,Z) + t and
-		/// x' = x/z, y' = y/z and u = fx*x' + cx, v = fy*y' + cy. The model might be extended
-		/// with distortion coefficients to replace x' and y' with 
-		/// x'' = x'*(1 + k1*r^2 + k2*r^4) + 2*p1*x'*y' + p2(r^2+2*x'^2)
-		/// y'' = y'*(1 + k1*r^2 + k2*r^4) + p1(r^2+2*y'^2) + 2*p2*x'*y'
-		/// For a detailed description see openCV camera calibration description. 
-		/// @param fx The focal length in x direction expressed in pixels
-		/// @param fy The focal length in y direction expressed in pixels
-		/// @param cx x-coordinate of principal point
-		/// @param cy y-coordinate of principal point
-		/// @return Return code.
-		virtual unsigned long SetIntrinsicParameters(double fx, double fy, double cx, double cy);
-
-		/// Returns the distortion coefficients.
-		/// The matrix is given by [k1, k2, p1, p2] where k1, k2 are radial distortion coefficients
-		/// and p1, p2 are tangential distortion coefficients.
-		/// @param _distortion_coeffs The OpenCV matrix that refers to the distortion parameters.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @param _intrinsic_matrix The OpenCV matrix that should refer to the intrinsic parameters
 		/// @return Return code
-		virtual unsigned long GetDistortionParameters(CvMat** _distortion_parameters);
+		virtual unsigned long GetIntrinsicMatrix(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, CvMat** _intrinsic_matrix);
 
 		/// Returns the distortion coefficients.
 		/// The matrix is given by [k1, k2, p1, p2] where k1, k2 are radial distortion coefficients
 		/// and p1, p2 are tangential distortion coefficients.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
 		/// @return The OpenCV matrix that refers to the distortion parameters.
-		virtual CvMat* GetDistortionParameters();
+		virtual CvMat* GetDistortionParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex);
 
-		/// Returns the distortion map for x components
-		/// For each x pixel, the undistorted location is specified within the distortion map.
-		/// @return The distortion map for x components
-		virtual IplImage* GetDistortionMapX();
+		/// Returns the distortion coefficients.
+		/// The matrix is given by [k1, k2, p1, p2] where k1, k2 are radial distortion coefficients
+		/// and p1, p2 are tangential distortion coefficients.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @param _distortion_parameters The OpenCV matrix that refers to the distortion parameters
+		/// @return Return code
+		virtual unsigned long GetDistortionParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, CvMat** _distortion_parameters);
 
 		/// Returns the distortion map for y components
 		/// For each y pixel, the undistorted location is specified within the distortion map.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @param _undistort_map_Y Matrix to be initialize with the undistortion map for Y
+		/// @return Return code
+		virtual unsigned long GetDistortionMapY(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, IplImage** _undistort_map_Y);
+
+		/// Returns the distortion map for x components
+		/// For each y pixel, the undistorted location is specified within the distortion map.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
 		/// @return The distortion map for y components
-		virtual IplImage* GetDistortionMapY();
+		virtual IplImage* GetDistortionMapY(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex);
+
+		/// Returns the distortion map for x components
+		/// For each x pixel, the undistorted location is specified within the distortion map.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @param _undistort_map_X Matrix to be initialize with the undistortion map for X
+		/// @return The distortion map for x components
+		virtual unsigned long GetDistortionMapX(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, IplImage** _undistort_map_X);
+
+		/// Returns the distortion map for x components
+		/// For each x pixel, the undistorted location is specified within the distortion map.
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @return The distortion map for x components
+		virtual IplImage* GetDistortionMapX(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex);
 
 		/// Initializes the distortion parameters.
 		/// The following equations apply: (x,y,z) = R*(X,Y,Z) + t and
@@ -225,29 +243,48 @@ class CameraSensorToolbox
 		/// with distortion coefficients to replace x' and y' with 
 		/// x'' = x'*(1 + k1*r^2 + k2*r^4) + 2*p1*x'*y' + p2(r^2+2*x'^2)
 		/// y'' = y'*(1 + k1*r^2 + k2*r^4) + p1(r^2+2*y'^2) + 2*p2*x'*y'
-		/// @param k1 First order radial distortion coefficient
-		/// @param k2 Second order radial distortion coefficient
-		/// @param p1 First order tangential distortion coefficient
-		/// @param p1 Second order tangential distortion coefficient
+		/// @param cameraType The camera type, the parameters are optimized with
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
+		/// @param _intrinsicMatrix The cameras intrinsic matrix
+		/// @param _distortion_coeffs radial and tangential distortion coefficient
 		/// @return Return code.
-		virtual unsigned long SetDistortionParameters(double k1, double k2, double p1 , double p2);
+		virtual unsigned long SetIntrinsicParameters(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex, 
+			const CvMat* _intrinsicMatrix, const CvMat* _distortion_coeffs);
+
+		/// Initializes the distortion parameters.
+		/// The following equations apply: (x,y,z) = R*(X,Y,Z) + t and
+		/// x' = x/z, y' = y/z and u = fx*x' + cx, v = fy*y' + cy. The model might be extended
+		/// with distortion coefficients to replace x' and y' with 
+		/// x'' = x'*(1 + k1*r^2 + k2*r^4) + 2*p1*x'*y' + p2(r^2+2*x'^2)
+		/// y'' = y'*(1 + k1*r^2 + k2*r^4) + p1(r^2+2*y'^2) + 2*p2*x'*y'
+		/// @param key The key/identifier within the map of extrinsic matrices
+		/// @param _intrinsicMatrix The cameras intrinsic matrix
+		/// @param _distortion_coeffs radial and tangential distortion coefficient
+		/// @return Return code.
+		virtual unsigned long SetIntrinsicParameters(std::string key, const CvMat* _intrinsicMatrix, const CvMat* _distortion_coeffs);
 
 		/// Removes distortion from an image.
 		/// It is necessary to set the distortion coefficients prior to calling this function.
+		/// @param t_cameraType The camera type
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
 		/// @param src The distorted image.
 		/// @param dst The undistorted image.
 		/// @return Return code.
-		virtual unsigned long RemoveDistortion(const CvArr* src, CvArr* dst);
+		virtual unsigned long RemoveDistortion(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex,
+			const CvArr* src, CvArr* dst);
 
 		/// Returns image coordinates (u,v) from (x,y,z) coordinates. 
 		/// (x,y,z) is expressed within the cameras coordinate system.
+		/// @param t_cameraType The camera type
+		/// @param cameraIndex Index of the specified camera, the parameters are optimized with
 		/// @param u image coordinate u
 		/// @param v image coordinate v
 		/// @param x x-coordinates in mm relative to the camera's coodinate system.
 		/// @param y y-coordinates in mm relative to the camera's coodinate system.
 		/// @param z z-coordinates in mm relative to the camera's coodinate system.
 		/// @return Return code
-		virtual unsigned long ReprojectXYZ(double x, double y, double z, int& u, int& v);
+		virtual unsigned long ReprojectXYZ(ipa_CameraSensors::t_cameraType cameraType, int cameraIndex,
+			double x, double y, double z, int& u, int& v);
 
 	private:
 		
@@ -267,13 +304,13 @@ class CameraSensorToolbox
 
 		bool m_Initialized; ///< True, when the camera has sucessfully been initialized.
 
-		CvMat* m_intrinsicMatrix;	///< Intrinsic parameters [fx 0 cx; 0 fy cy; 0 0 1]
-		CvMat* m_distortionParameters;	///< Distortion coefficients [k1, k2, p1=0, p2=0]
+		std::map<std::string, CvMat*> m_intrinsicMatrices;	///< Intrinsic parameters [fx 0 cx; 0 fy cy; 0 0 1]
+		std::map<std::string, CvMat*> m_distortionCoeffs;	///< Distortion coefficients [k1, k2, p1=0, p2=0]
 		std::map<std::string, CvMat*> m_extrinsicMatrices; ///< a map of 3x4 matrix of the form (R|T),
 									/// where R is a 3x3 rotation matrix and T is a 3x1 translation vector.
 
-		IplImage* m_undistortMapX;	///< The output array of x coordinates for the undistortion map
-		IplImage* m_undistortMapY;	///< The output array of Y coordinates for the undistortion map
+		std::map<std::string, IplImage*> m_undistortMapsX;	///< The output array of x coordinates for the undistortion map
+		std::map<std::string, IplImage*> m_undistortMapsY;	///< The output array of Y coordinates for the undistortion map
 
 		CvSize m_ImageSize; ///< The size of the image that is returned
 };

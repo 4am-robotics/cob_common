@@ -1,9 +1,10 @@
 #goal definition
-trajectory_msgs/JointTrajectory trajectory
+cob_msgs/JointCommand command
+bool hasvelocity
 ---
 #result definition
 std_msgs/String result
+int16 success
 ---
 #feedback definition
-int64 pointNr # current number of trajectory point
 bool isMoving

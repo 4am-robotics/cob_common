@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="cob">
+
+	<include filename="$(find cob_defs)/ros/calibration/cob3-1.xacro" />
+
+	<include filename="$(find cob_defs)/ros/urdf/base.urdf.xacro" />
+	<include filename="$(find cob_defs)/ros/urdf/torso.urdf.xacro" />
+	<include filename="$(find cob_defs)/ros/urdf/head.urdf.xacro" />
+	<include filename="$(find cob_defs)/ros/urdf/arm.urdf.xacro" />
+	<include filename="$(find cob_defs)/ros/urdf/sdh.urdf.xacro" />
+
+	<xacro:base name="base"/>
+	<xacro:torso name="torso" parent="base"/>
+	<xacro:head name="head" parent="torso"/>
+	<xacro:lwa name="arm" parent="base"/>
+	<!--xacro:lbr name="arm" parent="base"/-->
+	<xacro:sdh name="sdh" parent="arm"/>
+</robot>

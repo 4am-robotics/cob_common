@@ -60,8 +60,8 @@
 /// This file and the corresponding .cpp file were written by Jens Kubacki and Jan Fischer in 2005-2008.
 /// Latest updates: November 2008.
 
-#ifndef MATHUTILS_H
-#define MATHUTILS_H
+#ifndef __IPA_MATHUTILS_H__
+#define __IPA_MATHUTILS_H__
 
 #ifdef __COB_ROS__
 #include <opencv/cv.h>
@@ -869,7 +869,7 @@ void HueToCol(int h, int hueVals, int& r, int& g, int& b);
 /// @param b blue component [0..255]
 /// @param h hue output component [0.0..1.0]
 /// @param s saturation output component [0.0..1.0]
-/// @param v value (gray) output component [0.0..1.0]
+/// @param v value (grey) output component [0.0..1.0]
 void GetHSV(double r, double g, double b, double& h, double& s, double& v);
 
 /// Computes red, green and blue.
@@ -877,7 +877,7 @@ void GetHSV(double r, double g, double b, double& h, double& s, double& v);
 /// Note that hue, saturation and value are between [0.0..1.0].
 /// @param h hue component [0.0..1.0]
 /// @param s saturation component [0.0..1.0]
-/// @param v value (gray) component [0.0..1.0]
+/// @param v value (grey) component [0.0..1.0]
 /// @param r red output component [0..255]
 /// @param g green output component [0..255]
 /// @param b blue output component [0..255]
@@ -917,4 +917,4 @@ void GetVectorFromImage(IplImage* Img, DblVector& v, CvScalar* Scale=NULL);
 
 } // end namespace ipa_Utils
 
-#endif
+#endif // __IPA_MATHUTILS_H__

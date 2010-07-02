@@ -59,6 +59,40 @@
 
 namespace ipa_Utils {
 
+cv::Mat vstack(const std::vector<cv::Mat> &mats)
+{
+    if (mats.empty())
+        return cv::Mat();
+
+    // we need to know the total number of rows to create the stacked matrix
+    int nRows = 0;
+    int nCols = mats.front().cols;
+    int datatype = mats.front().type();
+    std::vector<cv::Mat>::const_iterator it;
+    for (it = mats.begin(); it != mats.end(); ++it)
+    {
+        nRows += it->rows;
+        // make sure all mats have same num of cols and data type
+        CV_Assert(it->cols == nCols);
+        CV_Assert(it->type() == datatype);
+    }
+
+    // copy data to stacked matrix
+    int startRow = 0;
+    int endRow = 0;
+    cv::Mat stacked(nRows, nCols, datatype);
+    cv::Mat tmpMat;
+    for (it = mats.begin(); it != mats.end(); ++it)
+    {
+        startRow = endRow;
+        endRow = startRow + it->rows;
+	tmpMat = stacked.rowRange(startRow, endRow);
+        it->copyTo(tmpMat);
+    }
+
+    return stacked;
+}
+
 void DblMatrixList::PushBackIplImage(IplImage* Image)
 {
 	assert(Image->nChannels==1);
@@ -422,7 +456,7 @@ unsigned long MaskImage(IplImage* source, IplImage* dest, IplImage* mask, IplIma
 		return RET_OK;
 }
 
-unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplImage* destMask, float minMaskThresh, float maxMaskThresh,
+unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplImage* destMask, IplImage* destMaskColor, float minMaskThresh, float maxMaskThresh,
 						int sourceChannel, double sourceMin, double sourceMax)
 {
         double globalMin = -1;
@@ -491,6 +525,7 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 		int destIndex = 0;
 		int sourceIndex = 0;
 		int maskIndex = 0;
+		int maskColorIndex = 0;
 
 		if (source->depth == IPL_DEPTH_32F)
 		{
@@ -501,6 +536,9 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 
 				float* c_dest_ptr = (float*) (dest->imageData + j*dest->widthStep);
 				float* c_destMask_ptr = (float*) (destMask->imageData + j*destMask->widthStep);
+				unsigned char* c_destMaskColor_ptr;
+				if(destMaskColor)
+					c_destMaskColor_ptr = (unsigned char*) (destMaskColor->imageData + j*destMaskColor->widthStep);
 
 				for(int i=0; i<source->width; i++)
 				{
@@ -509,37 +547,67 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 					destIndex = i*3;
 					sourceIndex = i*source->nChannels;
 					maskIndex = i*mask->nChannels;
+					maskColorIndex = i*3;
 
 					double z = (double)f_source_ptr[sourceIndex + sourceChannel-1];
 					float maskVal = f_mask_ptr[maskIndex];
+
+					if(destMaskColor)
+					{
+						if(maskVal>maxMaskThresh)
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 0;
+							c_destMaskColor_ptr[maskColorIndex+1]= 0;
+							c_destMaskColor_ptr[maskColorIndex+2]= 255;
+						}
+						else if(maskVal<minMaskThresh)
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 0;
+							c_destMaskColor_ptr[maskColorIndex+1]= 255;
+							c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						}
+						else if(z<0.3)
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 255;
+							c_destMaskColor_ptr[maskColorIndex+1]= 0;
+							c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						}
+						else
+						{
+							c_destMaskColor_ptr[maskColorIndex]= 0;
+							c_destMaskColor_ptr[maskColorIndex+1]= 0;
+							c_destMaskColor_ptr[maskColorIndex+2]= 0;
+						}
+					}
+
 					if (maskVal < maxMaskThresh &&
 						maskVal > minMaskThresh)
 					{
-						/*if (z < sourceMin)
+						if(source!=dest)
 						{
-							z = sourceMin;
-							maskVal = maskMin;
+							c_dest_ptr[destIndex] = f_source_ptr[sourceIndex + sourceChannel-3];
+							c_dest_ptr[destIndex + 1] = f_source_ptr[sourceIndex + sourceChannel-2];
+							c_dest_ptr[destIndex + 2] = f_source_ptr[sourceIndex + sourceChannel-1];
 						}
-						if (z > sourceMax)
-						{
-							z = sourceMax;
-							maskVal = maskMax;
-						}*/
-						V = (float)z;
-						vMask= (float)maskVal;
+						//vMask= (float)maskVal;
+						vMask = 0;
 
 					}
 					else
 					{
-						V = 0;
-						vMask = 0;
-						c_dest_ptr[destIndex] = V;
-						c_dest_ptr[destIndex + 1] = V;
+						//V = 65000;
+						vMask = 1;
+						//std::cout << i << ", " << j << " filtered" << std::endl;;
+						if(source!=dest)
+						{
+							c_dest_ptr[destIndex] = f_source_ptr[sourceIndex + sourceChannel-3];
+							c_dest_ptr[destIndex + 1] = f_source_ptr[sourceIndex + sourceChannel-2];
+							c_dest_ptr[destIndex + 2] = V;
+						}
 					}
 
-					c_dest_ptr[destIndex + 2] = V;
-
 					c_destMask_ptr[maskIndex] = vMask;
+
 				}
 			}
 		}
@@ -551,8 +619,303 @@ unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplIm
 			return RET_FAILED;
 		}
 
-
 		return RET_OK;
+}
+
+unsigned long FilterByAmplitude(IplImage* xyzImage, IplImage* greyImage, IplImage* mask, IplImage* maskColor, float minMaskThresh, float maxMaskThresh)
+{
+	if(mask)
+	{
+		/// Check if mask image has been initialized correctly
+		if(mask->depth != IPL_DEPTH_32F ||
+			mask->nChannels != 1 ||
+			mask->width != greyImage->width ||
+			mask->height != greyImage->height)
+		{
+			std::cout << "WARNING - OpenCVUtils::FilterByAmplitude:" << std::endl;
+			std::cout << "\t ... Mask has wrong image attributes." << std::endl;
+			return RET_FAILED;
+		}
+	}
+	if(maskColor)
+	{
+		if(maskColor->depth != IPL_DEPTH_8U ||
+			maskColor->nChannels != 3 ||
+			maskColor->width != greyImage->width ||
+			maskColor->height != greyImage->height)
+		{
+			std::cout << "WARNING - OpenCVUtils::FilterByAmplitude:" << std::endl;
+			std::cout << "\t ... MaskColor has wrong image attributes." << std::endl;
+			return RET_FAILED;
+		}
+	}
+
+
+	int xyzIndex = 0;
+	int maskColorIndex = 0;
+
+	if (xyzImage->depth == IPL_DEPTH_32F)
+	{
+		for(int j=0; j<xyzImage->height; j++)
+		{
+			float* f_xyz_ptr = (float*) (xyzImage->imageData + j*xyzImage->widthStep);
+			float* f_grey_ptr = (float*) (greyImage->imageData + j*greyImage->widthStep);
+			unsigned char* c_maskColor_ptr = 0;
+			if(maskColor)
+				c_maskColor_ptr = (unsigned char*) (maskColor->imageData + j*maskColor->widthStep);
+
+			for(int i=0; i<xyzImage->width; i++)
+			{
+				float V = 0;
+				float vMask = 0;
+				xyzIndex = i*3;
+				maskColorIndex = i*3;
+
+				double z = (double)f_xyz_ptr[xyzIndex + 2];
+				float maskVal = f_grey_ptr[i];
+
+				if(maskColor)
+				{
+					/// build color mask from amplitude values
+					if(maskVal>maxMaskThresh)
+					{
+						c_maskColor_ptr[maskColorIndex]= 0;
+						c_maskColor_ptr[maskColorIndex+1]= 0;
+						c_maskColor_ptr[maskColorIndex+2]= 255;
+					}
+					else if(maskVal<minMaskThresh)
+					{
+						c_maskColor_ptr[maskColorIndex]= 0;
+						c_maskColor_ptr[maskColorIndex+1]= 255;
+						c_maskColor_ptr[maskColorIndex+2]= 0;
+					}
+					else if(z<0.3)
+					{
+						c_maskColor_ptr[maskColorIndex]= 255;
+						c_maskColor_ptr[maskColorIndex+1]= 0;
+						c_maskColor_ptr[maskColorIndex+2]= 0;
+					}
+					else
+					{
+						c_maskColor_ptr[maskColorIndex]= 0;
+						c_maskColor_ptr[maskColorIndex+1]= 0;
+						c_maskColor_ptr[maskColorIndex+2]= 0;
+					}
+				}
+
+				if (maskVal < maxMaskThresh &&
+					maskVal > minMaskThresh)
+				{
+					vMask = 0;
+				}
+				else
+				{
+					vMask = 1;
+					f_xyz_ptr[xyzIndex] = V;
+					f_xyz_ptr[xyzIndex + 1] = V;
+					f_xyz_ptr[xyzIndex + 2] = V;
+				}
+
+				if(mask)
+				{
+					float* c_mask_ptr = (float*) (mask->imageData + j*mask->widthStep);
+					c_mask_ptr[i] = vMask;
+				}
+
+			}
+		}
+	}
+
+	else
+	{
+		std::cout << "ERROR - OpenCVUtils::FilterByAmplitude:" << std::endl;
+		std::cout << "\t ... Image depth of source not supported.\n";
+		return RET_FAILED;
+	}
+
+	return RET_OK;
+}
+
+unsigned long FilterTearOffEdges(IplImage* xyzImage, IplImage** mask, float piHalfFraction)
+{
+	/// Check if destination image has been initialized correctly
+	if(xyzImage->depth != IPL_DEPTH_32F ||
+		xyzImage->nChannels != 3 )
+	{
+		std::cout << "INFO - OpenCVUtils::FilterTearOffEdges:" << std::endl;
+		std::cout << "\t ... xyzImage image has wrong image attributes " << std::endl;
+		std::cout << "\t ... IPL_DEPTH_32F and 3 channels necessary." << std::endl;
+		return ipa_Utils::RET_FAILED;
+	}
+
+	std::vector<CvPoint> filterVals;
+
+	float t_lower = Wm4::Math<float>::PI/piHalfFraction;
+	float t_upper = Wm4::Math<float>::PI - t_lower;
+
+	if(mask)
+	{
+		*mask = cvCreateImage(cvSize(xyzImage->width, xyzImage->height) , IPL_DEPTH_8U, 3);
+		cvSet(*mask, cvScalar(255, 0, 0), 0);
+	}
+
+	for(int row=0; row < xyzImage->height; row++)
+	{
+		int index_vLeft = -1;
+		int index_vMiddle = -1;
+		int index_vRight = -1;
+		int index_vUp = -1;
+		int index_vDown = -1;
+
+		Wm4::Vector3f vLeft;
+		Wm4::Vector3f vMiddle;
+		Wm4::Vector3f vRight;
+		Wm4::Vector3f vUp;
+		Wm4::Vector3f vDown;
+
+		Wm4::Vector3f vDiff;
+
+		float* f_image_ptr_RowUp = 0;
+		float* f_image_ptr_RowMiddle = 0;
+		float* f_image_ptr_RowDown = 0;
+
+		float dot = -1.f;
+		float angle = -1.f;
+
+		if (row-1 >= 0)
+		{
+			f_image_ptr_RowUp = &((float*)(xyzImage->imageData + (row-1)*xyzImage->widthStep))[0];
+		}
+
+		f_image_ptr_RowMiddle = &((float*)(xyzImage->imageData + (row)*xyzImage->widthStep))[0];
+
+		if (row+1 < xyzImage->height)
+		{
+			f_image_ptr_RowDown = &((float*)(xyzImage->imageData + (row+1)*xyzImage->widthStep))[0];
+		}
+
+		/// Extract four surrounding neighbor vectors that have a non zero mask value
+		///
+		///    x
+		///  x o x
+		///    x
+		///
+		for(int col=0; col < xyzImage->width; col++)
+		{
+			/// Counte the amount of times, we satisfy the thresholds
+			int score = 0;
+
+			/// Vector Middle (must exist)
+			index_vMiddle = col;
+			vMiddle[0] = f_image_ptr_RowMiddle[3*index_vMiddle];
+			vMiddle[1] = f_image_ptr_RowMiddle[3*index_vMiddle + 1];
+			vMiddle[2] = f_image_ptr_RowMiddle[3*index_vMiddle + 2];
+
+			/// Vector Left
+			if (col-1 >= 0)
+			{
+				index_vLeft = col-1;
+				vLeft[0] = f_image_ptr_RowMiddle[3*index_vLeft];
+				vLeft[1] = f_image_ptr_RowMiddle[3*index_vLeft + 1];
+				vLeft[2] = f_image_ptr_RowMiddle[3*index_vLeft + 2];
+				vDiff = vLeft - vMiddle;
+				vLeft.Normalize();
+				vDiff.Normalize();
+				dot = vDiff.Dot(vLeft);
+				angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+			/// Vector Right
+			if (col+1 < xyzImage->height)
+			{
+				index_vRight = col+1;
+				vRight[0] = f_image_ptr_RowMiddle[3*index_vRight];
+				vRight[1] = f_image_ptr_RowMiddle[3*index_vRight + 1];
+				vRight[2] = f_image_ptr_RowMiddle[3*index_vRight + 2];
+				vDiff = vRight - vMiddle;
+				vRight.Normalize();
+				vDiff.Normalize();
+				dot = vDiff.Dot(vRight);
+				angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+			/// Vector Up
+			if (f_image_ptr_RowUp)
+			{
+				index_vUp = col;
+				vUp[0] = f_image_ptr_RowUp[3*index_vUp];
+				vUp[1] = f_image_ptr_RowUp[3*index_vUp + 1];
+				vUp[2] = f_image_ptr_RowUp[3*index_vUp + 2];
+				vDiff = vUp - vMiddle;
+				vUp.Normalize();
+				vDiff.Normalize();
+				dot = vDiff.Dot(vUp);
+				angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+			/// Vector Down
+			if (f_image_ptr_RowDown)
+			{
+				index_vDown = col;
+				vDown[0] = f_image_ptr_RowDown[3*index_vDown];
+				vDown[1] = f_image_ptr_RowDown[3*index_vDown + 1];
+				vDown[2] = f_image_ptr_RowDown[3*index_vDown + 2];
+				vDiff = vDown - vMiddle;
+				vDown.Normalize();
+				vDiff.Normalize();
+				dot = vDiff.Dot(vDown);
+				angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+
+			/// Mask value if angle exceeded threshold too often
+			if (score > 0)
+			{
+				if(mask)
+					cvSet2D(*mask, row, col, cvScalarAll(0));
+				filterVals.push_back(cvPoint(row,col));
+			}
+		}
+		std::vector<CvPoint>::iterator It;
+		for(It=filterVals.begin();It!=filterVals.end();It++)
+		{
+			cvSet2D(xyzImage, It->x, It->y, cvScalarAll(0));
+		}
+	}
+
+	return ipa_Utils::RET_OK;
 }
 
 unsigned long ConvertToShowImage(IplImage* source, IplImage* dest, int channel, double min, double max)
@@ -601,7 +964,7 @@ unsigned long ConvertToShowImage(IplImage* source, IplImage* dest, int channel, 
 					char* c_dest_ptr = &((char*) (dest->imageData + j*dest->widthStep))[i*3];
 		
 					double z = (double)f_source_ptr[channel-1];
-					
+
 					if (z < min) z = min;
 					if (z > max) z = max;
 
@@ -839,7 +1202,7 @@ void CoordDisplayImageConversionOnlyZSpectral(IplImage* CoordImg, IplImage* Out,
 	cvCvtColor(Out, Out, CV_HSV2RGB);
 }
 
-void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, double MinZ, double MaxZ)
+void CoordDisplayImageConversionOnlyZGrey(IplImage* CoordImg, IplImage* Out, double MinZ, double MaxZ)
 {
 	double wr=MaxZ-MinZ;
 	for(int j=0; j<CoordImg->height; j++)
@@ -850,8 +1213,8 @@ void CoordDisplayImageConversionOnlyZGray(IplImage* CoordImg, IplImage* Out, dou
 			double z = Val.val[2];
 			if(z>MaxZ) z=MaxZ;
 			if(z<MinZ) z=MinZ;
-			int Gray = cvRound(255.0 * (z-MinZ)/wr);
-			CvScalar Color = CV_RGB(Gray, Gray, Gray);
+			int Grey = cvRound(255.0 * (z-MinZ)/wr);
+			CvScalar Color = CV_RGB(Grey, Grey, Grey);
 			cvSet2D(Out, j, i, Color);
 		}
 	}

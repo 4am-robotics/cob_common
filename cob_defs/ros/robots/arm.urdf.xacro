@@ -16,5 +16,4 @@
 
 	<!-- include arm defs-->
 	<include filename="$(find cob_defs)/ros/defs/arm.urdf" />
-
 </robot>
