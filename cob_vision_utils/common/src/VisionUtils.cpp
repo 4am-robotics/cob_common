@@ -85,7 +85,8 @@ cv::Mat ipa_Utils::vstack(const std::vector<cv::Mat> &mats)
     {
         startRow = endRow;
         endRow = startRow + it->rows;
-        it->copyTo(stacked.rowRange(startRow, endRow));
+	cv::Mat mat = stacked.rowRange(startRow, endRow);
+	it->copyTo(mat);
     }
 
     return stacked;
