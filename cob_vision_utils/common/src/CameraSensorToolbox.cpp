@@ -84,6 +84,8 @@ unsigned long CameraSensorToolbox::Release()
 	m_undistortMapsX.clear();
 	m_undistortMapsY.clear();
 	m_extrinsicMatrices.clear();
+
+	return RET_OK;
 }
 
 CameraSensorToolbox::CameraSensorToolbox(const CameraSensorToolbox& cst)
