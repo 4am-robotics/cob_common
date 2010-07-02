@@ -2,7 +2,7 @@
 #ifdef __COB_ROS__
 	#include "cob_vision_math/MathDefines.h"
 #else
-	#include "Vision/Utilities/MathDefines.h"
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
 #endif
 
 using namespace ipa_Utils;
