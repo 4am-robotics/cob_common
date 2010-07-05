@@ -474,7 +474,7 @@ unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage
 	if(mask) CV_Assert(mask->type() == CV_32FC1);
 	if(maskColor) CV_Assert(maskColor->type() == CV_8UC3);
 	CV_Assert(xyzImage.type() == CV_32FC3);
-	CV_Assert(greyImage.type() == CV_32FC3);
+	CV_Assert(greyImage.type() == CV_32FC1);
 
 	int xyzIndex = 0;
 	int maskColorIndex = 0;
