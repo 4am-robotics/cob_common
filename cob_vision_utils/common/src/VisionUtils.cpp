@@ -468,3 +468,304 @@ unsigned long ipa_Utils::ConvertToShowImage(const cv::Mat& source, cv::Mat& dest
 
 		return RET_OK;
 }
+
+unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh)
+{
+	if(mask) CV_Assert(mask->type() != CV_32FC1);
+	if(maskColor) CV_Assert(maskColor->type() != CV_8UC3);
+	CV_Assert(xyzImage.type() != CV_32FC3);
+	CV_Assert(greyImage.type() != CV_32FC3);
+
+	int xyzIndex = 0;
+	int maskColorIndex = 0;
+
+	for(int j=0; j<xyzImage.rows; j++)
+	{
+		float* f_xyz_ptr = xyzImage.ptr<float>(j);
+		float* f_grey_ptr = greyImage.ptr<float>(j);
+		unsigned char* c_maskColor_ptr = 0;
+		if(maskColor)
+			c_maskColor_ptr = maskColor->ptr<unsigned char>(j);
+
+		for(int i=0; i<xyzImage.cols; i++)
+		{
+			float V = 0;
+			float vMask = 0;
+			xyzIndex = i*3;
+			maskColorIndex = i*3;
+
+			double z = (double)f_xyz_ptr[xyzIndex + 2];
+			float maskVal = f_grey_ptr[i];
+
+			if(maskColor)
+			{
+				/// build color mask from amplitude values
+				if(maskVal>maxMaskThresh)
+				{
+					c_maskColor_ptr[maskColorIndex]= 0;
+					c_maskColor_ptr[maskColorIndex+1]= 0;
+					c_maskColor_ptr[maskColorIndex+2]= 255;
+				}
+				else if(maskVal<minMaskThresh)
+				{
+					c_maskColor_ptr[maskColorIndex]= 0;
+					c_maskColor_ptr[maskColorIndex+1]= 255;
+					c_maskColor_ptr[maskColorIndex+2]= 0;
+				}
+				else if(z<0.3)
+				{
+					c_maskColor_ptr[maskColorIndex]= 255;
+					c_maskColor_ptr[maskColorIndex+1]= 0;
+					c_maskColor_ptr[maskColorIndex+2]= 0;
+				}
+				else
+				{
+					c_maskColor_ptr[maskColorIndex]= 0;
+					c_maskColor_ptr[maskColorIndex+1]= 0;
+					c_maskColor_ptr[maskColorIndex+2]= 0;
+				}
+			}
+
+			if (maskVal < maxMaskThresh &&
+				maskVal > minMaskThresh)
+			{
+				vMask = 0;
+			}
+			else
+			{
+				vMask = 1;
+				f_xyz_ptr[xyzIndex] = V;
+				f_xyz_ptr[xyzIndex + 1] = V;
+				f_xyz_ptr[xyzIndex + 2] = V;
+			}
+
+			if(mask)
+			{
+				float* c_mask_ptr = mask->ptr<float>(j);
+				c_mask_ptr[i] = vMask;
+			}
+
+		}
+	}
+
+	return RET_OK;
+}
+
+unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, float piHalfFraction)
+{
+	/// Check if destination image has been initialized correctly
+	CV_Assert(xyzImage.type() != CV_32FC3);
+
+	std::vector<cv::Point> filterVals;
+
+	float t_lower =PI/piHalfFraction;
+	float t_upper = PI - t_lower;
+
+	if(mask)
+	{
+		mask->create(xyzImage.size() , CV_8UC3);
+		mask->setTo(0);
+	}
+
+	for(int row=0; row < xyzImage.rows; row++)
+	{
+		int index_vLeft = -1;
+		int index_vMiddle = -1;
+		int index_vRight = -1;
+		int index_vUp = -1;
+		int index_vDown = -1;
+
+		cv::Vec3d vLeft = cv::Vec3d::all(0);
+		cv::Vec3d vMiddle = cv::Vec3d::all(0);
+		cv::Vec3d vRight = cv::Vec3d::all(0);
+		cv::Vec3d vUp = cv::Vec3d::all(0);
+		cv::Vec3d vDown = cv::Vec3d::all(0);
+
+		cv::Vec3d vDiff = cv::Vec3d::all(0);
+
+		float* f_image_ptr_RowUp = 0;
+		float* f_image_ptr_RowMiddle = 0;
+		float* f_image_ptr_RowDown = 0;
+
+		float dot = -1.f;
+		float angle = -1.f;
+
+		if (row-1 >= 0)
+		{
+			f_image_ptr_RowUp = xyzImage.ptr<float>(row-1);
+		}
+
+		f_image_ptr_RowMiddle = xyzImage.ptr<float>(row);
+
+		if (row+1 < xyzImage.rows)
+		{
+			f_image_ptr_RowDown = xyzImage.ptr<float>(row+1);
+		}
+
+		/// Extract four surrounding neighbor vectors that have a non zero mask value
+		///
+		///    x
+		///  x o x
+		///    x
+		///
+		for(int col=0; col < xyzImage.cols; col++)
+		{
+			/// Counte the amount of times, we satisfy the thresholds
+			int score = 0;
+
+			/// Vector Middle (must exist)
+			index_vMiddle = col;
+			vMiddle[0] = f_image_ptr_RowMiddle[3*index_vMiddle];
+			vMiddle[1] = f_image_ptr_RowMiddle[3*index_vMiddle + 1];
+			vMiddle[2] = f_image_ptr_RowMiddle[3*index_vMiddle + 2];
+
+			/// Vector Left
+			if (col-1 >= 0)
+			{
+				index_vLeft = col-1;
+				vLeft[0] = f_image_ptr_RowMiddle[3*index_vLeft];
+				vLeft[1] = f_image_ptr_RowMiddle[3*index_vLeft + 1];
+				vLeft[2] = f_image_ptr_RowMiddle[3*index_vLeft + 2];
+				vDiff = vLeft - vMiddle;
+				double vLeftNorm = std::sqrt(std::pow(vLeft[0],2)+std::pow(vLeft[1],2)+std::pow(vLeft[2],2));
+				vLeft[0] = vLeft[0]/vLeftNorm;
+				vLeft[1] = vLeft[1]/vLeftNorm;
+				vLeft[2] = vLeft[2]/vLeftNorm;
+				//vLeft.Normalize();
+				double vDiffNorm = std::sqrt(std::pow(vDiff[0],2)+std::pow(vDiff[1],2)+std::pow(vDiff[2],2));
+				vDiff[0] = vDiff[0]/vDiffNorm;
+				vDiff[1] = vDiff[1]/vDiffNorm;
+				vDiff[2] = vDiff[2]/vDiffNorm;
+				//vDiff.Normalize();
+				dot = vDiff.ddot(vLeft);
+				//dot = vDiff.Dot(vLeft);
+				angle = std::acos(dot);
+				//angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+			/// Vector Right
+			if (col+1 < xyzImage.rows)
+			{
+				index_vRight = col+1;
+				vRight[0] = f_image_ptr_RowMiddle[3*index_vRight];
+				vRight[1] = f_image_ptr_RowMiddle[3*index_vRight + 1];
+				vRight[2] = f_image_ptr_RowMiddle[3*index_vRight + 2];
+				vDiff = vRight - vMiddle;
+				double vRightNorm = std::sqrt(std::pow(vRight[0],2)+std::pow(vRight[1],2)+std::pow(vRight[2],2));
+				vRight[0] = vRight[0]/vRightNorm;
+				vRight[1] = vRight[1]/vRightNorm;
+				vRight[2] = vRight[2]/vRightNorm;
+				//vRight.Normalize();
+				double vDiffNorm = std::sqrt(std::pow(vDiff[0],2)+std::pow(vDiff[1],2)+std::pow(vDiff[2],2));
+				vDiff[0] = vDiff[0]/vDiffNorm;
+				vDiff[1] = vDiff[1]/vDiffNorm;
+				vDiff[2] = vDiff[2]/vDiffNorm;
+				//vDiff.Normalize();
+				dot = vDiff.ddot(vLeft);
+				//dot = vDiff.Dot(vLeft);
+				angle = std::acos(dot);
+				//angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+			/// Vector Up
+			if (f_image_ptr_RowUp)
+			{
+				index_vUp = col;
+				vUp[0] = f_image_ptr_RowUp[3*index_vUp];
+				vUp[1] = f_image_ptr_RowUp[3*index_vUp + 1];
+				vUp[2] = f_image_ptr_RowUp[3*index_vUp + 2];
+				vDiff = vUp - vMiddle;
+				double vUpNorm = std::sqrt(std::pow(vUp[0],2)+std::pow(vUp[1],2)+std::pow(vUp[2],2));
+				vUp[0] = vUp[0]/vUpNorm;
+				vUp[1] = vUp[1]/vUpNorm;
+				vUp[2] = vUp[2]/vUpNorm;
+				//vUp.Normalize();
+				double vDiffNorm = std::sqrt(std::pow(vDiff[0],2)+std::pow(vDiff[1],2)+std::pow(vDiff[2],2));
+				vDiff[0] = vDiff[0]/vDiffNorm;
+				vDiff[1] = vDiff[1]/vDiffNorm;
+				vDiff[2] = vDiff[2]/vDiffNorm;
+				//vDiff.Normalize();
+				dot = vDiff.ddot(vLeft);
+				//dot = vDiff.Dot(vLeft);
+				angle = std::acos(dot);
+				//angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+			/// Vector Down
+			if (f_image_ptr_RowDown)
+			{
+				index_vDown = col;
+				vDown[0] = f_image_ptr_RowDown[3*index_vDown];
+				vDown[1] = f_image_ptr_RowDown[3*index_vDown + 1];
+				vDown[2] = f_image_ptr_RowDown[3*index_vDown + 2];
+				double vDownNorm = std::sqrt(std::pow(vDown[0],2)+std::pow(vDown[1],2)+std::pow(vDown[2],2));
+				vDown[0] = vDown[0]/vDownNorm;
+				vDown[1] = vDown[1]/vDownNorm;
+				vDown[2] = vDown[2]/vDownNorm;
+				//vDown.Normalize();
+				double vDiffNorm = std::sqrt(std::pow(vDiff[0],2)+std::pow(vDiff[1],2)+std::pow(vDiff[2],2));
+				vDiff[0] = vDiff[0]/vDiffNorm;
+				vDiff[1] = vDiff[1]/vDiffNorm;
+				vDiff[2] = vDiff[2]/vDiffNorm;
+				//vDiff.Normalize();
+				dot = vDiff.ddot(vLeft);
+				//dot = vDiff.Dot(vLeft);
+				angle = std::acos(dot);
+				//angle = Wm4::Math<float>::ACos( dot );
+				if (angle > t_upper || angle < t_lower)
+				{
+					score++;
+				}
+				else
+				{
+					score--;
+				}
+			}
+
+
+			/// Mask value if angle exceeded threshold too often
+			if (score > 0)
+			{
+				if(mask)
+				{
+					cv::Vec3b pt(0, 0, 0);
+					mask->at<cv::Vec3b>(row,col)=pt;
+				}
+				filterVals.push_back(cv::Point(row,col));
+			}
+		}
+		std::vector<cv::Point>::iterator It;
+		for(It=filterVals.begin();It!=filterVals.end();It++)
+		{
+			cv::Vec3f pt(0, 0, 0);
+			xyzImage.at<cv::Vec3b>(It->x,It->y)=pt;
+		}
+	}
+
+	return ipa_Utils::RET_OK;
+}
+
