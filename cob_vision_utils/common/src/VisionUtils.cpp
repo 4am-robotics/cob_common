@@ -471,10 +471,10 @@ unsigned long ipa_Utils::ConvertToShowImage(const cv::Mat& source, cv::Mat& dest
 
 unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh)
 {
-	if(mask) CV_Assert(mask->type() != CV_32FC1);
-	if(maskColor) CV_Assert(maskColor->type() != CV_8UC3);
-	CV_Assert(xyzImage.type() != CV_32FC3);
-	CV_Assert(greyImage.type() != CV_32FC3);
+	if(mask) CV_Assert(mask->type() == CV_32FC1);
+	if(maskColor) CV_Assert(maskColor->type() == CV_8UC3);
+	CV_Assert(xyzImage.type() == CV_32FC3);
+	CV_Assert(greyImage.type() == CV_32FC3);
 
 	int xyzIndex = 0;
 	int maskColorIndex = 0;
@@ -554,7 +554,7 @@ unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage
 unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, float piHalfFraction)
 {
 	/// Check if destination image has been initialized correctly
-	CV_Assert(xyzImage.type() != CV_32FC3);
+	CV_Assert(xyzImage.type() == CV_32FC3);
 
 	std::vector<cv::Point> filterVals;
 
