@@ -10,16 +10,14 @@
 * Project name: care-o-bot
 * ROS stack name: cob3_driver
 * ROS package name: cob_camera_sensors
-* Description: Basic global defines have to be put in this file within
-* the namespace ipa.utils. If they do not fit within this file, consider
-* integrating your defines within a class.
+* Description: Defines for camera sensors.
 *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 *
 * Author: Jan Fischer, email:jan.fischer@ipa.fhg.de
 * Supervised by: Jan Fischer, email:jan.fischer@ipa.fhg.de
 *
-* Date of creation: Nov 2008
+* Date of creation: Sept 2008
 * ToDo:
 *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -54,26 +52,53 @@
 ****************************************************************/
  
 
-/// @file GlobalDefines.h
-/// Basic global defines have to be put in this file within the namespace ipa.utils.
-/// If they do not fit within this file, consider integrating your defines within a class.
-/// This file has been written by Jan Fischer in 2008.
-/// Latest updates: November 2008.
+/// @file CameraSensorDefines.h
+/// Defines for camera sensors.
+/// @author Jan Fischer
+/// @date June 2010.
 
-#ifndef __IPA_GLOBALDEFINES_H__
-#define __IPA_GLOBALDEFINES_H__
+#ifndef __IPA_CAMERASENSORDEFINES_H__
+#define __IPA_CAMERASENSORDEFINES_H__
 
-namespace ipa_Utils {
-	
-/// An enum for the return values.
-/// This enum describes possible return values that are used to return failure or success.
-enum {
-	RET_OK =									0x00000001UL, ///< Everythings OK.
-	RET_FAILED =								0x00000002UL,  ///< Something went dramatically wrong.
-	RET_WARNING =								0x00000004UL  ///< Something went wrong.
-};
+#ifdef __COB_ROS__
+	#include <opencv/cv.h>
+	#include <opencv/cvaux.h>
+	#include <opencv/highgui.h>
+#else
+	#include <cv.h>
+	#include <cvaux.h>
+	#include <highgui.h>
+#endif
 
-} // end namespace ipa_Utils
+#include <boost/shared_ptr.hpp>
+#include <boost/progress.hpp>
+#include <boost/timer.hpp>
 
-#endif // __IPA_GLOBALDEFINES_H__
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <limits.h>
+#include <vector>
 
+namespace ipa_CameraSensors {
+
+#if defined _MSC_VER && _MSC_VER >= 1200
+    // disable warnings related to inline functions
+    #pragma warning( disable: 4251 4275)
+#endif
+
+/// Define, if we need to import or export the libraries
+#ifdef __LINUX__
+	#define __DLL_LIBCAMERASENSORS__ 
+	#define APIENTRY
+#else
+	#ifdef __LIBCAMERASENSORS_EXPORT__
+		#define __DLL_LIBCAMERASENSORS__ __declspec(dllexport)
+	#else
+		#define __DLL_LIBCAMERASENSORS__ __declspec(dllimport)
+	#endif
+#endif
+
+} // namespace ipa_CameraSensors
+
+#endif // __IPA_CAMERASENSORDEFINES_H__
