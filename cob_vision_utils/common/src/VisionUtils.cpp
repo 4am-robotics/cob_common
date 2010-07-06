@@ -558,8 +558,10 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 
 	std::vector<cv::Point> filterVals;
 
-	float t_lower =PI/piHalfFraction;
-	float t_upper = PI - t_lower;
+
+	double pi = 3.14159;
+	float t_lower =pi/piHalfFraction;
+	float t_upper = pi - t_lower;
 
 	if(mask)
 	{
@@ -762,7 +764,8 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 		for(It=filterVals.begin();It!=filterVals.end();It++)
 		{
 			cv::Vec3f pt(0, 0, 0);
-			xyzImage.at<cv::Vec3b>(It->x,It->y)=pt;
+			//xyzImage.at<cv::Vec3b>(It->x,It->y)=pt;
+			xyzImage.at<cv::Vec3f>(It->x,It->y)=pt;
 		}
 	}
 

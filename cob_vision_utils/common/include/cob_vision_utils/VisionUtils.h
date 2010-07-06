@@ -73,8 +73,6 @@
 
 namespace ipa_Utils {
 
-#define PI 3.14159
-
 
 /// Combines different matrices row wise, so that the number of
 /// columns remains the same and the number of rows increases.
