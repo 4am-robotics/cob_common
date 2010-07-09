@@ -15,13 +15,13 @@
 
     <!--joint between base_link and torso_tray_link -->
     <joint name="${name}_tray_joint" type="revolute">
-       <origin xyz="0.16 0.192 0.680" rpy="2.4346 0 0" />
+       <origin xyz="0.2406 0.1900 0.8320" rpy="2.3561 0 0" />
        <parent link="${parent}"/>
        <child link="${name}_tray_link"/>
        <axis xyz="0 0 1" />
        <calibration reference_position="${torso_tray_ref}"/>
        <dynamics damping="5.0" friction="0.5"/>
-       <limit effort="100" lower="-3.31612" upper="0" velocity="5"/>
+       <limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
     </joint>
    
     <link name="${name}_tray_link">
@@ -32,7 +32,7 @@
        </inertial>
 
        <visual>
-	 <origin xyz="0 0 0" rpy="0.707 0 0" />
+	 <origin xyz="0 0 0" rpy="0 0 0" />
 	 <geometry>
 	    <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
 	 </geometry>
@@ -41,7 +41,7 @@
        </visual>
 
        <collision>
-	 <origin xyz="0 0 0" rpy="0.707 0 0" />
+	 <origin xyz="0 0 0" rpy="0 0 0" />
 	 <geometry>
 	  <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
 	 </geometry>

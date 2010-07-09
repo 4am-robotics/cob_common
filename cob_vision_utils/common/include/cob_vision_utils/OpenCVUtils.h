@@ -60,17 +60,23 @@
 #define OPENCVUTILS_H
 
 #ifdef __COB_ROS__
-#include <opencv/cv.h>
-#include <opencv/highgui.h>
+	#include <opencv/cv.h>
+	#include <opencv/highgui.h>
 
-#include "cob_vision_utils/MathUtils.h"
-#include "cob_vision_utils/ThreeDUtils.h"
+	#include "cob_vision_utils/MathUtils.h"
+	#include "cob_vision_utils/ThreeDUtils.h"
+
+	#include <libwm4/Wm4Vector3.h>
+	#include <libwm4/Wm4Math.h>
 #else
-#include <cv.h>
-#include <highgui.h>
+	#include <cv.h>
+	#include <highgui.h>
 
-#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
-#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/ThreeDUtils.h"
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/ThreeDUtils.h"
+
+	#include <Wm4Vector3.h>
+	#include <Wm4Math.h>
 #endif
 
 #include <iostream>
@@ -117,6 +123,11 @@ public:
 	void GetColumn(int k, int i, DblVector& Column, int Step=1);	
 };
 
+/// Combines different matrices row wise, so that the number of
+/// columns remains the same and the number of rows increases.
+/// @return The stacked matrix
+cv::Mat vstack(const std::vector<cv::Mat> &mats);
+
 void InitUndistortMap( const CvMat* A, const CvMat* dist_coeffs,
                     CvArr* mapxarr, CvArr* mapyarr );
 
@@ -151,8 +162,20 @@ unsigned long MaskImage(IplImage* source, IplImage* dest, IplImage* mask, IplIma
 /// @param sourceChannel Channel to be bounded in source image.
 /// @param sourceMin Lower border for bounding source image.
 /// @param sourceMax Upper border for bounding source image.
-unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplImage* destMask, float minMaskThresh = 100,
+unsigned long MaskImage2(IplImage* source, IplImage* dest, IplImage* mask, IplImage* destMask, IplImage* destMaskColor, float minMaskThresh = 100,
 						float maxMaskTresh = 20000, int sourceChannel = 1, double sourceMin = -1, double sourceMax = -1);
+
+unsigned long FilterByAmplitude(IplImage* xyzImage, IplImage* greyImage, IplImage* mask, IplImage* maskColor, float minMaskThresh, float maxMaskThresh);
+
+/// Filters tear-off edges from a 3D range image.
+/// All tear off edges are masked with a value of 255 in mask image. All
+/// other points are 0.
+/// @param xyzImage A 3 channel, 32bit IplImage, containing the xyz-data
+/// @param mask The resulting image mask
+/// @param piHalfFraction Angles between (PI/2)/'piHalfFraction' and (2*PI)-(PI/2)/'piHalfFraction'
+///						  are not discarded
+/// @return Return code
+unsigned long FilterTearOffEdges(IplImage* xyzImage, IplImage** mask, float piHalfFraction = 6);
 
 // function to get the min and max values for a three layer images
 void GetMinMax(IplImage* Image, Point3Dbl& Min, Point3Dbl& Max);

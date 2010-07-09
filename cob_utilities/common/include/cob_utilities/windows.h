@@ -64,10 +64,10 @@ inline void Sleep(long dwMilliseconds)
 }
 
 
-#ifndef HANDLE
-typedef int HANDLE;
-#endif
-typedef int DWORD;
+//#ifndef HANDLE
+//typedef int HANDLE;
+//#endif
+//typedef int DWORD;
 typedef unsigned char BYTE;
 enum {
 	FALSE = false,

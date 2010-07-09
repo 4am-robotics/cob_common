@@ -52,7 +52,7 @@
 		<axis xyz="0 0 1"/>
 	        <calibration reference_position="${arm_1_ref}"/>
                 <dynamics damping="20" />
-		<limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/>
+		<limit effort="370" velocity="0.4363" lower="-6.2831853" upper="6.2831853"/>
 	</joint>
 
 	<link name="${name}_1_link">

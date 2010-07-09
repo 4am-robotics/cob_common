@@ -1,20 +1,20 @@
 <stack>
   <description brief="cob_common">
 
-     The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc...
+     The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc. Also the urdf desciption of the robot is located in this stack.
 
   </description>
   <author>Maintained by Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
-  <license>BSD,LGPL</license>  
+  <license>LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
   <depend stack="cob_extern" /> <!-- libwm4 -->
-  <depend stack="common" /> <!-- tinyxml -->
-  <depend stack="common_msgs" /> <!-- sensor_msgs -->
-  <depend stack="pr2_controllers" /> <!-- robot_mechanism_controllers -->
+  <depend stack="common" /> <!-- actionlib, tinyxml -->
+  <depend stack="common_msgs" /> <!-- geometry_msgs, actionlib_msgs, sensor_msgs -->
+  <depend stack="pr2_controllers" /> <!-- trajectory_msgs, robot_mechanism_controllers -->
   <depend stack="pr2_mechanism" /> <!-- pr2_controller_manager -->
   <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
-  <depend stack="ros" /> <!-- std_msgs, roslib, std_srvs, roscpp -->
+  <depend stack="ros" /> <!-- std_srvs, roslib, std_msgs, roscpp -->
   <depend stack="vision_opencv" /> <!-- opencv2 -->
 
 </stack>
