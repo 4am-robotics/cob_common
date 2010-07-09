@@ -5,7 +5,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_arm_transmission_v0" params="name">
+  <xacro:macro name="cob_lbr_transmission_v0" params="name">
 
 	<transmission name="${name}_1_trans" type="SimpleTransmission">
 		<actuator name="${name}_1_motor"/>
