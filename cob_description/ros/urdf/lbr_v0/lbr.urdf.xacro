@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<robot  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+	xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+	xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+        xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <include filename="$(find cob_description)/ros/urdf/arm_v0/arm.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/arm_v0/arm.transmission.xacro" />
+
+<!--####################################################################-->
+                       <!--Fix Some Parameters Later-->
+<!--####################################################################-->
+
+  <xacro:macro name="cob_arm_v0" params="parent name *origin">
+
+       <!--joint between base_link and arm_0_link -->
+        <joint name="${name}_0_joint" type="fixed" >
+          <insert_block name="origin" />
+          <parent link="${parent}" />
+          <child link="${name}_0_link" />
+        </joint>
+
+	<link name="${name}_0_link">
+		<inertial>
+		   <origin xyz="0 0 0" rpy="0 0 0"/>
+		   <mass value="1.0"/>
+		   <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+
+		<visual>
+		   <origin xyz="0 0 0.005" rpy="0 0 0" />
+		   <geometry>
+		      <box size="0.01 0.01 0.01"/>
+		   </geometry>
+		   <material name="Red" />
+		</visual>
+
+		<collision>
+		   <origin xyz="0 0 0.0005" rpy="0 0 0" />
+		   <geometry>
+		      <box size="0.001 0.001 0.001"/>
+		   </geometry>
+		</collision>
+	</link>
+
+       <!--joint between arm_0_link and arm_1_link -->
+	<joint name="${name}_1_joint" type="revolute">
+		<origin xyz="0 0.1915 0 " rpy="0 0 0"/>
+		<parent link="${name}_0_link"/>
+		<child link="${name}_1_link"/>
+		<axis xyz="0 0 1"/>
+	        <calibration reference_position="0"/>
+		<limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/>
+	</joint>
+
+	<link name="${name}_1_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<mass value="5.4"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ1.STL" />
+			</geometry>
+                        <material name="Blue" />  
+
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ1.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+        <!--joint between arm_1_link and arm_2_link-->	
+	<joint name="${name}_2_joint" type="revolute">
+		<origin xyz="0 0 0.2085 " rpy="1.5708 0 0"/>
+		<parent link="${name}_1_link"/>
+		<child link="${name}_2_link"/>
+		<axis xyz="0 0 1"/>
+	        <calibration reference_position="0"/>
+		<limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/> 
+	</joint>
+
+	<link name="${name}_2_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="2.8"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ2.STL" />
+			</geometry>
+                        <material name="Red" /> 
+                         
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ2.STL"/>
+			</geometry>
+		</collision>
+	</link>
+
+        <!--joint between arm_2_link and arm_3_link-->	
+	<joint name="${name}_3_joint" type="revolute">
+		<origin xyz="0 0.1915 0 " rpy="-1.5708 0 0"/>
+		<parent link="${name}_2_link"/>
+		<child link="${name}_3_link"/>
+		<axis xyz="0 0 1"/>
+	        <calibration reference_position="0"/>
+		<limit effort="176" velocity="0.4189" lower="-6.2831853" upper="6.2831853"/> 
+	</joint>
+
+	<link name="${name}_3_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="2.0"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" /> 
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ3.STL" />
+			</geometry>
+                        <material name="Blue" /> 
+                          
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ3.STL"/>
+			</geometry>
+		</collision>
+	</link>	
+
+         <!--joint between arm_3_link and arm_4_link-->
+	<joint name="${name}_4_joint" type="revolute">
+		<origin xyz="0 0 0.2085" rpy="1.5708 0 0" />
+		<parent link="${name}_3_link"/>
+		<child link="${name}_4_link"/>
+		<axis xyz="0 0 1" />
+	        <calibration reference_position="0"/>
+		<limit effort="176" velocity="0.4189" upper="2.0943951" lower="-2.0943951" /> 
+	</joint>
+
+	<link name="${name}_4_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="1.6"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ4.STL" />
+			</geometry>
+                        <material name="Red" /> 
+                        
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ4.STL"/>
+			</geometry>
+		</collision>
+	</link>
+
+        <!--joint between arm_4_link and arm_5_link-->
+	<joint name="${name}_5_joint" type="revolute">
+		<origin xyz="0 0.1815 0" rpy="-1.5708 0 0" />
+		<parent link="${name}_4_link"/>
+		<child link="${name}_5_link"/>
+		<axis xyz="0 0 1" />
+	        <calibration reference_position="0"/>
+		<limit effort="41.6" velocity="0.4363" upper="6.2831853" lower="-6.2831853" />
+	</joint>
+
+	<link name="${name}_5_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="1.2"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ5.STL" />
+			</geometry>
+                        <material name="Blue" /> 
+                        
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ5.STL"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<!--joint between arm_5_link and arm_6_link-->
+	<joint name="${name}_6_joint" type="revolute">
+		<origin xyz="0 0 0.057" rpy="1.5708 0 0" />
+		<parent link="${name}_5_link"/>
+		<child link="${name}_6_link"/>
+		<axis xyz="0 0 1" />
+	        <calibration reference_position="0"/>
+		<limit effort="20.1" velocity="0.4363" upper="2.0943951" lower="-2.0943951" /> 
+	</joint>
+	
+	<link name="${name}_6_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="1.1"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ6.STL" />
+			</geometry>
+                        <material name="Red" /> 
+                       
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ6.STL"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<!--joint between arm_6_link and arm_7_link-->
+	<joint name="${name}_7_joint" type="revolute">
+		<origin xyz="0 0.021 0" rpy="-1.5708 0 0" />
+		<parent link="${name}_6_link"/>
+		<child link="${name}_7_link"/>
+		<axis xyz="0 0 1" />
+	        <calibration reference_position="0"/>
+		<limit effort="9.6" velocity="0.8727" upper="6.2831853" lower="-6.2831853" /> 
+	</joint>
+	
+	<link name="${name}_7_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ7.STL" />
+			</geometry>
+                        <material name="Blue" /> 
+                       
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://cob_description/ros/meshes/kuka_v0/KukaJ7.STL"/>
+			</geometry>
+		</collision>
+	</link>
+
+        <!-- extensions -->
+        <xacro:cob_arm_gazebo_v0 name="${name}" />
+        <xacro:cob_arm_transmission_v0 name="${name}" />
+
+  </xacro:macro>
+
+</robot>
