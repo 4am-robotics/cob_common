@@ -18,7 +18,7 @@
         <minAngle>${min_angle*180.0/M_PI}</minAngle>
         <maxAngle>${max_angle*180.0/M_PI}</maxAngle>
 
-        <minRange>0.8</minRange>
+        <minRange>0.30</minRange>
         <maxRange>5.0</maxRange>
         <resRange>0.01</resRange>
         <updateRate>${update_rate}</updateRate>

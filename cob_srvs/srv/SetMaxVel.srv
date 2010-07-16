@@ -1,0 +1,4 @@
+float32 max_vel
+---
+bool success
+std_msgs/String errorMessage

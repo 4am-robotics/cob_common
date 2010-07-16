@@ -1,0 +1,43 @@
+KUKA LBR
+
+Joint 1
+xyz 0 0 -0.1915
+Parent J1
+Child J2
+
+Joint2
+xyz 0 0 0
+Parent J2
+Child J3
+
+Joint 3
+xyz 0 0 -0.400
+Parent J3
+Child J4
+
+Joint 4
+xyz 0 0 0 
+Parent J4
+Child J5
+
+Joint 5
+xyz 0 0 -0.390
+Parent J5
+Child J6
+
+Joint 6
+xyz 0 0 0
+Parent J5
+Child J6
+
+Joint 7
+xyz 0 0 -0.078
+Parent J6
+Child J7
+
+Offset to hand 0.078
+
+  <xacro:cob_arm_v0 name="arm" parent="base_link">
+    <origin xyz="0.040 -0.005 0.83637" rpy="3.1415926 0.7854 -1.8326" />
+  </xacro:cob_arm_v0>
+

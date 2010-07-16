@@ -115,6 +115,26 @@ unsigned long MaskImage(const cv::Mat& source, cv::Mat& dest, const cv::Mat& mas
 /// @return Return code
 unsigned long EvaluatePolynomial(double x, int degree, double* coefficients, double* y);
 
+/// Filters a 3D range image with help of the amplitude image
+/// @param xyzImage A 3 channel, 32bit image, containing the xyz-data, filtered values are set to 0.
+/// @param greyImage A 3 channel, 32bit image, containing the amplitude data
+/// @param mask The resulting mask image (32F1).
+/// @param maskColor The resulting color mask. Pixels are set to different colors if they are filtered or not.
+/// @param minMaskThresh Lower border for filtering.
+/// @param maxMaskThresh Upper border for filtering.
+unsigned long FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh);
+
+/// Filters tear-off edges from a 3D range image.
+/// All tear off edges are masked with a value of 255 in mask image. All
+/// other points are 0.
+/// @param xyzImage A 3 channel, 32bit image, containing the xyz-data, filtered values are set to 0.
+/// @param mask The resulting image mask
+/// @param piHalfFraction Angles between (PI/2)/'piHalfFraction' and (2*PI)-(PI/2)/'piHalfFraction'
+///                       are not discarded
+/// @return Return code
+unsigned long FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, float piHalfFraction = 6);
+
+
 } // end namespace __IPA_VISIONUTILS_H__
 
 
