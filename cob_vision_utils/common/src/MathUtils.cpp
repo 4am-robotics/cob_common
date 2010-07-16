@@ -1,8 +1,8 @@
 
 #ifdef __COB_ROS__
-	#include "cob_vision_math/MathDefines.h"
+	#include "cob_vision_ipa_utils/MathDefines.h"
 #else
-	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/MathUtils.h"
+	#include "Vision/Utilities/MathUtils.h"
 #endif
 
 using namespace ipa_Utils;
