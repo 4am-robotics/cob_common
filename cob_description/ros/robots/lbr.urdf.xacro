@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="cob" >
+  
+  <!-- The following included files set up definitions of parts of the robot body -->
+  <!-- misc common stuff? -->
+  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
+  
+  <include filename="$(find cob_description)/ros/calibration/cob3-lbr.urdf.xacro" />
+
+  <!-- cob lbr-->
+  <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
+
+  <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
+  <include filename="$(find cob_description)/ros/gazebo/gazebo.urdf.xacro" />
+  
+  <!-- materials for visualization -->
+  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+
+  <!-- foot for lbr-->
+	<link name="base_link">
+		<inertial>
+		   <origin xyz="0 0 0" rpy="0 0 0"/>
+		   <mass value="100.0"/>
+		   <inertia ixx="10.0"  ixy="0"  ixz="0" iyy="100.0" iyz="0" izz="100.0" />
+		</inertial>
+
+		<visual>
+		   <origin xyz="0 0 0.25" rpy="0 0 0" />
+		   <geometry>
+			  <cylinder radius="0.075" length="0.5"/>
+		   </geometry>
+		   <material name="Grey" />
+		</visual>
+
+		<collision>
+		   <origin xyz="0 0 0.25" rpy="0 0 0" />
+		   <geometry>
+			  <cylinder radius="0.075" length="0.5"/>
+		   </geometry>
+		</collision>
+	</link>
+
+  <!-- cob lbr-->
+  <xacro:cob_lbr_v0 name="lbr" parent="base_link">
+    <origin xyz="0 0 1.5" rpy="0 0 0" />
+  </xacro:cob_lbr_v0>
+
+</robot>

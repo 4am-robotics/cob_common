@@ -109,7 +109,8 @@ namespace ipa_CameraSensors {
 		CAM_AXIS,				///< Axis 2100 IP camera
 		CAM_PROSILICA,			///< Prosilica GigE camera
 		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
-		CAM_PMDCAMCUBE			///< PMD Cam Cube camera
+		CAM_PMDCAMCUBE,			///< PMD Cam Cube camera
+		ROBOT					///< Robot
 	};
 
 	/// Enum to identify camera device properties
