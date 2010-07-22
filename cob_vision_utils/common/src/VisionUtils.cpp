@@ -556,9 +556,6 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 	/// Check if destination image has been initialized correctly
 	CV_Assert(xyzImage.type() == CV_32FC3);
 
-	std::vector<cv::Point> filterVals;
-
-
 	double pi = 3.14159;
 	float t_lower =pi/piHalfFraction;
 	float t_upper = pi - t_lower;
@@ -752,23 +749,124 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 			/// Mask value if angle exceeded threshold too often
 			if (score > 0)
 			{
+				cv::Vec3b pt(0, 0, 0);
 				if(mask)
 				{
-					cv::Vec3b pt(0, 0, 0);
 					mask->at<cv::Vec3b>(row,col)=pt;
 				}
-				filterVals.push_back(cv::Point(row,col));
+//				xyzImage.at<cv::Vec3f>(row, col) = pt;
+				for(int i = 0; i < 3; i++)
+					xyzImage.ptr(row)[3*col+i] = pt[i];
 			}
-		}
-		std::vector<cv::Point>::iterator It;
-		for(It=filterVals.begin();It!=filterVals.end();It++)
-		{
-			cv::Vec3f pt(0, 0, 0);
-			//xyzImage.at<cv::Vec3b>(It->x,It->y)=pt;
-			xyzImage.at<cv::Vec3f>(It->x,It->y)=pt;
 		}
 	}
 
 	return ipa_Utils::RET_OK;
 }
+
+unsigned long ipa_Utils::FilterSpeckles(cv::Mat& img, int maxSpeckleSize, double maxDiff,cv::Mat& _buf )
+{
+    CV_Assert( img.type() == CV_32FC3 );
+
+ 
+    int newVal = 0;
+    int width = img.cols, height = img.rows, npixels = width*height;
+    size_t bufSize = npixels*(int)(sizeof(cv::Point_<short>) + sizeof(int) + sizeof(uchar));
+    if( !_buf.isContinuous() || !_buf.data || _buf.cols*_buf.rows*_buf.elemSize() < bufSize )
+        _buf.create(1, bufSize, CV_8U);
+    
+    uchar* buf = _buf.data;
+    int i, j, dstep = img.step/sizeof(short);
+    int* labels = (int*)buf;
+    buf += npixels*sizeof(labels[0]);
+    cv::Point_<short>* wbuf = (cv::Point_<short>*)buf;
+    buf += npixels*sizeof(wbuf[0]);
+    uchar* rtype = (uchar*)buf;
+    int curlabel = 0;
+    
+    // clear out label assignments
+    memset(labels, 0, npixels*sizeof(labels[0]));
+    
+    for( i = 0; i < height; i++ )
+    {
+		cv::Vec3f* ds = img.ptr<cv::Vec3f>(i);
+        int* ls = labels + width*i;
+        
+        for( j = 0; j < width; j++ )
+        {
+            if( ds[j][2] != newVal )	// not a bad disparity
+            {
+                if( ls[j] )		// has a label, check for bad label
+                {  
+                    if( rtype[ls[j]] ) // small region, zero out disparity
+					{
+                        ds[j][0] = (float)newVal;
+						ds[j][1] = (float)newVal;
+						ds[j][2] = (float)newVal;
+					}
+                }
+                // no label, assign and propagate
+                else
+                {
+                    cv::Point_<short>* ws = wbuf;	// initialize wavefront
+                    cv::Point_<short> p((short)j, (short)i);	// current pixel
+                    curlabel++;	// next label
+                    int count = 0;	// current region size
+                    ls[j] = curlabel;
+                    
+                    // wavefront propagation
+                    while( ws >= wbuf ) // wavefront not empty
+                    {
+                        count++;
+                        // put neighbors onto wavefront
+						cv::Vec3f* dpp = &img.at<cv::Vec3f>(p.y, p.x);
+						cv::Vec3f dp = *dpp;
+                        int* lpp = labels + width*p.y + p.x;
+                        
+                        if( p.x < width-1 && !lpp[+1] && dpp[+1][2] != newVal && std::abs(dp[2] - dpp[+1][2]) <= maxDiff )
+                        {
+                            lpp[+1] = curlabel;
+                            *ws++ = cv::Point_<short>(p.x+1, p.y);
+                        }
+                        
+						if( p.x > 0 && !lpp[-1] && dpp[-1][2] != newVal && std::abs(dp[2] - dpp[-1][2]) <= maxDiff )
+                        {
+                            lpp[-1] = curlabel;
+                            *ws++ = cv::Point_<short>(p.x-1, p.y);
+                        }
+                        
+                        if( p.y < height-1 && !lpp[+width] && dpp[+dstep][2] != newVal && std::abs(dp[2] - dpp[+dstep][2]) <= maxDiff )
+                        {
+                            lpp[+width] = curlabel;
+                            *ws++ = cv::Point_<short>(p.x, p.y+1);
+                        }
+                        
+                        if( p.y > 0 && !lpp[-width] && dpp[-dstep][2] != newVal && std::abs(dp[2] - dpp[-dstep][2]) <= maxDiff )
+                        {
+                            lpp[-width] = curlabel;
+                            *ws++ = cv::Point_<short>(p.x, p.y-1);
+                        }
+                        
+                        // pop most recent and propagate
+                        // NB: could try least recent, maybe better convergence
+                        p = *--ws;
+                    }
+                    
+                    // assign label type
+                    if( count <= maxSpeckleSize )	// speckle region
+                    {
+                        rtype[ls[j]] = 1;	// small region label
+                        ds[j][0] = (float)newVal;
+						ds[j][1] = (float)newVal;
+						ds[j][2] = (float)newVal;
+                    }
+                    else
+                        rtype[ls[j]] = 0;	// large region label
+                }
+            }
+        }
+    }
+	return ipa_Utils::RET_OK;
+}    
+
 

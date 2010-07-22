@@ -134,6 +134,9 @@ unsigned long FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* 
 /// @return Return code
 unsigned long FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, float piHalfFraction = 6);
 
+/// Description
+unsigned long FilterSpeckles( cv::Mat& img, int maxSpeckleSize, double _maxDiff, cv::Mat& _buf );
+
 
 } // end namespace __IPA_VISIONUTILS_H__
 
