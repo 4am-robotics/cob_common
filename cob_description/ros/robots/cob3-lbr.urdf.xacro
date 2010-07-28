@@ -50,7 +50,7 @@
   </xacro:cob_torso_v0>
   
   <xacro:cob_lbr_v0 name="lbr" parent="base_link">
-    <origin xyz="0.040 -0.005 0.83637" rpy="3.1415926 0.7854 -1.8326" />
+    <origin xyz="0.040 -0.005 0.83637" rpy="0 0.7854 -1.8326" />
   </xacro:cob_lbr_v0>
   
   <xacro:cob_head_cameras_v0 name="head" parent="torso_upper_neck_tilt_link">
@@ -58,7 +58,7 @@
   </xacro:cob_head_cameras_v0>
   
   <xacro:cob_sdh_v0 name="sdh" parent="lbr_7_link">
-    <origin xyz="0 0 -0.02" rpy="0 3.1415926 0" />
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
   </xacro:cob_sdh_v0>
   
 </robot>
