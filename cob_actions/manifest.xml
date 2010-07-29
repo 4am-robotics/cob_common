@@ -9,7 +9,9 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_actions</url>
 
+  <depend package="roslib"/>
   <depend package="std_msgs"/>
+  <depend package="actionlib"/>
   <depend package="actionlib_msgs"/>
   <depend package="trajectory_msgs"/>
   <depend package="cob_msgs"/>

@@ -1,6 +1,6 @@
 #goal definition
-std_msgs/String component_name
-std_msgs/String parameter_name
+string component_name
+string parameter_name
 ---
 #result definition
 int16 return_value
