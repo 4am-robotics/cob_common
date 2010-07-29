@@ -1,0 +1,8 @@
+#goal definition
+string component_name
+string parameter_name
+---
+#result definition
+int16 return_value
+---
+#feedback definition
