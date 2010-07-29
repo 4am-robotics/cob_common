@@ -54,7 +54,7 @@
   </xacro:cob_arm_v0>
   
   <xacro:cob_head_cameras_v0 name="head" parent="torso_upper_neck_tilt_link">
-    <origin xyz="0 -0.154 0" rpy="-1.5708 0 0" />
+    <origin xyz="0 -0.154 0" rpy="3.14159 0 0" />
   </xacro:cob_head_cameras_v0>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">

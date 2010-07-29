@@ -243,6 +243,9 @@ unsigned long CameraSensorToolbox::ConvertCameraTypeToString(ipa_CameraSensors::
 {
 	switch (cameraType)
 	{
+	case ROBOT:
+		cameraTypeString = "Robot";
+		break;
 	case CAM_IC:
 		cameraTypeString = "ICCam";
 		break;

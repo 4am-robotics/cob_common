@@ -24,5 +24,25 @@
   <property name="arm_6_ref" value="-1.6167" />
   <property name="arm_7_ref" value="8.1075" />
   
+  <property name="cam_r_x" value="0.0" />
+  <property name="cam_r_y" value="0.0" />
+  <property name="cam_r_z" value="0.0" />
+  <property name="cam_r_roll" value="0.0" />
+  <property name="cam_r_pitch" value="0.0" />
+  <property name="cam_r_yaw" value="0.0" />
+  
+  <property name="cam_l_x" value="0.0" />
+  <property name="cam_l_y" value="0.0" />
+  <property name="cam_l_z" value="0.0" />
+  <property name="cam_l_roll" value="0.0" />
+  <property name="cam_l_pitch" value="0.0" />
+  <property name="cam_l_yaw" value="0.0" />
+  
+  <property name="tof_x" value="0.0" />
+  <property name="tof_y" value="0.0" />
+  <property name="tof_z" value="0.0" />
+  <property name="tof_roll" value="0.0" />
+  <property name="tof_pitch" value="0.0" />
+  <property name="tof_yaw" value="0.0" />
   
 </robot>
