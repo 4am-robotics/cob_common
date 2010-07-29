@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot>
+
+  <property name="M_PI" value="3.1415926535897931" />
+
+  <!-- torso reference position -->
+  <property name="torso_lower_neck_pan_ref" value="-0.4870" />
+  <property name="torso_lower_neck_tilt_ref" value="0.0344" />
+  <property name="torso_upper_neck_pan_ref" value="0.0247" />
+  <property name="torso_upper_neck_tilt_ref" value="0.02201" />
+  
+  <!-- tray reference position -->
+  <property name="torso_tray_ref" value="4.1451" />
+  
+  <!-- head cameras reference position -->
+  <property name="head_camera_axis_ref" value="-3.14" />
+  
+  <!-- arm reference position -->
+  <property name="arm_1_ref" value="8.1252" />
+  <property name="arm_2_ref" value="0.6454" />
+  <property name="arm_3_ref" value="-4.9119" />
+  <property name="arm_4_ref" value="-0.8774" />
+  <property name="arm_5_ref" value="-0.3908" />
+  <property name="arm_6_ref" value="-1.6167" />
+  <property name="arm_7_ref" value="8.1075" />
+  
+  
+</robot>

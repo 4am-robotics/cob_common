@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="cob_lbr_transmission_v0" params="name">
+
+	<transmission name="${name}_1_trans" type="SimpleTransmission">
+		<actuator name="${name}_1_motor"/>
+		<joint name="${name}_1_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+	
+	<transmission name="${name}_2_trans" type="SimpleTransmission">
+		<actuator name="${name}_2_motor"/>
+		<joint name="${name}_2_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+	
+	<transmission name="${name}_3_trans" type="SimpleTransmission">
+		<actuator name="${name}_3_motor"/>
+		<joint name="${name}_3_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+	
+	<transmission name="${name}_4_trans" type="SimpleTransmission">
+		<actuator name="${name}_4_motor"/>
+		<joint name="${name}_4_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+	
+	<transmission name="${name}_5_trans" type="SimpleTransmission">
+		<actuator name="${name}_5_motor"/>
+		<joint name="${name}_5_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+	
+	<transmission name="${name}_6_trans" type="SimpleTransmission">
+		<actuator name="${name}_6_motor"/>
+		<joint name="${name}_6_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+
+	<transmission name="${name}_7_trans" type="SimpleTransmission">
+		<actuator name="${name}_7_motor"/>
+		<joint name="${name}_7_joint"/>
+		<mechanicalReduction>1</mechanicalReduction>
+	</transmission>
+
+  </xacro:macro>
+
+</robot>

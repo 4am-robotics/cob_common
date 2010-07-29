@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="torso">
+
+	<include filename="$(find cob_defs)/ros/calibration/cob3-1.xacro" />
+
+	<!-- finger -->
+	<xacro:macro name="finger" params="finger_nr parent prefix">
+		<link name="${prefix}_finger_${finger_nr}1_link"/>
+		<link name="${prefix}_finger_${finger_nr}2_link"/>
+		<link name="${prefix}_finger_${finger_nr}3_link"/>
+
+		<joint name="${prefix}_finger_${finger_nr}1_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${prefix}_finger_${finger_nr}1_link"/>
+		</joint>
+		<joint name="${prefix}_finger_${finger_nr}2_joint" type="fixed">
+			<parent link="${prefix}_finger_${finger_nr}1_link"/>
+			<child link="${prefix}_finger_${finger_nr}2_link"/>
+		</joint>
+		<joint name="${prefix}_finger_${finger_nr}3_joint" type="fixed">
+			<parent link="${prefix}_finger_${finger_nr}2_link"/>
+			<child link="${prefix}_finger_${finger_nr}3_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- thumb -->
+	<xacro:macro name="thumb" params="parent prefix">
+		<link name="${prefix}_thumb_1_link"/>
+		<link name="${prefix}_thumb_2_link"/>
+		<link name="${prefix}_thumb_3_link"/>
+
+		<joint name="${prefix}_thumb_1_joint" type="fixed">
+			<parent link="${parent}_link"/>
+			<child link="${prefix}_thumb_1_link"/>
+		</joint>
+		<joint name="${prefix}_thumb_2_joint" type="fixed">
+			<parent link="${prefix}_thumb_1_link"/>
+			<child link="${prefix}_thumb_2_link"/>
+		</joint>
+		<joint name="${prefix}_thumb_3_joint" type="fixed">
+			<parent link="${prefix}_thumb_2_link"/>
+			<child link="${prefix}_thumb_3_link"/>
+		</joint>
+	</xacro:macro>
+
+	<!-- compose robot -->
+	<xacro:macro name="sdh" params="name parent">
+		<link name="${name}_palm_link"/>
+
+		<joint name="${name}_palm_joint" type="fixed">
+			<parent link="${parent}_7_link"/>
+			<child link="${name}_palm_link"/>
+		</joint>
+		<xacro:finger finger_nr="1" parent="${name}_palm" prefix="${name}"/>
+		<xacro:finger finger_nr="2" parent="${name}_palm" prefix="${name}"/>
+		<xacro:thumb parent="${name}_palm" prefix="${name}"/>
+	</xacro:macro>
+</robot>

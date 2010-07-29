@@ -346,7 +346,7 @@
 			<inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
 		</inertial>
 		<visual>
-			<origin xyz="0 0 0.005" rpy="M_PI 0 0" />
+			<origin xyz="0 0 0.005" rpy="0 0 0" />
 			<geometry>
 		        <box size="0.01 0.01 0.01"/>
 <!--				<mesh filename="package://cob_defs/common/files/meshes/finger_tip.stl" /> -->

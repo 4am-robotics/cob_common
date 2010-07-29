@@ -2,3 +2,7 @@
 sensor_msgs/Image colorImage
 sensor_msgs/Image xyzImage
 sensor_msgs/Image confidenceMask
+
+# 3x3 row-major Reprojection matrix
+# Reprojects 3-D coordinates to image coordinates
+float64[9] reprojectionMatrix

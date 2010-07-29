@@ -8,16 +8,16 @@
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 *
 * Project name: care-o-bot
-* ROS stack name: cob3_driver
+* ROS stack name: cob_common
 * ROS package name: cob_camera_sensors
-* Description: Defines for camera sensors.
+* Description: Type definitions for camera sensors.
 *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 *
 * Author: Jan Fischer, email:jan.fischer@ipa.fhg.de
 * Supervised by: Jan Fischer, email:jan.fischer@ipa.fhg.de
 *
-* Date of creation: Sept 2008
+* Date of creation: June 2010
 * ToDo:
 *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -52,15 +52,13 @@
 ****************************************************************/
  
 
-/// @file LibCameraSensorTypes.h
-/// Defines for camera sensors.
+/// @file CameraSensorTypes.h
+/// Type definitions for camera sensors.
 /// @author Jan Fischer
-/// @date September 2008.
+/// @date June 2010.
 
-#ifndef __CAMERASENSORTYPES_H__
-#define __CAMERASENSORTYPES_H__
-
-#include <iostream>
+#ifndef __IPA_CAMERASENSORTYPES_H__
+#define __IPA_CAMERASENSORTYPES_H__
 
 namespace ipa_CameraSensors {
 
@@ -109,7 +107,7 @@ namespace ipa_CameraSensors {
 		CAM_IC,					///< Imaging source camera (blue camera)
 		CAM_AVTPIKE,			///< AVT Pike camera (red camera)
 		CAM_AXIS,				///< Axis 2100 IP camera
-		CAM_PROSILICA,				///< Prosilica GigE camera
+		CAM_PROSILICA,			///< Prosilica GigE camera
 		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAMCUBE			///< PMD Cam Cube camera
 	};
@@ -293,4 +291,4 @@ namespace ipa_CameraSensors {
 	}t_cameraRole;
 } // namespace ipa_CameraSensors
 
-#endif // __CAMERASENSORTYPES_H__
+#endif // __IPA_CAMERASENSORTYPES_H__

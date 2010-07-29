@@ -30,9 +30,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/common/lib)
 #target_link_libraries(example ${PROJECT_NAME})
 
 # add project libraries
-rosbuild_add_library(cob_vision_utils	common/src/MathUtils.cpp
-					common/src/OpenCVUtils.cpp
-					common/src/ThreeDUtils.cpp
+rosbuild_add_library(cob_vision_utils	common/src/VisionUtils.cpp
 					common/src/CameraSensorToolbox.cpp)	
 # add include search paths
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/common/include)
@@ -48,4 +46,3 @@ rosbuild_add_compile_flags(cob_vision_utils -D__LINUX__ -D__COB_ROS__)
 # add compile flag
 
 # link libraries
-target_link_libraries(cob_vision_utils cv cxcore highgui Wm4Foundation)

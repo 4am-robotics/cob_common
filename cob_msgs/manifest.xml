@@ -1,13 +1,13 @@
 <package>
-  <description brief="cob3_msgs">
+  <description brief="cob_msgs">
 
-     cob3_msgs
+     This Package contains Care-O-bot specific message definitions.
 
   </description>
   <author>Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
-  <url>http://www.care-o-bot.org</url>
+  <url>http://ros.org/wiki/cob_msgs</url>
 
   <depend package="roslib"/>
   <depend package="std_msgs"/>

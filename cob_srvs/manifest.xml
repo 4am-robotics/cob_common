@@ -1,18 +1,20 @@
 <package>
-  <description brief="cob3_srvs">
+  <description brief="cob_srvs">
 
-     cob3_srvs
+     This Package contains Care-O-bot specific service definitions.
 
   </description>
   <author>Florian Weisshardt, email:florian.weisshardt@ipa.fhg.de</author>
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
-  <url>http://www.care-o-bot.org</url>
+  <url>http://ros.org/wiki/cob_srvs</url>
   
   <depend package="std_srvs"/>
   <depend package="std_msgs"/>
   <depend package="cob_msgs"/>
   <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="trajectory_msgs"/>
 
   <export>
     <cpp cflags="-I${prefix}/srv/cpp"/>
