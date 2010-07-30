@@ -660,7 +660,7 @@
 		<parent link="link_head"/>
 		<child link="link_eyes"/>
 		<axis xyz="0 0 1" />
-	    <calibration reference_position="-3.14"/>
+	    <calibration reference_position="-3.2668"/>  <!-- "-3.14" -->
 		<limit effort="100" lower="-0.1745" upper="3.316" velocity="0.5"/> <!-- rads. effort is N-m applied force. vel is rad/s. -->
 	</joint>
 	
