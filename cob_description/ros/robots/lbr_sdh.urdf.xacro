@@ -14,6 +14,9 @@
   <!-- cob lbr-->
   <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
 
+  <!-- cob sdh-->
+  <include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" />
+
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
   <include filename="$(find cob_description)/ros/gazebo/gazebo.urdf.xacro" />
   
@@ -48,5 +51,9 @@
   <xacro:cob_lbr_v0 name="lbr" parent="base_link">
     <origin xyz="0 0 0.5" rpy="0 0 0" />
   </xacro:cob_lbr_v0>
+
+  <xacro:cob_sdh_v0 name="sdh" parent="lbr_7_link">
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+  </xacro:cob_sdh_v0>
 
 </robot>
