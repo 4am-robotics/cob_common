@@ -1,0 +1,15 @@
+<package>
+  <description brief="cob_bringup">
+
+     cob_bringup
+
+  </description>
+  <author>fmw</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_bringup</url>
+  <depend package="cob_machine"/>
+
+</package>
+
+
