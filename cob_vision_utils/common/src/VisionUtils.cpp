@@ -755,9 +755,9 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				{
 					mask->at<cv::Vec3b>(row,col)=pt;
 				}
-//				xyzImage.at<cv::Vec3f>(row, col) = pt;
-				for(int i = 0; i < 3; i++)
-					xyzImage.ptr(row)[3*col+i] = pt[i];
+				xyzImage.at<cv::Vec3f>(row, col) = pt;
+				//for(int i = 0; i < 3; i++)
+				//	xyzImage.ptr(row)[3*col+i] = pt[i];
 			}
 		}
 	}
