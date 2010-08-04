@@ -5,7 +5,7 @@
 	<property name="M_PI" value="3.1415926535897931" />
 
 	<!-- torso reference positions -->
-	<property name="torso_lower_neck_pan_ref" value="-0.4870" />
+	<property name="torso_lower_neck_pan_ref" value="-0.5470" />
 	<property name="torso_lower_neck_tilt_ref" value="0.0344" />
 	<property name="torso_upper_neck_pan_ref" value="0.0247" />
 	<property name="torso_upper_neck_tilt_ref" value="0.02201" />
