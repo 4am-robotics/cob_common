@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find cob_machine)/$(env ROBOT).machine" />
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/$(env ROBOT).urdf.xacro'" />
+	
+	<!-- start robot_state_publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="rob_st_pub" />
+
+	<!-- startup hardware -->
+	<include file="$(find cob_tray)/ros/launch/tray.launch" />
+	<include file="$(find cob_torso)/ros/launch/torso.launch" />
+	<include file="$(find cob_sdh)/ros/launch/sdh.launch" />
+	<!--include file="$(find cob_camera_axis)/ros/launch/camera_axis.launch" /-->
+	<include file="$(find cob_java)/launch/cob3-1.launch" />
+	
+</launch>
