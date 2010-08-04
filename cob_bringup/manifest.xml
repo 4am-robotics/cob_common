@@ -8,7 +8,12 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_bringup</url>
+  
   <depend package="cob_machine"/>
+  <depend package="cob_tray"/>
+  <depend package="cob_torso"/>
+  <depend package="cob_arm"/>
+  <depend package="cob_sdh"/>
 
 </package>
 
