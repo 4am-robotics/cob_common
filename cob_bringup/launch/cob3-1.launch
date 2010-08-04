@@ -3,6 +3,9 @@
 
 	<include file="$(find cob_machine)/$(env ROBOT).machine" />
 	<param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/$(env ROBOT).urdf.xacro'" />
+	
+	<!-- start robot_state_publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="rob_st_pub" />
 
 	<!-- startup hardware -->
 	<include file="$(find cob_tray)/ros/launch/tray.launch" />
