@@ -18,6 +18,8 @@
   <depend package="cob_camera_sensors"/>
   <depend package="cob_platform"/>
 
+  <depend package="cob_gazebo"/>
+
 </package>
 
 

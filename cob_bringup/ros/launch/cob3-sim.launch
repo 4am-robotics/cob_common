@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find cob_machine)/cob3-sim.machine" />
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/$(env ROBOT).urdf.xacro'" />
+	
+	<!-- start robot_state_publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="rob_st_pub" />
+
+	<!-- startup simulation -->
+	<include file="$(find cob_gazebo_worlds)/ros/launch/ipa_kitchen.launch" />
+	<include file="$(find cob_gazebo)/ros/launch/cob3.launch" />
+	
+</launch>
