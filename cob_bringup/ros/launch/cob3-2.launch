@@ -12,6 +12,10 @@
 	<include file="$(find cob_torso)/ros/launch/torso.launch" />
 	<include file="$(find cob_sdh)/ros/launch/sdh.launch" />
 	<!--include file="$(find cob_camera_axis)/ros/launch/camera_axis.launch" /-->
-	<include file="$(find cob_java)/launch/cob3-1.launch" />
+	<include file="$(find cob_arm)/ros/launch/arm.launch" />
+	<include file="$(find cob_platform)/ros/launch/platform.launch" />
+	
+	<!-- start teleoperation package-->
+	<!--include file="$(find cob_teleop)/ros/launch/cob_teleop.launch" /-->
 	
 </launch>
