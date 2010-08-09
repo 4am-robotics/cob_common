@@ -10,7 +10,7 @@
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
 
   <!-- cob calibration -->
-  <include filename="$(find cob_description)/ros/calibration/cob3-lbr.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
   
   <!-- cob base -->
   <include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" />
@@ -49,7 +49,7 @@
     <origin xyz="0.24627 0 0.7798" rpy="3.1415926 0 0" />
   </xacro:cob_torso_v0>
   
-  <xacro:cob_lbr_v0 name="lbr" parent="base_link">
+  <xacro:cob_lbr_v0 name="arm" parent="base_link">
     <origin xyz="0.040 -0.005 0.83637" rpy="0 0.7854 -1.8326" />
   </xacro:cob_lbr_v0>
   
