@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-	<include file="$(find cob_bringup)/ros/launch/$(env ROBOT).launch" />
-
-</launch>
