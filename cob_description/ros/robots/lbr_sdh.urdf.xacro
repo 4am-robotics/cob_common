@@ -9,7 +9,7 @@
   <!-- misc common stuff? -->
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
   
-  <include filename="$(find cob_description)/ros/calibration/cob3-lbr.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
 
   <!-- cob lbr-->
   <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
@@ -48,11 +48,11 @@
 	</link>
 
   <!-- cob lbr-->
-  <xacro:cob_lbr_v0 name="lbr" parent="base_link">
+  <xacro:cob_lbr_v0 name="arm" parent="base_link">
     <origin xyz="0 0 0.5" rpy="0 0 0" />
   </xacro:cob_lbr_v0>
 
-  <xacro:cob_sdh_v0 name="sdh" parent="lbr_7_link">
+  <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
     <origin xyz="0 0 0.02" rpy="0 0 0" />
   </xacro:cob_sdh_v0>
 

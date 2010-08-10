@@ -14,6 +14,9 @@
   <depend package="cob_torso"/>
   <depend package="cob_arm"/>
   <depend package="cob_sdh"/>
+  <depend package="cob_camera_axis"/>
+  <depend package="cob_camera_sensors"/>
+  <depend package="cob_platform"/>
 
 </package>
 
