@@ -50,17 +50,17 @@
 
     <!--##################################################-->
     <!-- camera test here -->
-    <xacro:cob_cameraone_v0 name="${name}_color_camera_l" parent="${name}_camera_axis_link">
-      <origin xyz="0 0.03 -0.003" rpy="0 0 0" />
+    <xacro:cob_cameraone_v0 name="${name}_color_camera_l" parent="${name}_color_camera_r_link">
+      <origin xyz="${cam_l_x-0.12} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
     </xacro:cob_cameraone_v0>
 
     <xacro:cob_cameraone_v0 name="${name}_color_camera_r" parent="${name}_camera_axis_link">
-      <origin xyz="0 -0.03 -0.003" rpy="0 0 0" />
+      <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z+0.06}" rpy="${cam_r_roll} ${cam_r_pitch-1.5708} ${cam_r_yaw+3.14159}" />
     </xacro:cob_cameraone_v0>
 
     <!-- hokuyo_SR400_laser test here-->
-    <xacro:hokuyo_SR400_laser_v0 name="${name}_tof_camera" parent="${name}_camera_axis" ros_topic="head_scan" update_rate="54" min_angle="-0.302" max_angle="0.302" >
-      <origin xyz="0 0 0" rpy="0 0 0" />
+    <xacro:hokuyo_SR400_laser_v0 name="${name}_tof_camera" parent="${name}_color_camera_r_link" ros_topic="head_scan" update_rate="54" min_angle="-0.302" max_angle="0.302" >
+      <origin xyz="${tof_x-0.06} ${tof_y} ${tof_z}" rpy="${tof_roll} ${tof_pitch} ${tof_yaw}" />
     </xacro:hokuyo_SR400_laser_v0>
 
     <!-- extensions -->

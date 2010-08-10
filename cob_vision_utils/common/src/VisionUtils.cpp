@@ -781,7 +781,7 @@ unsigned long ipa_Utils::FilterSpeckles(cv::Mat& img, int maxSpeckleSize, double
         _buf.create(1, bufSize, CV_8U);
     
     uchar* buf = _buf.data;
-    int i, j, dstep = img.step/sizeof(short);
+    int i, j, dstep = img.step/sizeof(cv::Vec3f);
     int* labels = (int*)buf;
     buf += npixels*sizeof(labels[0]);
     cv::Point_<short>* wbuf = (cv::Point_<short>*)buf;

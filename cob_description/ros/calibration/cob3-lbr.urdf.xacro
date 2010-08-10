@@ -1,26 +1,50 @@
 <?xml version="1.0"?>
 <robot>
 
-  <!-- torso reference position -->
-  <property name="torso_lower_neck_pan_ref" value="0.0" />
-  <property name="torso_lower_neck_tilt_ref" value="0.0" />
-  <property name="torso_upper_neck_pan_ref" value="0.0" />
-  <property name="torso_upper_neck_tilt_ref" value="0.0" />
-  
-  <!-- tray reference position -->
-  <property name="torso_tray_ref" value="0.0" />
-  
-  <!-- head cameras reference position -->
-  <property name="head_camera_axis_ref" value="0.0" />
-  
-  <!-- lbr reference position -->
-  <property name="lbr_1_ref" value="0.0" />
-  <property name="lbr_2_ref" value="0.0" />
-  <property name="lbr_3_ref" value="0.0" />
-  <property name="lbr_4_ref" value="0.0" />
-  <property name="lbr_5_ref" value="0.0" />
-  <property name="lbr_6_ref" value="0.0" />
-  <property name="lbr_7_ref" value="0.0" />
-  
-  
+	<!-- common properties -->
+	<property name="M_PI" value="3.1415926535897931" />
+
+	<!-- torso reference positions -->
+	<property name="torso_lower_neck_pan_ref" value="0.0" />
+	<property name="torso_lower_neck_tilt_ref" value="0.0" />
+	<property name="torso_upper_neck_pan_ref" value="0.0" />
+	<property name="torso_upper_neck_tilt_ref" value="0.0" />
+
+	<!-- tray reference position -->
+	<property name="torso_tray_ref" value="0.0" />
+
+	<!-- head camera axis reference position -->
+	<property name="head_camera_axis_ref" value="0.0" />
+
+	<!-- lbr reference positions -->
+	<property name="lbr_1_ref" value="0.0" />
+	<property name="lbr_2_ref" value="0.0" />
+	<property name="lbr_3_ref" value="0.0" />
+	<property name="lbr_4_ref" value="0.0" />
+	<property name="lbr_5_ref" value="0.0" />
+	<property name="lbr_6_ref" value="0.0" />
+	<property name="lbr_7_ref" value="0.0" />
+
+	<!-- camera calibration properties -->
+	<property name="cam_r_x" value="0.0" />
+	<property name="cam_r_y" value="0.0" />
+	<property name="cam_r_z" value="0.0" />
+	<property name="cam_r_roll" value="0.0" />
+	<property name="cam_r_pitch" value="0.0" />
+	<property name="cam_r_yaw" value="0.0" />
+
+	<property name="cam_l_x" value="0.0" />
+	<property name="cam_l_y" value="0.0" />
+	<property name="cam_l_z" value="0.0" />
+	<property name="cam_l_roll" value="0.0" />
+	<property name="cam_l_pitch" value="0.0" />
+	<property name="cam_l_yaw" value="0.0" />
+
+	<property name="tof_x" value="0.0" />
+	<property name="tof_y" value="0.0" />
+	<property name="tof_z" value="0.0" />
+	<property name="tof_roll" value="0.0" />
+	<property name="tof_pitch" value="0.0" />
+	<property name="tof_yaw" value="0.0" />
+
 </robot>
