@@ -667,6 +667,7 @@ unsigned long CameraSensorToolbox::LoadParameters(const char* filename, ipa_Came
 								return (RET_FAILED | RET_XML_ATTR_NOT_FOUND);
 							}
 
+
 							intrinsicMatrix.at<double>(0, 0) = fx;
 							intrinsicMatrix.at<double>(1, 0) = fy;
 							intrinsicMatrix.at<double>(2, 0) = cx;
