@@ -471,10 +471,11 @@ unsigned long ipa_Utils::ConvertToShowImage(const cv::Mat& source, cv::Mat& dest
 
 unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh)
 {
-	if(mask) CV_Assert(mask->type() == CV_32FC1);
-	if(maskColor) CV_Assert(maskColor->type() == CV_8UC3);
 	CV_Assert(xyzImage.type() == CV_32FC3);
 	CV_Assert(greyImage.type() == CV_32FC1);
+
+	if(mask) mask->create(greyImage.size(), greyImage.type());
+	if(maskColor) mask->create(greyImage.size(), CV_8UC3);
 
 	int xyzIndex = 0;
 	int maskColorIndex = 0;
@@ -754,9 +755,9 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				{
 					mask->at<cv::Vec3b>(row,col)=pt;
 				}
-//				xyzImage.at<cv::Vec3f>(row, col) = pt;
-				for(int i = 0; i < 3; i++)
-					xyzImage.ptr(row)[3*col+i] = pt[i];
+				xyzImage.at<cv::Vec3f>(row, col) = pt;
+				//for(int i = 0; i < 3; i++)
+				//	xyzImage.ptr(row)[3*col+i] = pt[i];
 			}
 		}
 	}
