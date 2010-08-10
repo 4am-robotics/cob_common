@@ -469,29 +469,34 @@ unsigned long ipa_Utils::ConvertToShowImage(const cv::Mat& source, cv::Mat& dest
 		return RET_OK;
 }
 
-unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh)
+unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, const cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh)
 {
 	CV_Assert(xyzImage.type() == CV_32FC3);
 	CV_Assert(greyImage.type() == CV_32FC1);
 
-	if(mask) mask->create(greyImage.size(), greyImage.type());
-	if(maskColor) mask->create(greyImage.size(), CV_8UC3);
+	if(mask) mask->create(greyImage.size(), CV_32FC1);
+	if(maskColor) maskColor->create(greyImage.size(), CV_8UC3);
 
 	int xyzIndex = 0;
 	int maskColorIndex = 0;
+	float V = 0;
+	float vMask = 0;
+
+	unsigned char* c_maskColor_ptr = 0;
+	float* f_xyz_ptr = 0;
+	const float* f_grey_ptr = 0;
+	float* f_mask_ptr = 0;
 
 	for(int j=0; j<xyzImage.rows; j++)
 	{
-		float* f_xyz_ptr = xyzImage.ptr<float>(j);
-		float* f_grey_ptr = greyImage.ptr<float>(j);
-		unsigned char* c_maskColor_ptr = 0;
-		if(maskColor)
-			c_maskColor_ptr = maskColor->ptr<unsigned char>(j);
+		f_xyz_ptr = xyzImage.ptr<float>(j);
+		f_grey_ptr = greyImage.ptr<float>(j);
+		if(mask) f_mask_ptr = mask->ptr<float>(j);
+		if(maskColor) c_maskColor_ptr = maskColor->ptr<unsigned char>(j);
 
 		for(int i=0; i<xyzImage.cols; i++)
 		{
-			float V = 0;
-			float vMask = 0;
+			
 			xyzIndex = i*3;
 			maskColorIndex = i*3;
 
@@ -542,8 +547,7 @@ unsigned long ipa_Utils::FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage
 
 			if(mask)
 			{
-				float* c_mask_ptr = mask->ptr<float>(j);
-				c_mask_ptr[i] = vMask;
+				f_mask_ptr[i] = vMask;
 			}
 
 		}
@@ -755,9 +759,9 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				{
 					mask->at<cv::Vec3b>(row,col)=pt;
 				}
-				xyzImage.at<cv::Vec3f>(row, col) = pt;
-				//for(int i = 0; i < 3; i++)
-				//	xyzImage.ptr(row)[3*col+i] = pt[i];
+//				xyzImage.at<cv::Vec3f>(row, col) = pt;
+				for(int i = 0; i < 3; i++)
+					xyzImage.ptr(row)[3*col+i] = 0.f;
 			}
 		}
 	}
@@ -777,7 +781,7 @@ unsigned long ipa_Utils::FilterSpeckles(cv::Mat& img, int maxSpeckleSize, double
         _buf.create(1, bufSize, CV_8U);
     
     uchar* buf = _buf.data;
-    int i, j, dstep = img.step/sizeof(short);
+    int i, j, dstep = img.step/sizeof(cv::Vec3f);
     int* labels = (int*)buf;
     buf += npixels*sizeof(labels[0]);
     cv::Point_<short>* wbuf = (cv::Point_<short>*)buf;

@@ -122,7 +122,7 @@ unsigned long EvaluatePolynomial(double x, int degree, double* coefficients, dou
 /// @param maskColor The resulting color mask. Pixels are set to different colors if they are filtered or not.
 /// @param minMaskThresh Lower border for filtering.
 /// @param maxMaskThresh Upper border for filtering.
-unsigned long FilterByAmplitude(cv::Mat& xyzImage, cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh);
+unsigned long FilterByAmplitude(cv::Mat& xyzImage, const cv::Mat& greyImage, cv::Mat* mask, cv::Mat* maskColor, float minMaskThresh, float maxMaskThresh);
 
 /// Filters tear-off edges from a 3D range image.
 /// All tear off edges are masked with a value of 255 in mask image. All
