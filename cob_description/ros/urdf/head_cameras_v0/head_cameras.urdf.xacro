@@ -15,7 +15,7 @@
   <xacro:macro name="cob_head_cameras_v0" params="name parent *origin">
     
     <!--joint between torso_upper_neck_tilt_link and head_camera_axis_link-->
-    <joint name="${name}_camera_axis_joint" type="fixed">
+    <joint name="${name}_camera_axis_joint" type="revolute">
        <insert_block name="origin" />
        <parent link="${parent}"/>
        <child link="${name}_camera_axis_link"/>
