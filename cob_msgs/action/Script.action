@@ -1,6 +1,5 @@
 #goal definition
-string component_name
-string parameter_name
+cob_msgs/ScriptState state
 ---
 #result definition
 int16 return_value
