@@ -12,3 +12,4 @@ byte SUCCEEDED=2
 byte FAILED=3
 
 byte state # state of execution
+int16 error_code # current error_code for state
