@@ -7,43 +7,43 @@
 
   <xacro:macro name="cob_lbr_transmission_v0" params="name">
 
-	<transmission name="${name}_1_trans" type="SimpleTransmission">
+	<transmission name="${name}_1_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_1_motor"/>
 		<joint name="${name}_1_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
 	</transmission>
 	
-	<transmission name="${name}_2_trans" type="SimpleTransmission">
+	<transmission name="${name}_2_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_2_motor"/>
 		<joint name="${name}_2_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
 	</transmission>
 	
-	<transmission name="${name}_3_trans" type="SimpleTransmission">
+	<transmission name="${name}_3_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_3_motor"/>
 		<joint name="${name}_3_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
 	</transmission>
 	
-	<transmission name="${name}_4_trans" type="SimpleTransmission">
+	<transmission name="${name}_4_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_4_motor"/>
 		<joint name="${name}_4_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
 	</transmission>
 	
-	<transmission name="${name}_5_trans" type="SimpleTransmission">
+	<transmission name="${name}_5_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_5_motor"/>
 		<joint name="${name}_5_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
 	</transmission>
 	
-	<transmission name="${name}_6_trans" type="SimpleTransmission">
+	<transmission name="${name}_6_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_6_motor"/>
 		<joint name="${name}_6_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
 	</transmission>
 
-	<transmission name="${name}_7_trans" type="SimpleTransmission">
+	<transmission name="${name}_7_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_7_motor"/>
 		<joint name="${name}_7_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>

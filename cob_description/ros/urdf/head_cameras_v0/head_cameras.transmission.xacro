@@ -7,7 +7,7 @@
 
   <xacro:macro name="cob_head_cameras_transmission_v0" params="name">
 
-    <transmission name="${name}_camera_axis_trans" type="SimpleTransmission">
+    <transmission name="${name}_camera_axis_trans" type="pr2_mechanism_model/SimpleTransmission">
 		<actuator name="${name}_camera_axis_motor"/>
 		<joint name="${name}_camera_axis_joint"/>
 		<mechanicalReduction>1</mechanicalReduction>
