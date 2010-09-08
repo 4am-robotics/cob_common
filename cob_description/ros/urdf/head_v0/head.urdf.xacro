@@ -4,28 +4,28 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.gazebo.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.transmission.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/head_v0/head.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/head_v0/head.transmission.xacro" />
   <include filename="$(find cob_description)/ros/urdf/sensors/cameraone.urdf.xacro" /> 
   <include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /> 
 
 <!--####################################################################-->
                        <!--Fix Some Parameters Later-->
 <!--####################################################################-->
-  <xacro:macro name="cob_head_cameras_v0" params="name parent *origin">
+  <xacro:macro name="cob_head_v0" params="name parent *origin">
     
-    <!--joint between torso_upper_neck_tilt_link and head_camera_axis_link-->
-    <joint name="${name}_camera_axis_joint" type="revolute">
+    <!--joint between torso_upper_neck_tilt_link and head_axis_link-->
+    <joint name="${name}_axis_joint" type="revolute">
        <insert_block name="origin" />
        <parent link="${parent}"/>
-       <child link="${name}_camera_axis_link"/>
-       <axis xyz="0 1 0" />
+       <child link="${name}_axis_link"/>
+       <axis xyz="0 0 1" />
        <dynamics damping="0.1" />
-       <calibration rising="${head_camera_axis_ref}" falling="${head_camera_axis_ref}"/>
+       <calibration rising="${head_axis_ref}" falling="${head_axis_ref}"/>
        <limit effort="100" lower="-1.5" upper="3.316" velocity="0.5"/> 
     </joint>
    
-	<link name="${name}_camera_axis_link">
+	<link name="${name}_axis_link">
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<mass value="0.1"/>
@@ -47,6 +47,41 @@
 			</geometry>
 		</collision>
 	</link>
+	
+	<!--joint between head_axis_link and head_tof_axis_link-->
+	<joint name="${name}_tof_tilt_joint" type="revolute">  
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="${name}_tof_camera_link"/>
+		<child link="${name}_tof_axis_link"/>
+		<axis xyz="0 0 1" />
+		<dynamics damping="25.0" friction="10.0"/>
+		<calibration rising="0" falling="0"/>
+		<limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/> 
+	</joint>
+
+	<link name="${name}_tof_tilt_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="1.0"/>
+			<inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.01"/>
+			</geometry>
+
+			<material name="Red" />
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.01"/>
+			</geometry>
+		</collision>
+	</link>
 
     <!--##################################################-->
     <!-- camera test here -->
@@ -54,7 +89,7 @@
       <origin xyz="${cam_l_x-0.12} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
     </xacro:cob_cameraone_v0>
 
-    <xacro:cob_cameraone_v0 name="${name}_color_camera_r" parent="${name}_camera_axis_link">
+    <xacro:cob_cameraone_v0 name="${name}_color_camera_r" parent="${name}_axis_link">
       <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw+3.14159}" />
     </xacro:cob_cameraone_v0>
 
@@ -64,8 +99,8 @@
     </xacro:hokuyo_SR400_laser_v0>
 
     <!-- extensions -->
-    <xacro:cob_head_cameras_gazebo_v0 name="${name}" />
-    <xacro:cob_head_cameras_transmission_v0 name="${name}" />
+    <xacro:cob_head_gazebo_v0 name="${name}" />
+    <xacro:cob_head_transmission_v0 name="${name}" />
 
 
   </xacro:macro>
