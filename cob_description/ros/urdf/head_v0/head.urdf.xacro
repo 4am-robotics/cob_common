@@ -22,7 +22,7 @@
        <axis xyz="0 0 1" />
        <dynamics damping="0.1" />
        <calibration rising="${head_axis_ref}" falling="${head_axis_ref}"/>
-       <limit effort="100" lower="-1.5" upper="3.316" velocity="0.5"/> 
+       <limit effort="100" lower="-3.2" upper="0.1" velocity="0.5"/> 
     </joint>
    
 	<link name="${name}_axis_link">
@@ -51,8 +51,8 @@
 	<!--joint between head_axis_link and head_tof_axis_link-->
 	<joint name="${name}_tof_tilt_joint" type="revolute">  
 		<origin xyz="0 0 0" rpy="0 0 0" />
-		<parent link="${name}_tof_camera_link"/>
-		<child link="${name}_tof_axis_link"/>
+		<parent link="${name}_tof_link"/>
+		<child link="${name}_tof_tilt_link"/>
 		<axis xyz="0 0 1" />
 		<dynamics damping="25.0" friction="10.0"/>
 		<calibration rising="0" falling="0"/>
@@ -94,7 +94,7 @@
     </xacro:cob_cameraone_v0>
 
     <!-- hokuyo_SR400_laser test here-->
-    <xacro:hokuyo_SR400_laser_v0 name="${name}_tof_camera" parent="${name}_color_camera_r_link" ros_topic="head_scan" update_rate="54" min_angle="-0.302" max_angle="0.302" >
+    <xacro:hokuyo_SR400_laser_v0 name="${name}_tof" parent="${name}_color_camera_r_link" ros_topic="head_scan" update_rate="54" min_angle="-0.302" max_angle="0.302" >
       <origin xyz="${tof_x-0.06} ${tof_y} ${tof_z}" rpy="${tof_roll} ${tof_pitch} ${tof_yaw}" />
     </xacro:hokuyo_SR400_laser_v0>
 
