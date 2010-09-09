@@ -25,28 +25,28 @@
        <limit effort="100" lower="-1.5" upper="3.316" velocity="0.5"/> 
     </joint>
    
-    <link name="${name}_camera_axis_link">
-       <inertial>
-	  <origin xyz="0 0 0" rpy="0 0 0"/>
-	  <mass value="0.1"/>
-	  <inertia ixx="0.0001"  ixy="0"  ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
-       </inertial>
+	<link name="${name}_camera_axis_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.1"/>
+			<inertia ixx="0.0001"  ixy="0"  ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+		</inertial>
 
-       <visual>
-	 <origin xyz="0 0 0" rpy="0 0 0" />
-	 <geometry>
-	    <box size="0.1 0.1 0.01"/>
-	 </geometry>
-         <material name="Green" />
-       </visual>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.01"/>
+			</geometry>
+			<material name="Green" />
+		</visual>
 
-       <collision>
-	 <origin xyz="0 0 0" rpy="0 0 0" />
-	 <geometry>
-            <box size="0.1 0.1 0.01"/>
-	 </geometry>
-       </collision>
-    </link>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.01"/>
+			</geometry>
+		</collision>
+	</link>
 
     <!--##################################################-->
     <!-- camera test here -->
@@ -55,7 +55,7 @@
     </xacro:cob_cameraone_v0>
 
     <xacro:cob_cameraone_v0 name="${name}_color_camera_r" parent="${name}_camera_axis_link">
-      <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z+0.06}" rpy="${cam_r_roll} ${cam_r_pitch-1.5708} ${cam_r_yaw+3.14159}" />
+      <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw+3.14159}" />
     </xacro:cob_cameraone_v0>
 
     <!-- hokuyo_SR400_laser test here-->
