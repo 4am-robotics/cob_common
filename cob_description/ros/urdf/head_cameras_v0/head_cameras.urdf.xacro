@@ -21,7 +21,7 @@
        <child link="${name}_camera_axis_link"/>
        <axis xyz="0 1 0" />
        <dynamics damping="0.1" />
-       <calibration reference_position="${head_camera_axis_ref}"/>
+       <calibration rising="${head_camera_axis_ref}" falling="${head_camera_axis_ref}"/>
        <limit effort="100" lower="-1.5" upper="3.316" velocity="0.5"/> 
     </joint>
    

@@ -50,7 +50,6 @@
 		<child link="${name}_finger_11_link"/>
 		<axis xyz="0 0 1" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -83,7 +82,6 @@
 		<child link="${name}_finger_12_link"/>
 		<axis xyz="0 1 0" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -116,7 +114,6 @@
 		<child link="${name}_finger_13_link"/>
 		<axis xyz="0 1 0" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -150,7 +147,6 @@
 		<child link="${name}_finger_21_link"/>
 		<axis xyz="0 0 1" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -183,7 +179,6 @@
 		<child link="${name}_finger_22_link"/>
 		<axis xyz="0 1 0" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -216,7 +211,6 @@
 		<child link="${name}_finger_23_link"/>
 		<axis xyz="0 1 0" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -248,7 +242,6 @@
 		<origin xyz="-0.03811 0 0.0745 " rpy="0 0 0" />
 		<parent link="${name}_palm_link"/>
 		<child link="${name}_thumb_1_link"/>
-	        <calibration reference_position="0.0"/> 
 	</joint>
 
 	<link name="${name}_thumb_1_link">
@@ -280,7 +273,6 @@
 		<child link="${name}_thumb_2_link"/>
 		<axis xyz="0 1 0" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/> 
 	</joint>
 
@@ -313,7 +305,6 @@
 		<child link="${name}_thumb_3_link"/>
 		<axis xyz="0 1 0" />
                 <dynamics damping="1" />
-	        <calibration reference_position="0.0"/>
 		<limit effort="100" lower="-2" upper="2" velocity="5"/>
 	</joint> 
 	

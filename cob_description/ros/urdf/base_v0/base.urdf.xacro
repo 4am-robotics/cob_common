@@ -95,7 +95,7 @@
       <axis xyz="0 0 1" />
       <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
       <safety_controller  k_velocity="10" />
-      <calibration reference_position="${ref_position}" rising="${ref_position}" /> <!-- hold both reference_position and upper/lower for tick-tock, remove reference_positiion after verifying upper/lower works with calibration controllers.  if search velocity in cob_calibration_controllers.yaml is +, the reference_position is rising, if - then it is falling -->
+      <calibration rising="${ref_position}" falling="${ref_position}" />
       <dynamics damping="0.0" friction="0.0" />
       <insert_block name="origin" />
       <parent link="${parent}"/>
