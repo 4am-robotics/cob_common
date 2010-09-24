@@ -6,7 +6,7 @@
   
 <xacro:macro name="cob_cameraone_gazebo_v0" params="name">
 
-  <gazebo reference="${name}_link">
+  <gazebo reference="${name}_frame">
     <sensor:camera name="${name}_sensor">
       <imageFormat>R8G8B8</imageFormat>
       <imageSize>640 480</imageSize>
