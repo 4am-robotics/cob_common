@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<root xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+      xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+      xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+      xmlns:xacro="http://ros.org/wiki/xacro">
+  
+<xacro:macro name="cob_tof_gazebo_v0" params="name">
+
+  <gazebo reference="${name}_frame">
+    <sensor:ray name="${name}_sensor">
+          <rayCount>30</rayCount>
+          <rangeCount>30</rangeCount>
+          <laserCount>1</laserCount>
+          
+          <origin>0.0 0.0 0.05</origin>
+          <displayRays>false</displayRays>
+          
+          <minAngle>-15</minAngle>
+          <maxAngle> 15</maxAngle>
+          
+          <minRange>0.05</minRange>
+          <maxRange>100.0</maxRange>
+          <updateRate>10.0</updateRate>
+
+          <verticalRayCount>30</verticalRayCount>
+          <verticalRangeCount>30</verticalRangeCount>
+          <verticalMinAngle>-20</verticalMinAngle>
+          <verticalMaxAngle>  0</verticalMaxAngle>
+
+          <controller:gazebo_ros_block_laser name="tof_controller" plugin="libgazebo_ros_block_laser.so">
+            <gaussianNoise>0.005</gaussianNoise>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10.0</updateRate>
+            <topicName>full_cloud</topicName>
+            <frameName>ray_model</frameName>
+            <interface:laser name="ray_block_iface" />
+          </controller:gazebo_ros_block_laser>
+        </sensor:ray>
+    <material value="PR2/Red" />
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+
+</xacro:macro>
+
+</root>
+
