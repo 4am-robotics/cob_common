@@ -36,7 +36,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<box size="0.1 0.1 0.01"/>
+				<box size="0.01 0.01 0.12"/>
 			</geometry>
 			<material name="Green" />
 		</visual>
@@ -44,7 +44,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<box size="0.1 0.1 0.01"/>
+				<box size="0.01 0.01 0.12"/>
 			</geometry>
 		</collision>
 	</link>

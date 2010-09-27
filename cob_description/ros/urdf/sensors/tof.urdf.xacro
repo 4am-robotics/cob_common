@@ -23,17 +23,17 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.015" rpy="0 0 0" />
         <geometry>
-          <cylinder radius="0.005" length="0.005"/>
+          <box size="0.02 0.02 0.075"/>
         </geometry>
         <material name="Red" />
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.015" rpy="0 0 0" />
         <geometry>
-           <cylinder radius="0.001" length="0.001"/>
+           <box size="0.02 0.02 0.075"/>
         </geometry>
       </collision >
     </link>
@@ -54,7 +54,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <cylinder radius="0.005" length="0.005"/>
+          <box size="0.01 0.01 0.01"/>
         </geometry>
         <material name="Red" />
       </visual>
@@ -62,7 +62,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-           <cylinder radius="0.001" length="0.001"/>
+           <box size="0.01 0.01 0.01"/>
         </geometry>
       </collision >
     </link>
