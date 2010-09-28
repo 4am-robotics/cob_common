@@ -5,14 +5,13 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_head_gazebo_v0" params="name">
-    
-    <gazebo reference="${name}_axis_link">
-      <material>Gazebo/Green</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+	<xacro:macro name="cob_head_gazebo_v0" params="name">
 
-  </xacro:macro>
+		<gazebo reference="${name}_axis_link">
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
+	</xacro:macro>
 
 </robot>

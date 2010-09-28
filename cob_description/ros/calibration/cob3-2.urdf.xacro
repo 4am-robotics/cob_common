@@ -14,7 +14,7 @@
 	<property name="torso_tray_ref" value="4.1451" />
 
 	<!-- head camera axis reference position -->
-	<property name="head_camera_axis_ref" value="-3.14" />
+	<property name="head_axis_ref" value="-3.14" />
 
 	<!-- arm reference positions -->
 	<property name="arm_1_ref" value="-2.8761" />

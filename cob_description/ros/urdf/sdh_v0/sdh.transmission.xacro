@@ -5,59 +5,59 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_sdh_transmission_v0" params="name">
+	<xacro:macro name="cob_sdh_transmission_v0" params="name">
 
-        <!--#####finger1#####-->
-	<transmission name="${name}_finger_11_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_finger_11_motor"/>
-		<joint name="${name}_finger_11_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<!-- finger1 -->
+		<transmission name="${name}_finger_11_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_finger_11_motor"/>
+			<joint name="${name}_finger_11_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<transmission name="${name}_finger_12_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_finger_12_motor"/>
-		<joint name="${name}_finger_12_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<transmission name="${name}_finger_12_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_finger_12_motor"/>
+			<joint name="${name}_finger_12_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<transmission name="${name}_finger_13_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_finger_13_motor"/>
-		<joint name="${name}_finger_13_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<transmission name="${name}_finger_13_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_finger_13_motor"/>
+			<joint name="${name}_finger_13_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<!--#####finger2#####-->
-	<transmission name="${name}_finger_21_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_finger_21_motor"/>
-		<joint name="${name}_finger_21_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<!-- finger2 -->
+		<transmission name="${name}_finger_21_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_finger_21_motor"/>
+			<joint name="${name}_finger_21_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<transmission name="${name}_finger_22_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_finger_22_motor"/>
-		<joint name="${name}_finger_22_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<transmission name="${name}_finger_22_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_finger_22_motor"/>
+			<joint name="${name}_finger_22_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<transmission name="${name}_finger_23_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_finger_23_motor"/>
-		<joint name="${name}_finger_23_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<transmission name="${name}_finger_23_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_finger_23_motor"/>
+			<joint name="${name}_finger_23_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<!--#####thumb#####-->
-	<transmission name="${name}_thumb_2_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_thumb_2_motor"/>
-		<joint name="${name}_thumb_2_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<!-- thumb -->
+		<transmission name="${name}_thumb_2_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_thumb_2_motor"/>
+			<joint name="${name}_thumb_2_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 	
-	<transmission name="${name}_thumb_3_trans" type="pr2_mechanism_model/SimpleTransmission">
-		<actuator name="${name}_thumb_3_motor"/>
-		<joint name="${name}_thumb_3_joint"/>
-		<mechanicalReduction>1</mechanicalReduction>
-	</transmission>
+		<transmission name="${name}_thumb_3_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_thumb_3_motor"/>
+			<joint name="${name}_thumb_3_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 
-  </xacro:macro>
+	</xacro:macro>
 
 </robot>

@@ -4,52 +4,71 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        name="LaserBlock">
-  
-  <include filename="$(find cob_description)/ros/urdf/sensors/cameraone.gazebo.xacro" />
 
-  <xacro:macro name="cob_cameraone_v0" params="name parent *origin">
+	<include filename="$(find cob_description)/ros/urdf/sensors/cameraone.gazebo.xacro" />
 
-    <joint name="${name}_joint" type="fixed">
-      <insert_block name="origin" />
-      <parent link="${parent}"/>
-      <child link="${name}_link"/>
-    </joint>
+	<xacro:macro name="cob_cameraone_v0" params="name parent *origin">
 
-    <link name="${name}_link">
-      <inertial>
-        <mass value="0.01" />
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
-      </inertial>
+		<joint name="${name}_joint" type="fixed">
+			<insert_block name="origin" />
+			<parent link="${parent}"/>
+			<child link="${name}_link"/>
+		</joint>
 
-      <visual>
-        <origin xyz="0 0 0.015" rpy="0 0 0" />
-        <geometry>
-          <cylinder radius="0.01" length="0.075"/>
-        </geometry>
-        <material name="Red" />
-      </visual>
+		<link name="${name}_link">
+			<inertial>
+				<mass value="0.01" />
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+			</inertial>
 
-      <collision>
-        <origin xyz="0 0 0.015" rpy="0 0 0" />
-        <geometry>
-           <cylinder radius="0.01" length="0.075"/>
-        </geometry>
-      </collision >
-    </link>
-    
-    <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
-      <parent link="${name}_link"/>
-      <child link="${name}_frame"/>
-    </joint>
+			<visual>
+				<origin xyz="0 0 0.015" rpy="0 0 0" />
+				<geometry>
+					<cylinder radius="0.01" length="0.075"/>
+				</geometry>
+				<material name="Red" />
+			</visual>
 
-    <link name="${name}_frame">
-    </link>
+			<collision>
+				<origin xyz="0 0 0.015" rpy="0 0 0" />
+				<geometry>
+					<cylinder radius="0.01" length="0.075"/>
+				</geometry>
+			</collision>
+		</link>
 
-   <xacro:cob_cameraone_gazebo_v0 name="${name}"/>
+		<joint name="${name}_frame_joint" type="fixed">
+			<origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
+			<parent link="${name}_link"/>
+			<child link="${name}_frame"/>
+		</joint>
 
-  </xacro:macro>
+		<link name="${name}_frame">
+			<inertial>
+				<mass value="0.01" />
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+			</inertial>
 
-</robot> 
-  
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.01"/>
+				</geometry>
+				<material name="Red" />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.01"/>
+				</geometry>
+			</collision>
+		</link>
+
+	<xacro:cob_cameraone_gazebo_v0 name="${name}"/>
+
+	</xacro:macro>
+
+</robot>
