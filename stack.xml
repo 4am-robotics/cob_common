@@ -8,12 +8,12 @@
   <license>LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
+  <depend stack="cob_vision" /> <!-- opencv2 -->
   <depend stack="common" /> <!-- actionlib, tinyxml -->
   <depend stack="common_msgs" /> <!-- geometry_msgs, actionlib_msgs, sensor_msgs -->
   <depend stack="pr2_controllers" /> <!-- trajectory_msgs, robot_mechanism_controllers -->
   <depend stack="pr2_mechanism" /> <!-- pr2_controller_manager -->
   <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
-  <depend stack="ros" /> <!-- std_msgs, roslib, std_srvs, roscpp -->
-  <depend stack="vision_opencv" /> <!-- opencv2 -->
+  <depend stack="ros" /> <!-- std_srvs, roslib, std_msgs, roscpp -->
 
 </stack>
