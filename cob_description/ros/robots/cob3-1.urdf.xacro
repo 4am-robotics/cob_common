@@ -50,7 +50,8 @@
   </xacro:cob_torso_v0>
   
   <xacro:cob_lbr_v0 name="arm" parent="base_link">
-    <origin xyz="0.040 -0.005 0.83637" rpy="0.0 0.7854 -1.6326" />
+    <origin xyz="0.00964 0.01463 0.777" rpy="0.7854 0.0 -0.2618" />
+    <!-- OLD: <origin xyz="0.040 -0.005 0.83637" rpy="0.0 0.7854 -1.6326" /> -->
   </xacro:cob_lbr_v0>
   
   <xacro:cob_head_v0 name="head" parent="torso_upper_neck_tilt_link">
