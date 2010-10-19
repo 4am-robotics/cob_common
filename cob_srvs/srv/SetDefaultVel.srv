@@ -1,0 +1,4 @@
+float32 default_vel
+---
+bool success
+std_msgs/String errorMessage
