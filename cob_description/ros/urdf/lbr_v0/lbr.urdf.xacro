@@ -18,30 +18,30 @@
 
 		<link name="${name}_0_link">
 			<inertial>
-				<origin xyz="0 0 0.004" rpy="0 0 0"/>
+				<origin xyz="0 0 0.07" rpy="0 0 0"/>
 				<mass value="1.0"/>
 				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 			</inertial>
 
 			<visual>
-				<origin xyz="0 0 0.004" rpy="0 0 0" />
+				<origin xyz="0 0 0.07" rpy="0 0 0" />
 				<geometry>
-					<cylinder radius="0.045" length="0.08"/>
+					<cylinder radius="0.060" length="0.14"/>
 				</geometry>
 				<material name="Red" />
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0.004" rpy="0 0 0" />
+				<origin xyz="0 0 0.07" rpy="0 0 0" />
 				<geometry>
-					<cylinder radius="0.045" length="0.08"/>
+					<cylinder radius="0.060" length="0.14"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- joint between arm_0_link and arm_1_link -->
 		<joint name="${name}_1_joint" type="revolute">
-		<origin xyz="0 0 0.08" rpy="0 0 -2.7407"/>
+		<origin xyz="0 0 0.14" rpy="0 0 -2.8407"/>
 			<parent link="${name}_0_link"/>
 			<child link="${name}_1_link"/>
 			<axis xyz="0 0 1"/>

@@ -59,7 +59,7 @@
   </xacro:cob_head_v0>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
-    <origin xyz="0 0 0.02" rpy="0 0 0" />
+    <origin xyz="0 0 0.02" rpy="0 0 1.5708" />
   </xacro:cob_sdh_v0>
   
 </robot>
