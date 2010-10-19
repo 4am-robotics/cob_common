@@ -155,24 +155,25 @@
 
       <inertial>
         <mass value="${base_mass}" />
-        <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" />
+        <origin xyz="0 0 0" />
         <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423"
                  iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0.15" rpy="0 0 0" />  
+        <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <!--mesh filename="package://cob_defs/common/files/meshes/platform.stl"/-->  <!--modified by jie-->
-          <box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" />
+          <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+          <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
         <material name="Grey"/>
       </visual>
 
       <collision>
-        <origin xyz="0 0 ${base_size_z-base_collision_size_z/2}" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" />
+	      <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+          <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
       
