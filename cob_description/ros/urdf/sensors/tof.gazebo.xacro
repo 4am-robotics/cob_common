@@ -32,11 +32,11 @@
             <alwaysOn>true</alwaysOn>
             <updateRate>10.0</updateRate>
             <topicName>full_cloud</topicName>
-            <frameName>ray_model</frameName>
+            <frameName>/${name}_link</frameName>
             <interface:laser name="ray_block_iface" />
           </controller:gazebo_ros_block_laser>
         </sensor:ray>
-    <material value="PR2/Red" />
+    <material value="Gazebo/Red" />
     <turnGravityOff>true</turnGravityOff>
   </gazebo>
 
