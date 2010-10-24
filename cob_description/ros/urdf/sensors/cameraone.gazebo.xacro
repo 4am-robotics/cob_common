@@ -21,7 +21,7 @@
 					<imageTopicName>/${name}/image_raw</imageTopicName>
 					<cameraInfoTopicName>/${name}/camera_info</cameraInfoTopicName>
 					<pollServiceName>/${name}/request_image</pollServiceName>
-					<frameName>${name}_link</frameName>
+					<frameName>/${name}_link</frameName>
 					<CxPrime>320.5</CxPrime>
 					<Cx>320.5</Cx>
 					<Cy>240.5</Cy>
@@ -34,7 +34,7 @@
 					<interface:camera name="${name}_iface" />
 				</controller:gazebo_ros_prosilica>
 			</sensor:camera>
-			<material value="Red" />
+			<material value="Gazebo/Red" />
 			<turnGravityOff>true</turnGravityOff>
 		</gazebo>
 
