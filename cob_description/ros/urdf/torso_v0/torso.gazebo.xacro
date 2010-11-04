@@ -5,39 +5,38 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_torso_gazebo_v0" params="name">
-    
-    <gazebo reference="${name}_tray_link">
-      <material>Gazebo/Green</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+	<xacro:macro name="cob_torso_gazebo_v0" params="name">
 
-    <gazebo reference="${name}_lower_neck_pan_link">
-      <material>Gazebo/Blue</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+		<gazebo reference="${name}_tray_link">
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
-    <gazebo reference="${name}_lower_neck_tilt_link">
-      <material>Gazebo/Red</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
-    
-    <gazebo reference="${name}_upper_neck_pan_link">
-      <material>Gazebo/Blue</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+		<gazebo reference="${name}_lower_neck_pan_link">
+			<material>Gazebo/Blue</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
-    <gazebo reference="${name}_upper_neck_tilt_link">
-      <material>Gazebo/Grey</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+		<gazebo reference="${name}_lower_neck_tilt_link">
+			<material>Gazebo/Red</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
-    <gazebo reference="head_cover_link">
-      <material>Gazebo/Blue</material>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+		<gazebo reference="${name}_upper_neck_pan_link">
+			<material>Gazebo/Blue</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
-  </xacro:macro>
+		<gazebo reference="${name}_upper_neck_tilt_link">
+			<material>Gazebo/Grey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
+		<gazebo reference="head_cover_link">
+			<material>Gazebo/Blue</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+	</xacro:macro>
 
 </robot>

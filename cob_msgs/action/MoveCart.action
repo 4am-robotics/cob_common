@@ -1,6 +1,5 @@
 #goal definition
-string component_name
-string parameter_name
+geometry_msgs/PoseStamped goal_pose
 ---
 #result definition
 int16 return_value

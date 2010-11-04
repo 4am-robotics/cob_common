@@ -27,7 +27,7 @@
           <alwaysOn>true</alwaysOn>
           <updateRate>${update_rate}</updateRate>
           <topicName>${ros_topic}</topicName>
-          <frameName>${name}_link</frameName>
+          <frameName>/${name}_link</frameName>
           <interface:laser name="gazebo_ros_${name}_iface" />
         </controller:gazebo_ros_laser>
       </sensor:ray>

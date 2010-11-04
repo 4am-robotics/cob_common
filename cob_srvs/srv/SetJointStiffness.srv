@@ -1,0 +1,4 @@
+float32[] joint_stiffness
+---
+bool success
+std_msgs/String errorMessage

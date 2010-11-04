@@ -14,16 +14,16 @@
 	<property name="torso_tray_ref" value="4.1451" />
 
 	<!-- head camera axis reference position -->
-	<property name="head_camera_axis_ref" value="-3.14" />
+	<property name="head_axis_ref" value="-3.14" />
 
 	<!-- arm reference positions -->
-	<property name="arm_1_ref" value="8.1252" />
-	<property name="arm_2_ref" value="0.6454" />
-	<property name="arm_3_ref" value="-4.9119" />
-	<property name="arm_4_ref" value="-0.8774" />
-	<property name="arm_5_ref" value="-0.3908" />
-	<property name="arm_6_ref" value="-1.6167" />
-	<property name="arm_7_ref" value="8.1075" />
+	<property name="arm_1_ref" value="-2.8761" />
+	<property name="arm_2_ref" value="-0.1687" />
+	<property name="arm_3_ref" value="-0.0274" />
+	<property name="arm_4_ref" value="-1.7193" />
+	<property name="arm_5_ref" value="0.0342" />
+	<property name="arm_6_ref" value="-1.6959" />
+	<property name="arm_7_ref" value="1.8707" />
 
 	<!-- camera calibration properties -->
 	<property name="cam_r_x" value="0.0" />

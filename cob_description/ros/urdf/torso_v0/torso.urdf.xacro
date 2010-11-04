@@ -4,224 +4,215 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.gazebo.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.transmission.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/torso_v0/torso.gazebo.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/torso_v0/torso.transmission.xacro" />
 
-<!--####################################################################-->
-                       <!--Fix Some Parameters Later-->
-<!--####################################################################-->
+	<xacro:macro name="cob_torso_v0" params="name parent *origin">
 
-  <xacro:macro name="cob_torso_v0" params="name parent *origin">
+		<!-- joint between base_link and torso_tray_link -->
+		<joint name="${name}_tray_joint" type="revolute">
+			<origin xyz="0.2406 0.1900 0.7320" rpy="2.3561 0 0" />
+			<parent link="${parent}"/>
+			<child link="${name}_tray_link"/>
+			<axis xyz="0 0 1" />
+			<calibration rising="${torso_tray_ref}" falling="${torso_tray_ref}"/>
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
+		</joint>
 
-    <!--joint between base_link and torso_tray_link -->
-    <joint name="${name}_tray_joint" type="revolute">
-       <origin xyz="0.2406 0.1900 0.8320" rpy="2.3561 0 0" />
-       <parent link="${parent}"/>
-       <child link="${name}_tray_link"/>
-       <axis xyz="0 0 1" />
-       <calibration reference_position="${torso_tray_ref}"/>
-       <dynamics damping="5.0" friction="0.5"/>
-       <limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
-    </joint>
-   
-    <link name="${name}_tray_link">
-       <inertial>
-	  <origin xyz="0 0 0" rpy="0 0 0"/>
-	  <mass value="0.1"/>
-	  <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01"  iyz="0"  izz="0.01" />
-       </inertial>
+		<link name="${name}_tray_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
 
-       <visual>
-	 <origin xyz="0 0 0" rpy="0 0 0" />
-	 <geometry>
-	    <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
-	 </geometry>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
+				</geometry>
+				<material name="Green" />
+			</visual>
 
-         <material name="Green" />
-       </visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
+				</geometry>
+			</collision>
+		</link>
 
-       <collision>
-	 <origin xyz="0 0 0" rpy="0 0 0" />
-	 <geometry>
-	  <mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
-	 </geometry>
-       </collision>
-    </link>
+		<!-- joint between base_link and torso_lower_neck_pan_link -->
+		<joint name="${name}_lower_neck_pan_joint" type="revolute">
+			<insert_block name="origin" />
+			<parent link="${parent}"/>
+			<child link="${name}_lower_neck_pan_link"/>
+			<axis xyz="0 0 1" />
+			<calibration rising="${torso_lower_neck_pan_ref}" falling="${torso_lower_neck_pan_ref}"/>
+			<dynamics damping="25.0" friction="10.0"/>
+			<limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+		</joint>
 
-    <!--joint between base_link and torso_lower_neck_pan_link-->
-    <joint name="${name}_lower_neck_pan_joint" type="revolute">  
-      <insert_block name="origin" />
-      <parent link="${parent}"/>
-      <child link="${name}_lower_neck_pan_link"/>
-      <axis xyz="0 0 1" />
-      <calibration reference_position="${torso_lower_neck_pan_ref}"/>
-      <dynamics damping="25.0" friction="10.0"/>
-      <limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/> 
-    </joint>
+		<link name="${name}_lower_neck_pan_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="1.0"/>
+				<inertia ixx="0.200549" ixy="0.001322" ixz="-0.000000" iyy="0.123664" iyz="-0.000000" izz="0.104101" />
+			</inertial>
 
-    <link name="${name}_lower_neck_pan_link">
-	<inertial>
-	   <origin xyz="0 0 0" rpy="0 0 0"/>
-	   <mass value="1.0"/>
-	   <inertia ixx="0.200549"  ixy="0.001322"  ixz="-0.000000" iyy="0.123664" iyz="-0.000000" izz="0.104101" />
-	</inertial>
+			<visual>
+				<origin xyz="0 0 0.005" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.01"/>
+				</geometry>
+				<material name="Blue" />
+			</visual>
 
-	<visual>
-	   <origin xyz="0 0 0.005" rpy="0 0 0" />
-	   <geometry>
-	      <box size="0.01 0.01 0.01"/>
-	   </geometry>
-           <material name="Blue" />
-	</visual>
+			<collision>
+				<origin xyz="0 0 0.0005" rpy="0 0 0" />
+				<geometry>
+					<box size="0.001 0.001 0.001"/>
+				</geometry>
+			</collision>
+		</link>
 
-	<collision>
-	   <origin xyz="0 0 0.0005" rpy="0 0 0" />
-	   <geometry>
-	      <box size="0.001 0.001 0.001"/>
-	   </geometry>
-	</collision>
-    </link>
+		<!-- joint between torso_lower_neck_pan_link and torso_lower_neck_tilt_link -->
+		<joint name="${name}_lower_neck_tilt_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="1.5708 0 0" />
+			<parent link="${name}_lower_neck_pan_link"/>
+			<child link="${name}_lower_neck_tilt_link"/>
+			<axis xyz="0 0 1" />
+			<dynamics damping="25.0" friction="10.0"/>
+			<calibration rising="${torso_lower_neck_tilt_ref}" falling="${torso_lower_neck_tilt_ref}"/>
+			<limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/>
+		</joint>
 
-    <!--joint between torso_lower_neck_pan_link and torso_lower_neck_tilt_link-->
-    <joint name="${name}_lower_neck_tilt_joint" type="revolute">  
-      <origin xyz="0 0 0" rpy="1.5708 0 0" />   <!--FIX pitch angle Later-->
-      <parent link="${name}_lower_neck_pan_link"/>
-      <child link="${name}_lower_neck_tilt_link"/>
-      <axis xyz="0 0 1" />
-      <dynamics damping="25.0" friction="10.0"/>
-      <calibration reference_position="${torso_lower_neck_tilt_ref}"/>
-      <limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/> 
-    </joint>
+		<link name="${name}_lower_neck_tilt_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="6.209720"/>
+				<inertia ixx="0.171118" ixy="0.002544" ixz="-0.000000" iyy="0.083077" iyz="0.000000" izz="0.120948" />
+			</inertial>
 
-    <link name="${name}_lower_neck_tilt_link">
-       <inertial>
-	  <origin xyz="0 0 0" rpy="0 0 0"/>
-	  <mass value="6.209720"/>
-	  <inertia ixx="0.171118"  ixy="0.002544"  ixz="-0.000000"
-                 iyy="0.083077"  iyz="0.000000"  izz="0.120948" />
-       </inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck.stl" />
+				</geometry>
+				<material name="Red" />
+			</visual>
 
-       <visual>
-	 <origin xyz="0 0 0" rpy="0 0 0" />
-	 <geometry>
-	    <mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck.stl" />
-	 </geometry>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck.stl" />
+				</geometry>
+			</collision>
+		</link>
 
-         <material name="Red" />
-       </visual>
+		<!-- joint between torso_lower_neck_tilt_link and torso_upper_neck_pan_link -->
+		<joint name="${name}_upper_neck_pan_joint" type="revolute">
+			<origin xyz="0 -0.30489 0" rpy="-1.5708 0 0" />
+			<parent link="${name}_lower_neck_tilt_link"/>
+			<child link="${name}_upper_neck_pan_link"/>
+			<axis xyz="0 0 1" />
+			<dynamics damping="25.0" friction="10.0"/>
+			<calibration rising="${torso_upper_neck_pan_ref}" falling="${torso_upper_neck_pan_ref}"/>
+			<limit effort="4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+		</joint>
 
-       <collision>
-	 <origin xyz="0 0 0" rpy="0 0 0" />
-	 <geometry>
-	    <mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck.stl" />
-	 </geometry>
-       </collision>
-    </link>
+		<link name="${name}_upper_neck_pan_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="1.0"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
 
-    <!--joint between torso_lower_neck_tilt_link and torso_upper_neck_pan_link-->
-    <joint name="${name}_upper_neck_pan_joint" type="revolute">  
-      <origin xyz="0 -0.30489 0" rpy="-1.5708 0 0" />
-      <parent link="${name}_lower_neck_tilt_link"/>
-      <child link="${name}_upper_neck_pan_link"/>
-      <axis xyz="0 0 1" />
-      <dynamics damping="25.0" friction="10.0"/>
-      <calibration reference_position="${torso_upper_neck_pan_ref}"/>
-      <limit effort="4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
-    </joint>
+			<visual>
+				<origin xyz="0 0 0.005" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.01"/>
+				</geometry>
+				<material name="Blue" />
+			</visual>
 
-    <link name="${name}_upper_neck_pan_link">
-	<inertial>
-	   <origin xyz="0 0 0" rpy="0 0 0"/>
-	   <mass value="1.0"/>
-	   <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-        </inertial>
+			<collision>
+				<origin xyz="0 0 0.0005" rpy="0 0 0" />
+				<geometry>
+					<box size="0.001 0.001 0.001"/>
+				</geometry>
+			</collision>
+		</link>
 
-	<visual>
-	   <origin xyz="0 0 0.005" rpy="0 0 0" />
-	   <geometry>
-              <box size="0.01 0.01 0.01"/>
-	   </geometry>
-           <material name="Blue" />
-	</visual>
+		<!-- joint between torso_upper_neck_pan_link and torso_upper_neck_tilt_link -->
+		<joint name="${name}_upper_neck_tilt_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="1.5708 0 0" />
+			<parent link="${name}_upper_neck_pan_link"/>
+			<child link="${name}_upper_neck_tilt_link"/>
+			<axis xyz="0 0 1" />
+			<dynamics damping="25.0" friction="10.0"/>
+			<calibration rising="${torso_upper_neck_tilt_ref}" falling="${torso_upper_neck_tilt_ref}"/>
+			<limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
+		</joint>
 
-	<collision>
-	   <origin xyz="0 0 0.0005" rpy="0 0 0" />
-	   <geometry>
-              <box size="0.001 0.001 0.001"/>
-	   </geometry>
-	</collision>
-    </link>
+		<link name="${name}_upper_neck_tilt_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="6.744238"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
 
-    <!--joint between torso_upper_neck_pan_link and torso_upper_neck_tilt_link-->
-    <joint name="${name}_upper_neck_tilt_joint" type="revolute">  
-      <origin xyz="0 0 0" rpy="1.5708 0 0" /> 
-      <parent link="${name}_upper_neck_pan_link"/>
-      <child link="${name}_upper_neck_tilt_link"/>
-      <axis xyz="0 0 1" />
-      <dynamics damping="25.0" friction="10.0"/>
-      <calibration reference_position="${torso_upper_neck_tilt_ref}"/>
-      <limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
-    </joint>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck.stl" />
+				</geometry>
+				<material name="Grey" />
+			</visual>
 
-    <link name="${name}_upper_neck_tilt_link">
-	<inertial>
-	   <origin xyz="0 0 0" rpy="0 0 0"/>
-	   <mass value="6.744238"/>
-	   <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-        </inertial>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck.stl" />
+				</geometry>
+			</collision>
+		</link>
 
-	<visual>
-	   <origin xyz="0 0 0" rpy="0 0 0" />
-	   <geometry>
-			<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck.stl" />
-	   </geometry>
-           <material name="Grey" />
-	</visual>
+		<!-- joint between torso_upper_neck_tilt_link and head_cover_link -->
+		<joint name="head_cover_joint" type="fixed">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="${name}_upper_neck_tilt_link"/>
+			<child link="head_cover_link"/>
+		</joint>
 
-	<collision>
-	   <origin xyz="0 0 0" rpy="0 0 0" />
-	   <geometry>
-			<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck.stl" />
-	   </geometry>
-	</collision>
-    </link>
+		<link name="head_cover_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.5"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
 
-    <!--joint between torso_upper_neck_tilt_link and head_cover_link-->
-    <joint name="head_cover_joint" type="fixed">  
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <parent link="${name}_upper_neck_tilt_link"/>
-      <child link="head_cover_link"/>
-    </joint>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover.stl" />
+				</geometry>
+				<material name="Blue" />
+			</visual>
 
-    <link name="head_cover_link">
-	<inertial>
-	   <origin xyz="0 0 0" rpy="0 0 0"/>
-	   <mass value="0.5"/>
-	   <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-        </inertial>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover.stl" />
+				</geometry>
+			</collision>
+		</link>
 
-	<visual>
-	   <origin xyz="0 0 0" rpy="0 0 0" />
-	   <geometry>
-              <mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover.stl" />
-	   </geometry>
-           <material name="Blue" />
-	</visual>
+		<!-- extensions -->
+		<xacro:cob_torso_gazebo_v0 name="${name}" />
+		<xacro:cob_torso_transmission_v0 name="${name}" />
 
-	<collision>
-	   <origin xyz="0 0 0" rpy="0 0 0" />
-	   <geometry>
-	      <mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover.stl" />
-	   </geometry>
-	</collision>
-    </link>
-
-
-    <!-- extensions -->
-    <xacro:cob_torso_gazebo_v0 name="${name}" />
-    <xacro:cob_torso_transmission_v0 name="${name}" />
-
-  </xacro:macro>
+	</xacro:macro>
+	
 </robot>
-
-

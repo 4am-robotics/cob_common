@@ -3,7 +3,7 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="cob" >
+       name="cob3-2" >
   
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- misc common stuff? -->
@@ -18,8 +18,8 @@
   <!-- cob torse-->
   <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
 
-  <!-- cob cameras-->
-  <include filename="$(find cob_description)/ros/urdf/head_cameras_v0/head_cameras.urdf.xacro" />
+  <!-- cob head-->
+  <include filename="$(find cob_description)/ros/urdf/head_v0/head.urdf.xacro" />
 
   <!-- cob arm-->
   <include filename="$(find cob_description)/ros/urdf/arm_v0/arm.urdf.xacro" />
@@ -53,9 +53,9 @@
     <origin xyz="0.040 -0.005 0.83637" rpy="3.1415926 0.7854 -1.8326" />
   </xacro:cob_arm_v0>
   
-  <xacro:cob_head_cameras_v0 name="head" parent="torso_upper_neck_tilt_link">
+  <xacro:cob_head_v0 name="head" parent="torso_upper_neck_tilt_link">
     <origin xyz="0 -0.154 0" rpy="3.14159 0 0" />
-  </xacro:cob_head_cameras_v0>
+  </xacro:cob_head_v0>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
     <origin xyz="0 0 0" rpy="0 3.1415926 0" />
