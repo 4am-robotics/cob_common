@@ -561,7 +561,7 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 	/// Check if destination image has been initialized correctly
 	CV_Assert(xyzImage.type() == CV_32FC3);
 
-	double pi = 3.14159;
+	float pi = 3.14159f;
 	float t_lower =pi/piHalfFraction;
 	float t_upper = pi - t_lower;
 
@@ -761,7 +761,7 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				}
 //				xyzImage.at<cv::Vec3f>(row, col) = pt;
 				for(int i = 0; i < 3; i++)
-					xyzImage.ptr(row)[3*col+i] = 0.f;
+					((float*)xyzImage.ptr(row))[3*col+i] = 0.f;
 			}
 		}
 	}
