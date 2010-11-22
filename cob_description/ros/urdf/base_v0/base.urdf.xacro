@@ -162,7 +162,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <!-- modify here for test-->
         <geometry>
-          <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+          <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
         </geometry> 
         <material name="Grey"/>
       </visual>
