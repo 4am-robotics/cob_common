@@ -33,18 +33,18 @@
 	<property name="cam_r_pitch" value="0.0" />
 	<property name="cam_r_yaw" value="0.0" />
 
-	<property name="cam_l_x" value="0.0" />
-	<property name="cam_l_y" value="0.0" />
-	<property name="cam_l_z" value="0.0" />
-	<property name="cam_l_roll" value="0.0" />
-	<property name="cam_l_pitch" value="0.0" />
-	<property name="cam_l_yaw" value="0.0" />
+	<property name="cam_l_x" value="-0.0007" />
+	<property name="cam_l_y" value="0.0008" />
+	<property name="cam_l_z" value="-0.0021" />
+	<property name="cam_l_roll" value="0.00036" />
+	<property name="cam_l_pitch" value="-0.00733" />
+	<property name="cam_l_yaw" value="-0.00069" />
 
-	<property name="tof_x" value="0.0" />
-	<property name="tof_y" value="0.0" />
-	<property name="tof_z" value="0.0" />
-	<property name="tof_roll" value="0.0" />
-	<property name="tof_pitch" value="0.0" />
-	<property name="tof_yaw" value="0.0" />
+	<property name="tof_x" value="-0.0066" />
+	<property name="tof_y" value="-0.0005" />
+	<property name="tof_z" value="-0.0336" />
+	<property name="tof_roll" value="-0.0058" />
+	<property name="tof_pitch" value="-0.0029" />
+	<property name="tof_yaw" value="-0.0058" />
   
 </robot>
