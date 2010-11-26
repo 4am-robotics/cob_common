@@ -8,6 +8,7 @@
   <include filename="$(find cob_description)/ros/urdf/base_v0/base.transmission.xacro" />
   
   <!-- modify here for test -->
+  <include filename="$(find cob_description)/ros/urdf/sensors/sick_s300_laser.urdf.xacro"/>
   <include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
 
   <!-- DATA SOURCES -->
@@ -162,7 +163,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <!-- modify here for test-->
         <geometry>
-          <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+          <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
         </geometry> 
         <material name="Grey"/>
       </visual>
@@ -213,17 +214,17 @@
 
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
-    </xacro:hokuyo_lx30_laser_v0>
+    </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
-    </xacro:hokuyo_lx30_laser_v0>
+    </xacro:sick_s300_laser_v0>
 
     <!-- base laser top -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top" update_rate="10" min_angle="-2.094" max_angle="2.094" >
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="-0.252 0 0.42" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 

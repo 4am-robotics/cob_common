@@ -164,7 +164,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <!-- modify here for test-->
         <geometry>
-          <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+          <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
           <!--box size="0.6 0.8 0.1" /-->
         </geometry> 
         <material name="Grey"/>
@@ -175,7 +175,7 @@
              surface of the collision box matches the top surface of the PR2 base -->
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <!--mesh filename="package://cob_defs/common/files/meshes/platform.stl"/-->
+          <!--mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/-->
           <box size="0.6 0.8 0.1" />
         </geometry>
       </collision>
