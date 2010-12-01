@@ -4,9 +4,9 @@
      cob_goco
 
   </description>
-  <author>Winfried Baum, email:winfried.baum@ipa.fhg.de</author>
+  <author>Winfried Baum</author>
   <license>LGPL</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/cob_goco_common</url>
+  <url>http://ros.org/wiki/cob_goco</url>
 
 </package>
