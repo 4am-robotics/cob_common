@@ -163,7 +163,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+          <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
         <material name="Grey"/>
@@ -172,7 +172,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	      <mesh filename="package://cob_defs/common/files/meshes/platform.stl"/>
+	      <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
