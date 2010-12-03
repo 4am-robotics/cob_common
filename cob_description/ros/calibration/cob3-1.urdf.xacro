@@ -26,12 +26,12 @@
 	<property name="arm_7_ref" value="-0.000421242" />
 
 	<!-- camera calibration properties -->
-	<property name="cam_r_x" value="0.0" />
-	<property name="cam_r_y" value="0.0" />
-	<property name="cam_r_z" value="0.0" />
-	<property name="cam_r_roll" value="0.0" />
-	<property name="cam_r_pitch" value="0.0" />
-	<property name="cam_r_yaw" value="0.0" />
+	<property name="cam_r_x" value="-0.0024" />
+	<property name="cam_r_y" value="-0.0146" />
+	<property name="cam_r_z" value="0.0827" />
+	<property name="cam_r_roll" value="0.0088" />
+	<property name="cam_r_pitch" value="0.0118" />
+	<property name="cam_r_yaw" value="0.0001" />
 
 	<property name="cam_l_x" value="-0.0007" />
 	<property name="cam_l_y" value="0.0008" />
