@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="hokuyo_lx30_laser_gazebo_v0" params="name ros_topic update_rate min_angle max_angle">
+    <gazebo reference="${name}_link">
+      <sensor:ray name="${name}">
+        <rayCount>640</rayCount>
+        <rangeCount>640</rangeCount>
+        <laserCount>1</laserCount>
+
+        <origin>0.0 0.0 0.0</origin>
+        <displayRays>false</displayRays>
+
+        <minAngle>${min_angle*180.0/M_PI}</minAngle>
+        <maxAngle>${max_angle*180.0/M_PI}</maxAngle>
+
+        <minRange>0.05</minRange>
+        <maxRange>10.0</maxRange>
+        <resRange>0.01</resRange>
+        <updateRate>${update_rate}</updateRate>
+        <controller:gazebo_ros_laser name="gazebo_ros_${name}_controller" plugin="libgazebo_ros_laser.so">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>${update_rate}</updateRate>
+          <topicName>${ros_topic}</topicName>
+          <frameName>/${name}_link</frameName>
+          <interface:laser name="gazebo_ros_${name}_iface" />
+        </controller:gazebo_ros_laser>
+      </sensor:ray>
+    </gazebo>
+  </xacro:macro>
+
+</robot>
