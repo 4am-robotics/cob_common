@@ -1,4 +1,3 @@
-int64 command
 ---
-int64 success
-std_msgs/String errorMessage
+std_msgs/Bool success
+std_msgs/String error_message

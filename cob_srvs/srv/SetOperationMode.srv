@@ -1,4 +1,4 @@
-std_msgs/String operationMode
+std_msgs/String operation_mode
 ---
-bool success
-std_msgs/String errorMessage
+std_msgs/Bool success
+std_msgs/String error_message
