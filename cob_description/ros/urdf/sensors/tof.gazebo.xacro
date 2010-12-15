@@ -4,35 +4,37 @@
       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
       xmlns:xacro="http://ros.org/wiki/xacro">
   
+<!-- specs from mesa Swiss Ranger SR400001 http://www.mesa-imaging.ch/prodview4k.php -->
 <xacro:macro name="cob_tof_gazebo_v0" params="name">
 
   <gazebo reference="${name}_frame">
     <sensor:ray name="${name}_sensor">
-          <rayCount>30</rayCount>
-          <rangeCount>30</rangeCount>
+          <rayCount>176</rayCount>	<!--true value 176-->
+          <rangeCount>176</rangeCount>
           <laserCount>1</laserCount>
           
           <origin>0.0 0.0 0.05</origin>
           <displayRays>false</displayRays>
           
-          <minAngle>-15</minAngle>
-          <maxAngle> 15</maxAngle>
+          <minAngle>-21.8</minAngle>
+          <maxAngle>21.8</maxAngle>
           
-          <minRange>0.05</minRange>
-          <maxRange>100.0</maxRange>
-          <updateRate>10.0</updateRate>
+          <minRange>0.80</minRange>  <!--0.8m min calibrated range-->
+          <maxRange>5.0</maxRange>   <!--5.0m max calibrated range-->
+	  <resRange>0.010</resRange>
+          <updateRate>10.0</updateRate> <!--max50Hz-->
 
-          <verticalRayCount>30</verticalRayCount>
-          <verticalRangeCount>30</verticalRangeCount>
-          <verticalMinAngle>-20</verticalMinAngle>
-          <verticalMaxAngle>  0</verticalMaxAngle>
+          <verticalRayCount>144</verticalRayCount> <!--true value 144 -->
+          <verticalRangeCount>144</verticalRangeCount>
+          <verticalMinAngle>-17.3</verticalMinAngle>
+          <verticalMaxAngle>17.3</verticalMaxAngle>
 
           <controller:gazebo_ros_block_laser name="tof_controller" plugin="libgazebo_ros_block_laser.so">
             <gaussianNoise>0.005</gaussianNoise>
             <alwaysOn>true</alwaysOn>
-            <updateRate>10.0</updateRate>
+            <updateRate>30</updateRate> <!--max 50Hz, cob3 30Hz -->
             <topicName>full_cloud</topicName>
-            <frameName>/${name}_link</frameName>
+            <frameName>/${name}_frame</frameName>
             <interface:laser name="ray_block_iface" />
           </controller:gazebo_ros_block_laser>
         </sensor:ray>
