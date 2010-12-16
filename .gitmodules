@@ -1,0 +1,3 @@
+[submodule "brics-interfaces"]
+	path = brics-interfaces
+	url = git://github.com/ipa320/brics-interfaces.git
