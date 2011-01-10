@@ -18,30 +18,30 @@
 
 		<link name="${name}_lower_link">
 			<inertial>
-				<origin xyz="0 0 0.2155" rpy="0 0 0"/>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<mass value="1.0"/>
 				<inertia ixx="0.200549" ixy="0.001322" ixz="-0.000000" iyy="0.123664" iyz="-0.000000" izz="0.104101" />
 			</inertial>
 
 			<visual>
-				<origin xyz="0 0 0.2155" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.433 0.512 0.431"/>
+					<box size="0.01 0.01 0.01"/>
 				</geometry>
 				<material name="Blue" />
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0.2155" rpy="0 0 0" />
+				<origin xyz="0 0 0.0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.433 0.512 0.431"/>
+					<box size="0.01 0.01 0.01"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- joint between torso_lower_link and torso_middle_link -->
 		<joint name="${name}_middle_joint" type="fixed">
-			<origin xyz="0 0 0.2155" rpy="0 0 0" />
+			<origin xyz="0 0 0" rpy="0 0 0" />
 			<parent link="${name}_lower_link"/>
 			<child link="${name}_middle_link"/>
 		</joint>
@@ -56,15 +56,15 @@
 			<visual>
 				<origin xyz="0 0 0.2155" rpy="0 0 0" />
 				<geometry>
-					<box size="0.433 0.512 0.431"/>
+				<mesh filename="$(find desire_description)/ros/meshes/head_v0/head.stl"/>
 				</geometry>
 				<material name="Red" />
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0.2155" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.433 0.512 0.431"/>
+				<mesh filename="$(find desire_description)/ros/meshes/head_v0/head.stl"/>
 				</geometry>
 			</collision>
 		</link>
