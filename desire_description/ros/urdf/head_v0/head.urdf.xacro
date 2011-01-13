@@ -65,7 +65,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.01 0.01 0.12"/>
+					<mesh filename="package://desire_description/ros/meshes/head_v0/head.stl"/>
 				</geometry>
 				<material name="Green" />
 			</visual>
@@ -73,7 +73,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.01 0.01 0.12"/>
+					<mesh filename="package://desire_description/ros/meshes/head_v0/head.stl"/>
 				</geometry>
 			</collision>
 		</link>
