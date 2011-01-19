@@ -1,0 +1,69 @@
+#structure
+#group_name:
+#  [[button_name1,function_name1,component_name1,parameter_name2,
+#  [button_name2,function_name2,component_name2,parameter_name2]]
+
+0 base:
+  [[stop,trigger,base,stop],
+  [init,trigger,base,init],
+  [recover,trigger,base,recover],
+  [home,move,base,home],
+  [order,move,base,order],
+  [kitchen,move,base,kitchen]]
+1 head:
+  [[stop,trigger,head,stop],
+  [init,trigger,head,init],
+  [recover,trigger,head,recover],
+  [enable joystick,mode,head,velocity],
+  [home,move,head,home],
+  [front,move,head,front],
+  [back,move,head,back],
+  [left,move,head,left],
+  [right,move,head,right],
+  [shake,move,head,shake],
+  [nod,move,head,nod]]
+2 arm settings:
+  [[stop,trigger,arm,stop],
+  [init,trigger,arm,init],
+  [recover,trigger,arm,recover],
+  [reboot,trigger,arm,reboot],
+  [undefined mode,mode,arm,undefined],
+  [position mode,mode,arm,position],
+  [pos stiff mode,mode,arm,positionstiffness],
+  [velocity mode,mode,arm,velocity],
+  [gravcomp mode,mode,arm,gravcomp],
+  [positionhold mode,mode,arm,positionhold]]
+3 arm left pos:
+  [[stop,trigger,arm_left,stop],
+  [home,move,arm_left,home],
+  [folded,move,arm_left,folded],
+  [pregrasp,move,arm_left,pregrasp],
+  [grasp,move,arm_left,grasp],
+  [overtablet,move,arm_left,overtablet],
+  [tablet,move,arm_left,tablet]]
+4 arm right pos:
+  [[stop,trigger,arm_right,stop],
+  [home,move,arm_right,home],
+  [folded,move,arm_right,folded],
+  [pregrasp,move,arm_right,pregrasp],
+  [grasp,move,arm_right,grasp],
+  [overtablet,move,arm_right,overtablet],
+  [tablet,move,arm_right,tablet]]
+5 sdh left:
+  [[stop,trigger,sdh_left,stop],
+  [init,trigger,sdh_left,init],
+  [recover,trigger,sdh_left,recover],
+  [home,move,sdh_left,home],
+  [cyl. closed,move,sdh_left,cylclosed],
+  [cyl. open,move,sdh_left,cylopen],
+  [spher. closed,move,sdh_left,spherclosed],
+  [spher. open,move,sdh_left,spheropen]]
+6 sdh right:
+  [[stop,trigger,sdh_right,stop],
+  [init,trigger,sdh_right,init],
+  [recover,trigger,sdh_right,recover],
+  [home,move,sdh_right,home],
+  [cyl. closed,move,sdh_right,cylclosed],
+  [cyl. open,move,sdh_right,cylopen],
+  [spher. closed,move,sdh_right,spherclosed],
+  [spher. open,move,sdh_right,spheropen]]

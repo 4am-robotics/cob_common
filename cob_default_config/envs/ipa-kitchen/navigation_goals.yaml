@@ -1,0 +1,23 @@
+#[x,y,theta]
+home: [0, 0, 0]
+order: [1, -0.5, -0.7]
+kitchen: [-2.2, 0.5, 0]
+watercooler: [1.869,-1.376,0.897]
+table: [0,-0.5,0]
+table1: [-2,-0.5,0]
+table2: [2,-0.5,0]
+
+rc_entrance: [1.678, -0.553, -1.5708]
+rc_table: [2.392, 0.443, -1.5708]
+rc_window: [1.000, 0.995, 1.5708]
+
+rc_drive_by_start: [4.30, 0.688, -3.1415926]
+rc_drive_by_end: [1.00, 0.688, -3.1415926]
+
+intermediate: [2.699, -2.658, 0.068]
+watercooler_mm_deg: [1869,-1376,-51.4]
+table_mm_deg: [3855,-2874,35.1]
+intermediate_mm_deg: [2699, -2658, -3.9]
+
+table_cup_start: [-1.5, -0.5, 0.0]
+table_cup_end: [1.0, -0.7, 0.0]
