@@ -17,13 +17,13 @@
 	<property name="head_axis_ref" value="-3.266798" />
 
 	<!-- arm reference positions -->
-	<property name="arm_1_ref" value="1.47881" />
-	<property name="arm_2_ref" value="1.47881" />
-	<property name="arm_3_ref" value="-6.28087" />
-	<property name="arm_4_ref" value="0.0192641" />
-	<property name="arm_5_ref" value="-2.86457" />
-	<property name="arm_6_ref" value="0.00414364" />
-	<property name="arm_7_ref" value="-0.000421242" />
+	<property name="arm_1_ref" value="0" />
+	<property name="arm_2_ref" value="0" />
+	<property name="arm_3_ref" value="0" />
+	<property name="arm_4_ref" value="0" />
+	<property name="arm_5_ref" value="0" />
+	<property name="arm_6_ref" value="0" />
+	<property name="arm_7_ref" value="0" />
 
 	<!-- camera calibration properties -->
 	<property name="cam_r_x" value="-0.0024" />
