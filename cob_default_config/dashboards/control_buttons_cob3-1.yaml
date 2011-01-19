@@ -47,7 +47,6 @@
   [tablet,move,arm,tablet]]
 5 arm traj:
   [[stop,trigger,arm,stop],
-  [folded-to-pregrasp,move,arm,folded-to-pregrasp],
   [grasp-to-tablet,move,arm,grasp-to-tablet],
   [tablet-to-folded,move,arm,tablet-to-folded]]
 6 sdh:

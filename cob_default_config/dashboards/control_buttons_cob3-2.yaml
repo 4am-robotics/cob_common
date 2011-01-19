@@ -6,10 +6,7 @@
 0 base:
   [[stop,trigger,base,stop],
   [init,trigger,base,init],
-  [recover,trigger,base,recover],
-  [home,move,base,home],
-  [order,move,base,order],
-  [kitchen,move,base,kitchen]]
+  [recover,trigger,base,recover]]
 1 torso:
   [[stop,trigger,torso,stop],
   [init,trigger,torso,init],
@@ -29,11 +26,13 @@
   [enable joystick,mode,tray,velocity],
   [up,move,tray,up],
   [down,move,tray,down]]
-3 arm:
+3 arm settings:
   [[stop,trigger,arm,stop],
   [init,trigger,arm,init],
   [recover,trigger,arm,recover],
-  [enable joystick,mode,arm,velocity],
+  [enable joystick,mode,arm,velocity]]
+4 arm pos:
+  [[stop,trigger,arm,stop],
   [home,move,arm,home],
   [folded,move,arm,folded],
   [pregrasp,move,arm,pregrasp],
@@ -42,14 +41,11 @@
   [intermediatefront,move,arm,intermediatefront],
   [overtablet,move,arm,overtablet],
   [tablet,move,arm,tablet]]
-4 arm traj:
+5 arm traj:
   [[stop,trigger,arm,stop],
-  [init,trigger,arm,init],
-  [recover,trigger,arm,recover],
-  [enable joystick,mode,arm,velocity],
   [grasp-to-tablet,move,arm,grasp-to-tablet],
   [tablet-to-folded,move,arm,tablet-to-folded]]
-5 sdh:
+6 sdh:
   [[stop,trigger,sdh,stop],
   [init,trigger,sdh,init],
   [recover,trigger,sdh,recover],
@@ -57,7 +53,7 @@
   [cyl. closed,move,sdh,cylclosed],
   [spher. open,move,sdh,spheropen],
   [spher. closed,move,sdh,spherclosed]]
-6 eyes:
+7 eyes:
   [[stop,trigger,head,stop],
   [init,trigger,head,init],
   [recover,trigger,head,recover],
