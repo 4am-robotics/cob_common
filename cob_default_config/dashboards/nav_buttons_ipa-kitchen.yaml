@@ -1,4 +1,3 @@
-0 nav_buttons:
-  [[home,move,base,home],
-  [order,move,base,order],
-  [kitchen,move,base,kitchen]]
+buttons: [[home,move,home],
+  [order,move,order],
+  [kitchen,move,kitchen]]
