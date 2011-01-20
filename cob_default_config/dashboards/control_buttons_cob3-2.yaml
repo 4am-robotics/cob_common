@@ -40,11 +40,18 @@
   [intermediateback,move,arm,intermediateback],
   [intermediatefront,move,arm,intermediatefront],
   [overtablet,move,arm,overtablet],
-  [tablet,move,arm,tablet]]
+  [tablet,move,arm,tablet],
+  [wavein,move,arm,wavein],
+  [waveout,move,arm,waveout],
+  [pos,move,arm,pos],
+  [pos2,move,arm,pos2]]
 5 arm traj:
   [[stop,trigger,arm,stop],
   [grasp-to-tablet,move,arm,grasp-to-tablet],
-  [tablet-to-folded,move,arm,tablet-to-folded]]
+  [tablet-to-folded,move,arm,tablet-to-folded],
+  [wave,move,arm,wave],
+  [trajpos,move,arm,trajpos],
+  [trajtraj,move,arm,trajtraj]]
 6 sdh:
   [[stop,trigger,sdh,stop],
   [init,trigger,sdh,init],
