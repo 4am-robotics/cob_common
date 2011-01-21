@@ -54,14 +54,14 @@ group5:
     [folded,move,folded],
     [pregrasp,move,pregrasp],
     [grasp,move,grasp],
-    [overtablet,move,overtablet],
-    [tablet,move,tablet]]
+    [overtray,move,overtray],
+    [tray,move,tray]]
 group6:
   group_name: arm traj
   component_name: arm
   buttons: [[stop,trigger,stop],
-    [grasp-to-tablet,move,grasp-to-tablet],
-    [tablet-to-folded,move,tablet-to-folded]]
+    [grasp-to-tray,move,grasp-to-tray],
+    [tray-to-folded,move,tray-to-folded]]
 group7:
   group_name: sdh
   component_name: sdh
