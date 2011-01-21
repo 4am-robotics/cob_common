@@ -25,7 +25,7 @@
   <include filename="$(find desire_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
 
   <!-- desire sdh-->
-  <include filename="$(find desire_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" />
+  <!--  <include filename="$(find desire_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" /> -->
 
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
   <include filename="$(find desire_description)/ros/gazebo/gazebo.urdf.xacro" />
@@ -61,12 +61,12 @@
     <origin xyz="0.40 0 1.4246" rpy="0 0 0" />
   </xacro:desire_head_v0>
   
-  <xacro:desire_sdh_v0 name="sdh_left" parent="arm_left_7_link">
+  <!--<xacro:desire_sdh_v0 name="sdh_left" parent="arm_left_7_link">
     <origin xyz="0 0 0" rpy="0 3.1415926 0" />
   </xacro:desire_sdh_v0>
   
   <xacro:desire_sdh_v0 name="sdh_right" parent="arm_right_7_link">
     <origin xyz="0 0 0" rpy="0 3.1415926 0" />
-  </xacro:desire_sdh_v0>
+  </xacro:desire_sdh_v0>-->
   
 </robot>

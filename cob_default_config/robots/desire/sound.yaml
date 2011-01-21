@@ -1,0 +1,41 @@
+speech_mode: FEST_EN
+#wav_de_path: /home/cob/svn/cob/Files/Audio/WiMi/wav_de/
+wav_en_path: /home/cob/svn/cob/Files/Audio/WiMi/wav_de/
+temp_wav_file: /home/fmw/wav/swift_temp.wav
+
+rand/introduce: ["sent01","sent02","sent03"]
+rand/offer: ["sent04","sent05","sent06","sent07","sent08","sent09"]
+rand/taken: ["sent10","sent11","sent12","sent13"]
+rand/pathblocked: ["sent14","sent15","sent16","sent17","sent18"]
+rand/load: ["sent21","sent22","sent23","sent24"]
+rand/enterRoom: ["sent25","sent26"]
+
+de/sent00: ["Hallo, ich bin der DESIRE roboter."]
+de/sent01: ["In dieser Woche biete ich hier Getränke an."]
+de/sent02: ["Ich habe die Aufgabe, Sie mit Getränken zu versorgen."]
+de/sent03: ["In dieser Woche unterstütze ich die Pflegekräfte bei Ihrer Arbeit."]
+de/sent04: ["Hallo. Darf ich jemandem etwas zu Trinken anbieten?"]
+de/sent05: ["Hallo. Möchte jemand einen Becher Wasser? Bitte greifen Sie zu!"]
+de/sent06: ["Hallo. Kann ich Ihnen etwas zu Trinken anbieten?"]
+de/sent07: ["Da bin ich wieder. Und ich habe etwas zu Trinken dabei. Sie können es einfach von meinem Tablett herunternehmen."]
+de/sent08: ["Ich habe hier einen Becher Wasser. Wenn Sie ihn haben möchten nehmen Sie ihn einfach von meinem Tablett."]
+de/sent09: ["Darf ich Ihnen etwas Wasser anbieten? Bitte greifen Sie zu!"]
+de/sent10: ["Danke, dass Sie mir etwas abgenommen haben."]
+de/sent11: ["Bittesehr."]
+de/sent12: ["Nett, dass Sie etwas genommen haben!"]
+de/sent13: ["Bitteschön!"]
+de/sent14: ["Entschuldingung. Dürfte ich mal vorbei?"]
+de/sent15: ["Entschuldigen Sie, ich muss hier durch!"]
+de/sent16: ["Könnten Sie wohl einen Schritt zur Seite treten? Ich muss hier durch!"]
+de/sent17: ["Hallo! Könnten Sie mich bitte vorbeilassen?"]
+de/sent18: ["Tut mir leid, Sie zu stören. Dürfte ich mal vorbei?"]
+de/sent19: ["Ich kann nicht losfahren. Mein Weg ist blockiert."]
+de/sent20: ["Ich geb's auf!"]
+de/sent21: ["Bitte stellen Sie ein Getränk auf mein Tablett."]
+de/sent22: ["Sellen Sie jetzt ein Getränk auf mein Tablett."]
+de/sent23: ["Ich kann das Getränk nun entgegennehmen."]
+de/sent24: ["Ich bin bereit."]
+de/sent25: ["Hallo."]
+de/sent26: ["Da bin ich wieder."]
+
+en/sent00: ["Hello, I am Care-O-Bot 3."]

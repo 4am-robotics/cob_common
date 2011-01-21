@@ -3,28 +3,25 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="cob3-1" >
+       name="desire" >
   
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- misc common stuff? -->
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
 
-  <!-- cob calibration -->
-  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
+  <!-- desire calibration -->
+  <include filename="$(find desire_description)/ros/calibration/desire.urdf.xacro" />
   
-  <!-- cob base -->
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" />
- 
-  <!-- cob torse-->
-  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
+  <!-- desire base -->
+  <include filename="$(find desire_description)/ros/urdf/base_v0/base.urdf.xacro" />
 
-  <!-- cob head-->
-  <include filename="$(find cob_description)/ros/urdf/head_v0/head.urdf.xacro" />
+  <!-- desire cameras-->
+  <include filename="$(find desire_description)/ros/urdf/head_v0/head.urdf.xacro" />
 
-  <!-- cob arm-->
+  <!-- desire arm-->
   <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
 
-  <!-- cob sdh-->
+  <!-- desire sdh-->
   <include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" />
 
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
@@ -33,7 +30,7 @@
   <!-- materials for visualization -->
   <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
 
-  <!-- Now we can start using the macros included above to define the actual cob -->
+  <!-- Now we can start using the macros included above to define the actual desire -->
 
   <!-- The first use of a macro.  This one was defined in base.urdf.xacro above.
        A macro like this will expand to a set of link and joint definitions, and to additional
@@ -43,24 +40,28 @@
        the origin block defines where the component is w.r.t its parent (in this case the parent 
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
-  <xacro:cob_base_v0 name="base"/>
-
-  <xacro:cob_torso_v0 name="torso" parent="base_link">
-    <origin xyz="0.155 0 0.892" rpy="3.1415926 0 0" />
-  </xacro:cob_torso_v0>
+  <xacro:desire_base_v0 name="base"/>
   
-  <xacro:cob_lbr_v0 name="arm" parent="base_link">
-    <origin xyz="-0.015982 -0.080992 0.875995" rpy="0.7854 0.0 -0.2618" />
-    <!--<origin xyz="0.00964 0.01463 0.777" rpy="0.7854 0.0 -0.2618" /-->
-    <!-- OLD: <origin xyz="0.040 -0.005 0.83637" rpy="0.0 0.7854 -1.6326" /> -->
+  <xacro:cob_lbr_v0 name="arm_left" parent="base_link">
+    <!--origin xyz="0.35 0.0 1.25239" rpy="3.1415926 0.7854 -1.8326" /-->
+    <!--origin xyz="0.35027 0.15296 1.32094" rpy="0 -0.7854 -1.8326" /-->
+    <origin xyz="0.350 0.15296 1.3" rpy="0 -1.04719755 -1.57079633" />  
   </xacro:cob_lbr_v0>
   
-  <xacro:cob_head_v0 name="head" parent="torso_upper_neck_tilt_link">
-    <origin xyz="0 -0.154 0" rpy="3.14159 0 0" />
-  </xacro:cob_head_v0>
+  <xacro:cob_lbr_v0 name="arm_right" parent="base_link">
+    <origin xyz="0.350 -0.15296 1.3" rpy="0 -1.04719755 1.57079633" />
+   </xacro:cob_lbr_v0>
   
-  <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
-    <origin xyz="0 0 0.02" rpy="0 0 1.5708" />
+  <xacro:desire_head_v0 name="head" parent="base_link">
+    <origin xyz="0.40 0 1.4337" rpy="3.1415926 0 0" />
+	<!--<origin xyz="0.40 0 1.4337" rpy="-1.5707 0 0" /-->  </xacro:desire_head_v0>
+  
+  <xacro:cob_sdh_v0 name="sdh_left" parent="arm_left_7_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:cob_sdh_v0>
+  
+  <xacro:cob_sdh_v0 name="sdh_right" parent="arm_right_7_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:cob_sdh_v0>
   
 </robot>
