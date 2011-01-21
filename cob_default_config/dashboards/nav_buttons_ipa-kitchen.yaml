@@ -1,0 +1,3 @@
+buttons: [[home,move,home],
+  [order,move,order],
+  [kitchen,move,kitchen]]
