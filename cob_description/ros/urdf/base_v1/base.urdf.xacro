@@ -4,8 +4,8 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/base_v1/base.gazebo.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/base_v1/base.transmission.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/base_v0/base.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/base_v0/base.transmission.xacro" />
   
   <!-- modify here for test -->
   <include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
@@ -19,9 +19,9 @@
 
   <property name="caster_offset_x" value="0.235" />  <!--modify here-->
   <property name="caster_offset_y" value="0.185" />
-  <property name="caster_offset_z" value="0.0282" />
+  <property name="caster_offset_z" value="0.075" />
 
-  <property name="caster_wheel_offset_y" value="0.049" />
+  <property name="caster_wheel_offset_y" value="0.000" />
   <property name="wheel_length" value="0.034" />
   <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
 
@@ -122,9 +122,9 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.07" rpy="0.0 0.0 0.0" />
+        <origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
         <geometry>
-          <box size="0.192 0.164 0.013" />
+          <box size="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>    
@@ -172,7 +172,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	      <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
+	      <mesh filename="package://cob_description/ros/meshes/base_v0/base_collision.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
