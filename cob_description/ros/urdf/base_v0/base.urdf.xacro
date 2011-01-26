@@ -22,11 +22,8 @@
   <property name="caster_offset_y" value="0.185" />
   <property name="caster_offset_z" value="0.0282" />
 
-<!--TODO: adjust base collision model and wheel values -->
-  <!--property name="caster_wheel_offset_y" value="0.01" /-->
   <property name="caster_wheel_offset_y" value="0.049" />
   <property name="wheel_length" value="0.034" />
-  <!--property name="wheel_radius" value="0.05" /-->
   <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
 
   <property name="base_cg_x" value="-0.061" />
@@ -34,13 +31,13 @@
   <property name="base_cg_z" value="0.293" />
   <property name="base_mass" value="116.0" />
 
-<!-- uhr-messmerf -->  
+  <!-- uhr-messmerf -->  
   <property name="base_size_x2" value="0.4" />
   <property name="base_size_y2" value="0.5" />
-  <property name="base_size_z2" value="0.4" />
-  <property name="base_collision_size_z2" value="0.6" />
+  <property name="base_size_z2" value="0.5" />
+  <property name="base_collision_size_z2" value="0.4" />
 
-<!-- simplified box collision geometry for base -->
+  <!-- simplified box collision geometry for base -->
   <property name="base_size_x" value="0.8" />
   <property name="base_size_y" value="0.6" />
   <property name="base_size_z" value="0.23" />
@@ -132,7 +129,7 @@
       <collision>
         <origin xyz="0 0 0.07" rpy="0.0 0.0 0.0" />
         <geometry>
-          <box size="0.01 0.01 0.01" />
+          <box size="0.192 0.164 0.013" />
         </geometry>
       </collision>
     </link>
@@ -180,23 +177,17 @@
       <collision>
         <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
              surface of the collision box matches the top surface of the PR2 base -->
-		<!--
-		<origin xyz="0 0 0" rpy="0 0 0" />  
-        <geometry>
-          <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
-        </geometry>
-		-->	
-        <origin xyz="${base_size_x2/2} 0 ${base_size_z2}" rpy="0 0 0" />
-        <geometry>
-          <box size="${base_size_x2} ${base_size_y2} ${base_collision_size_z2}" />
-        </geometry>
-		<!-- 
-		OLD collision model
+<!--original model: works for platform-navigation
         <origin xyz="0 0 ${base_size_z-base_collision_size_z/2}" rpy="0 0 0" />
         <geometry>
           <box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" />
         </geometry>
-		-->
+-->
+
+		<origin xyz="${base_size_x2/2} 0 ${base_size_z2}" rpy="0 0 0" />
+        <geometry>
+          <box size="${base_size_x2} ${base_size_y2} ${base_collision_size_z2}" />
+        </geometry>
       </collision>
     </link>
 
