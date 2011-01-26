@@ -55,13 +55,16 @@ group5:
     [pregrasp,move,pregrasp],
     [grasp,move,grasp],
     [overtray,move,overtray],
-    [tray,move,tray]]
+    [tray,move,tray],
+    [wave in,move,wavein],
+    [wave out,move,waveout]]
 group6:
   group_name: arm traj
   component_name: arm
   buttons: [[stop,trigger,stop],
     [grasp-to-tray,move,grasp-to-tray],
-    [tray-to-folded,move,tray-to-folded]]
+    [tray-to-folded,move,tray-to-folded],
+    [wave,move,wave]]
 group7:
   group_name: sdh
   component_name: sdh
