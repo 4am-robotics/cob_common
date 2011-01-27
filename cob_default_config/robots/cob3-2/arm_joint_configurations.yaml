@@ -1,0 +1,18 @@
+joint_names: ["arm_1_joint","arm_2_joint","arm_3_joint","arm_4_joint","arm_5_joint","arm_6_joint","arm_7_joint"]
+
+# single positions
+home: [[0.0,0.0,0.0,0.0,0.0,0.0,0.0]]
+folded: [[2.4305, -2.0183, 2.3888, 1.7423, 0.1602, 0.9799, -1.4252]]
+pregrasp: [[1.7382, -1.4889, 0.3862, 1.9651, -3.4248, 1.7906, 0.2902]]
+grasp: [[1.5048, -1.6054, 0.7639, 1.2717, -3.1488, 1.1876, 0.0668]]
+overtray: [[-0.8402, -1.6393, 1.3151, 1.6565, 0.9701, 1.3971, -3.8298]]
+tray: [[-0.7411, -1.7354, 1.3658, 1.6142, 1.0109, 1.4441, -3.7285]]
+intermediateback: [[0.9491, -1.9267, 1.0229, 1.3607, 0.9578, 1.6990, -2.6809]]
+intermediatefront: [[-0.8894, -1.5624, 0.8592, 1.7863, 1.3653, 1.3339, -4.4183]]
+wavein: [[-0.1, 0.5, 0.0, 0.5, 0.0, 0.5, -1.5708]]
+waveout: [[-0.1, 0.5, 0.0, -0.5, 0.0, -0.5, -1.5708]]
+
+#trajectories
+grasp-to-tray: [pregrasp, intermediateback, intermediatefront, overtray]
+tray-to-folded: [intermediatefront, intermediateback, folded]
+wave: [waveout, wavein, waveout, wavein]

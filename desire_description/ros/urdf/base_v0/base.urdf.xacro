@@ -70,7 +70,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://desire_description/ros/meshes/base_v0/pr2_wheel.stl" />
+          <mesh filename="package://cob_description/ros/meshes/base_v0/pr2_wheel.stl" />
         </geometry>
         
         <material name="Wheel_${suffix}" />
@@ -113,7 +113,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://desire_description/ros/meshes/base_v0/caster.stl" />
+          <mesh filename="$(find cob_description)/ros/meshes/base_v0/caster.stl" />
         </geometry>
     
         <material name="Green" />
@@ -162,9 +162,9 @@
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <!-- modify here for test-->
         <geometry>
-          <mesh filename="package://desire_defs/common/files/meshes/platform.stl"/>
+          <mesh filename="package://desire_description/ros/meshes/base_v0/base.stl"/>
         </geometry> 
-        <material name="Grey"/>
+        <material name="Green"/>
       </visual>
 
       <collision>
