@@ -4,13 +4,13 @@
 #  buttons: [[button_name1,function_name1,parameter_name2,
 #    [button_name2,function_name2,parameter_name2]]
 
-group01:
+group1:
   group_name: base
   component_name: base
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
     [recover,trigger,recover]]
-group02:
+group2:
   group_name: head
   component_name: head
   buttons: [[stop,trigger,stop],
@@ -18,16 +18,17 @@ group02:
     [recover,trigger,recover],
     [enable joystick,mode,velocity],
     [home,move,home],
-    [front,move,front],
-    [back,move,back],
+    [up,move,up],
+    [down,move,down],
     [left,move,left],
     [right,move,right],
     [shake,move,shake],
     [nod,move,nod]]
-group03:
-  group_name: arm left settings
-  component_name: arm_left
-  buttons: [[stop,trigger,stop],
+group3:
+  group_name: arm settings
+  component_name: arm
+  buttons:
+    [[stop,trigger,stop],
     [init,trigger,init],
     [recover,trigger,recover],
     [reboot,trigger,reboot],
@@ -37,18 +38,20 @@ group03:
     [velocity mode,mode,velocity],
     [gravcomp mode,mode,gravcomp],
     [positionhold mode,mode,positionhold]]
-group04:
+group4:
   group_name: arm left pos
   component_name: arm_left
   buttons: [[stop,trigger,stop],
     [home,move,home],
     [folded,move,folded],
-    [pregrasp,move,pregrasp],
-    [grasp,move,grasp]]
+    [pregrasp,move,pregrasp]]
 group5:
-  group_name: arm left traj
-  component_name: arm_left
-  buttons: [[stop,trigger,stop]]
+  group_name: arm right pos
+  component_name: arm_right
+  buttons: [[stop,trigger,stop],
+    [home,move,home],
+    [folded,move,folded],
+    [pregrasp,move,pregrasp]]
 group6:
   group_name: sdh left
   component_name: sdh_left
@@ -60,32 +63,7 @@ group6:
     [cyl. open,move,cylopen],
     [spher. closed,move,spherclosed],
     [spher. open,move,spheropen]]
-group07:
-  group_name: arm right settings
-  component_name: arm_right
-  buttons: [[stop,trigger,stop],
-    [init,trigger,init],
-    [recover,trigger,recover],
-    [reboot,trigger,reboot],
-    [undefined mode,mode,undefined],
-    [position mode,mode,position],
-    [pos stiff mode,mode,positionstiffness],
-    [velocity mode,mode,velocity],
-    [gravcomp mode,mode,gravcomp],
-    [positionhold mode,mode,positionhold]]
-group08:
-  group_name: arm right pos
-  component_name: arm_right
-  buttons: [[stop,trigger,stop],
-    [home,move,home],
-    [folded,move,folded],
-    [pregrasp,move,pregrasp],
-    [grasp,move,grasp]]
-group09:
-  group_name: arm right traj
-  component_name: arm_right
-  buttons: [[stop,trigger,stop]]
-group10:
+group7:
   group_name: sdh right
   component_name: sdh_right
   buttons: [[stop,trigger,stop],
