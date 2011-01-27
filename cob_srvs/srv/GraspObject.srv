@@ -1,0 +1,26 @@
+cob_msgs/ObjectInstance object_info
+---
+#### MotionPlanResponse ####
+# A solution trajectory, if found
+motion_planning_msgs/RobotTrajectory trajectory
+
+# The corresponding robot state
+motion_planning_msgs/RobotState robot_state
+
+# Planning time
+duration planning_time
+
+# Error code - encodes the overall reason for failure
+motion_planning_msgs/ArmNavigationErrorCodes error_code
+
+# More detailed error codes (optional) - encode information about each point in the returned trajectory
+motion_planning_msgs/ArmNavigationErrorCodes[] trajectory_error_codes
+
+
+#### Grasp to be used ####
+cob_msgs/GraspDefinition grasp_definition
+
+
+#### some additional information ####
+std_msgs/Bool success
+std_msgs/String error_message
