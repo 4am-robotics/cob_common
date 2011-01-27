@@ -6,8 +6,7 @@
 
 	<include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.gazebo.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.transmission.xacro" />
-  <!-- cob sdh-->
-  <include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" />
+
 	<xacro:macro name="cob_lbr_v0" params="parent name *origin">
 
 		<!-- joint between base_link and arm_0_link -->
@@ -291,9 +290,7 @@
 				</geometry>
 			</collision>
 		</link>
-  <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
-    <origin xyz="0 0 0.02" rpy="0 0 0" />
-  </xacro:cob_sdh_v0>
+
 		<!-- extensions -->
 		<xacro:cob_lbr_gazebo_v0 name="${name}" />
 		<xacro:cob_lbr_transmission_v0 name="${name}" />
