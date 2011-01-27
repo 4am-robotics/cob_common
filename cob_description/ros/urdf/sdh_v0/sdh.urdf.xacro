@@ -38,6 +38,15 @@
 				</geometry>
 			</collision>
 		</link>
+		
+		<!-- grasp link -->
+		<joint name="${name}_grasp_joint" type="fixed" >
+			<origin xyz="0 0 0.15" rpy="0 0 0"/>
+			<parent link="${name}_palm_link" />
+			<child link="${name}_grasp_link" />
+		</joint>
+
+		<link name="${name}_grasp_link"/>
 
 		<!-- finger1 -->
 		<!-- joint between sdh_palm_link and sdh_finger_11_link -->
