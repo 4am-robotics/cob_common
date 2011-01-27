@@ -45,7 +45,7 @@
 			<parent link="${name}_0_link"/>
 			<child link="${name}_1_link"/>
 			<axis xyz="0 0 1"/>
-			<calibration rising="${arm_1_ref}" falling="${arm_1_ref}"/>
+			<calibration rising="${arm_1_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="200" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
 			<!--limit effort="370" velocity="0.4363" lower="-6.2831853" upper="6.2831853"/-->
@@ -81,7 +81,7 @@
 			<parent link="${name}_1_link"/>
 			<child link="${name}_2_link"/>
 			<axis xyz="0 0 1"/>
-			<calibration rising="${arm_2_ref}" falling="${arm_2_ref}"/>
+			<calibration rising="${arm_2_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="200" velocity="1.9634" lower="-2.0943" upper="2.0943"/>
 			<!--limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/-->
@@ -117,7 +117,7 @@
 			<parent link="${name}_2_link"/>
 			<child link="${name}_3_link"/>
 			<axis xyz="0 0 1"/>
-			<calibration rising="${arm_3_ref}" falling="${arm_3_ref}"/>
+			<calibration rising="${arm_3_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="100" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
 			<!--limit effort="176" velocity="0.4189" lower="-6.2831853" upper="6.2831853"/-->
@@ -153,7 +153,7 @@
 			<parent link="${name}_3_link"/>
 			<child link="${name}_4_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_4_ref}" falling="${arm_4_ref}"/>
+			<calibration rising="${arm_4_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="100" velocity="1.9634" lower="-2.0943" upper="2.0943"/>
 			<!--limit effort="176" velocity="0.4189" upper="2.0943951" lower="-2.0943951"/-->
@@ -189,7 +189,7 @@
 			<parent link="${name}_4_link"/>
 			<child link="${name}_5_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_5_ref}" falling="${arm_5_ref}"/>
+			<calibration rising="${arm_5_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="100" velocity="3.1415926" lower="-2.9670" upper="2.9670" />
 			<!--limit effort="41.6" velocity="0.4363" upper="6.2831853" lower="-6.2831853" /-->
@@ -225,7 +225,7 @@
 			<parent link="${name}_5_link"/>
 			<child link="${name}_6_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_6_ref}" falling="${arm_6_ref}"/>
+			<calibration rising="${arm_6_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="30" velocity="1.9634" lower="-2.0943951" upper="2.0943951" />
 			<!--limit effort="20.1" velocity="0.4363" upper="2.0943951" lower="-2.0943951" /-->
@@ -261,7 +261,7 @@
 			<parent link="${name}_6_link"/>
 			<child link="${name}_7_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_7_ref}" falling="${arm_7_ref}"/>
+			<calibration rising="${arm_7_ref}"/>
 			<dynamics damping="25" />
 			<limit effort="30" velocity="1.9634" lower="-2.9670" upper="2.9670" />
 			<!--limit effort="20.1" velocity="0.4363" upper="2.0943951" lower="-2.0943951" /-->
