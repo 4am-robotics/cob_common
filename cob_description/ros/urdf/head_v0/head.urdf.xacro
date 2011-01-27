@@ -8,7 +8,7 @@
 	<include filename="$(find cob_description)/ros/urdf/head_v0/head.transmission.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/cameraone.urdf.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/tof.urdf.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" />
+	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
 
 	<xacro:macro name="cob_head_v0" params="name parent *origin">
 

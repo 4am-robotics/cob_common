@@ -10,6 +10,7 @@ byte UNKNOWN=0
 byte ACTIVE=1
 byte SUCCEEDED=2
 byte FAILED=3
+byte PAUSED=4
 
 byte state # state of execution
 int16 error_code # current error_code for state
