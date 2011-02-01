@@ -4,23 +4,11 @@
 	<!-- common properties -->
 	<property name="M_PI" value="3.1415926535897931" />
 
-	<!-- torso reference positions -->
-	<property name="torso_lower_ref" value="-0.5470" />
-	<property name="torso_middle_ref" value="0.0247" />
+	<!-- head reference positions -->
+	<property name="head_pan_ref" value="0.55" />
+	<property name="head_tilt_ref" value="0.0" />
 
-	<!-- head camera axis reference position -->
-	<property name="head_axis_ref" value="-3.14" />
-
-	<!-- arm reference positions -->
-	<property name="arm_1_ref" value="-2.8761" />
-	<property name="arm_2_ref" value="-0.1687" />
-	<property name="arm_3_ref" value="-0.0274" />
-	<property name="arm_4_ref" value="-1.7193" />
-	<property name="arm_5_ref" value="0.0342" />
-	<property name="arm_6_ref" value="-1.6959" />
-	<property name="arm_7_ref" value="1.8707" />
-	
-	<!-- arm reference positions -->
+	<!-- arm right reference positions -->
 	<property name="arm_1_ref" value="-2.8761" />
 	<property name="arm_2_ref" value="-0.1687" />
 	<property name="arm_3_ref" value="-0.0274" />
