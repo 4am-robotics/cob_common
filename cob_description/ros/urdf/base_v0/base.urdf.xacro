@@ -177,17 +177,21 @@
       <collision>
         <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
              surface of the collision box matches the top surface of the PR2 base -->
-<!--original model: works for platform-navigation
-        <origin xyz="0 0 ${base_size_z-base_collision_size_z/2}" rpy="0 0 0" />
+		<!--original box-shaped model: works for platform-navigation -->
+        <!--<origin xyz="0 0 ${base_size_z-base_collision_size_z/2}" rpy="0 0 0" />
         <geometry>
           <box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" />
-        </geometry>
--->
-
+        </geometry>-->
+		<!--second box-shaped model:-->
 		<origin xyz="${base_size_x2/2} 0 ${base_size_z2}" rpy="0 0 0" />
         <geometry>
           <box size="${base_size_x2} ${base_size_y2} ${base_collision_size_z2}" />
         </geometry>
+		<!--latest collision model using meshes -->        
+		<!--<origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+	      <mesh filename="package://cob_description/ros/meshes/base_v0/base_collision.stlb"/>
+        </geometry>-->
       </collision>
     </link>
 

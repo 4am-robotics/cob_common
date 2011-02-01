@@ -38,7 +38,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray_collision.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -106,7 +106,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck_collision.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -174,7 +174,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck_collision.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -204,7 +204,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover_collision.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>

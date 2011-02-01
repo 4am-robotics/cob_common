@@ -70,7 +70,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_1_collision.stl" />
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_1_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -106,7 +106,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_2_collision.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_2_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -142,7 +142,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_3_collision.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_3_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>	
@@ -178,7 +178,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_4_collision.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_4_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -214,7 +214,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_5_collision.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_5_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -250,7 +250,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_6_collision.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_6_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -286,7 +286,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_7_collision.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_7_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
