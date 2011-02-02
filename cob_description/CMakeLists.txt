@@ -103,6 +103,15 @@ foreach(it ${cob_stl_files})
 
     set(cob_gen_files ${cob_gen_files} ${basepath}/convex/${basename}_convex.stla)
 
+    #convert stl files to stlb, put in directory named stlb
+    add_custom_command(
+      OUTPUT ${basepath}/${basename}.stlb
+      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
+      ARGS ${basepath}/${basename}.stl ${basepath}/${basename}.stlb
+      DEPENDS ${it} ${basepath}/${basename}.stl)
+
+    set(cob_gen_files ${cob_gen_files} ${basepath}/${basename}.stlb)
+
     #create iv files
     add_custom_command(
       OUTPUT ${basepath}/iv/${basename}.iv
@@ -116,7 +125,6 @@ foreach(it ${cob_stl_files})
       DEPENDS ${it} ${basepath}/convex ${basepath}/convex/${basename}_convex.obj)
      
     set(cob_gen_files ${cob_gen_files} ${basepath}/iv/${basename}.iv ${basepath}/convex/${basename}_convex.iv)
-
 
   ENDIF ( ${basename} MATCHES "_convex" )
 

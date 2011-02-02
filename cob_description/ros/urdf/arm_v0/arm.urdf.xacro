@@ -68,7 +68,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm1.stl" />
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm1.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -102,7 +102,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -136,7 +136,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm3.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm3.stlb"/>
 				</geometry>
 			</collision>
 		</link>	
@@ -170,7 +170,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm4.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm4.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -204,7 +204,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm5.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm5.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -238,7 +238,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm6.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm6.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -272,7 +272,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm7.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm7.stlb"/>
 				</geometry>
 			</collision>
 		</link>
