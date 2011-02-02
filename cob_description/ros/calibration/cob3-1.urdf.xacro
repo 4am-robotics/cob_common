@@ -40,9 +40,9 @@
 	<property name="cam_l_pitch" value="-0.00733" />
 	<property name="cam_l_yaw" value="-0.00069" />
 
-	<property name="tof_x" value="-0.0066" />
-	<property name="tof_y" value="-0.0005" />
-	<property name="tof_z" value="-0.0336" />
+	<property name="tof_x" value="-0.0016" />
+	<property name="tof_y" value="-0.0015" />
+	<property name="tof_z" value="-0.0078" />
 	<property name="tof_roll" value="-0.0058" />
 	<property name="tof_pitch" value="-0.0029" />
 	<property name="tof_yaw" value="-0.0058" />
