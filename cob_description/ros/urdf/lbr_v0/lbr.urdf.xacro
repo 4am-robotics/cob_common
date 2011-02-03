@@ -120,7 +120,7 @@
 			<dynamics damping="1" />
 			<limit effort="100" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
 			<!--limit effort="176" velocity="0.4189" lower="-6.2831853" upper="6.2831853"/-->
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-1.9634 + 0.10}" soft_upper_limit="${1.9634 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.9670 + 0.10}" soft_upper_limit="${2.9670 - 0.10}" />
 		</joint>
 
 		<link name="${name}_3_link">
