@@ -188,10 +188,10 @@
           <box size="${base_size_x2} ${base_size_y2} ${base_collision_size_z2}" />
         </geometry>
 		<!--latest collision model using meshes -->        
-		<!--<origin xyz="0 0 0" rpy="0 0 0" />
+		<!--origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
 	      <mesh filename="package://cob_description/ros/meshes/base_v0/base_collision.stlb"/>
-        </geometry>-->
+        </geometry-->
       </collision>
     </link>
 
