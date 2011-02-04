@@ -1,6 +1,6 @@
 #message for exchanging transformations in x,y,z positions and roll, pitch, yaw angles
 
-#Header header
+#std_msgs/Header header
 
 #translation
 float64 x
