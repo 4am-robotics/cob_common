@@ -6,24 +6,23 @@
 
 	<include filename="$(find desire_description)/ros/urdf/head_v0/head.gazebo.xacro" />
 	<include filename="$(find desire_description)/ros/urdf/head_v0/head.transmission.xacro" />
-	<include filename="$(find desire_description)/ros/urdf/sensors/cameraone.urdf.xacro" />
-	<include filename="$(find desire_description)/ros/urdf/sensors/tof.urdf.xacro" />
-	<include filename="$(find desire_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/sensors/cameraone.urdf.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/sensors/tof.urdf.xacro" />
 
 	<xacro:macro name="desire_head_v0" params="name parent *origin">
 
 		<!-- joint between base_link and head_axis_link -->
-		<joint name="${name}_axis1_joint" type="revolute">
+		<joint name="${name}_pan_joint" type="revolute">
 			<insert_block name="origin" />
 			<parent link="${parent}"/>
-			<child link="${name}_axis1_link"/>
+			<child link="${name}_pan_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="0.1" />
-			<calibration rising="${head_axis_ref}" falling="${head_axis_ref}"/>
-			<limit effort="100" lower="-3.2" upper="0.1" velocity="0.5"/>
+			<calibration rising="${head_pan_ref}" falling="${head_pan_ref}"/>
+			<limit effort="100" lower="-0.7" upper="0.7" velocity="0.5"/>
 		</joint>
 
-		<link name="${name}_axis1_link">
+		<link name="${name}_pan_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<mass value="0.1"/>
@@ -46,17 +45,17 @@
 			</collision>
 		</link>
 		
-		<joint name="${name}_axis2_joint" type="revolute">
-			<insert_block name="origin" />
-			<parent link="${name}_axis1_link"/>
-			<child link="${name}_axis2_link"/>
-			<axis xyz="1 0 0" />
+		<joint name="${name}_tilt_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
+			<parent link="${name}_pan_link"/>
+			<child link="${name}_tilt_link"/>
+			<axis xyz="0 0 1" />
 			<dynamics damping="0.1" />
-			<calibration rising="${head_axis_ref}" falling="${head_axis_ref}"/>
-			<limit effort="100" lower="-3.2" upper="0.1" velocity="0.5"/>
+			<calibration rising="${head_tilt_ref}" falling="${head_tilt_ref}"/>
+			<limit effort="100" lower="-0.25" upper="0.35" velocity="0.5"/>
 		</joint>
 		
-		<link name="${name}_axis2_link">
+		<link name="${name}_tilt_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<mass value="0.1"/>
@@ -66,7 +65,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.01 0.01 0.12"/>
+					<mesh filename="package://desire_description/ros/meshes/head_v0/head.stl"/>
 				</geometry>
 				<material name="Green" />
 			</visual>
@@ -74,25 +73,26 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.01 0.01 0.12"/>
+					<mesh filename="package://desire_description/ros/meshes/head_v0/head.stl"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- right camera -->
-		<xacro:desire_cameraone_v0 name="${name}_color_camera_r" parent="${name}_axis2_link">
-			<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw+3.14159}" />
-		</xacro:desire_cameraone_v0>
+		<xacro:cob_cameraone_v0 name="${name}_color_camera_r" parent="${name}_tilt_link">
+			<!--origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw+3.14159}"{cam_r_roll-3.14159} /-->
+<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw}" />	
+		</xacro:cob_cameraone_v0>
 
 		<!-- left camera -->
-		<xacro:desire_cameraone_v0 name="${name}_color_camera_l" parent="${name}_axis2_link">
+		<xacro:cob_cameraone_v0 name="${name}_color_camera_l" parent="${name}_color_camera_r_link">
 			<origin xyz="${cam_l_x-0.12} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
-		</xacro:desire_cameraone_v0>
+		</xacro:cob_cameraone_v0>
 
 		<!-- tof -->
-		<xacro:desire_tof_v0 name="${name}_tof" parent="${name}_axis2_link">
+		<xacro:cob_tof_v0 name="${name}_tof" parent="${name}_color_camera_r_link">
 			<origin xyz="${tof_x-0.06} ${tof_y} ${tof_z}" rpy="${tof_roll} ${tof_pitch} ${tof_yaw}" />
-		</xacro:desire_tof_v0>
+		</xacro:cob_tof_v0>
 
 		<!-- extensions -->
 		<xacro:desire_head_gazebo_v0 name="${name}" />

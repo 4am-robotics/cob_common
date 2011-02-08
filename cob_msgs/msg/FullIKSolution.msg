@@ -1,0 +1,3 @@
+geometry_msgs/Pose2D platform_pose
+
+sensor_msgs/JointState arm_configuration

@@ -1,0 +1,6 @@
+joint_names: ["arm_left_1_joint","arm_left_2_joint","arm_left_3_joint","arm_left_4_joint","arm_left_5_joint","arm_left_6_joint","arm_left_7_joint"]
+
+# single positions
+home: [[0,0,0,0,0,0,0]]
+folded: [[2.3, 2.0, -0.1, -1.38, -2.84, 0.0, 1.76]]
+pregrasp: [[2.4, 2.0, -1.6, -1.18, -2.84, 0.0, 1.76]]

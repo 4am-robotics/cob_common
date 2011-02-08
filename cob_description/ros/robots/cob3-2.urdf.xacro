@@ -13,7 +13,8 @@
   <include filename="$(find cob_description)/ros/calibration/cob3-2.urdf.xacro" />
   
   <!-- cob base -->
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" />		<!-- with BOX base-collision model only -->
+  <!--include filename="$(find cob_description)/ros/urdf/base_v1/base.urdf.xacro" /-->	<!-- new version; platform_controller and platform_navigation not yet working -->
  
   <!-- cob torse-->
   <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
@@ -44,6 +45,7 @@
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
   <xacro:cob_base_v0 name="base"/>
+  <!--xacro:cob_base_v1 name="base"/-->	<!--with new collision_model, but no platform_controller available yet-->
 
   <xacro:cob_torso_v0 name="torso" parent="base_link">
     <origin xyz="0.155 0 0.892" rpy="3.1415926 0 0" />

@@ -15,7 +15,7 @@
 			<parent link="${parent}"/>
 			<child link="${name}_tray_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${torso_tray_ref}" falling="${torso_tray_ref}"/>
+			<calibration rising="${torso_tray_ref}"/>
 			<dynamics damping="5.0" friction="0.5"/>
 			<limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
 		</joint>
@@ -38,7 +38,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -49,7 +49,7 @@
 			<parent link="${parent}"/>
 			<child link="${name}_lower_neck_pan_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${torso_lower_neck_pan_ref}" falling="${torso_lower_neck_pan_ref}"/>
+			<calibration rising="${torso_lower_neck_pan_ref}"/>
 			<dynamics damping="25.0" friction="10.0"/>
 			<limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/>
 		</joint>
@@ -84,7 +84,7 @@
 			<child link="${name}_lower_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
-			<calibration rising="${torso_lower_neck_tilt_ref}" falling="${torso_lower_neck_tilt_ref}"/>
+			<calibration rising="${torso_lower_neck_tilt_ref}"/>
 			<limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/>
 		</joint>
 
@@ -106,7 +106,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/lower_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -118,7 +118,7 @@
 			<child link="${name}_upper_neck_pan_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
-			<calibration rising="${torso_upper_neck_pan_ref}" falling="${torso_upper_neck_pan_ref}"/>
+			<calibration rising="${torso_upper_neck_pan_ref}"/>
 			<limit effort="4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
 		</joint>
 
@@ -152,7 +152,7 @@
 			<child link="${name}_upper_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
-			<calibration rising="${torso_upper_neck_tilt_ref}" falling="${torso_upper_neck_tilt_ref}"/>
+			<calibration rising="${torso_upper_neck_tilt_ref}"/>
 			<limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
 		</joint>
 
@@ -174,7 +174,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/upper_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -204,7 +204,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover.stl" />
+					<mesh filename="package://cob_description/ros/meshes/torso_v0/head_cover_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>

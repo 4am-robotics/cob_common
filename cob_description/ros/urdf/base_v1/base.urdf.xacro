@@ -4,10 +4,11 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/base_v1/base.gazebo.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/base_v1/base.transmission.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/base_v0/base.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/base_v0/base.transmission.xacro" />
   
   <!-- modify here for test -->
+  <include filename="$(find cob_description)/ros/urdf/sensors/sick_s300_laser.urdf.xacro"/>
   <include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
 
   <!-- DATA SOURCES -->
@@ -19,9 +20,9 @@
 
   <property name="caster_offset_x" value="0.235" />  <!--modify here-->
   <property name="caster_offset_y" value="0.185" />
-  <property name="caster_offset_z" value="0.0282" />
+  <property name="caster_offset_z" value="0.075" />
 
-  <property name="caster_wheel_offset_y" value="0.049" />
+  <property name="caster_wheel_offset_y" value="0.000" />
   <property name="wheel_length" value="0.034" />
   <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
 
@@ -96,7 +97,7 @@
       <axis xyz="0 0 1" />
       <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
       <safety_controller  k_velocity="10" />
-      <calibration rising="${ref_position}" falling="${ref_position}" />
+      <calibration rising="${ref_position}"/>
       <dynamics damping="0.0" friction="0.0" />
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -112,19 +113,21 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0.085" rpy="0 0 0" />  <!--modified by jie-->
+        <!--origin xyz="0 0 0.085" rpy="0 0 0" /-->  <!--modified by jie-->
+		<origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
         <geometry>
           <!--mesh filename="package://cob_description/ros/meshes/base_v0/caster.stl" /-->  <!--modified by jie-->
-          <box size="0.192 0.164 0.013" />
+          <!--box size="0.192 0.164 0.013" /-->
+		  <box size="0.001 0.001 0.001" />
         </geometry>
     
         <material name="Green" />
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.07" rpy="0.0 0.0 0.0" />
+        <origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
         <geometry>
-          <box size="0.192 0.164 0.013" />
+          <box size="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>    
@@ -150,7 +153,7 @@
 
 
   <!-- The xacro macro xacro:cob_base contains: base, casters and wheels -->
-  <xacro:macro name="cob_base_v0" params="name">
+  <xacro:macro name="cob_base_v1" params="name">
   <link name="${name}_link">
 
       <inertial>
@@ -172,7 +175,8 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	      <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
+		  <!--box size="0.001 0.001 0.001" /-->
+	      <mesh filename="package://cob_description/ros/meshes/base_v0/base_collision.stlb"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
@@ -215,18 +219,18 @@
 
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
-    </xacro:hokuyo_lx30_laser_v0>
+    </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear" update_rate="20" min_angle="-1.35" max_angle="1.35" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
-    </xacro:hokuyo_lx30_laser_v0>
+    </xacro:sick_s300_laser_v0>
 
     <!-- base laser top -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top" update_rate="10" min_angle="-2.094" max_angle="2.094" >
-      <origin xyz="-0.252 0 0.42" rpy="0 0 ${M_PI}" />
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+      <origin xyz="-0.252 0 0.42" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 
     <!-- all four caster macros -->

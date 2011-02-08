@@ -1,0 +1,8 @@
+joint_names: ["head_pan_joint","head_tilt_joint"]
+home: [[0.0, 0.0]]
+left: [[-0.3, 0.0]]
+right: [[0.3, 0.0]]
+up: [[0.0, -0.2]]
+down: [[0.0, 0.2]]
+nod: [down,up,home]
+shake: [left, right, left, home]

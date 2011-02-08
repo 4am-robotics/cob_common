@@ -45,9 +45,10 @@
 			<parent link="${name}_0_link"/>
 			<child link="${name}_1_link"/>
 			<axis xyz="0 0 1"/>
-			<calibration rising="${arm_1_ref}" falling="${arm_1_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="370" velocity="0.4363" lower="-6.2831853" upper="6.2831853"/>
+			<calibration rising="${arm_1_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="370" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
 		</joint>
 
 		<link name="${name}_1_link">
@@ -68,7 +69,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm1.stl" />
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm1.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -79,9 +80,10 @@
 			<parent link="${name}_1_link"/>
 			<child link="${name}_2_link"/>
 			<axis xyz="0 0 1"/>
-			<calibration rising="${arm_2_ref}" falling="${arm_2_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="370" velocity="0.4363" lower="-2.0943951" upper="2.0943951"/>
+			<calibration rising="${arm_2_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="370" velocity="2.0" lower="-2.0943951" upper="2.0943951"/>
+			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-2.0943 + 0.10}" 	soft_upper_limit="${2.0943 - 0.10}" />
 		</joint>
 
 		<link name="${name}_2_link">
@@ -102,7 +104,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -113,9 +115,10 @@
 			<parent link="${name}_2_link"/>
 			<child link="${name}_3_link"/>
 			<axis xyz="0 0 1"/>
-			<calibration rising="${arm_3_ref}" falling="${arm_3_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="176" velocity="0.4189" lower="-6.2831853" upper="6.2831853"/>
+			<calibration rising="${arm_3_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="176" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
 		</joint>
 
 		<link name="${name}_3_link">
@@ -136,7 +139,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm3.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm3.stlb"/>
 				</geometry>
 			</collision>
 		</link>	
@@ -147,9 +150,10 @@
 			<parent link="${name}_3_link"/>
 			<child link="${name}_4_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_4_ref}" falling="${arm_4_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="176" velocity="0.4189" lower="-2.0943951" upper="2.0943951"/>
+			<calibration rising="${arm_4_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="176" velocity="2.0" lower="-2.0943951" upper="2.0943951"/>
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.0943951 + 0.10}" soft_upper_limit="${2.0943951 - 0.10}" />
 		</joint>
 
 		<link name="${name}_4_link">
@@ -170,7 +174,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm4.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm4.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -181,9 +185,10 @@
 			<parent link="${name}_4_link"/>
 			<child link="${name}_5_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_5_ref}" falling="${arm_5_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="41.6" velocity="0.4363" lower="-6.2831853" upper="6.2831853" />
+			<calibration rising="${arm_5_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="41.6" velocity="2.0" lower="-6.2831853" upper="6.2831853" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
 		</joint>
 
 		<link name="${name}_5_link">
@@ -204,7 +209,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm5.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm5.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -215,9 +220,10 @@
 			<parent link="${name}_5_link"/>
 			<child link="${name}_6_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_6_ref}" falling="${arm_6_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="20.1" velocity="0.4363" lower="-2.0943951" upper="2.0943951" />
+			<calibration rising="${arm_6_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="20.1" velocity="2.0" lower="-2.0943951" upper="2.0943951" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.0943951 + 0.10}" soft_upper_limit="${2.0943951 - 0.10}" />
 		</joint>
 
 		<link name="${name}_6_link">
@@ -238,7 +244,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm6.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm6.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -249,9 +255,10 @@
 			<parent link="${name}_6_link"/>
 			<child link="${name}_7_link"/>
 			<axis xyz="0 0 1" />
-			<calibration rising="${arm_7_ref}" falling="${arm_7_ref}"/>
-			<dynamics damping="10.0" friction="10.0" />
-			<limit effort="9.6" velocity="0.8727" lower="-6.2831853" upper="6.2831853" />
+			<calibration rising="${arm_7_ref}"/>
+			<dynamics damping="1" />
+			<limit effort="9.6" velocity="2.0" lower="-6.2831853" upper="6.2831853" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
 		</joint>
 
 		<link name="${name}_7_link">
@@ -272,7 +279,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm7.stl"/>
+					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm7.stlb"/>
 				</geometry>
 			</collision>
 		</link>
