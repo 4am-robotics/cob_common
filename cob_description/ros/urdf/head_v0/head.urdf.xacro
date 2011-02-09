@@ -6,7 +6,7 @@
 
 	<include filename="$(find cob_description)/ros/urdf/head_v0/head.gazebo.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/head_v0/head.transmission.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/cameraone.urdf.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/tof.urdf.xacro" />
 	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
 
@@ -47,14 +47,14 @@
 		</link>
 
 		<!-- right camera -->
-		<xacro:cob_cameraone_v0 name="${name}_color_camera_r" ros_topic="stereo/right" parent="${name}_axis_link">
+		<xacro:cob_prosilica_v0 name="${name}_color_camera_r" ros_topic="stereo/right" parent="${name}_axis_link">
 			<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw+3.14159}" />
-		</xacro:cob_cameraone_v0>
+		</xacro:cob_prosilica_v0>
 
 		<!-- right camera -->
-		<xacro:cob_cameraone_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_color_camera_r_link">
+		<xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_color_camera_r_link">
 			<origin xyz="${cam_l_x-0.12} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
-		</xacro:cob_cameraone_v0>
+		</xacro:cob_prosilica_v0>
 
 		<!-- tof -->
 		<xacro:cob_tof_v0 name="${name}_tof" parent="${name}_color_camera_r_link">
