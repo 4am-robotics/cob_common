@@ -4,7 +4,7 @@
       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
       xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="cob_cameraone_gazebo_v0" params="name">
+	<xacro:macro name="cob_cameraone_gazebo_v0" params="name ros_topic">
 
 		<gazebo reference="${name}_frame">
 			<sensor:camera name="${name}_sensor">
@@ -17,9 +17,9 @@
 				<controller:gazebo_ros_prosilica name="${name}_controller" plugin="libgazebo_ros_prosilica.so">
 					<alwaysOn>true</alwaysOn>
 					<updateRate>20.0</updateRate>
-					<topicName>${name}_image_data</topicName>
-					<imageTopicName>/${name}/image_raw</imageTopicName>
-					<cameraInfoTopicName>/${name}/camera_info</cameraInfoTopicName>
+					<topicName>${ros_topic}_image_data</topicName>
+					<imageTopicName>/${ros_topic}/image_raw</imageTopicName>
+					<cameraInfoTopicName>/${ros_topic}/camera_info</cameraInfoTopicName>
 					<pollServiceName>/${name}/request_image</pollServiceName>
 					<frameName>/${name}_link</frameName>
 					<CxPrime>320.5</CxPrime>
