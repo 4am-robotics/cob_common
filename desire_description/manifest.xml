@@ -15,5 +15,6 @@
   <depend package="convex_decomposition"/>
   <depend package="ivcon"/>
   <depend package="urdf"/>
+  <depend package="cob_description"/>
 
 </package>
