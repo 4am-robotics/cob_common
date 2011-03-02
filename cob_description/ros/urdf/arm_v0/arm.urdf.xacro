@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<robot  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-        xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<include filename="$(find cob_description)/ros/urdf/arm_v0/arm.gazebo.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/arm_v0/arm.transmission.xacro" />
@@ -46,15 +46,16 @@
 			<child link="${name}_1_link"/>
 			<axis xyz="0 0 1"/>
 			<calibration rising="${arm_1_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="10" />
 			<limit effort="370" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
 		</joint>
 
 		<link name="${name}_1_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0" />
-				<mass value="5.9907"/>
+				<!--mass value="5.9907"/-->
+				<mass value="2.0"/>
 				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 			</inertial>
 			
@@ -81,20 +82,21 @@
 			<child link="${name}_2_link"/>
 			<axis xyz="0 0 1"/>
 			<calibration rising="${arm_2_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="10" />
 			<limit effort="370" velocity="2.0" lower="-2.0943951" upper="2.0943951"/>
-			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-2.0943 + 0.10}" 	soft_upper_limit="${2.0943 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-2.0943 + 0.01}" 	soft_upper_limit="${2.0943 - 0.01}" />
 		</joint>
 
 		<link name="${name}_2_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="5.734939"/>
+				<!--mass value="5.734939"/-->
+				<mass value="2.0"/>
 				<inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
 			</inertial>
 			
 			<visual>
-			<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/arm_v0/arm2.stl" />
 				</geometry>
@@ -116,15 +118,16 @@
 			<child link="${name}_3_link"/>
 			<axis xyz="0 0 1"/>
 			<calibration rising="${arm_3_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="5" />
 			<limit effort="176" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
 		</joint>
 
 		<link name="${name}_3_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="4.214668"/>
+				<!--mass value="4.214668"/-->
+				<mass value="2.0"/>
 				<inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
 			</inertial>
 			
@@ -151,15 +154,16 @@
 			<child link="${name}_4_link"/>
 			<axis xyz="0 0 1" />
 			<calibration rising="${arm_4_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="5" />
 			<limit effort="176" velocity="2.0" lower="-2.0943951" upper="2.0943951"/>
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.0943951 + 0.10}" soft_upper_limit="${2.0943951 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.0943951 + 0.01}" soft_upper_limit="${2.0943951 - 0.01}" />
 		</joint>
 
 		<link name="${name}_4_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="3.669819"/>
+				<!--mass value="3.669819"/-->
+				<mass value="2.0"/>
 				<inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
 			</inertial>
 			
@@ -186,9 +190,9 @@
 			<child link="${name}_5_link"/>
 			<axis xyz="0 0 1" />
 			<calibration rising="${arm_5_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="5" />
 			<limit effort="41.6" velocity="2.0" lower="-6.2831853" upper="6.2831853" />
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
 		</joint>
 
 		<link name="${name}_5_link">
@@ -221,9 +225,9 @@
 			<child link="${name}_6_link"/>
 			<axis xyz="0 0 1" />
 			<calibration rising="${arm_6_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="5" />
 			<limit effort="20.1" velocity="2.0" lower="-2.0943951" upper="2.0943951" />
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.0943951 + 0.10}" soft_upper_limit="${2.0943951 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.0943951 + 0.01}" soft_upper_limit="${2.0943951 - 0.01}" />
 		</joint>
 
 		<link name="${name}_6_link">
@@ -256,9 +260,9 @@
 			<child link="${name}_7_link"/>
 			<axis xyz="0 0 1" />
 			<calibration rising="${arm_7_ref}"/>
-			<dynamics damping="1" />
+			<dynamics damping="5" />
 			<limit effort="9.6" velocity="2.0" lower="-6.2831853" upper="6.2831853" />
-			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.10}" soft_upper_limit="${6.2831853 - 0.10}" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
 		</joint>
 
 		<link name="${name}_7_link">
