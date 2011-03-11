@@ -647,7 +647,7 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				//vDiff.Normalize();
 				dot = (float)vDiff.ddot(vLeft);
 				//dot = vDiff.Dot(vLeft);
-				angle = std::acosf(dot);
+				angle = (float)std::acos(dot);
 				//angle = Wm4::Math<float>::ACos( dot );
 				if (angle > t_upper || angle < t_lower)
 				{
@@ -681,7 +681,7 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				//vDiff.Normalize();
 				dot = (float)vDiff.ddot(vLeft);
 				//dot = vDiff.Dot(vLeft);
-				angle = std::acosf(dot);
+				angle = (float)std::acos(dot);
 				//angle = Wm4::Math<float>::ACos( dot );
 				if (angle > t_upper || angle < t_lower)
 				{
@@ -715,7 +715,7 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				//vDiff.Normalize();
 				dot = (float)vDiff.ddot(vLeft);
 				//dot = vDiff.Dot(vLeft);
-				angle = std::acosf(dot);
+				angle = (float)std::acos(dot);
 				//angle = Wm4::Math<float>::ACos( dot );
 				if (angle > t_upper || angle < t_lower)
 				{
@@ -748,7 +748,7 @@ unsigned long ipa_Utils::FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, fl
 				//vDiff.Normalize();
 				dot = (float)vDiff.ddot(vLeft);
 				//dot = vDiff.Dot(vLeft);
-				angle = std::acosf(dot);
+				angle = (float)std::acos(dot);
 				//angle = Wm4::Math<float>::ACos( dot );
 				if (angle > t_upper || angle < t_lower)
 				{
