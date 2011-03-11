@@ -57,6 +57,8 @@
 #include "cob_common/cob_vision_utils/common/include/cob_vision_utils/VisionUtils.h"
 #endif
 
+#include <fstream>
+
 using namespace ipa_Utils;
 
 cv::Mat ipa_Utils::vstack(const std::vector<cv::Mat> &mats)
@@ -882,4 +884,70 @@ unsigned long ipa_Utils::FilterSpeckles(cv::Mat& img, int maxSpeckleSize, double
 	return ipa_Utils::RET_OK;
 }    
 
+unsigned long ipa_Utils::SaveMat(cv::Mat& mat, std::string filename)
+{
+	float* ptr = 0;
 
+	std::ofstream f(filename.c_str(), std::ios_base::binary);
+	if(!f.is_open())
+	{
+		std::cerr << "ERROR - ipa_Utils::SaveMat:" << std::endl;
+		std::cerr << "\t ... Could not open " << filename << " \n";
+		return ipa_Utils::RET_FAILED;
+	}
+	
+	int header[2];
+	header[0] = mat.rows;
+	header[1] = mat.cols;
+
+	f.write((char*)header, 2 * sizeof(int));
+
+	for(unsigned int row=0; row<(unsigned int)mat.rows; row++)
+	{
+		ptr = mat.ptr<float>(row);
+		f.write((char*)ptr, 3 * mat.cols * sizeof(float));
+	}
+
+	f.close();
+	return ipa_Utils::RET_OK;
+}
+
+unsigned long ipa_Utils::LoadMat(cv::Mat& mat, std::string filename)
+{
+	size_t file_length = 0;
+	char *c_string = 0;
+
+	std::ifstream file(filename.c_str(), std::ios_base::binary|std::ios_base::in|std::ios_base::ate);
+	if(!file.is_open())
+	{
+		std::cerr << "ERROR - ipa_Utils::LoadMat:" << std::endl;
+		std::cerr << "\t ... Could not open " << filename << " \n";
+		return ipa_Utils::RET_FAILED;
+	}
+
+	file_length = file.tellg();
+	file.seekg(0, std::ios_base::beg);
+	file.clear();
+
+	c_string = new char[file_length];
+	file.read(c_string, file_length);
+	
+	unsigned int rows, cols;
+	rows = ((int*)c_string)[0];
+	cols = ((int*)c_string)[1];
+
+	mat.create(rows, cols, CV_32FC3);
+	float* f_ptr;
+	char* c_ptr;
+
+	f_ptr = mat.ptr<float>(0);
+	c_ptr = &c_string[2 * sizeof(int)];
+
+	memcpy(f_ptr, c_ptr,  3 * mat.cols * mat.rows * sizeof(float));
+
+	file.close();
+
+	delete[] c_string;
+
+	return ipa_Utils::RET_OK;
+}

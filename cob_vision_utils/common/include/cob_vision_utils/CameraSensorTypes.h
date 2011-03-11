@@ -110,6 +110,7 @@ namespace ipa_CameraSensors {
 		CAM_PROSILICA,			///< Prosilica GigE camera
 		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAMCUBE,			///< PMD Cam Cube camera
+		CAM_KINECT,				///< Microsoft Kinect camera
 		ROBOT					///< Robot
 	};
 

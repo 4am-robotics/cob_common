@@ -137,6 +137,14 @@ unsigned long FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, float piHalfF
 /// Description
 unsigned long FilterSpeckles( cv::Mat& img, int maxSpeckleSize, double _maxDiff, cv::Mat& _buf );
 
+/// Save and load OpenCV matrix in binary format.
+/// @param mat The OpenCV mat data structure
+/// @param filename The filename
+/// @return Return code
+unsigned long SaveMat(cv::Mat& mat, std::string filename);
+
+unsigned long LoadMat(cv::Mat& mat, std::string filename);
+
 
 } // end namespace __IPA_VISIONUTILS_H__
 
