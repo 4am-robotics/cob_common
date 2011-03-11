@@ -60,7 +60,7 @@
 #ifndef __IPA_CAMERASENSORDEFINES_H__
 #define __IPA_CAMERASENSORDEFINES_H__
 
-#ifdef __COB_ROS__
+#ifdef __LINUX__
 	#include <opencv/cv.h>
 	#include <opencv/cvaux.h>
 	#include <opencv/highgui.h>

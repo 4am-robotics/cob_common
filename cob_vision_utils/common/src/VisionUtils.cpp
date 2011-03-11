@@ -51,7 +51,7 @@
 *
 ****************************************************************/
  
-#ifdef __COB_ROS__
+#ifdef __LINUX__
 #include "cob_vision_utils/VisionUtils.h"
 #else
 #include "cob_common/cob_vision_utils/common/include/cob_vision_utils/VisionUtils.h"

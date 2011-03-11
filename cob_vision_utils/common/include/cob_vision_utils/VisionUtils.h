@@ -59,7 +59,7 @@
 #ifndef __IPA_VISIONUTILS_H__
 #define __IPA_VISIONUTILS_H__
 
-#ifdef __COB_ROS__
+#ifdef __LINUX__
 	#include "cob_vision_utils/GlobalDefines.h"
 
 	#include <opencv/cv.h>
