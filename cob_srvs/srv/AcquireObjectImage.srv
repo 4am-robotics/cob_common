@@ -1,4 +1,5 @@
 string object_name
 bool reset_image_counter
+geometry_msgs/PoseStamped pose
 ---
 
