@@ -32,31 +32,31 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.04" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/palm.stlb"/>
+					<cylinder radius="0.07" length="0.08"/>
 				</geometry>
 			</collision>
 		</link>
 		
 		<!-- grasp link -->
-		<joint name="${name}_grasp_joint" type="fixed" >
+<!--		<joint name="${name}_grasp_joint" type="fixed" >
 			<origin xyz="0 0 0.15" rpy="0 0 0"/>
 			<parent link="${name}_palm_link" />
 			<child link="${name}_grasp_link" />
 		</joint>
 
-		<link name="${name}_grasp_link"/>
+		<link name="${name}_grasp_link"/>	-->
 
 		<!-- finger1 -->
 		<!-- joint between sdh_palm_link and sdh_finger_11_link -->
-		<joint name="${name}_finger_11_joint" type="revolute">
-			<origin xyz="0.01905 0.033 0.0745" rpy="0 0 3.14159265" />
+		<joint name="${name}_finger_1_joint" type="fixed">
+			<origin xyz="0.01905 0.033 0.0745" rpy="0 0 3.159265" />
 			<parent link="${name}_palm_link"/>
 			<child link="${name}_finger_11_link"/>
-			<axis xyz="0 0 1" />
+<!--			<axis xyz="0 0 1" />
 			<dynamics damping="1" />
-			<limit effort="100" lower="-2" upper="2" velocity="5"/>
+			<limit effort="100" lower="-2" upper="2" velocity="5"/>		-->
 		</joint>
 
 		<link name="${name}_finger_11_link">
@@ -71,19 +71,19 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl" />
 				</geometry>
-				<material name="Black" />
+				<material name="Grey" />
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.09" rpy="0 0 0" />
 				<geometry>
-				<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stlb"/>
+					<cylinder radius="0.03" length="0.18"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- joint between sdh_finger_11_link and sdh_finger_12_link -->
-		<joint name="${name}_finger_12_joint" type="revolute">
+<!--		<joint name="${name}_finger_12_joint" type="revolute">
 			<origin xyz="0 0 0.0165" rpy="0 0 0" />
 			<parent link="${name}_finger_11_link"/>
 			<child link="${name}_finger_12_link"/>
@@ -108,15 +108,15 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.04325" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stlb"/>
+					<cylinder radius="0.02" length="0.0865"/>
 				</geometry>
 			</collision>
-		</link>
+		</link>		-->
 
 		<!-- joint between sdh_finger_12_link and sdh_finger_13_link -->
-		<joint name="${name}_finger_13_joint" type="revolute">
+<!--		<joint name="${name}_finger_13_joint" type="revolute">
 			<origin xyz="0 0 0.0865" rpy="0 0 0" />
 			<parent link="${name}_finger_12_link"/>
 			<child link="${name}_finger_13_link"/>
@@ -141,22 +141,22 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.035" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stlb"/>
+					<cylinder radius="0.02" length="0.07"/>
 				</geometry>
 			</collision>
-		</link>
+		</link>		-->
 
 		<!-- finger2 -->
 		<!-- joint between sdh_palm_link and sdh_finger_21_link -->
-		<joint name="${name}_finger_21_joint" type="revolute">
+		<joint name="${name}_finger_2_joint" type="fixed">
 			<origin xyz="0.01905 -0.033 0.0745" rpy="0 0 3.14159265" />
 			<parent link="${name}_palm_link"/>
 			<child link="${name}_finger_21_link"/>
-			<axis xyz="0 0 1" />
+<!--			<axis xyz="0 0 1" />
 			<dynamics damping="1" />
-			<limit effort="100" lower="-2" upper="2" velocity="5"/>
+			<limit effort="100" lower="-2" upper="2" velocity="5"/>		-->
 		</joint>
 
 		<link name="${name}_finger_21_link">
@@ -171,19 +171,19 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl" />
 				</geometry>
-				<material name="Black" />
+				<material name="Grey" />
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="1.57079633 0 0" />
+				<origin xyz="0 0 0.09" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stlb"/>
+					<cylinder radius="0.03" length="0.18"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- joint between sdh_finger_21_link and sdh_finger_22_link -->
-		<joint name="${name}_finger_22_joint" type="revolute">
+<!--		<joint name="${name}_finger_22_joint" type="revolute">
 			<origin xyz="0 0 0.0165" rpy="0 0 0" />
 			<parent link="${name}_finger_21_link"/>
 			<child link="${name}_finger_22_link"/>
@@ -208,15 +208,15 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.04325" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stlb"/>
+					<cylinder radius="0.02" length="0.0865"/>
 				</geometry>
 			</collision>
-		</link>
+		</link>		-->
 
 		<!-- joint between sdh_finger_22_link and sdh_finger_23_link -->
-		<joint name="${name}_finger_23_joint" type="revolute">
+<!--		<joint name="${name}_finger_23_joint" type="revolute">
 			<origin xyz="0 0 0.0865" rpy="0 0 0" />
 			<parent link="${name}_finger_22_link"/>
 			<child link="${name}_finger_23_link"/>
@@ -241,12 +241,12 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.035" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stlb"/>
+					<cylinder radius="0.02" length="0.07"/>
 				</geometry>
 			</collision>
-		</link>
+		</link>		-->
 
 		<!-- thumb -->
 		<!-- joint between sdh_palm_link and sdh_thumb_1_link -->
@@ -268,19 +268,19 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stl" />
 				</geometry>
-				<material name="Black" />
+				<material name="Grey" />
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.09" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/knuckle.stlb"/>
+					<cylinder radius="0.03" length="0.18"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- joint between sdh_thumb_1_link and shd_thumb_2_link -->
-		<joint name="${name}_thumb_2_joint" type="revolute">
+<!--		<joint name="${name}_thumb_2_joint" type="revolute">
 		<origin xyz="0 0 0.0165" rpy="0 0 0" />
 		<parent link="${name}_thumb_1_link"/>
 		<child link="${name}_thumb_2_link"/>
@@ -305,15 +305,15 @@
 			</visual>
 		
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.04325" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger.stlb"/>
+					<cylinder radius="0.02" length="0.0865"/>
 				</geometry>
 			</collision>
-		</link>
+		</link>		-->
 
 		<!-- joint between sdh_thumb_2_link and sdh_thumb_3_link -->
-		<joint name="${name}_thumb_3_joint" type="revolute">
+<!--		<joint name="${name}_thumb_3_joint" type="revolute">
 			<origin xyz="0 0 0.0865" rpy="0 0 0" />
 			<parent link="${name}_thumb_2_link"/>
 			<child link="${name}_thumb_3_link"/>
@@ -338,12 +338,12 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 0.035" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/sdh_v0/finger_tip.stlb"/>
+					<cylinder radius="0.02" length="0.07"/>
 				</geometry>
 			</collision>
-		</link>
+		</link>		-->
 	
 		<!-- extensions -->
 		<xacro:cob_sdh_gazebo_v0 name="${name}" />
