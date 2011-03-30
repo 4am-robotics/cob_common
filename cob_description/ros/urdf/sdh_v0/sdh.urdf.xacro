@@ -51,7 +51,7 @@
 		<!-- finger1 -->
 		<!-- joint between sdh_palm_link and sdh_finger_11_link -->
 		<joint name="${name}_finger_11_joint" type="revolute">
-			<origin xyz="0.01905 0.033 0.0745" rpy="0 0 3.159265" />
+			<origin xyz="0.01905 0.033 0.0745" rpy="0 0 3.14159265" />
 			<parent link="${name}_palm_link"/>
 			<child link="${name}_finger_11_link"/>
 			<axis xyz="0 0 1" />
