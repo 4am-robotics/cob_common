@@ -9,7 +9,7 @@
 
   <gazebo reference="${name}_frame">
     <sensor:ray name="${name}_sensor">
-          <rayCount>176</rayCount>	<!--true value 176-->
+          <rayCount>176</rayCount> <!--true value 176-->
           <rangeCount>176</rangeCount>
           <laserCount>1</laserCount>
           
@@ -19,9 +19,9 @@
           <minAngle>-21.8</minAngle>
           <maxAngle>21.8</maxAngle>
           
-          <minRange>0.80</minRange>  <!--0.8m min calibrated range-->
-          <maxRange>5.0</maxRange>   <!--5.0m max calibrated range-->
-	  <resRange>0.010</resRange>
+          <minRange>0.80</minRange> <!--0.8m min calibrated range-->
+          <maxRange>5.0</maxRange> <!--5.0m max calibrated range-->
+<resRange>0.010</resRange>
           <updateRate>10.0</updateRate> <!--max50Hz-->
 
           <verticalRayCount>144</verticalRayCount> <!--true value 144 -->
@@ -35,7 +35,7 @@
             <updateRate>30</updateRate> <!--max 50Hz, cob3 30Hz -->
             <topicName>full_cloud</topicName>
             <frameName>/${name}_frame</frameName>
-            <interface:laser name="ray_block_iface" />
+            <interface:laser name="${name}_ray_block_iface" />
           </controller:gazebo_ros_block_laser>
         </sensor:ray>
     <material value="Gazebo/Red" />
@@ -45,4 +45,3 @@
 </xacro:macro>
 
 </root>
-

@@ -1,4 +1,5 @@
 buttons: [[home,move,home],
   [order,move,order],
   [kitchen,move,kitchen],
+  [new_kitchen,move,new_kitchen],  
   [kitchen backw.,move,kitchen_backwards]]
