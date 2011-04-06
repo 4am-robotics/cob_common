@@ -20,6 +20,9 @@ motion_planning_msgs/ArmNavigationErrorCodes[] trajectory_error_codes
 #### Grasp to be used ####
 cob_msgs/GraspDefinition grasp_definition
 
+#### PlatformPose to be used ####
+geometry_msgs/Pose2D platform_pose
+
 
 #### some additional information ####
 std_msgs/Bool success

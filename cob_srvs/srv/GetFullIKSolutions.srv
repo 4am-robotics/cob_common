@@ -1,4 +1,4 @@
-Header header
+std_msgs/Header header
 
 #number of desired solutions
 uint32 num_solutions
