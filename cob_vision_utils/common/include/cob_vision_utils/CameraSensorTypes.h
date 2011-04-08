@@ -103,15 +103,16 @@ namespace ipa_CameraSensors {
 	enum t_cameraType
 	{
 		CAM_VIRTUALCOLOR = 0,	///< Virtual color camera
-		CAM_VIRTUALRANGE,		///< Virtual range camera
-		CAM_IC,					///< Imaging source camera (blue camera)
-		CAM_AVTPIKE,			///< AVT Pike camera (red camera)
-		CAM_AXIS,				///< Axis 2100 IP camera
-		CAM_PROSILICA,			///< Prosilica GigE camera
-		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
-		CAM_PMDCAMCUBE,			///< PMD Cam Cube camera
-		CAM_KINECT,				///< Microsoft Kinect camera
-		ROBOT					///< Robot
+		CAM_VIRTUALRANGE,	///< Virtual range camera
+		CAM_IC,			///< Imaging source camera (blue camera)
+		CAM_AVTPIKE,		///< AVT Pike camera (red camera)
+		CAM_AXIS,		///< Axis 2100 IP camera
+		CAM_PROSILICA,		///< Prosilica GigE camera
+		CAM_SWISSRANGER,	///< Swissranger 3000/3100/4000 camera
+		CAM_PMDCAMCUBE,		///< PMD Cam Cube camera
+		CAM_PMDCAMBOARD,	///< PMD Cam Board camera
+		CAM_KINECT,		///< Microsoft Kinect camera
+		ROBOT			///< Robot
 	};
 
 	/// Enum to identify camera device properties
