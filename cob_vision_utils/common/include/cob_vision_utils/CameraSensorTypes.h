@@ -281,7 +281,8 @@ namespace ipa_CameraSensors {
 
 	enum t_ToFGrayImageType
 	{
-		INTENSITY = 0,
+		INTENSITY_32F1 = 0,
+		INTENSITY_8U3,
 		AMPLITUDE
 	};
 
