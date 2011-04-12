@@ -281,8 +281,9 @@ namespace ipa_CameraSensors {
 
 	enum t_ToFGrayImageType
 	{
-		INTENSITY = 0,
-		AMPLITUDE
+		INTENSITY_32F1 = 0,
+		AMPLITUDE,
+		INTENSITY_8U3
 	};
 
 	/// Enum to encode the different camera roles
