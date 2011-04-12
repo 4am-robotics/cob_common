@@ -137,12 +137,35 @@ unsigned long FilterTearOffEdges(cv::Mat& xyzImage, cv::Mat* mask, float piHalfF
 /// Description
 unsigned long FilterSpeckles( cv::Mat& img, int maxSpeckleSize, double _maxDiff, cv::Mat& _buf );
 
-/// Save and load OpenCV matrix in binary format.
+/// Returns mat as HSV or gray image 
+/// @param value Value to convert 
+/// @param min Minimum for scaling
+/// @param max Maximum for scaling
+/// @return Vector containing RGB values
+cv::Vec3f GrayColorMap(double value, double min, double max);
+
+/// Returns mat as HSV or gray image 
+/// @param img_32F Float matrix
+/// @return Colorcoded image
+cv::Mat GetColorcoded(const cv::Mat& img_32F);
+
+/// Returns mat as HSV or gray image 
+/// @param img_32F Float matrix
+/// @param min Minimum for scaling
+/// @param max Maximum for scaling
+/// @return Colorcoded image
+cv::Mat GetColorcoded(const cv::Mat& img_32F, double min, double max);
+
+/// Save OpenCV matrix in binary format.
 /// @param mat The OpenCV mat data structure
 /// @param filename The filename
 /// @return Return code
 unsigned long SaveMat(cv::Mat& mat, std::string filename);
 
+/// Load OpenCV matrix in binary format.
+/// @param mat The OpenCV mat data structure
+/// @param filename The filename
+/// @return Return code
 unsigned long LoadMat(cv::Mat& mat, std::string filename);
 
 
