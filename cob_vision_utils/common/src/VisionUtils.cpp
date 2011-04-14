@@ -977,17 +977,20 @@ unsigned long ipa_Utils::SaveMat(cv::Mat& mat, std::string filename)
 		std::cerr << "\t ... Could not open " << filename << " \n";
 		return ipa_Utils::RET_FAILED;
 	}
+
+	int channels = mat.channels();
 	
-	int header[2];
+	int header[3];
 	header[0] = mat.rows;
 	header[1] = mat.cols;
+	header[2] = channels;
 
-	f.write((char*)header, 2 * sizeof(int));
+	f.write((char*)header, 3 * sizeof(int));
 
 	for(unsigned int row=0; row<(unsigned int)mat.rows; row++)
 	{
 		ptr = mat.ptr<float>(row);
-		f.write((char*)ptr, 3 * mat.cols * sizeof(float));
+		f.write((char*)ptr, channels * mat.cols * sizeof(float));
 	}
 
 	f.close();
@@ -1015,17 +1018,19 @@ unsigned long ipa_Utils::LoadMat(cv::Mat& mat, std::string filename)
 	file.read(c_string, file_length);
 	
 	unsigned int rows, cols;
+	int channels;
 	rows = ((int*)c_string)[0];
 	cols = ((int*)c_string)[1];
+	channels = ((int*)c_string)[2];
 
-	mat.create(rows, cols, CV_32FC3);
+	mat.create(rows, cols, CV_32FC(channels));
 	float* f_ptr;
 	char* c_ptr;
 
 	f_ptr = mat.ptr<float>(0);
-	c_ptr = &c_string[2 * sizeof(int)];
+	c_ptr = &c_string[3 * sizeof(int)];
 
-	memcpy(f_ptr, c_ptr,  3 * mat.cols * mat.rows * sizeof(float));
+	memcpy(f_ptr, c_ptr,  channels * mat.cols * mat.rows * sizeof(float));
 
 	file.close();
 
