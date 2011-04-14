@@ -946,7 +946,7 @@ unsigned long ipa_Utils::LoadMat(cv::Mat& mat, std::string filename)
 	char* c_ptr;
 
 	f_ptr = mat.ptr<float>(0);
-	c_ptr = &c_string[2 * sizeof(int)];
+	c_ptr = &c_string[3 * sizeof(int)];
 
 	memcpy(f_ptr, c_ptr,  channels * mat.cols * mat.rows * sizeof(float));
 
