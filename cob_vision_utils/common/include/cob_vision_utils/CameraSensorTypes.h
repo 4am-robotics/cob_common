@@ -110,6 +110,7 @@ namespace ipa_CameraSensors {
 		CAM_PROSILICA,			///< Prosilica GigE camera
 		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAMCUBE,			///< PMD Cam Cube camera
+		CAM_KINECT,				///< Microsoft Kinect camera
 		ROBOT					///< Robot
 	};
 
@@ -280,8 +281,9 @@ namespace ipa_CameraSensors {
 
 	enum t_ToFGrayImageType
 	{
-		INTENSITY = 0,
-		AMPLITUDE
+		INTENSITY_32F1 = 0,
+		AMPLITUDE,
+		INTENSITY_8U3
 	};
 
 	/// Enum to encode the different camera roles
