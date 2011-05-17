@@ -8,7 +8,6 @@
 	<include filename="$(find cob_description)/ros/urdf/head_v0/head.transmission.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/tof.urdf.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />
 	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
 
 	<xacro:macro name="cob_head_v0" params="name parent *origin">
@@ -61,11 +60,6 @@
 		<xacro:cob_tof_v0 name="${name}_tof" parent="${name}_color_camera_r_link">
 			<origin xyz="${tof_x-0.06} ${tof_y} ${tof_z}" rpy="${tof_roll} ${tof_pitch} ${tof_yaw}" />
 		</xacro:cob_tof_v0>
-
-		<!-- kinect_trial -->
-		<xacro:cob_kinect_v0 name="${name}_kinect" parent="${name}_tof_link" ros_topic="/pseudo_kinect_topic">
-			<origin xyz="${kinect_x} ${kinect_y} ${kinect_z}" rpy="${kinect_roll} ${kinect_pitch} ${kinect_yaw}" />
-		</xacro:cob_kinect_v0>
 
 		<!-- extensions -->
 		<xacro:cob_head_gazebo_v0 name="${name}" />

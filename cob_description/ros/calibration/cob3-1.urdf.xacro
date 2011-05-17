@@ -46,13 +46,5 @@
 	<property name="tof_roll" value="-0.0058" />
 	<property name="tof_pitch" value="-0.0029" />
 	<property name="tof_yaw" value="-0.0058" />
-	
-	<!-- head_kinect_link is identical to head_tof_link -->
-	<property name="kinect_x" value="0.0" />
-	<property name="kinect_y" value="0.0" />
-	<property name="kinect_z" value="0.0" />
-	<property name="kinect_roll" value="0.0" />
-	<property name="kinect_pitch" value="0.0" />
-	<property name="kinect_yaw" value="0.0" />
   
 </robot>
