@@ -109,8 +109,7 @@ namespace ipa_CameraSensors {
 		CAM_AXIS,		///< Axis 2100 IP camera
 		CAM_PROSILICA,		///< Prosilica GigE camera
 		CAM_SWISSRANGER,	///< Swissranger 3000/3100/4000 camera
-		CAM_PMDCAMCUBE,		///< PMD Cam Cube camera
-		CAM_PMDCAMBOARD,	///< PMD Cam Board camera
+		CAM_PMDCAM,		///< PMD camera
 		CAM_KINECT,		///< Microsoft Kinect camera
 		ROBOT			///< Robot
 	};
@@ -157,7 +156,8 @@ namespace ipa_CameraSensors {
 		PROP_DISTANCE_OFFSET,		///< Offset that is added to the distance values of the range imaging sensor
 		PROP_ROI,					///< Region of interest
 		PROP_LENS_CALIBRATION,		///< Specifies if to use native lens calibration of manufactorer
-		PROP_DMA_BUFFER_SIZE		///< Buffer size of camera module
+		PROP_DMA_BUFFER_SIZE,		///< Buffer size of camera module
+		PROP_PMD_TYPE			///< select PMDCam type (PMDCamCube or PMDCamBoard)
 	};
 
 	/// Enum represents color modes
