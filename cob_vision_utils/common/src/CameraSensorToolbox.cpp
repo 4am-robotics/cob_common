@@ -264,11 +264,8 @@ unsigned long CameraSensorToolbox::ConvertCameraTypeToString(ipa_CameraSensors::
 	case CAM_SWISSRANGER:
 		cameraTypeString = "Swissranger";
 		break;
-	case CAM_PMDCAMCUBE:
-		cameraTypeString = "PMDCamCube";
-		break;
-	case CAM_PMDCAMBOARD:
-		cameraTypeString = "PMDCamBoard";
+	case CAM_PMDCAM:
+		cameraTypeString = "PMDCam";
 		break;
 	case CAM_KINECT:
 		cameraTypeString = "Kinect";
