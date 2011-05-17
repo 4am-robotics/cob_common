@@ -111,6 +111,7 @@ namespace ipa_CameraSensors {
 		CAM_SWISSRANGER,	///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAMCUBE,		///< PMD Cam Cube camera
 		CAM_PMDCAMBOARD,	///< PMD Cam Board camera
+		CAM_PMDCAM,		///< PMD Cam camera (board or cube)
 		CAM_KINECT,		///< Microsoft Kinect camera
 		ROBOT			///< Robot
 	};
@@ -157,7 +158,8 @@ namespace ipa_CameraSensors {
 		PROP_DISTANCE_OFFSET,		///< Offset that is added to the distance values of the range imaging sensor
 		PROP_ROI,					///< Region of interest
 		PROP_LENS_CALIBRATION,		///< Specifies if to use native lens calibration of manufactorer
-		PROP_DMA_BUFFER_SIZE		///< Buffer size of camera module
+		PROP_DMA_BUFFER_SIZE,		///< Buffer size of camera module
+		PROP_PMD_TYPE
 	};
 
 	/// Enum represents color modes
