@@ -74,9 +74,6 @@ cv::Mat ipa_Utils::vstack(const std::vector<cv::Mat> &mats)
     for (it = mats.begin(); it != mats.end(); ++it)
     {
         nRows += it->rows;
-        // make sure all mats have same num of cols and data type
-        CV_Assert(it->cols == nCols);
-        CV_Assert(it->type() == datatype);
     }
 
     // copy data to stacked matrix
@@ -85,10 +82,17 @@ cv::Mat ipa_Utils::vstack(const std::vector<cv::Mat> &mats)
     cv::Mat stacked(nRows, nCols, datatype);
     for (it = mats.begin(); it != mats.end(); ++it)
     {
+        if (it->rows == 0)
+            continue;
+
+        // make sure all mats have same num of cols and data type
+        CV_Assert(it->cols == nCols);
+        CV_Assert(it->type() == datatype);
+
         startRow = endRow;
         endRow = startRow + it->rows;
-	cv::Mat mat = stacked.rowRange(startRow, endRow);
-	it->copyTo(mat);
+    	cv::Mat mat = stacked.rowRange(startRow, endRow);
+    	it->copyTo(mat);
     }
 
     return stacked;
@@ -882,7 +886,85 @@ unsigned long ipa_Utils::FilterSpeckles(cv::Mat& img, int maxSpeckleSize, double
         }
     }
 	return ipa_Utils::RET_OK;
-}    
+} 
+   
+cv::Vec3f ipa_Utils::GrayColorMap(double value, double min,double max)
+{
+    double rgb[3];
+    max-=min;
+    value-=min;
+    rgb[0]=rgb[1]=rgb[2]=(unsigned char)(255*value/max);
+    return cv::Vec3f(rgb[2], rgb[1], rgb[0]);
+}
+
+cv::Mat ipa_Utils::GetColorcoded(const cv::Mat& img_32F)
+{
+    if (img_32F.empty())
+        return img_32F;
+
+    double minVal, maxVal;
+    cv::minMaxLoc(img_32F, &minVal, &maxVal);
+    return GetColorcoded(img_32F, minVal, maxVal);
+}
+
+cv::Mat ipa_Utils::GetColorcoded(const cv::Mat& img_32F, double min, double max)
+{
+    float H,S,V;
+    cv::Mat hsvImage(img_32F.size(), CV_8UC3);
+    int hsvBlue = 180*2/3;
+    
+    if (min > max)
+    {
+        std::swap(min, max);
+    }
+
+    double diff = max-min;
+    if (diff == 0)
+    {
+        diff = 1;
+    }
+
+    bool hsv = false;
+
+    for (int i = 0; i < img_32F.rows; i++)
+    {
+
+        for (int j = 0; j < img_32F.cols; j++)
+        {
+            double val = (double)img_32F.at<float>(i,j);
+            val = std::max(std::min(max, val), min);
+            val = ((val-min)/diff);
+            if (hsv)
+            {
+                if (val == 0)
+                {
+                    H = 0;
+                    S = 0;
+                    V = 0;
+                }
+                else
+                {
+                    H = val * hsvBlue;
+                    S = 255;
+                    V = 255;
+                }
+
+                hsvImage.at<cv::Vec3b>(i,j)[0] = hsvBlue - H;
+                hsvImage.at<cv::Vec3b>(i,j)[1] = S;
+                hsvImage.at<cv::Vec3b>(i,j)[2] = V;
+            }
+            else
+            {
+                hsvImage.at<cv::Vec3b>(i,j) = GrayColorMap(1-val, 0, 1);
+            }
+        }
+    }
+
+    if (hsv)
+        cv::cvtColor(hsvImage, hsvImage, CV_HSV2BGR);
+
+    return hsvImage;
+}
 
 unsigned long ipa_Utils::SaveMat(cv::Mat& mat, std::string filename)
 {
@@ -895,17 +977,20 @@ unsigned long ipa_Utils::SaveMat(cv::Mat& mat, std::string filename)
 		std::cerr << "\t ... Could not open " << filename << " \n";
 		return ipa_Utils::RET_FAILED;
 	}
+
+	int channels = mat.channels();
 	
-	int header[2];
+	int header[3];
 	header[0] = mat.rows;
 	header[1] = mat.cols;
+	header[2] = channels;
 
-	f.write((char*)header, 2 * sizeof(int));
+	f.write((char*)header, 3 * sizeof(int));
 
 	for(unsigned int row=0; row<(unsigned int)mat.rows; row++)
 	{
 		ptr = mat.ptr<float>(row);
-		f.write((char*)ptr, 3 * mat.cols * sizeof(float));
+		f.write((char*)ptr, channels * mat.cols * sizeof(float));
 	}
 
 	f.close();
@@ -933,17 +1018,19 @@ unsigned long ipa_Utils::LoadMat(cv::Mat& mat, std::string filename)
 	file.read(c_string, file_length);
 	
 	unsigned int rows, cols;
+	int channels;
 	rows = ((int*)c_string)[0];
 	cols = ((int*)c_string)[1];
+	channels = ((int*)c_string)[2];
 
-	mat.create(rows, cols, CV_32FC3);
+	mat.create(rows, cols, CV_32FC(channels));
 	float* f_ptr;
 	char* c_ptr;
 
 	f_ptr = mat.ptr<float>(0);
-	c_ptr = &c_string[2 * sizeof(int)];
+	c_ptr = &c_string[3 * sizeof(int)];
 
-	memcpy(f_ptr, c_ptr,  3 * mat.cols * mat.rows * sizeof(float));
+	memcpy(f_ptr, c_ptr,  channels * mat.cols * mat.rows * sizeof(float));
 
 	file.close();
 

@@ -1,5 +1,0 @@
-std_msgs/String sensor_frame_id
-sensor_msgs/PointCloud point_cloud
----
-std_msgs/Bool success
-std_msgs/String error_message
