@@ -9,23 +9,23 @@
   <!-- misc common stuff? -->
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
 
-  <!-- cob calibration -->
+  <!-- calibration -->
   <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
   
-  <!-- cob base -->
+  <!-- base -->
   <!--include filename="$(find cob_description)/ros/urdf/base_v0/base.urdf.xacro" /-->		<!-- with BOX base-collision model only -->
   <include filename="$(find cob_description)/ros/urdf/base_v1/base.urdf.xacro" />	<!-- new version; platform_controller and platform_navigation not yet working -->
  
   <!-- torso -->
   <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
 
-  <!-- cob head-->
+  <!-- head -->
   <include filename="$(find cob_description)/ros/urdf/head_v0/head.urdf.xacro" />
 
-  <!-- cob arm-->
+  <!-- arm -->
   <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
 
-  <!-- cob sdh-->
+  <!-- sdh -->
   <include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" />
 
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
