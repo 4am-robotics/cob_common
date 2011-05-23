@@ -43,6 +43,10 @@
        the origin block defines where the component is w.r.t its parent (in this case the parent 
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
+<<<<<<< HEAD
+=======
+  <!--<xacro:cob_base_v0 name="base"/-->
+>>>>>>> 22de00710989aee0f83e0347b77ac50c948919fe
   <xacro:cob_base_v1 name="base"/>	<!--with new collision_model, but no platform_controller available yet-->
 
   <xacro:cob_torso_v1 name="torso" parent="base_link">
