@@ -46,7 +46,7 @@
   <xacro:cob_base_v1 name="base"/>	<!--with new collision_model, but no platform_controller available yet-->
 
   <xacro:cob_torso_v1 name="torso" parent="base_link">
-    <origin xyz="0.155 0 0.892" rpy="3.1415926 0 0" />
+    <origin xyz="0.155 0 0.892" rpy="1.5708 0 0" />
   </xacro:cob_torso_v1>
   
   <xacro:cob_lbr_v0 name="arm" parent="base_link">
@@ -54,7 +54,7 @@
   </xacro:cob_lbr_v0>
   
   <xacro:cob_head_v0 name="head" parent="torso_upper_neck_tilt_link">
-    <origin xyz="0 -0.154 0" rpy="3.14159 0 0" />
+    <origin xyz="0 0.154 0" rpy="3.14159 0 0" />
   </xacro:cob_head_v0>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
