@@ -10,7 +10,7 @@
 	<property name="torso_upper_neck_tilt_ref" value="0" />
 
 	<!-- tray reference position -->
-	<property name="torso_tray_ref" value="0" />
+	<property name="torso_tray_ref" value="-1.7" />
 
 	<!-- head camera axis reference position -->
 	<property name="head_axis_ref" value="0.0" />
