@@ -3,20 +3,20 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="cob3-1" >
+       name="cob3-3" >
   
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- misc common stuff? -->
   <include filename="$(find cob_description)/ros/urdf/common.xacro" />
 
   <!-- calibration -->
-  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/calibration/cob3-3.urdf.xacro" />
   
   <!-- base -->
   <include filename="$(find cob_description)/ros/urdf/base_v1/base.urdf.xacro" />	<!-- new version; platform_controller and platform_navigation not yet working -->
  
   <!-- torso -->
-  <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/torso_v1/torso.urdf.xacro" />
 
   <!-- head -->
   <include filename="$(find cob_description)/ros/urdf/head_v0/head.urdf.xacro" />
@@ -45,16 +45,16 @@
 
   <xacro:cob_base_v1 name="base"/>	<!--with new collision_model, but no platform_controller available yet-->
 
-  <xacro:cob_torso_v0 name="torso" parent="base_link">
-    <origin xyz="0.155 0 0.892" rpy="3.1415926 0 0" />
-  </xacro:cob_torso_v0>
+  <xacro:cob_torso_v1 name="torso" parent="base_link">
+    <origin xyz="0.155 0 0.892" rpy="1.5708 0 0" />
+  </xacro:cob_torso_v1>
   
   <xacro:cob_lbr_v0 name="arm" parent="base_link">
     <origin xyz="-0.015982 -0.080992 0.875995" rpy="0.7854 0.0 -0.2618" />
   </xacro:cob_lbr_v0>
   
   <xacro:cob_head_v0 name="head" parent="torso_upper_neck_tilt_link">
-    <origin xyz="0 -0.154 0" rpy="3.14159 0 0" />
+    <origin xyz="0 0.154 0" rpy="3.14159 0 0" />
   </xacro:cob_head_v0>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">

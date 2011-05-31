@@ -7,7 +7,7 @@
   
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- misc common stuff? -->
-  <include filename="$(find desire_description)/ros/urdf/common.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
 
   <!-- desire calibration -->
   <include filename="$(find desire_description)/ros/calibration/desire.urdf.xacro" />
@@ -15,14 +15,11 @@
   <!-- desire base -->
   <include filename="$(find desire_description)/ros/urdf/base_v0/base.urdf.xacro" />
  
-  <!-- desire torse-->
-  <include filename="$(find desire_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
-
-  <!-- desire cameras-->
+  <!-- desire head-->
   <include filename="$(find desire_description)/ros/urdf/head_v0/head.urdf.xacro" />
 
   <!-- desire arm-->
-  <include filename="$(find desire_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
 
   <!-- desire sdh-->
   <!--  <include filename="$(find desire_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" /> -->
@@ -31,7 +28,7 @@
   <include filename="$(find desire_description)/ros/gazebo/gazebo.urdf.xacro" />
   
   <!-- materials for visualization -->
-  <include filename="$(find desire_description)/ros/urdf/materials.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual desire -->
 
