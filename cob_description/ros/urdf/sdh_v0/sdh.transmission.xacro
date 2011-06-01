@@ -7,13 +7,20 @@
 
 	<xacro:macro name="cob_sdh_transmission_v0" params="name">
 
-		<!-- finger1 -->
-		<transmission name="${name}_finger_11_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_finger_11_motor"/>
-			<joint name="${name}_finger_11_joint"/>
+		<transmission name="${name}_knuckle_trans" type="pr2_mechanism_model/SimpleTransmission">
+		    	<actuator name="${name}_knuckle_motor"/>
+			<joint name="${name}_finger_21_joint"/>
 			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
-	
+
+	        <transmission name="${name}_knuckle_trans" type="pr2_mechanism_model/SimpleTransmission">
+		    	<actuator name="${name}_knuckle_motor"/>
+			<joint name="${name}_knuckle_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
+
+		<!-- finger1 -->
+
 		<transmission name="${name}_finger_12_trans" type="pr2_mechanism_model/SimpleTransmission">
 			<actuator name="${name}_finger_12_motor"/>
 			<joint name="${name}_finger_12_joint"/>
@@ -27,11 +34,7 @@
 		</transmission>
 	
 		<!-- finger2 -->
-		<transmission name="${name}_finger_21_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_finger_21_motor"/>
-			<joint name="${name}_finger_21_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
-		</transmission>
+	
 	
 		<transmission name="${name}_finger_22_trans" type="pr2_mechanism_model/SimpleTransmission">
 			<actuator name="${name}_finger_22_motor"/>

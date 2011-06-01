@@ -1,0 +1,86 @@
+#group:
+#  group_name: <group_name>
+#  component_name: <component_name>
+#  buttons: [[button_name1,function_name1,parameter_name2,
+#    [button_name2,function_name2,parameter_name2]]
+
+group1:
+  group_name: base
+  component_name: base
+  buttons: [[stop,trigger,stop],
+    [init,trigger,init],
+    [recover,trigger,recover]]
+group2:
+  group_name: torso
+  component_name: torso
+  buttons: [[stop,trigger,stop],
+    [init,trigger,init],
+    [recover,trigger,recover],
+    [enable joystick,mode,velocity],
+    [home,move,home],
+    [front,move,front],
+    [back,move,back],
+    [left,move,left],
+    [right,move,right],
+    [shake,move,shake],
+    [nod,move,nod]]
+group3:
+  group_name: tray
+  component_name: tray
+  buttons: [[stop,trigger,stop],
+    [init,trigger,init],
+    [recover,trigger,recover],
+    [enable joystick,mode,velocity],
+    [up,move,up],
+    [down,move,down]]
+group4:
+  group_name: arm settings
+  component_name: arm
+  buttons: [[stop,trigger,stop],
+    [init,trigger,init],
+    [recover,trigger,recover],
+    [reboot,trigger,reboot],
+    [undefined mode,mode,undefined],
+    [position mode,mode,position],
+    [pos stiff mode,mode,positionstiffness],
+    [velocity mode,mode,velocity],
+    [gravcomp mode,mode,gravcomp],
+    [positionhold mode,mode,positionhold]]
+group5:
+  group_name: arm pos
+  component_name: arm
+  buttons: [[stop,trigger,stop],
+    [home,move,home],
+    [folded,move,folded],
+    [pregrasp,move,pregrasp],
+    [grasp,move,grasp],
+    [overtray,move,overtray],
+    [tray,move,tray],
+    [wave in,move,wavein],
+    [wave out,move,waveout]]
+group6:
+  group_name: arm traj
+  component_name: arm
+  buttons: [[stop,trigger,stop],
+    [grasp-to-tray,move,grasp-to-tray],
+    [tray-to-folded,move,tray-to-folded],
+    [wave,move,wave]]
+group7:
+  group_name: sdh
+  component_name: sdh
+  buttons: [[stop,trigger,stop],
+    [init,trigger,init],
+    [recover,trigger,recover],
+    [home,move,home],
+    [cyl. closed,move,cylclosed],
+    [cyl. open,move,cylopen],
+    [spher. closed,move,spherclosed],
+    [spher. open,move,spheropen]]
+group8:
+  group_name: eyes
+  component_name: head
+  buttons: [[stop,trigger,stop],
+    [init,trigger,init],
+    [recover,trigger,recover],
+    [front,move,front],
+    [back,move,back]]
