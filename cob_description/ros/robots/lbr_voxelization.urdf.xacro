@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="lbr" >
+  
+  <!-- The following included files set up definitions of parts of the robot body -->
+  <!-- misc common stuff? -->
+  <!--include filename="$(find cob_description)/ros/urdf/common.xacro" /-->
+  
+  <include filename="$(find cob_description)/ros/calibration/cob3-1.urdf.xacro" />
+
+  <!-- cob lbr-->
+  <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr_voxelization.urdf.xacro" />
+
+  <!-- cob sdh-->
+  <include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh_voxelization.urdf.xacro" />
+
+  <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
+  <include filename="$(find cob_description)/ros/gazebo/gazebo.urdf.xacro" />
+  
+  <!-- materials for visualization -->
+  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+
+  <!-- foot for lbr-->
+  <link name="base_footprint"/>
+<!--	<link name="dummy_base_link">
+		<inertial>
+		   <origin xyz="0 0 0" rpy="0 0 0"/>
+		   <mass value="1.0"/>
+		   <inertia ixx="10.0"  ixy="0"  ixz="0" iyy="100.0" iyz="0" izz="100.0" />
+		</inertial>
+
+		<visual>
+		   <origin xyz="0 0 0" rpy="0 0 0" />
+		   <geometry>
+			  <box size="0.01 0.01 0.01"/>
+		   </geometry>
+		   <material name="Grey" />
+		</visual>
+
+		<collision>
+		   <origin xyz="0 0 0" rpy="0 0 0" />
+		   <geometry>
+			  <box size="0.01 0.01 0.01"/>
+		   </geometry>
+		</collision>
+	</link>
+-->	
+
+  <!-- cob lbr-->
+  <xacro:cob_lbr_v0 name="arm" parent="base_footprint">
+    <origin xyz="-0.015982 -0.080992 0.875995" rpy="0.7854 0.0 -0.2618" />
+  </xacro:cob_lbr_v0>
+
+
+  <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+  </xacro:cob_sdh_v0>
+
+
+</robot>

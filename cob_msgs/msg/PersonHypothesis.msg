@@ -1,7 +1,7 @@
 
 
 # header better in PersonList.msg
-#Header header				#  sequence ID: consecutively increasing ID 
+#std_msgs/Header header				#  sequence ID: consecutively increasing ID 
 					## uint32 seq
 					#  Two-integer timestamp that is expressed as:
 					#  * stamp.secs: seconds (stamp_secs) since epoch

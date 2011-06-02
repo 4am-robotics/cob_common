@@ -1,7 +1,7 @@
 # This message contains an object instance
 #
 
-Header header        
+std_msgs/Header header        
 
 # definite object number
 uint32 objectID
