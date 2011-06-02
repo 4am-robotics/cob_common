@@ -270,6 +270,9 @@ unsigned long CameraSensorToolbox::ConvertCameraTypeToString(ipa_CameraSensors::
 	case CAM_KINECT:
 		cameraTypeString = "Kinect";
 		break;
+	case CAM_OPENCVCAMERA:
+		cameraTypeString = "OpenCVCamera";
+		break;
 	case CAM_VIRTUALRANGE:
 		cameraTypeString = "VirtualRangeCam";
 		break;

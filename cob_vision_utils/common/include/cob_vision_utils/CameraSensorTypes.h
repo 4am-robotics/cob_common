@@ -111,6 +111,7 @@ namespace ipa_CameraSensors {
 		CAM_SWISSRANGER,		///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAMCUBE,			///< PMD Cam Cube camera
 		CAM_KINECT,				///< Microsoft Kinect camera
+		CAM_OPENCVCAMERA,		///< OpenCV supported generic video camera
 		ROBOT					///< Robot
 	};
 
