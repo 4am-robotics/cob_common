@@ -111,7 +111,8 @@ namespace ipa_CameraSensors {
 		CAM_SWISSRANGER,	///< Swissranger 3000/3100/4000 camera
 		CAM_PMDCAM,		///< PMD camera
 		CAM_KINECT,		///< Microsoft Kinect camera
-		ROBOT			///< Robot
+		CAM_OPENCVCAMERA,		///< OpenCV supported generic video camera
+		ROBOT					///< Robot
 	};
 
 	/// Enum to identify camera device properties
