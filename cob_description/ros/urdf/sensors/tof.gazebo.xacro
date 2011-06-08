@@ -5,7 +5,7 @@
       xmlns:xacro="http://ros.org/wiki/xacro">
   
 <!-- specs from mesa Swiss Ranger SR400001 http://www.mesa-imaging.ch/prodview4k.php -->
-<xacro:macro name="cob_tof_gazebo_v0" params="name">
+<xacro:macro name="cob_tof_gazebo_v0" params="name ros_topic">
 
   <gazebo reference="${name}_frame">
     <sensor:ray name="${name}_sensor">
@@ -21,8 +21,8 @@
           
           <minRange>0.80</minRange> <!--0.8m min calibrated range-->
           <maxRange>5.0</maxRange> <!--5.0m max calibrated range-->
-<resRange>0.010</resRange>
-          <updateRate>10.0</updateRate> <!--max50Hz-->
+          <resRange>0.010</resRange>
+          <updateRate>10</updateRate> <!--max50Hz-->
 
           <verticalRayCount>144</verticalRayCount> <!--true value 144 -->
           <verticalRangeCount>144</verticalRangeCount>
@@ -33,7 +33,7 @@
             <gaussianNoise>0.005</gaussianNoise>
             <alwaysOn>true</alwaysOn>
             <updateRate>30</updateRate> <!--max 50Hz, cob3 30Hz -->
-            <topicName>full_cloud</topicName>
+            <topicName>${ros_topic}</topicName>
             <frameName>/${name}_frame</frameName>
             <interface:laser name="${name}_ray_block_iface" />
           </controller:gazebo_ros_block_laser>

@@ -20,7 +20,7 @@
           
           <minRange>1.00</minRange> <!--0.8m min calibrated range-->
           <maxRange>5.0</maxRange> <!--5.0m max calibrated range-->
-		  <resRange>0.010</resRange>
+          <resRange>0.010</resRange>
           <updateRate>10</updateRate> <!-- true value 30Hz -->
 
           <verticalRayCount>120</verticalRayCount> <!--true value 480 -->
