@@ -34,7 +34,7 @@
 	<property name="cam_l_yaw" value="0" />
 
 	<!-- right to left calibration -->
-	<property name="cam_r_x" value="-0.00008029" />
+	<property name="cam_r_x" value="-0.00002029" />
 	<property name="cam_r_y" value="0.00058637" />
 	<property name="cam_r_z" value="-0.00018271" />
 	<property name="cam_r_roll" value="-0.00447" />
@@ -42,7 +42,7 @@
 	<property name="cam_r_yaw" value="0.00299" />
 
 	<!-- cam3d to left calibration -->
-	<property name="cam3d_x" value="-0.01928202" />
+	<property name="cam3d_x" value="0.01928202" />
 	<property name="cam3d_y" value="0.03176335" />
 	<property name="cam3d_z" value="-0.00067414" />
 	<property name="cam3d_roll" value="0.00026" />
