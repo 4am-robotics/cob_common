@@ -5,9 +5,9 @@
        xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        name="LaserBlock">
   
-  <include filename="$(find cob_description)/ros/urdf/sensors/tof.gazebo.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/sensors/kinect.gazebo.xacro" />
 
-  <xacro:macro name="cob_tof_v0" params="name parent *origin ros_topic">
+  <xacro:macro name="cob_kinect_v0" params="name parent *origin ros_topic">
 
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
@@ -68,7 +68,7 @@
     </link>
 
    <!-- for simulation -->
-   <xacro:cob_tof_gazebo_v0 name="${name} ros_topic="${ros_topic}"/>
+   <xacro:cob_kinect_gazebo_v0 name="${name}" ros_topic="${ros_topic}"/>
 
   </xacro:macro>
 
