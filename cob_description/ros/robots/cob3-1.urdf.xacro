@@ -19,7 +19,7 @@
   <include filename="$(find cob_description)/ros/urdf/torso_v0/torso.urdf.xacro" />
 
   <!-- head -->
-  <include filename="$(find cob_description)/ros/urdf/head_v0/head.urdf.xacro" />
+  <include filename="$(find cob_description)/ros/urdf/head_v1/head.urdf.xacro" />
 
   <!-- arm -->
   <include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.urdf.xacro" />
@@ -53,9 +53,9 @@
     <origin xyz="-0.015982 -0.080992 0.875995" rpy="0.7854 0.0 -0.2618" />
   </xacro:cob_lbr_v0>
   
-  <xacro:cob_head_v0 name="head" parent="torso_upper_neck_tilt_link">
+  <xacro:cob_head_v1 name="head" parent="torso_upper_neck_tilt_link">
     <origin xyz="0 -0.154 0" rpy="3.14159 0 0" />
-  </xacro:cob_head_v0>
+  </xacro:cob_head_v1>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
     <origin xyz="0 0 0.02" rpy="0 0 1.5708" />
