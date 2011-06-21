@@ -985,7 +985,11 @@ unsigned long ipa_Utils::SaveMat(cv::Mat& mat, std::string filename)
 	header[1] = mat.cols;
 	header[2] = channels;
 
+#ifndef __LINUX__
 	f.write((char*)header, 3 * sizeof(int));
+#else
+	f.write((char const*)header, 3 * sizeof(int));
+#endif
 
 	for(unsigned int row=0; row<(unsigned int)mat.rows; row++)
 	{
