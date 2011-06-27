@@ -20,7 +20,7 @@
 			<axis xyz="0 0 1" />
 			<dynamics damping="0.1" />
 			<calibration rising="${head_axis_ref}"/>
-			<limit effort="100" lower="-3.2" upper="0.1" velocity="0.5"/>
+			<limit effort="100" lower="-3.2" upper="0.1" velocity="1.4"/>
 		</joint>
 
 		<link name="${name}_axis_link">
