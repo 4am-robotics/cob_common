@@ -168,6 +168,33 @@ unsigned long SaveMat(cv::Mat& mat, std::string filename);
 /// @return Return code
 unsigned long LoadMat(cv::Mat& mat, std::string filename);
 
+// Generator that yields an increasing sequence of integers
+class UniqueNumber {
+public:
+  int current;
+  UniqueNumber();
+  int operator()();
+};
+
+// Returns random subset of input vector. Will not create duplicates.
+// @param v Input vector
+// @param n Number of items to return
+// @return Vector of same type as input vector (length n)
+template<class T> std::vector<T> takeRandomN(const std::vector<T> &v, int n)
+{
+    int current = 0;
+    std::vector<int> indices(v.size());
+    std::generate(indices.begin(), indices.end(), UniqueNumber());
+    std::random_shuffle(indices.begin(), indices.end());
+    
+    std::vector<T> ret;
+    for (int i = 0; i < n; i++)
+    {
+        ret.push_back(v[indices[i]]);
+    }
+
+    return ret;
+}
 
 } // end namespace __IPA_VISIONUTILS_H__
 
