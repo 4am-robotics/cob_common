@@ -60,15 +60,7 @@
 #ifndef __IPA_CAMERASENSORDEFINES_H__
 #define __IPA_CAMERASENSORDEFINES_H__
 
-#ifdef __COB_ROS__
-	#include <opencv/cv.h>
-	#include <opencv/cvaux.h>
-	#include <opencv/highgui.h>
-#else
-	#include <cv.h>
-	#include <cvaux.h>
-	#include <highgui.h>
-#endif
+#include "opencv2/opencv.hpp"
 
 #include <boost/shared_ptr.hpp>
 #include <boost/progress.hpp>

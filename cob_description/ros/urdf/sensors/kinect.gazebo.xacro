@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<root xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+      xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+      xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+      xmlns:xacro="http://ros.org/wiki/xacro">
+  
+<xacro:macro name="cob_kinect_gazebo_v0" params="name ros_topic">
+
+  <gazebo reference="${name}_frame">
+    <sensor:ray name="${name}_sensor">
+          <rayCount>160</rayCount> <!--true value 640-->
+          <rangeCount>160</rangeCount>
+          <laserCount>1</laserCount>
+          
+          <origin>0.0 0.0 0.05</origin>
+          <displayRays>false</displayRays>
+          
+          <minAngle>-31.63</minAngle>
+          <maxAngle>31.63</maxAngle>
+          
+          <minRange>1.00</minRange> <!--0.8m min calibrated range-->
+          <maxRange>5.0</maxRange> <!--5.0m max calibrated range-->
+          <resRange>0.010</resRange>
+          <updateRate>10</updateRate> <!-- true value 30Hz -->
+
+          <verticalRayCount>120</verticalRayCount> <!--true value 480 -->
+          <verticalRangeCount>120</verticalRangeCount>
+          <verticalMinAngle>-25.74</verticalMinAngle>
+          <verticalMaxAngle>25.74</verticalMaxAngle>
+
+          <controller:gazebo_ros_block_laser name="kinect_controller" plugin="libgazebo_ros_block_laser.so">
+            <gaussianNoise>0.005</gaussianNoise>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10</updateRate> <!-- true value 30Hz -->
+            <topicName>${ros_topic}</topicName>
+            <frameName>/${name}_frame</frameName>
+            <interface:laser name="${name}_ray_block_iface" />
+          </controller:gazebo_ros_block_laser>
+        </sensor:ray>
+    <material value="Gazebo/Red" />
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+
+</xacro:macro>
+
+</root>

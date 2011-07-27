@@ -51,7 +51,7 @@
 *
 ****************************************************************/
 
-#ifdef __COB_ROS__
+#ifdef __LINUX__
 #include "cob_vision_utils/CameraSensorToolbox.h"
 #else
 #include "cob_common/cob_vision_utils/common/include/cob_vision_utils/CameraSensorToolbox.h"
@@ -264,8 +264,14 @@ unsigned long CameraSensorToolbox::ConvertCameraTypeToString(ipa_CameraSensors::
 	case CAM_SWISSRANGER:
 		cameraTypeString = "Swissranger";
 		break;
-	case CAM_PMDCAMCUBE:
-		cameraTypeString = "PMDCamCube";
+	case CAM_PMDCAM:
+		cameraTypeString = "PMDCam";
+		break;
+	case CAM_KINECT:
+		cameraTypeString = "Kinect";
+		break;
+	case CAM_OPENCVCAMERA:
+		cameraTypeString = "OpenCVCamera";
 		break;
 	case CAM_VIRTUALRANGE:
 		cameraTypeString = "VirtualRangeCam";

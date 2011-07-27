@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<include filename="$(find cob_description)/ros/urdf/head_v3/head.gazebo.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/head_v3/head.transmission.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />
+	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
+
+	<xacro:macro name="cob_head_v3" params="name parent *origin">
+
+		<!-- joint between torso_upper_neck_tilt_link and head_axis_link -->
+		<joint name="${name}_axis_joint" type="revolute">
+			<insert_block name="origin" />
+			<parent link="${parent}"/>
+			<child link="${name}_axis_link"/>
+			<axis xyz="0 0 1" />
+			<dynamics damping="0.1" />
+			<calibration rising="${head_axis_ref}"/>
+			<limit effort="100" lower="-3.2" upper="0.1" velocity="1.4"/>
+		</joint>
+
+		<link name="${name}_axis_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+			</inertial>
+
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.12"/>
+				</geometry>
+				<material name="Green" />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.12"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<!-- left camera -->
+		<xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_axis_link">
+			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z-0.06}" rpy="${cam_l_roll} ${cam_l_pitch-1.5708} ${cam_l_yaw}" />
+		</xacro:cob_prosilica_v0>
+
+		<!-- right camera -->
+		<xacro:cob_prosilica_v0 name="${name}_color_camera_r" ros_topic="stereo/right" parent="${name}_color_camera_l_link">
+			<origin xyz="${cam_r_x+0.12} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
+		</xacro:cob_prosilica_v0>
+
+		<!-- cam3d -->
+		<xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d/depth/points1" parent="${name}_color_camera_l_link">
+			<origin xyz="${cam3d_x+0.06} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
+		</xacro:cob_kinect_v0>
+
+		<!-- extensions -->
+		<xacro:cob_head_gazebo_v3 name="${name}" />
+		<xacro:cob_head_transmission_v3 name="${name}" />
+
+	</xacro:macro>
+
+</robot>

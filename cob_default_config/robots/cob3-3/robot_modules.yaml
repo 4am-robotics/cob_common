@@ -1,0 +1,1 @@
+robot_modules: ['base','tray','torso','head','arm','sdh']
