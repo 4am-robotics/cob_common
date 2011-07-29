@@ -29,7 +29,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/common/lib)
 #rospack_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
-target_link_libraries(cob_vision_utils tinyxml)
 
 IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX /usr/local)
@@ -86,6 +85,7 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/common/include)
 
 # add compile flag
 rosbuild_add_compile_flags(cob_vision_utils -D__LINUX__ -D__COB_ROS__)
+target_link_libraries(cob_vision_utils tinyxml)
 
 # add project executable
 
