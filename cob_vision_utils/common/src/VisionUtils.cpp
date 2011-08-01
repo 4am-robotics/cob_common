@@ -1042,3 +1042,13 @@ unsigned long ipa_Utils::LoadMat(cv::Mat& mat, std::string filename)
 
 	return ipa_Utils::RET_OK;
 }
+
+ipa_Utils::UniqueNumber::UniqueNumber()
+{
+    current=0;
+}
+
+int ipa_Utils::UniqueNumber::operator()() 
+{
+    return current++;
+}
