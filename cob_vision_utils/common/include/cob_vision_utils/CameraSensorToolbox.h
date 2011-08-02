@@ -65,7 +65,7 @@
 #ifdef __LINUX__
 	#include "cob_vision_utils/CameraSensorDefines.h"
 
-	#include "tinyxml/tinyxml.h"
+	#include "tinyxml.h"
 	#include "cob_vision_utils/CameraSensorTypes.h"
 	#include "cob_vision_utils/VisionUtils.h"
 #else
