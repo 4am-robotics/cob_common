@@ -8,13 +8,10 @@
   <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
-  <depend stack="common" /> <!-- tinyxml -->
   <depend stack="common_msgs" /> <!-- geometry_msgs, actionlib_msgs, trajectory_msgs, sensor_msgs -->
-  <depend stack="kinematics" /> <!-- kinematics_msgs -->
-  <depend stack="motion_planning_common" /> <!-- motion_planning_msgs -->
   <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
   <depend stack="ros" /> <!-- roslib -->
-  <depend stack="ros_comm" /> <!-- std_srvs, std_msgs, roscpp -->
+  <depend stack="ros_comm" /> <!-- std_msgs, roscpp -->
   <depend stack="vision_opencv" /> <!-- opencv2 -->
 
 </stack>
