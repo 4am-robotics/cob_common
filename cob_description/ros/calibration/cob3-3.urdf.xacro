@@ -10,10 +10,10 @@
 	<property name="torso_upper_neck_tilt_ref" value="0" />
 
 	<!-- tray reference position -->
-	<property name="torso_tray_ref" value="0" />
+	<property name="torso_tray_ref" value="-1.7" />
 
 	<!-- head camera axis reference position -->
-	<property name="head_axis_ref" value="0.0" />
+	<property name="head_axis_ref" value="-0.1" />
 
 	<!-- arm reference positions -->
 	<property name="arm_1_ref" value="0" />
@@ -25,13 +25,7 @@
 	<property name="arm_7_ref" value="0" />
 
 	<!-- camera calibration properties -->
-	<property name="cam_r_x" value="0" />
-	<property name="cam_r_y" value="0" />
-	<property name="cam_r_z" value="0" />
-	<property name="cam_r_roll" value="0" />
-	<property name="cam_r_pitch" value="0" />
-	<property name="cam_r_yaw" value="0" />
-
+	<!-- hand eye calibration -->
 	<property name="cam_l_x" value="0" />
 	<property name="cam_l_y" value="0" />
 	<property name="cam_l_z" value="0" />
@@ -39,11 +33,20 @@
 	<property name="cam_l_pitch" value="0" />
 	<property name="cam_l_yaw" value="0" />
 
-	<property name="tof_x" value="0" />
-	<property name="tof_y" value="0" />
-	<property name="tof_z" value="0" />
-	<property name="tof_roll" value="0" />
-	<property name="tof_pitch" value="0" />
-	<property name="tof_yaw" value="0" />
+	<!-- right to left calibration -->
+	<property name="cam_r_x" value="-0.00008258" />
+	<property name="cam_r_y" value="-0.0009444" />
+	<property name="cam_r_z" value="-0.00018754" />
+	<property name="cam_r_roll" value="0.00447" />
+	<property name="cam_r_pitch" value="0.00306" />
+	<property name="cam_r_yaw" value="-0.00299" />
+
+	<!-- cam3d to left calibration -->
+	<property name="cam3d_x" value="0.01927198" />
+	<property name="cam3d_y" value="-0.03176582" />
+	<property name="cam3d_z" value="0.00137489" />
+	<property name="cam3d_roll" value="-0.00026" />
+	<property name="cam3d_pitch" value="-0.00874" />
+	<property name="cam3d_yaw" value="-0.00003" />
   
 </robot>

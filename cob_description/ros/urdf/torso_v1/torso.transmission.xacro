@@ -25,7 +25,6 @@
 			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
-
 		<transmission name="${name}_upper_neck_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
 			<actuator name="${name}_upper_neck_tilt_motor"/>
 			<joint name="${name}_upper_neck_tilt_joint"/>
