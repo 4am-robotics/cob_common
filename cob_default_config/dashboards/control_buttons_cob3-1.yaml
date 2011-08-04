@@ -54,6 +54,8 @@ group5:
     [folded,move,folded],
     [pregrasp,move,pregrasp],
     [grasp,move,grasp],
+    [test, move, test],
+    [test2, move, test2],
     [overtray,move,overtray],
     [tray,move,tray],
     [wave in,move,wavein],
