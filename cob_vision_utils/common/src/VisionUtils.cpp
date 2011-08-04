@@ -51,6 +51,8 @@
 *
 ****************************************************************/
  
+#include "../include/cob_vision_utils/StdAfx.h"
+
 #ifdef __LINUX__
 #include "cob_vision_utils/VisionUtils.h"
 #else

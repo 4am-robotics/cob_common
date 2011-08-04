@@ -59,16 +59,15 @@
 #ifndef __IPA_VISIONUTILS_H__
 #define __IPA_VISIONUTILS_H__
 
+#include "StdAfx.h"
+
 #ifdef __LINUX__
 	#include "cob_vision_utils/GlobalDefines.h"
-
-	#include <opencv/cv.h>
 #else
 	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/GlobalDefines.h"
-
-	#include <cv.h>
 #endif
 
+#include <opencv/cv.h>
 #include <iostream>
 
 namespace ipa_Utils {
