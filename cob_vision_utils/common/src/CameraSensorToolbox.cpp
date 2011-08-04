@@ -51,11 +51,22 @@
 *
 ****************************************************************/
 
+#include "cob_vision/cob_camera_sensors_ipa/common/include/cob_camera_sensors_ipa/StdAfx.h"
 #ifdef __LINUX__
 #include "cob_vision_utils/CameraSensorToolbox.h"
+
+#include "cob_vision_utils/VisionUtils.h"
+#include "tinyxml"
 #else
 #include "cob_common/cob_vision_utils/common/include/cob_vision_utils/CameraSensorToolbox.h"
+
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/VisionUtils.h"
+#include "cob_vision/windows/src/extern/TinyXml/tinyxml.h"
 #endif
+
+#include <opencv/cv.h>
+#include <map>
+#include <iostream>
 
 using namespace ipa_CameraSensors;
 

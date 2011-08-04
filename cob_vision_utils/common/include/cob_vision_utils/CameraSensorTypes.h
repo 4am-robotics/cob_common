@@ -60,6 +60,9 @@
 #ifndef __IPA_CAMERASENSORTYPES_H__
 #define __IPA_CAMERASENSORTYPES_H__
 
+#include "cob_vision/cob_camera_sensors_ipa/common/include/cob_camera_sensors_ipa/StdAfx.h"
+#include <string>
+
 namespace ipa_CameraSensors {
 
 	/// Enum to encode return codes or return values.

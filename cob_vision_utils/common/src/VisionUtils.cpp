@@ -50,14 +50,17 @@
 * If not, see <http://www.gnu.org/licenses/>.
 *
 ****************************************************************/
- 
+
 #ifdef __LINUX__
 #include "cob_vision_utils/VisionUtils.h"
+#include "cob_vision_utils/GlobalDefines.h"
 #else
 #include "cob_common/cob_vision_utils/common/include/cob_vision_utils/VisionUtils.h"
+#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/GlobalDefines.h"
 #endif
 
 #include <fstream>
+#include <iostream>
 
 using namespace ipa_Utils;
 
@@ -894,7 +897,7 @@ cv::Vec3f ipa_Utils::GrayColorMap(double value, double min,double max)
     max-=min;
     value-=min;
     rgb[0]=rgb[1]=rgb[2]=(unsigned char)(255*value/max);
-    return cv::Vec3f(rgb[2], rgb[1], rgb[0]);
+    return cv::Vec3f((float) rgb[2], (float) rgb[1], (float) rgb[0]);
 }
 
 cv::Mat ipa_Utils::GetColorcoded(const cv::Mat& img_32F)
@@ -949,7 +952,7 @@ cv::Mat ipa_Utils::GetColorcoded(const cv::Mat& img_32F, double min, double max)
                     V = 255;
                 }
 
-                hsvImage.at<cv::Vec3b>(i,j)[0] = (unsigned char) hsvBlue - H;
+                hsvImage.at<cv::Vec3b>(i,j)[0] = (unsigned char) hsvBlue - (unsigned char) H;
                 hsvImage.at<cv::Vec3b>(i,j)[1] = (unsigned char) S;
                 hsvImage.at<cv::Vec3b>(i,j)[2] = (unsigned char) V;
             }
