@@ -39,7 +39,6 @@ group4:
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
     [recover,trigger,recover],
-    [reboot,trigger,reboot],
     [position mode,mode,position],
     [velocity mode,mode,velocity]]
 group5:
@@ -66,12 +65,13 @@ group7:
   component_name: sdh
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
-    [recover,trigger,recover],
     [home,move,home],
     [cyl. closed,move,cylclosed],
     [cyl. open,move,cylopen],
     [spher. closed,move,spherclosed],
-    [spher. open,move,spheropen]]
+    [spher. open,move,spheropen],
+    [point,move,point],
+    [fist,move,fist]]
 group8:
   group_name: eyes
   component_name: head
