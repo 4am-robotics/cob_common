@@ -1,0 +1,18 @@
+<package>
+  <description brief="brics_actuator">
+
+     brics_actuator
+
+  </description>
+  <author>Alexander Bubeck</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/brics_actuator</url>
+  <depend package="roslib"/>
+  <depend package="std_msgs"/>
+  <depend package="geometry_msgs"/>
+
+
+</package>
+
+
