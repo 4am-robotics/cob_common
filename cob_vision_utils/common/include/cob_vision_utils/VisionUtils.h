@@ -141,7 +141,7 @@ unsigned long FilterSpeckles( cv::Mat& img, int maxSpeckleSize, double _maxDiff,
 /// @param min Minimum for scaling
 /// @param max Maximum for scaling
 /// @return Vector containing RGB values
-cv::Vec3f GrayColorMap(double value, double min, double max);
+cv::Vec3b GrayColorMap(double value, double min, double max);
 
 /// Returns mat as HSV or gray image 
 /// @param img_32F Float matrix
