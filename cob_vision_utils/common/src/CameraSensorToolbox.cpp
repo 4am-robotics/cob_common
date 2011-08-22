@@ -50,11 +50,17 @@
 * If not, see <http://www.gnu.org/licenses/>.
 *
 ****************************************************************/
-
+#include "../include/cob_vision_utils/StdAfx.h"
 #ifdef __LINUX__
-#include "cob_vision_utils/CameraSensorToolbox.h"
+	#include "cob_vision_utils/CameraSensorToolbox.h"
+
+	#include "cob_vision_utils/VisionUtils.h"
+	#include "tinyxml.h"
 #else
-#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/CameraSensorToolbox.h"
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/CameraSensorToolbox.h"
+
+	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/VisionUtils.h"
+	#include "cob_vision/windows/src/extern/TinyXml/tinyxml.h"
 #endif
 
 using namespace ipa_CameraSensors;
