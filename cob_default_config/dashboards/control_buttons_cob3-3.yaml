@@ -39,13 +39,10 @@ group4:
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
     [recover,trigger,recover],
-    [reboot,trigger,reboot],
     [undefined mode,mode,undefined],
     [position mode,mode,position],
-    [pos stiff mode,mode,positionstiffness],
     [velocity mode,mode,velocity],
-    [gravcomp mode,mode,gravcomp],
-    [positionhold mode,mode,positionhold]]
+    [gravcomp mode,mode,gravcomp]]
 group5:
   group_name: arm pos
   component_name: arm
@@ -54,6 +51,7 @@ group5:
     [folded,move,folded],
     [pregrasp,move,pregrasp],
     [grasp,move,grasp],
+    [look at table,move,look_at_table],
     [overtray,move,overtray],
     [tray,move,tray],
     [wave in,move,wavein],
@@ -62,6 +60,8 @@ group6:
   group_name: arm traj
   component_name: arm
   buttons: [[stop,trigger,stop],
+    [folded-to-look at table,move,folded-to-look_at_table],
+    [look_at_table-to-folded,move,look_at_table-to-folded],
     [grasp-to-tray,move,grasp-to-tray],
     [tray-to-folded,move,tray-to-folded],
     [wave,move,wave]]
@@ -70,12 +70,13 @@ group7:
   component_name: sdh
   buttons: [[stop,trigger,stop],
     [init,trigger,init],
-    [recover,trigger,recover],
     [home,move,home],
     [cyl. closed,move,cylclosed],
     [cyl. open,move,cylopen],
     [spher. closed,move,spherclosed],
-    [spher. open,move,spheropen]]
+    [spher. open,move,spheropen],
+    [point,move,point],
+    [fist,move,fist]]
 group8:
   group_name: eyes
   component_name: head
