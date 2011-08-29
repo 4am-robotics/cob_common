@@ -8,6 +8,7 @@
 	<include filename="$(find cob_description)/ros/urdf/head_v3/head.transmission.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
 	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />
+	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.rgb.urdf.xacro" />
 	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
 
 	<xacro:macro name="cob_head_v3" params="name parent *origin">
@@ -60,6 +61,11 @@
 		<xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d/depth/points1" parent="${name}_color_camera_l_link">
 			<origin xyz="${cam3d_x+0.06} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
 		</xacro:cob_kinect_v0>
+		
+		<!-- cam3d -->
+                <xacro:cob_kinect_rgb_v0 name="${name}_cam3d_rgb" ros_topic="cam3d/rgb" parent="${name}_color_camera_l_link">
+                        <origin xyz="${cam3d_x-0.06} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw+3.14}" />
+                </xacro:cob_kinect_rgb_v0>
 
 		<!-- extensions -->
 		<xacro:cob_head_gazebo_v3 name="${name}" />

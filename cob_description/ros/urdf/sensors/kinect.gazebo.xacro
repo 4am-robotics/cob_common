@@ -8,30 +8,37 @@
 
   <gazebo reference="${name}_frame">
     <sensor:ray name="${name}_sensor">
-          <rayCount>160</rayCount> <!--true value 640-->
-          <rangeCount>160</rangeCount>
+          <rayCount>210</rayCount> <!--old value 160-->
+          <rangeCount>210</rangeCount>
           <laserCount>1</laserCount>
           
           <origin>0.0 0.0 0.05</origin>
           <displayRays>false</displayRays>
           
-          <minAngle>-31.63</minAngle>
-          <maxAngle>31.63</maxAngle>
+          <minAngle>-28.50</minAngle>
+	  <!--minAngle>-31.63</minAngle-->
+          <maxAngle>28.50</maxAngle>
+	  <!--maxAngle>31.63</maxAngle-->
+
           
-          <minRange>1.00</minRange> <!--0.8m min calibrated range-->
-          <maxRange>5.0</maxRange> <!--5.0m max calibrated range-->
-          <resRange>0.010</resRange>
-          <updateRate>10</updateRate> <!-- true value 30Hz -->
+          <!--minRange>1.00</minRange--> <!--0.8m min calibrated range-->
+          <minRange>1</minRange>  <!--original value 1.2-->
+	  <!--maxRange>5.0</maxRange--> <!--5.0m max calibrated range-->
+          <maxRange>10</maxRange><!--real value 3.5-->
+	  <resRange>0.010</resRange>
+          <updateRate>30</updateRate> <!-- old value 10Hz -->
 
-          <verticalRayCount>120</verticalRayCount> <!--true value 480 -->
-          <verticalRangeCount>120</verticalRangeCount>
-          <verticalMinAngle>-25.74</verticalMinAngle>
-          <verticalMaxAngle>25.74</verticalMaxAngle>
-
+          <verticalRayCount>220</verticalRayCount> <!--old value 120 -->
+          <verticalRangeCount>220</verticalRangeCount>
+          <verticalMinAngle>-21.50</verticalMinAngle>
+	  <!--verticalMinAngle>-25.74</verticalMinAngle-->
+          <verticalMaxAngle>21.50</verticalMaxAngle>
+	  <!--verticalMaxAngle>25.74</verticalMaxAngle-->
           <controller:gazebo_ros_block_laser name="kinect_controller" plugin="libgazebo_ros_block_laser.so">
-            <gaussianNoise>0.005</gaussianNoise>
+            <focal_length>580</focal_length>
+	    <gaussianNoise>0.005</gaussianNoise>
             <alwaysOn>true</alwaysOn>
-            <updateRate>10</updateRate> <!-- true value 30Hz -->
+            <updateRate>30</updateRate> <!-- old value 10Hz -->
             <topicName>${ros_topic}</topicName>
             <frameName>/${name}_frame</frameName>
             <interface:laser name="${name}_ray_block_iface" />
