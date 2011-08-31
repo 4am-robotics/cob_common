@@ -42,6 +42,7 @@
 	<property name="cam_r_yaw" value="-0.00299" />
 
 	<!-- cam3d to left calibration -->
+	<!-- These values are wrong!! -->
 	<property name="cam3d_x" value="0.01927198" />
 	<property name="cam3d_y" value="-0.03176582" />
 	<property name="cam3d_z" value="0.00137489" />
