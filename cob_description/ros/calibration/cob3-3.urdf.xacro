@@ -10,7 +10,7 @@
 	<property name="torso_upper_neck_tilt_ref" value="0.137" />
 
 	<!-- tray reference position -->
-	<property name="torso_tray_ref" value="-1.7" />
+	<property name="torso_tray_ref" value="3.14" />
 
 	<!-- head camera axis reference position -->
 	<property name="head_axis_ref" value="-0.1" />
@@ -34,12 +34,12 @@
 	<property name="cam_l_yaw" value="-0.0082" />
 
 	<!-- right to left calibration -->
-	<property name="cam_r_x" value="-0.00008258" />
-	<property name="cam_r_y" value="-0.0009444" />
-	<property name="cam_r_z" value="-0.00018754" />
-	<property name="cam_r_roll" value="0.00447" />
-	<property name="cam_r_pitch" value="0.00306" />
-	<property name="cam_r_yaw" value="-0.00299" />
+	<property name="cam_r_x" value="0.0000281" />
+	<property name="cam_r_y" value="-0.00087428" />
+	<property name="cam_r_z" value="0.00013024" />
+	<property name="cam_r_roll" value="0.00402" />
+	<property name="cam_r_pitch" value="0.00474" />
+	<property name="cam_r_yaw" value="-0.00272" />
 
 	<!-- cam3d to left calibration -->
 	<!-- These values are wrong!! -->

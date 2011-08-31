@@ -51,6 +51,8 @@
 *
 ****************************************************************/
  
+#include "../include/cob_vision_utils/StdAfx.h"
+
 #ifdef __LINUX__
 #include "cob_vision_utils/VisionUtils.h"
 #else
@@ -888,13 +890,13 @@ unsigned long ipa_Utils::FilterSpeckles(cv::Mat& img, int maxSpeckleSize, double
 	return ipa_Utils::RET_OK;
 } 
    
-cv::Vec3f ipa_Utils::GrayColorMap(double value, double min,double max)
+cv::Vec3b ipa_Utils::GrayColorMap(double value, double min,double max)
 {
     double rgb[3];
     max-=min;
     value-=min;
     rgb[0]=rgb[1]=rgb[2]=(unsigned char)(255*value/max);
-    return cv::Vec3f(rgb[2], rgb[1], rgb[0]);
+    return cv::Vec3b(rgb[2], rgb[1], rgb[0]);
 }
 
 cv::Mat ipa_Utils::GetColorcoded(const cv::Mat& img_32F)
@@ -1041,4 +1043,14 @@ unsigned long ipa_Utils::LoadMat(cv::Mat& mat, std::string filename)
 	delete[] c_string;
 
 	return ipa_Utils::RET_OK;
+}
+
+ipa_Utils::UniqueNumber::UniqueNumber()
+{
+    current=0;
+}
+
+int ipa_Utils::UniqueNumber::operator()() 
+{
+    return current++;
 }
