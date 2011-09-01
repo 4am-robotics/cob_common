@@ -42,12 +42,11 @@
 	<property name="cam_r_yaw" value="-0.00272" />
 
 	<!-- cam3d to left calibration -->
-	<!-- These values are wrong!! -->
-	<property name="cam3d_x" value="0.01927198" />
-	<property name="cam3d_y" value="-0.03176582" />
-	<property name="cam3d_z" value="0.00137489" />
-	<property name="cam3d_roll" value="-0.00026" />
-	<property name="cam3d_pitch" value="-0.00874" />
-	<property name="cam3d_yaw" value="-0.00003" />
+	<property name="cam3d_x" value="0.01971630" />
+	<property name="cam3d_y" value="-0.03026699" />
+	<property name="cam3d_z" value="0.00191677" />
+	<property name="cam3d_roll" value="-0.00479" />
+	<property name="cam3d_pitch" value="-0.00374" />
+	<property name="cam3d_yaw" value="0.00063" />
   
 </robot>
