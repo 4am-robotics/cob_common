@@ -48,6 +48,15 @@
 
 		<link name="${name}_grasp_link"/>
 
+		<!-- tip link -->
+		<joint name="${name}_tip_joint" type="fixed" >
+			<origin xyz="0 0 0.22" rpy="0 0 0"/>
+			<parent link="${name}_palm_link" />
+			<child link="${name}_tip_link" />
+		</joint>
+
+		<link name="${name}_tip_link"/>
+
 		<!-- finger1 -->
 		<!-- joint between sdh_palm_link and sdh_finger_11_link -->
 		<joint name="${name}_knuckle_joint" type="revolute">
