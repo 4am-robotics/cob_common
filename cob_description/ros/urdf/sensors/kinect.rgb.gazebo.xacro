@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<root xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+      xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+      xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+      xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="cob_kinect_rgb_gazebo_v0" params="name ros_topic">
+
+		<gazebo reference="${name}_frame">
+			<sensor:camera name="${name}_sensor">
+				<imageFormat>R8G8B8</imageFormat>
+				<!--imageSize>1338 1038</imageSize-->
+				<imageSize>640 480</imageSize>
+				<!--hfov>45</hfov-->
+				<hfov>62.70</hfov>
+				<nearClip>0.1</nearClip>
+				<farClip>100</farClip>
+				<updateRate>30</updateRate>
+				<controller:gazebo_ros_prosilica name="${name}_controller" plugin="libgazebo_ros_prosilica.so">
+					<alwaysOn>true</alwaysOn>
+					<updateRate>30</updateRate>
+					<topicName>${ros_topic}_image_data</topicName>
+					<imageTopicName>/${ros_topic}/image_raw</imageTopicName>
+					<cameraInfoTopicName>/${ros_topic}/camera_info</cameraInfoTopicName>
+					<pollServiceName>/${name}/request_image</pollServiceName>
+					<frameName>/${name}_link</frameName>
+					<CxPrime>697.69</CxPrime>
+					<Cx>697.69</Cx>
+					<Cy>530.51</Cy>
+					<!--focal_length>1615</focal_length--> <!-- image_width / (2*tan(hfov_radian /2)) -->
+					<focal_length>525</focal_length> 
+					<distortion_k1>0.00000001</distortion_k1>
+					<distortion_k2>0.00000001</distortion_k2>
+					<distortion_k3>0.00000001</distortion_k3>
+					<distortion_t1>0.00000001</distortion_t1>
+					<distortion_t2>0.00000001</distortion_t2>
+					<interface:camera name="${name}_iface" />
+				</controller:gazebo_ros_prosilica>
+			</sensor:camera>
+			<material value="Gazebo/Red" />
+			<turnGravityOff>true</turnGravityOff>
+		</gazebo>
+
+	</xacro:macro>
+
+</root>
