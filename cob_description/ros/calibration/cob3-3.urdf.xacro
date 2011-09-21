@@ -7,7 +7,7 @@
 	<!-- torso reference positions -->
 	<property name="torso_lower_neck_tilt_ref" value="0" />
 	<property name="torso_pan_ref" value="0" />
-	<property name="torso_upper_neck_tilt_ref" value="0" />
+	<property name="torso_upper_neck_tilt_ref" value="0.137" />
 
 	<!-- tray reference position -->
 	<property name="torso_tray_ref" value="3.14" />
