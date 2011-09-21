@@ -59,16 +59,15 @@
 #ifndef __IPA_VISIONUTILS_H__
 #define __IPA_VISIONUTILS_H__
 
+#include "StdAfx.h"
+
 #ifdef __LINUX__
 	#include "cob_vision_utils/GlobalDefines.h"
-
-	#include <opencv/cv.h>
 #else
 	#include "cob_common/cob_vision_utils/common/include/cob_vision_utils/GlobalDefines.h"
-
-	#include <cv.h>
 #endif
 
+#include <opencv/cv.h>
 #include <iostream>
 
 namespace ipa_Utils {
@@ -142,7 +141,7 @@ unsigned long FilterSpeckles( cv::Mat& img, int maxSpeckleSize, double _maxDiff,
 /// @param min Minimum for scaling
 /// @param max Maximum for scaling
 /// @return Vector containing RGB values
-cv::Vec3f GrayColorMap(double value, double min, double max);
+cv::Vec3b GrayColorMap(double value, double min, double max);
 
 /// Returns mat as HSV or gray image 
 /// @param img_32F Float matrix
@@ -168,6 +167,33 @@ unsigned long SaveMat(cv::Mat& mat, std::string filename);
 /// @return Return code
 unsigned long LoadMat(cv::Mat& mat, std::string filename);
 
+// Generator that yields an increasing sequence of integers
+class UniqueNumber {
+public:
+  int current;
+  UniqueNumber();
+  int operator()();
+};
+
+// Returns random subset of input vector. Will not create duplicates.
+// @param v Input vector
+// @param n Number of items to return
+// @return Vector of same type as input vector (length n)
+template<class T> std::vector<T> takeRandomN(const std::vector<T> &v, int n)
+{
+    int current = 0;
+    std::vector<int> indices(v.size());
+    std::generate(indices.begin(), indices.end(), UniqueNumber());
+    std::random_shuffle(indices.begin(), indices.end());
+    
+    std::vector<T> ret;
+    for (int i = 0; i < n; i++)
+    {
+        ret.push_back(v[indices[i]]);
+    }
+
+    return ret;
+}
 
 } // end namespace __IPA_VISIONUTILS_H__
 
