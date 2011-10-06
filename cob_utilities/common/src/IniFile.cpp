@@ -290,7 +290,7 @@ int IniFile::GetKeyInt(const char* szSect,const char* szKey,int* pValue,
 	
  		if ((buf[0]=='0') && (buf[1] == 'x'))
                 {
-			int iNumLength;
+			int iNumLength = 0;
 			//check how long the hex-number is
 			for (int z=0; z<=7; z++)
 			{
@@ -515,8 +515,8 @@ int IniFile::FindNextLine(std::vector<char>& NewLine, int& CharInd)
 int IniFile::FindNextSection(std::string* pSect, std::string prevSect, bool bWarnIfNotfound)
 {
 	std::vector<char> line;
-	int charInd = 0;
-	int res = -1;
+	//int charInd = 0;
+	//int res = -1;
 
 	if (!m_bFileOK) return -1;
 
@@ -544,7 +544,7 @@ int IniFile::FindNextSection(std::string* pSect, std::string prevSect, bool bWar
 	{
 		if (m_CurLine[0] == '[')
 		{
-			while( m_CurCharInd < m_CurLine.size() ) {
+			while( m_CurCharInd < (int)m_CurLine.size() ) {
 				m_CurCharInd++;
 				if (m_CurLine[m_CurCharInd] == ']') // if found section name equals searched one
 				{
