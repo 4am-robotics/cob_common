@@ -11,7 +11,7 @@
 
 		<!-- joint between base_link and torso_tray_link -->
 		<joint name="${name}_tray_joint" type="revolute">
-			<origin xyz="0.2406 0.1900 0.7920" rpy="2.3561 0 0" />
+			<origin xyz="0.2406 0.1900 0.7320" rpy="2.3561 0 0" />
 			<parent link="${parent}"/>
 			<child link="${name}_tray_link"/>
 			<axis xyz="0 0 1" />
@@ -39,36 +39,6 @@
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/torso_v0/tray_collision.stlb" />
-				</geometry>
-			</collision>
-		</link>
-
-		<!-- FIXME additional tray colission box, should be removed -->
-		<joint name="${name}_tray_joint2" type="fixed">
-			<origin xyz="0.25 0.25 0.1" rpy="0.78 0 0" />
-			<parent link="${name}_tray_link"/>
-			<child link="${name}_tray_link2"/>
-		</joint>
-
-		<link name="${name}_tray_link2">
-			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="0.1"/>
-				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-			</inertial>
-
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<box size="0.01 0.01 0.01"/>
-				</geometry>
-				<material name="Green" />
-			</visual>
-
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<box size="0.3 0.4 0.1"/>
 				</geometry>
 			</collision>
 		</link>
