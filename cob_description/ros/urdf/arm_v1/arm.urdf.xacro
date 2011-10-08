@@ -255,7 +255,7 @@
 
 		<!-- joint between arm_6_link and arm_7_link -->
 		<joint name="${name}_7_joint" type="revolute">
-			<origin xyz="0 -0.237448 0" rpy="-1.5708 0 0" />
+			<origin xyz="0 -0.197448 0" rpy="-1.5708 0 0" />
 			<parent link="${name}_6_link"/>
 			<child link="${name}_7_link"/>
 			<axis xyz="0 0 1" />
