@@ -26,12 +26,12 @@
 
 	<!-- camera calibration properties -->
 	<!-- hand eye calibration -->
-	<property name="cam_l_x" value="-0.00319" />
-	<property name="cam_l_y" value="0.03363" />
-	<property name="cam_l_z" value="0.05452" />
-	<property name="cam_l_roll" value="-0.0094" />
-	<property name="cam_l_pitch" value="-0.0003" />
-	<property name="cam_l_yaw" value="-0.0082" />
+	<property name="cam_l_x" value="0" />
+	<property name="cam_l_y" value="0" />
+	<property name="cam_l_z" value="0" />
+	<property name="cam_l_roll" value="0" />
+	<property name="cam_l_pitch" value="0" />
+	<property name="cam_l_yaw" value="0.05" />
 
 	<!-- right to left calibration -->
 	<property name="cam_r_x" value="0.0000281" />
@@ -42,11 +42,11 @@
 	<property name="cam_r_yaw" value="-0.00272" />
 
 	<!-- cam3d to left calibration -->
-	<property name="cam3d_x" value="0.01971630" />
-	<property name="cam3d_y" value="-0.03026699" />
-	<property name="cam3d_z" value="0.00191677" />
-	<property name="cam3d_roll" value="-0.00479" />
-	<property name="cam3d_pitch" value="-0.00374" />
-	<property name="cam3d_yaw" value="0.00063" />
+	<property name="cam3d_x" value="0.06099859" />
+	<property name="cam3d_y" value="-0.04048727" />
+	<property name="cam3d_z" value="0.05303078" />
+	<property name="cam3d_roll" value="0.00641" />
+	<property name="cam3d_pitch" value="0.00728" />
+	<property name="cam3d_yaw" value="-0.00328" />
   
 </robot>
