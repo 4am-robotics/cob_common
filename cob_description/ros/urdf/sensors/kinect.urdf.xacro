@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="LaserBlock">
+<root xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+      xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+      xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+      xmlns:xacro="http://ros.org/wiki/xacro">
   
   <include filename="$(find cob_description)/ros/urdf/sensors/kinect.gazebo.xacro" />
 
   <xacro:macro name="cob_kinect_v0" params="name parent *origin ros_topic">
-
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -67,9 +65,9 @@
       </collision >
     </link>
 
-   <!-- for simulation -->
-   <xacro:cob_kinect_gazebo_v0 name="${name}" ros_topic="${ros_topic}"/>
-
+    <!-- extensions -->
+    <xacro:cob_kinect_gazebo_v0 name="${name}" ros_topic="${ros_topic}" />
   </xacro:macro>
 
-</robot>
+</root>
+
