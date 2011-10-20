@@ -33,7 +33,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.01 0.01 0.12"/>
+					<box size="0.01 0.01 0.01"/>
 				</geometry>
 				<material name="Green" />
 			</visual>
@@ -41,43 +41,14 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.01 0.01 0.12"/>
-				</geometry>
-			</collision>
-		</link>
-
-		<joint name="${name}_calib_joint" type="fixed">
-			<origin xyz="0 0 -0.06" rpy="0 -1.5708 0" />
-			<parent link="${name}_axis_link"/>
-			<child link="${name}_calib_link"/>
-		</joint>
-
-		<link name="${name}_calib_link">
-			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="0.1"/>
-				<inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
-			</inertial>
-
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<box size="0.01 0.01 0.12"/>
-				</geometry>
-				<material name="Green" />
-			</visual>
-
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<box size="0.01 0.01 0.12"/>
+					<box size="0.01 0.01 0.01"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- left camera -->
-		<xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_calib_link">
-			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
+		<xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_axis_link">
+			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}-0.06" rpy="${cam_l_roll} ${cam_l_pitch}-1.5708 ${cam_l_yaw}" />
 		</xacro:cob_prosilica_v0>
 
 		<!-- right camera -->
