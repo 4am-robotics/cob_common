@@ -29,7 +29,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
-#rosbuild_add_gtest(test_urdf ros/test/test_urdf.cpp)
 rosbuild_add_executable(test_urdf test/test_urdf.cpp)
 rosbuild_add_gtest_build_flags(test_urdf)
 rosbuild_add_rostest(test/urdf.test)
@@ -41,7 +40,7 @@ rosbuild_find_ros_package(convex_decomposition)
 # iterate through all the stl files to:
 #  1. convert to *.iv files
 #  2. generate convex decomposed .stl
-file(GLOB cob_stl_files ${CMAKE_CURRENT_SOURCE_DIR}/ros/meshes/*/*.stl)
+file(GLOB cob_stl_files ${CMAKE_CURRENT_SOURCE_DIR}/meshes/*/*.stl)
 set(cob_gen_files "")
 
 foreach(it ${cob_stl_files})
