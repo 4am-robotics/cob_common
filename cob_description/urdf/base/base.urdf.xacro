@@ -4,12 +4,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.gazebo.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.transmission.xacro" />
+  <include filename="$(find cob_description)/urdf/base/base.gazebo.xacro" />
+  <include filename="$(find cob_description)/urdf/base/base.transmission.xacro" />
   
-  <!-- modify here for test -->
-  <include filename="$(find cob_description)/ros/urdf/sensors/sick_s300_laser.urdf.xacro"/>
-  <include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
+  <!-- sensors -->
+  <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
+  <include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
 
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
@@ -71,7 +71,6 @@
       <visual>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
         <geometry>
-          <!--mesh filename="package://cob_description/ros/meshes/base_v0/pr2_wheel.stl" /-->
           <cylinder radius="${wheel_radius}" length="${wheel_length}" />
         </geometry>
         
@@ -116,7 +115,7 @@
         <!--origin xyz="0 0 0.085" rpy="0 0 0" /-->  <!--modified by jie-->
 		<origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
         <geometry>
-          <!--mesh filename="package://cob_description/ros/meshes/base_v0/caster.stl" /-->  <!--modified by jie-->
+          <!--mesh filename="package://cob_description/meshes/base/caster.stl" /-->  <!--modified by jie-->
           <!--box size="0.192 0.164 0.013" /-->
 		  <box size="0.001 0.001 0.001" />
         </geometry>
@@ -153,7 +152,7 @@
 
 
   <!-- The xacro macro xacro:cob_base contains: base, casters and wheels -->
-  <xacro:macro name="cob_base_v1" params="name">
+  <xacro:macro name="cob_base" params="name">
   <link name="${name}_link">
 
       <inertial>
@@ -166,7 +165,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_description/ros/meshes/base_v0/base.stl"/>
+          <mesh filename="package://cob_description/meshes/base/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
         <material name="Grey"/>
@@ -176,7 +175,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
 		  <!--box size="0.001 0.001 0.001" /-->
-	      <mesh filename="package://cob_description/ros/meshes/base_v0/base_collision.stlb"/>
+	      <mesh filename="package://cob_description/meshes/base/base_collision.stlb"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
@@ -201,10 +200,7 @@
         <material name="Red" />
       </visual>
       <collision>
-
-        <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
-             surface of the collision box matches the top surface of the PR2 base -->
-        <origin xyz="0 0 ${0.051+base_collision_size_z/2}" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <box size="0.001 0.001 0.001" />
         </geometry>
@@ -248,7 +244,7 @@
     </xacro:cob_caster_v0>
 
     <!-- gazebo extensions -->
-    <xacro:cob_base_gazebo_v0 name="${name}" />
+    <xacro:cob_base_gazebo name="${name}" />
 
   </xacro:macro>
 

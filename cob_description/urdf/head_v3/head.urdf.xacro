@@ -4,11 +4,11 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/ros/urdf/head_v3/head.gazebo.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/head_v3/head.transmission.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />
-	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
+	<include filename="$(find cob_description)/urdf/head_v3/head.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/head_v3/head.transmission.xacro" />
+	
+	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
 	<xacro:macro name="cob_head_v3" params="name parent *origin">
 
@@ -48,7 +48,7 @@
 
 		<!-- left camera -->
 		<xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_axis_link">
-			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}-0.06" rpy="${cam_l_roll} ${cam_l_pitch}-1.5708 ${cam_l_yaw}" />
+			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z-0.06}" rpy="${cam_l_roll} ${cam_l_pitch-1.5708} ${cam_l_yaw}" />
 		</xacro:cob_prosilica_v0>
 
 		<!-- right camera -->

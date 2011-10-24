@@ -5,7 +5,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/sensors/sick_s300_laser.gazebo.xacro" />
+  <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.gazebo.xacro" />
 
   <xacro:macro name="sick_s300_laser_v0" params="name parent *origin ros_topic update_rate min_angle max_angle">
     <joint name="${name}_joint" type="fixed">

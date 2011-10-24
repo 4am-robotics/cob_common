@@ -4,10 +4,10 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.gazebo.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/lbr_v0/lbr.transmission.xacro" />
+	<include filename="$(find cob_description)/urdf/lbr/lbr.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/lbr/lbr.transmission.xacro" />
 
-	<xacro:macro name="cob_lbr_v0" params="parent name *origin">
+	<xacro:macro name="cob_lbr" params="parent name *origin">
 
 		<!-- joint between base_link and arm_0_link -->
 		<joint name="${name}_0_joint" type="fixed" >
@@ -63,7 +63,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_1.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_1.stl" />
 				</geometry>
 				<material name="Blue" />
 			</visual>
@@ -71,7 +71,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_1_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_1_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -99,7 +99,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_2.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_2.stl" />
 				</geometry>
 				<material name="Red" />
 			</visual>
@@ -107,7 +107,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_2_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_2_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -136,7 +136,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_3.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_3.stl" />
 				</geometry>
 				<material name="Blue" />
 			</visual>
@@ -144,7 +144,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_3_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_3_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>	
@@ -173,7 +173,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_4.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_4.stl" />
 				</geometry>
 				<material name="Red" />
 			</visual>
@@ -181,7 +181,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_4_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_4_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -209,7 +209,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_5.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_5.stl" />
 				</geometry>
 				<material name="Blue" />
 			</visual>
@@ -217,7 +217,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_5_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_5_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -245,7 +245,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_6.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_6.stl" />
 				</geometry>
 				<material name="Red" />
 			</visual>
@@ -253,7 +253,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_6_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_6_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
@@ -281,7 +281,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_7.stl" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_7.stl" />
 				</geometry>
 				<material name="Blue" />
 			</visual>
@@ -289,14 +289,14 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_7_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_7_collision.stlb"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- extensions -->
-		<xacro:cob_lbr_gazebo_v0 name="${name}" />
-		<xacro:cob_lbr_transmission_v0 name="${name}" />
+		<xacro:cob_lbr_gazebo name="${name}" />
+		<xacro:cob_lbr_transmission name="${name}" />
 
 	</xacro:macro>
 

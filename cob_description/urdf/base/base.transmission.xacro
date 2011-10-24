@@ -5,7 +5,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!--  Caster wheel transmission   -->
-  <xacro:macro name="cob_wheel_transmission_v0" params="suffix parent reflect">
+  <xacro:macro name="cob_wheel_transmission" params="suffix parent reflect">
     <transmission type="pr2_mechanism_model/SimpleTransmission" name="${parent}_${suffix}_wheel_trans">
       <actuator name="${parent}_${suffix}_wheel_motor" />
       <joint name="${parent}_${suffix}_wheel_joint" />
@@ -14,7 +14,7 @@
   </xacro:macro>
 
   <!-- Hub transmission only -->
-  <xacro:macro name="cob_caster_transmission_v0" params="suffix">
+  <xacro:macro name="cob_caster_transmission" params="suffix">
     <transmission type="pr2_mechanism_model/SimpleTransmission" name="${suffix}_rotation_trans">
       <actuator name="${suffix}_rotation_motor" />
       <joint name="${suffix}_rotation_joint" />

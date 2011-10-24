@@ -5,7 +5,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-  <xacro:macro name="cob_wheel_gazebo_v0" params="suffix parent">
+  <xacro:macro name="cob_wheel_gazebo" params="suffix parent">
     <gazebo reference="${parent}_${suffix}_wheel_link">
       <mu1 value="100.0" />
       <mu2 value="100.0" />
@@ -15,13 +15,13 @@
     </gazebo>
   </xacro:macro>
 
-  <xacro:macro name="cob_caster_gazebo_v0" params="suffix">
+  <xacro:macro name="cob_caster_gazebo" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
       <material value="PR2/caster_texture" />
     </gazebo>
   </xacro:macro>
 
-  <xacro:macro name="cob_base_gazebo_v0" params="name">
+  <xacro:macro name="cob_base_gazebo" params="name">
     <gazebo reference="${name}_link">
       <selfCollide>true</selfCollide>
       <sensor:contact name="${name}_contact_sensor">
