@@ -49,7 +49,7 @@
   <!--                                                      -->
   <!--           wheel                                      -->
   <!--                                                      -->
-  <xacro:macro name="cob_wheel_v0" params="suffix parent reflect">
+  <xacro:macro name="cob_wheel" params="suffix parent reflect">
 
     <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
       <axis xyz="0 1 0" />
@@ -85,13 +85,13 @@
     </link>
 
     <!-- extensions -->
-    <xacro:cob_wheel_gazebo_v0 parent="${parent}" suffix="${suffix}" />
-    <xacro:cob_wheel_transmission_v0 parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
+    <xacro:cob_wheel_gazebo parent="${parent}" suffix="${suffix}" />
+    <xacro:cob_wheel_transmission parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
 
   </xacro:macro>
 
   <!-- Macro for Caster hub only -->
-  <xacro:macro name="cob_caster_hub_v0" params="suffix parent *origin ref_position" >
+  <xacro:macro name="cob_caster_hub" params="suffix parent *origin ref_position" >
     <joint name="${suffix}_rotation_joint" type="continuous">
       <axis xyz="0 0 1" />
       <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
@@ -132,22 +132,22 @@
     </link>    
 
     <!-- extensions -->
-    <xacro:cob_caster_transmission_v0 suffix="${suffix}" />
+    <xacro:cob_caster_transmission suffix="${suffix}" />
   </xacro:macro>
 
-  <xacro:macro name="cob_caster_v0" params="suffix parent *origin ref_position">
+  <xacro:macro name="cob_caster" params="suffix parent *origin ref_position">
 
-    <xacro:cob_caster_hub_v0 parent="${parent}" suffix="${suffix}_caster"
+    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster"
                              ref_position="${ref_position}" >
       <insert_block name="origin" />
-    </xacro:cob_caster_hub_v0>
+    </xacro:cob_caster_hub>
 
     <!-- wheel macros -->
-    <!--xacro:cob_wheel_v0 parent="${suffix}_caster" suffix="l" reflect="1" /--> <!--### modified by jie ###-->
-    <xacro:cob_wheel_v0 parent="${suffix}_caster" suffix="r" reflect="-1" />
+    <!--xacro:cob_wheel parent="${suffix}_caster" suffix="l" reflect="1" /--> <!--### modified by jie ###-->
+    <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1" />
 
     <!-- extensions -->
-    <xacro:cob_caster_gazebo_v0 suffix="${suffix}" />
+    <xacro:cob_caster_gazebo suffix="${suffix}" />
   </xacro:macro>
 
 
@@ -230,18 +230,18 @@
     </xacro:hokuyo_lx30_laser_v0>
 
     <!-- all four caster macros -->
-    <xacro:cob_caster_v0 suffix="fl" parent="${name}_link" ref_position="${cal_caster_fl - M_PI/4}" >
+    <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="${cal_caster_fl - M_PI/4}" >
       <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster_v0>
-    <xacro:cob_caster_v0 suffix="fr" parent="${name}_link" ref_position="${cal_caster_fr - M_PI/4}" >
+    </xacro:cob_caster>
+    <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="${cal_caster_fr - M_PI/4}" >
       <origin xyz="${caster_offset_x} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster_v0>
-    <xacro:cob_caster_v0 suffix="bl" parent="${name}_link" ref_position="${cal_caster_bl - M_PI / 4 + M_PI}" >
+    </xacro:cob_caster>
+    <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="${cal_caster_bl - M_PI / 4 + M_PI}" >
       <origin xyz="${-caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster_v0>
-    <xacro:cob_caster_v0 suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI / 4 + M_PI}"  >
+    </xacro:cob_caster>
+    <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI / 4 + M_PI}"  >
       <origin xyz="${-caster_offset_x} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster_v0>
+    </xacro:cob_caster>
 
     <!-- gazebo extensions -->
     <xacro:cob_base_gazebo name="${name}" />
