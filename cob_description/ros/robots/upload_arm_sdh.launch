@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<!-- Send arm and hand urdf to param server -->
-	<param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_description)/ros/robots/arm_sdh.urdf.xacro'" />
-</launch>
-
