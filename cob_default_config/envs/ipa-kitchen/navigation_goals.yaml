@@ -1,6 +1,0 @@
-#[x,y,theta]
-home: [0, 0, 0]
-order: [1, -0.5, -0.7]
-kitchen: [-2.04, 0.3, 0]
-new_kitchen: [-2.14, 0.0, 0]
-kitchen_backwards: [-2.04, 0.3, 3.14]
