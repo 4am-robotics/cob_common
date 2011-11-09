@@ -8,6 +8,7 @@
 
 		<gazebo reference="${name}_frame">
 			<sensor:camera name="${name}_sensor">
+				<!--geom>${name}_link</geom-->
 				<imageFormat>R8G8B8</imageFormat>
 				<imageSize>1338 1038</imageSize>
 				<hfov>45</hfov>
