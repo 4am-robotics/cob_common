@@ -181,7 +181,7 @@ std::string TimeStamp::ToString()
 
 	const struct tm *tm;
 	size_t len;
-	time_t now;
+	//time_t now;
 	char pres[TIME_SIZE];
 	std::string s;
 
