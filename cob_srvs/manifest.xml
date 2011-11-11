@@ -12,8 +12,8 @@
   <depend package="std_msgs"/>
   <depend package="trajectory_msgs"/>
 
-  <export>
+  <!--export>
     <cpp cflags="-I${prefix}/srv/cpp"/>
-  </export>
+  </export-->
 
 </package>
