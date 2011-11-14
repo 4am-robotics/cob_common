@@ -60,18 +60,6 @@
 #ifndef __IPA_CAMERASENSORDEFINES_H__
 #define __IPA_CAMERASENSORDEFINES_H__
 
-#include "opencv2/opencv.hpp"
-
-#include <boost/shared_ptr.hpp>
-#include <boost/progress.hpp>
-#include <boost/timer.hpp>
-
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <limits.h>
-#include <vector>
-
 namespace ipa_CameraSensors {
 
 #if defined _MSC_VER && _MSC_VER >= 1200
