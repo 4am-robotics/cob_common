@@ -4,11 +4,11 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/ros/urdf/head_v1/head.gazebo.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/head_v1/head.transmission.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />
-	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
+	<include filename="$(find cob_description)/urdf/head_v1/head.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/head_v1/head.transmission.xacro" />
+	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+	<!--include filename="$(find cob_description)/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
 
 	<xacro:macro name="cob_head_v1" params="name parent *origin">
 
