@@ -4,11 +4,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.gazebo.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/base_v0/base.transmission.xacro" />
-  <include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />  
+  <include filename="$(find cob_description)/urdf/base_v0_ipa/base.gazebo.xacro" />
+  <include filename="$(find cob_description)/urdf/base_v0_ipa/base.transmission.xacro" />
+  
   <!-- modify here for test -->
-  <include filename="$(find cob_description)/ros/urdf/sensors/sick_s300_laser.urdf.xacro"/>
+  <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
+  <include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
 
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
@@ -220,12 +221,12 @@
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${-base_laser_y} ${base_laser_z}" rpy="0 0 ${-M_PI/4}" />
+      <origin xyz="${base_laser_x} ${-base_laser_y} ${base_laser_z}" rpy="0 0 ${-M_PI/2}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser back -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${3*M_PI/4}" />
+    <xacro:sick_s300_laser_v0 name="${name}_laser_back" parent="${name}" ros_topic="scan_back_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI/2}" />
     </xacro:sick_s300_laser_v0>
 
 
@@ -243,12 +244,6 @@
     <xacro:cob_caster_v0 suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI / 4 + M_PI}"  >
       <origin xyz="${-caster_offset_x} ${-caster_offset_y2} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster_v0>
-
-<!-- cam3d -->
-   <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d/depth" parent="${name}_link">
-                        <origin xyz="0.51 0.12 0.27" rpy="-1.57 0 -1.57" />
-                </xacro:cob_kinect_v0>
-
 
     <!-- gazebo extensions -->
     <xacro:cob_base_gazebo_v0 name="${name}" />
