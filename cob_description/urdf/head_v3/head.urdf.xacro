@@ -48,17 +48,17 @@
 
 		<!-- left camera -->
 		<xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_axis_link">
-			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z-0.06}" rpy="${cam_l_roll} ${cam_l_pitch-1.5708} ${cam_l_yaw}" />
+			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
 		</xacro:cob_prosilica_v0>
 
 		<!-- right camera -->
 		<xacro:cob_prosilica_v0 name="${name}_color_camera_r" ros_topic="stereo/right" parent="${name}_color_camera_l_link">
-			<origin xyz="${cam_r_x+0.12} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
+			<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
 		</xacro:cob_prosilica_v0>
 
 		<!-- cam3d -->
-		<xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_color_camera_l_link">
-			<origin xyz="${cam3d_x+0.06} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
+		<xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_axis_link">
+			<origin xyz="${cam3d_x} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
 		</xacro:cob_kinect_v0>
 
 		<!-- extensions -->
