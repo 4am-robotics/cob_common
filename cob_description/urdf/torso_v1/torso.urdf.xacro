@@ -113,7 +113,7 @@
 
 		<!-- joint between torso_pan_link and torso_upper_neck_tilt_link -->
 		<joint name="${name}_upper_neck_tilt_joint" type="revolute">
-			<origin xyz="0 0 -0.237" rpy="-1.5708 0 0" />
+			<origin xyz="0 0 -0.2565" rpy="-1.5708 0 0" />
 			<parent link="${name}_pan_link"/>
 			<child link="${name}_upper_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
