@@ -1,0 +1,15 @@
+<package>
+  <description brief="cob_default_robot_config">
+
+     Default configuration of the different robots supported by the care-o-bot-research stacks in standard environments.
+     Preconfigured joint positions and navigation goals are provided here. The different configurations are selected by the ROBOT and ROBOT_ENV environment variables.
+
+  </description>
+  <author>Florian Weisshardt</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cob_default_robot_config</url>
+
+</package>
+
+

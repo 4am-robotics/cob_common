@@ -1,0 +1,7 @@
+joint_names: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint]
+
+# trajectory controller settings
+joint_names: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint]
+ptp_vel: 0.4 # rad/sec
+ptp_acc: 0.1 # rad/sec^2
+max_error: 0.2 # rad

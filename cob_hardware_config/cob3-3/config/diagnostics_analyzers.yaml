@@ -1,0 +1,101 @@
+pub_rate: 1.0 # Optional
+base_path: '' # Optional, prepended to all diagnostic output
+analyzers:
+  # computers:
+  #   type: diagnostic_aggregator/AnalyzerGroup
+  #   path: Computers
+  #   # analyzers:
+    #   cpu:
+    #     type: diagnostic_aggregator/GenericAnalyzer
+    #     path: CPU
+    #     expected: ['pc1 CPU Usage',
+    #                'pc1 HD Usage',
+    #                'pc2 CPU Usage',
+    #                'pc2 HD Usage',
+    #                'pc3 CPU Usage',
+    #                'pc3 HD Usage']
+    #   clocks:
+    #     type: diagnostic_aggregator/GenericAnalyzer
+    #     path: Clocks
+    #     expected: ['NTP offset from pc1 to pc1',
+    #                'NTP offset from pc2 to pc1',
+    #                'NTP offset from pc3 to pc1',
+    #                'NTP self-offset for pc1',
+    #                'NTP self-offset for pc2',
+    #                'NTP self-offset for pc3']
+    #   network:
+    #     type: diagnostic_aggregator/GenericAnalyzer
+    #     path: Network
+    #     num_items: 1
+    #     expected: ['Wifi Status (ddwrt)']
+    #     #num_items: 5
+    #     #find_and_remove_prefix: 'multi_interface_roam: '
+
+  # devices:
+  #   type: diagnostic_aggregator/AnalyzerGroup
+  #   path: Devices
+  #   analyzers:
+  #     joystick:
+  #       type: diagnostic_aggregator/GenericAnalyzer
+  #       path: Joystick
+  #       expected: 'joy_node: Joystick Driver Status'
+
+  # power:
+  #   type: diagnostic_aggregator/GenericAnalyzer
+  #   path: 'Power System'
+  #   startswith: 'battery'
+
+  sensors:
+    type: AnalyzerGroup
+    path: Sensors
+    analyzers:
+      laser_top:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Scan Top
+        contains: 'laser_top'
+      laser_rear:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Scan Rear
+        contains: 'laser_rear'
+      laser_front:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Scan Front
+        contains: 'laser_front'
+      stereo_left:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Stereo (Left)
+        startswith: ['stereo/left/color_camera']
+      stereo_right:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Stereo (Right)
+        contains: right
+        startswith: ['stereo/right/color_camera']
+
+  motors:
+    type: AnalyzerGroup
+    path: Actuators
+    analyzers:
+      torso:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Torso
+        contains: 'torso_controller'
+      tray:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Tray
+        contains: 'tray_controller'
+      sdh:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: SDH
+        contains: 'sdh_controller'
+      head:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Head
+        contains: 'head_controller'
+      arm:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: LBR
+        contains: 'cob_lbr'
+      base:
+        type: diagnostic_aggregator/GenericAnalyzer
+        path: Base
+        contains: 'base_controller'

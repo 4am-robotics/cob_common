@@ -1,0 +1,12 @@
+can_module: PCAN
+can_device: /dev/pcan1
+can_baudrate: 1000
+modul_ids: [10]
+joint_names: [torso_tray_joint]
+max_accelerations: [0.8]
+frequency: 68
+OperationMode: position
+ptp_vel: 0.4 # rad/sec
+ptp_acc: 0.6 # rad/sec^2
+max_error: 0.2 # rad
+
