@@ -1,0 +1,48 @@
+# common params
+run_factor: 2.0
+
+# buttons
+lower_neck_button: 6
+upper_neck_button: 4
+tray_button: 3
+arm_joint12_button: 0
+arm_joint34_button: 1
+arm_joint56_button: 2
+arm_joint7_button: 3
+deadman_button: 5
+run_button: 7
+
+# axes
+axis_vx: 1
+axis_vy: 0
+axis_vth: 2
+up_down: 5 #tray--up/down; tilt--front/back, here we just name up_down
+left_right: 4 #pan--left/right
+
+# component configuration
+modules: {
+  base: {
+    max_velocity: [0.3, 0.2, 0.3],
+    max_acceleration: [0.5, 0.5, 0.7]
+  },
+  tray: {
+    joint_names: ['torso_tray_joint'],
+    joint_step: [0.1]
+  },
+  torso: {
+    joint_names: ['torso_lower_neck_tilt_joint','torso_pan_joint','torso_upper_neck_tilt_joint'],
+    joint_step: [0.05,0.075,0.075]
+  },
+  head: {
+    joint_names: ['empty'],
+    joint_step: [0.0]
+  },
+  arm: {
+    joint_names: ['arm_1_joint','arm_2_joint','arm_3_joint','arm_4_joint','arm_5_joint','arm_6_joint','arm_7_joint'],
+    joint_step: [0.1,0.1,0.1,0.1,0.1,0.1,0.1]
+  },
+  sdh: {
+    joint_names: ['empty'],
+    joint_step: [0.0]
+  }
+}

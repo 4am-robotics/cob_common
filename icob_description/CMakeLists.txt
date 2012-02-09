@@ -38,7 +38,7 @@ rosbuild_find_ros_package(convex_decomposition)
 # iterate through all the stl files to:
 #  1. convert to *.iv files
 #  2. generate convex decomposed .stl
-file(GLOB cob_stl_files ${CMAKE_CURRENT_SOURCE_DIR}/ros/meshes/*/*.stl)
+file(GLOB cob_stl_files ${CMAKE_CURRENT_SOURCE_DIR}/meshes/*/*.stl)
 set(cob_gen_files "")
 
 foreach(it ${cob_stl_files})

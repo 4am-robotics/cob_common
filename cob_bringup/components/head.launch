@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node name="head_controller" pkg="cob_head_axis" type="cob_head_axis_node" cwd="node" respawn="false" output="screen" >
+		<param name="CanIniFile" value="$(find cob_hardware_config)/$(env ROBOT)/config/head.ini" />
+		<rosparam command="load" file="$(find cob_hardware_config)/$(env ROBOT)/config/head.yaml"/>
+	</node>
+
+</launch>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- send cob urdf to param server -->
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find cob_hardware_config)/$(env ROBOT)/urdf/$(env ROBOT).urdf.xacro'" />
+
+</launch>
