@@ -6,7 +6,7 @@
 
   <include filename="$(find cob_description)/urdf/base/base.gazebo.xacro" />
   <include filename="$(find cob_description)/urdf/base/base.transmission.xacro" />
-  
+
   <!-- sensors -->
   <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
   <include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
