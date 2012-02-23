@@ -7,31 +7,31 @@
   
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- misc common stuff? -->
-  <include filename="$(find cob_description)/ros/urdf/common.xacro" />
+  <include filename="$(find cob_description)/urdf/common.xacro" />
 
   <!-- calibration -->
-  <include filename="$(find cob_description)/ros/calibration/cob3-4.urdf.xacro" />
+  <include filename="$(find cob_description)/calibration/cob3-4.urdf.xacro" />
   
   <!-- base -->
-  <include filename="$(find cob_description)/ros/urdf/base_v1/base.urdf.xacro" />	<!-- new version; platform_controller and platform_navigation not yet working -->
+  <include filename="$(find cob_description)/urdf/base/base.urdf.xacro" />	<!-- new version; platform_controller and platform_navigation not yet working -->
  
   <!-- torso -->
-  <include filename="$(find cob_description)/ros/urdf/torso_v1/torso.urdf.xacro" />
+  <include filename="$(find cob_description)/urdf/torso_v1/torso.urdf.xacro" />
 
   <!-- head -->
-  <include filename="$(find cob_description)/ros/urdf/head_v3/head.urdf.xacro" />
+  <include filename="$(find cob_description)/urdf/head_v3/head.urdf.xacro" />
 
   <!-- arm -->
-  <include filename="$(find cob_description)/ros/urdf/arm_v1/arm.urdf.xacro" />
+  <include filename="$(find cob_description)/urdf/lbr/lbr.urdf.xacro" />
 
   <!-- sdh -->
-  <include filename="$(find cob_description)/ros/urdf/sdh_v0/sdh.urdf.xacro" />
+  <include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
 
   <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
-  <include filename="$(find cob_description)/ros/gazebo/gazebo.urdf.xacro" />
+  <include filename="$(find cob_description)/gazebo/gazebo.urdf.xacro" />
   
   <!-- materials for visualization -->
-  <include filename="$(find cob_description)/ros/urdf/materials.urdf.xacro" />
+  <include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual cob -->
 
@@ -43,23 +43,22 @@
        the origin block defines where the component is w.r.t its parent (in this case the parent 
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
-  <xacro:cob_base_v1 name="base"/>	<!--with new collision_model, but no platform_controller available yet-->
+  <xacro:cob_base name="base"/>	<!--with new collision_model, but no platform_controller available yet-->
 
   <xacro:cob_torso_v1 name="torso" parent="base_link">
     <origin xyz="0.155 0 0.892" rpy="1.5708 0 0" />
   </xacro:cob_torso_v1>
   
-  <xacro:cob_arm_v1 name="arm" parent="base_link">
-    <!--origin xyz="0.040 -0.005 0.83637" rpy="3.1415926 0.7854 -1.8326" /-->
-    <origin xyz="0.040 -0.005 0.77637" rpy="3.1415926 0.7854 -1.8326" />
-  </xacro:cob_arm_v1>
+  <xacro:cob_lbr_v0 name="arm" parent="base_link">
+    <origin xyz="-0.015982 -0.080992 0.875995" rpy="0.7854 0.0 -0.2618" />
+  </xacro:cob_lbr_v0>
   
   <xacro:cob_head_v3 name="head" parent="torso_upper_neck_tilt_link">
     <origin xyz="0 0.154 0" rpy="0 0 0" />
   </xacro:cob_head_v3>
   
   <xacro:cob_sdh_v0 name="sdh" parent="arm_7_link">
-    <origin xyz="0 0 0" rpy="0 3.1415926 0" />
+    <origin xyz="0 0 0.02" rpy="0 0 1.5708" />
   </xacro:cob_sdh_v0>
   
 </robot>
