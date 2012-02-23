@@ -225,7 +225,7 @@
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser back -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_back" parent="${name}" ros_topic="scan_back_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI/2}" />
     </xacro:sick_s300_laser_v0>
 
