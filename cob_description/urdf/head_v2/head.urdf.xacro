@@ -4,13 +4,13 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/ros/urdf/head_v0/head.gazebo.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/head_v0/head.transmission.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/kinect.urdf.xacro" />
-	<!--include filename="$(find cob_description)/ros/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
+	<include filename="$(find cob_description)/urdf/head_v2/head.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/head_v2/head.transmission.xacro" />
+	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+	<!--include filename="$(find cob_description)/urdf/sensors/hokuyo_SR400_laser.urdf.xacro" /-->
 
-	<xacro:macro name="cob_head_v0" params="name parent *origin">
+	<xacro:macro name="cob_head_v2" params="name parent *origin">
 
 		<!-- joint between torso_upper_neck_tilt_link and head_axis_link -->
 		<joint name="${name}_axis_joint" type="revolute">
@@ -58,12 +58,12 @@
 
 		<!-- cam3d -->
 		<xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d/depth/points1" parent="${name}_color_camera_l_link">
-			<origin xyz="${cam3d_x-0.06} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
+			<origin xyz="${cam3d_x-0.06} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw+3.14}" />
 		</xacro:cob_kinect_v0>
 
 		<!-- extensions -->
-		<xacro:cob_head_gazebo_v0 name="${name}" />
-		<xacro:cob_head_transmission_v0 name="${name}" />
+		<xacro:cob_head_gazebo_v2 name="${name}" />
+		<xacro:cob_head_transmission_v2 name="${name}" />
 
 	</xacro:macro>
 
