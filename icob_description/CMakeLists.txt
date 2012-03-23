@@ -29,8 +29,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
 
-#rosbuild_add_gtest(test_urdf test/test_urdf.cpp)
-
 # mesh file generations
 rosbuild_find_ros_package(ivcon)
 rosbuild_find_ros_package(convex_decomposition)
