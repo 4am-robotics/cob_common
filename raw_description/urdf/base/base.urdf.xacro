@@ -166,7 +166,7 @@
       <visual>
         <origin xyz="0 0 0.045" rpy="${M_PI/2} 0 0" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
-          <mesh filename="package://icob_description/meshes/base/base.stl"/>
+          <mesh filename="package://raw_description/meshes/base/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
         <material name="Green"/>
@@ -176,7 +176,7 @@
         <origin xyz="0 0 0.045" rpy="${M_PI/2} 0 0" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
 		  <!--box size="0.001 0.001 0.001" /-->
-	      <mesh filename="package://icob_description/meshes/base/base.stlb"/>
+	      <mesh filename="package://raw_description/meshes/base/base.stlb"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
@@ -217,12 +217,12 @@
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${-base_laser_y} ${base_laser_z}" rpy="0 0 ${-M_PI/4}" />
+      <origin xyz="${base_laser_x} ${-base_laser_y} ${base_laser_z}" rpy="0 0 ${-M_PI/2}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${3*M_PI/4}" />
+      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI/2}" />
     </xacro:sick_s300_laser_v0>
 
 
