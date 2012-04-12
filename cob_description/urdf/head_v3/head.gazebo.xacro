@@ -10,7 +10,7 @@
 		<gazebo reference="${name}_axis_link">
 			<material>Gazebo/Green</material>
 			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
+		</gazebo> 
 
 	</xacro:macro>
 
