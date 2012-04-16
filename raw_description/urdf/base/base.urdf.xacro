@@ -164,7 +164,7 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0.045" rpy="${M_PI/2} 0 0" />  <!--TODO: fix this in stl orientation not in urdf -->
+        <origin xyz="0 0 0.045" rpy="${M_PI/2} 0 3.14" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
           <mesh filename="package://raw_description/meshes/base/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
