@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<include filename="$(find raw_description)/urdf/arm_ur/arm.gazebo.xacro" />
+	<include filename="$(find raw_description)/urdf/arm_ur/arm.transmission.xacro" />
+
+	<xacro:macro name="cob_arm_ur" params="parent name *origin">
+
+		<!-- joint between base_link and arm_0_link -->
+		<joint name="${name}_0_joint" type="fixed" >
+			<insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_0_link" />
+		</joint>
+
+
+		<link name="${name}_0_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.57307"/>
+				<inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+			</inertial>
+
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" /> 
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm0.stl" />
+				</geometry>
+				<material name="Grey" />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm0.stlb" />
+				</geometry>
+			</collision>
+		</link> 
+
+		<!-- joint between arm_0_link and arm_1_link -->
+		<joint name="${name}_1_joint" type="revolute">
+			<origin xyz="-0.088 0 0" rpy="0 0 0"/>
+			<parent link="${name}_0_link"/>
+			<child link="${name}_1_link"/>
+			<axis xyz="-1 0 0"/>
+			<calibration rising="${arm_0_ref}"/>
+			<dynamics damping="10" />
+			<limit effort="370" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
+			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
+		</joint>
+
+		<link name="${name}_1_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<mass value="2.450147"/>
+				<!--inertia ixx="5.18" ixy="0.113" ixz="0" iyy="5.145" iyz="0" izz="5.93" /-->
+				 <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
+
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm1.stl" />
+				</geometry>
+				<material name="Blue" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm1.stlb" />
+				</geometry>
+			</collision>
+		</link>
+
+		<!-- joint between arm_1_link and arm_2_link 	-->
+		<joint name="${name}_2_joint" type="revolute">
+			<!--origin xyz="0 0.1357 0" rpy="0 0 0"/-->
+			<origin xyz="0 -0.1357 0" rpy="0 0 0"/>
+			<parent link="${name}_1_link"/>
+			<child link="${name}_2_link"/>
+			<axis xyz="0 -1 0"/>
+			<calibration rising="${arm_1_ref}"/>
+			<dynamics damping="10" />
+			<limit effort="370" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
+			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-6.2831853 + 0.01}" 	soft_upper_limit="${6.2831853 - 0.01}" />
+		</joint>
+
+		<link name="${name}_2_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="8.49454"/>
+				<!--inertia ixx="14.92" ixy="1.22" ixz="0" iyy="588.61" iyz="0" izz="590.14" /-->
+				 <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm2.stl" />
+				</geometry>
+				<material name="Red" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm2.stlb"/>
+				</geometry>
+			</collision>
+		</link> 
+
+		<!-- joint between arm_2_link and arm_3_link -->	
+		<joint name="${name}_3_joint" type="revolute">
+			<origin xyz="-0.415 0.142 0" rpy="0 0 0"/>
+			<parent link="${name}_2_link"/>
+			<child link="${name}_3_link"/>
+			<axis xyz="0 -1 0"/>
+			<calibration rising="${arm_2_ref}"/>
+			<dynamics damping="5" />
+			<limit effort="176" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
+		</joint>
+
+		<link name="${name}_3_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="4.103"/>
+				<!--inertia ixx="5.18" ixy="-14.49" ixz="0.27" iyy="277.53" iyz="-1.2167" izz="278.95" /-->
+				 <inertia ixx="0.03" ixy="0.0" ixz="0.27" iyy="1.0" iyz="-0.8167" izz="1.0" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm3.stl" />
+				</geometry>
+				<material name="Blue" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm3.stlb"/>
+				</geometry>
+			</collision>
+		</link>	
+
+		<!-- joint between arm_3_link and arm_4_link -->
+		<joint name="${name}_4_joint" type="revolute">
+			<origin xyz="-0.392 -0.11 0" rpy="0 3.14159 0" />
+			<parent link="${name}_3_link"/>
+			<child link="${name}_4_link"/>
+			<axis xyz="0 -1 0" />
+			<calibration rising="${arm_3_ref}"/>
+			<dynamics damping="5" />
+			<limit effort="176" velocity="2.0" lower="-6.2831853" upper="6.2831853"/>
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
+		</joint>
+
+		<link name="${name}_4_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.823"/>
+				<!--inertia ixx="0.74" ixy="0" ixz="0" iyy="0.96" iyz="0" izz="1.096" /-->
+				 <inertia ixx="0.74" ixy="0" ixz="0" iyy="0.96" iyz="0" izz="0.03" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm4.stl" />
+				</geometry>
+				<material name="Red" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm4.stlb"/>
+				</geometry>
+			</collision>
+		</link> 
+
+		<!-- joint between arm_4_link and arm_5_link -->
+		<joint name="${name}_5_joint" type="revolute">
+			<origin xyz="-0.08984 0 0" rpy="3.14159 3.14159 3.14159" />
+			<parent link="${name}_4_link"/>
+			<child link="${name}_5_link"/>
+			<axis xyz="-1 0 0" />
+			<calibration rising="${arm_4_ref}"/>
+			<dynamics damping="5" />
+			<limit effort="41.6" velocity="2.0" lower="-6.2831853" upper="6.2831853" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
+		</joint>
+
+		<link name="${name}_5_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.823"/>
+				<!--inertia ixx="0.746" ixy="0" ixz="0" iyy="0.96" iyz="0" izz="1.096" /-->
+				 <inertia ixx="0.746" ixy="0" ixz="0" iyy="0.96" iyz="0" izz="0.03" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm5.stl" />
+				</geometry>
+				<material name="Blue" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm5.stlb"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<!-- joint between arm_5_link and arm_6_link -->
+		<joint name="${name}_6_joint" type="revolute">
+			<origin xyz="0 -0.043 0" rpy="0 0 0" />
+			<parent link="${name}_5_link"/>
+			<child link="${name}_6_link"/>
+			<axis xyz="0 -1 0" />
+			<calibration rising="${arm_5_ref}"/>
+			<dynamics damping="5" />
+			<limit effort="20.1" velocity="2.0" lower="-6.2831853" upper="6.2831853" />
+			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-6.2831853 + 0.01}" soft_upper_limit="${6.2831853 - 0.01}" />
+		</joint>
+
+		<link name="${name}_6_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.24498"/>
+				<!--inertia ixx="0.202" ixy="0" ixz="0" iyy="0.169" iyz="0" izz="0.202" /-->
+				<inertia ixx="0.202" ixy="0" ixz="0" iyy="0.169" iyz="0" izz="0.202" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm6.stl" />
+				</geometry>
+				<material name="Red" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://raw_description/meshes/arm_ur/arm6.stlb"/>
+				</geometry>
+			</collision>
+		</link> 
+
+
+		<!-- extensions -->
+		<xacro:cob_arm_gazebo name="${name}" />
+		<xacro:cob_arm_transmission name="${name}" />
+
+	</xacro:macro>
+
+</robot>

@@ -1,0 +1,4 @@
+<launch>
+  <test test-name="cob3-1_test" pkg="cob_description" type="test_urdf" args="$(find cob_description)/ros/robots/cob3-1.urdf.xacro"/>
+  <test test-name="cob3-2_test" pkg="cob_description" type="test_urdf" args="$(find cob_description)/ros/robots/cob3-2.urdf.xacro"/>
+</launch> 

@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+PKG='cob_description'
+import roslib; roslib.load_manifest(PKG)
+
+import sys
+import os
+import unittest
+
+## A sample python unit test
+class TestUrdf(unittest.TestCase):
+
+	def test_correct_format(self):
+		print sys.argv
+		print len(sys.argv)
+	
+		if len(sys.argv) < 2:
+			self.fail("no urdf file given, usage: " + os.path.basename(sys.argv[0]) + " file.urdf.xacro. \ninput parameters are: " + str(sys.argv))
+	
+		file_to_test = sys.argv[1]
+		print "testing " + file_to_test
+		
+		if os.system("`rospack find xacro`/xacro.py " + file_to_test + " > /tmp/test.urdf") != 0:
+			self.fail("cannot convert xacro")
+
+		if os.system("`rospack find urdf_parser`/bin/check_urdf /tmp/test.urdf") != 0:
+			self.fail("urdf not correct")
+ 
+if __name__ == '__main__':
+	import rosunit
+	rosunit.unitrun(PKG, 'test_urdf', TestUrdf) 
