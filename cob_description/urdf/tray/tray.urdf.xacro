@@ -43,6 +43,31 @@
 			</collision>
 		</link>
 
+		<!-- additional links at the corners of the tray -->
+		<joint name="${name}_base_joint" type="fixed" >
+			<origin xyz="0 0 0" rpy="-2.3561 0 0"/>
+			<parent link="${name}_link" />
+			<child link="${name}_base_link" />
+		</joint>
+
+		<link name="${name}_base_link"/>
+
+		<joint name="${name}_right_joint" type="fixed" >
+			<origin xyz="0.4 -0.3 0.1" rpy="0 0 0"/>
+			<parent link="${name}_base_link" />
+			<child link="${name}_right_link" />
+		</joint>
+
+		<link name="${name}_right_link"/>
+
+		<joint name="${name}_left_joint" type="fixed" >
+			<origin xyz="0.4 0.05 0.1" rpy="0 0 0"/>
+			<parent link="${name}_base_link" />
+			<child link="${name}_left_link" />
+		</joint>
+
+		<link name="${name}_left_link"/>
+
 		<!-- extensions -->
 		<xacro:cob_tray_gazebo name="${name}" />
 		<xacro:cob_tray_transmission name="${name}" />
