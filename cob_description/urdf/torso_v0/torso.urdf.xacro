@@ -64,7 +64,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/lower_neck.stl" />
+					<mesh filename="package://cob_description/meshes/torso/lower_neck.stl" />
 				</geometry>
 				<material name="Red" />
 			</visual>
@@ -72,7 +72,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/lower_neck_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/torso/lower_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -132,7 +132,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/upper_neck.stl" />
+					<mesh filename="package://cob_description/meshes/torso/upper_neck.stl" />
 				</geometry>
 				<material name="Grey" />
 			</visual>
@@ -140,7 +140,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/upper_neck_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/torso/upper_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -162,7 +162,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/head_cover.stl" />
+					<mesh filename="package://cob_description/meshes/torso/head_cover.stl" />
 				</geometry>
 				<material name="Blue" />
 			</visual>
@@ -170,7 +170,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/head_cover_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/torso/head_cover_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
