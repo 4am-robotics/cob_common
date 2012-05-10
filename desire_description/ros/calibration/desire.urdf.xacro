@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <robot>
 
-	<!-- common properties -->
-	<property name="M_PI" value="3.1415926535897931" />
-
 	<!-- head reference positions -->
 	<property name="head_pan_ref" value="0.55" />
 	<property name="head_tilt_ref" value="0.0" />

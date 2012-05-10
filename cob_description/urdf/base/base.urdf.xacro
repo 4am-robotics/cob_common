@@ -16,8 +16,6 @@
   <!-- all link geometry sizes are obtained from Function provided CAD model unless stated otherwise -->
   <!-- all simplified collision geometry are hand approximated from CAD model, sometimes from respective bounding boxes -->
 
-  <property name="M_PI" value="3.1415926535897931" />
-
   <property name="caster_offset_x" value="0.235" />  <!--modify here-->
   <property name="caster_offset_y" value="0.185" />
   <property name="caster_offset_z" value="0.075" />
