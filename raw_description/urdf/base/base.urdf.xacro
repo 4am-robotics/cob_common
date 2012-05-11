@@ -32,16 +32,17 @@
   <property name="base_cg_z" value="0" />
   <property name="base_mass" value="116.0" />           
 
-  <!-- simplified box collision geometry for base -->
-  <property name="base_size_x" value="0.94" />
-  <property name="base_size_y" value="0.47" />
-  <property name="base_size_z" value="0.23" />
-  <property name="base_collision_size_z" value="0.04" />
+  <!-- simplified box collision geometry for battery -->
+  <property name="battery_size_x" value="0.24" />
+  <property name="battery_size_y" value="0.48" />
+  <property name="battery_size_z" value="0.148" />
+  <!--property name="base_collision_size_z" value="0.04" /-->
 
   <!-- simplified box collision geometry for hokuyo laser -->
   <property name="base_laser_x" value="0.465" />
-  <property name="base_laser_y" value="0.232" />
-  <property name="base_laser_z" value="0.15607" />
+  <property name="base_laser_y_back" value="0.259" />
+  <property name="base_laser_y_front" value="0.203" />
+  <property name="base_laser_z" value="0.178" />
   <property name="base_laser_size_x" value="0.06" />
   <property name="base_laser_size_y" value="0.06" />
   <property name="base_laser_size_z" value="0.03" />
@@ -70,17 +71,19 @@
                   iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+          <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
+	  <mesh filename="package://raw_description/meshes/base/raw_base_wheel.stlb"/>
         </geometry>
         
         <material name="Wheel_${suffix}" />
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
+        <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
-          <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+          <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
+	  <mesh filename="package://raw_description/meshes/base/raw_base_wheel.stlb"/>
         </geometry>
       </collision>
     </link>
@@ -114,14 +117,15 @@
 
       <visual>
         <!--origin xyz="0 0 0.085" rpy="0 0 0" /-->  <!--modified by jie-->
-		<origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
+		<origin xyz="0 0 0.002" rpy="${M_PI/2} 0.0 ${-M_PI/2}" />
         <geometry>
           <!--mesh filename="package://cob_description/meshes/base/caster.stl" /-->  <!--modified by jie-->
           <!--box size="0.192 0.164 0.013" /-->
-		  <box size="0.001 0.001 0.001" />
+	  <mesh filename="package://raw_description/meshes/base/raw_base_caster.stlb"/>
+		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
-        <material name="Green" />
+        <material name="Grey2" />
       </visual>
 
       <collision>
@@ -153,7 +157,7 @@
 
 
   <!-- The xacro macro xacro:cob_base contains: base, casters and wheels -->
-  <xacro:macro name="icob_base" params="name">
+  <xacro:macro name="raw_base" params="name">
   <link name="${name}_link">
 
       <inertial>
@@ -164,24 +168,90 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0.045" rpy="${M_PI/2} 0 0" />  <!--TODO: fix this in stl orientation not in urdf -->
+        <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
-          <mesh filename="package://raw_description/meshes/base/base.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_base_frame.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
-        <material name="Green"/>
+        <material name="Grey2"/>
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.045" rpy="${M_PI/2} 0 0" />  <!--TODO: fix this in stl orientation not in urdf -->
+        <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
-		  <!--box size="0.001 0.001 0.001" /-->
-	      <mesh filename="package://raw_description/meshes/base/base.stlb"/>
+	      <!--box size="0.001 0.001 0.001" /-->
+	      <mesh filename="package://raw_description/meshes/base/raw_base_frame.stlb"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
       
     </link>
+
+
+    <link name="${name}_tower">
+       
+	<visual>
+	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
+	  <geometry>
+          <mesh filename="package://raw_description/meshes/base/raw_base_tower.stl"/>
+          <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
+          </geometry> 
+          <material name="Green"/>
+        </visual>
+
+       <collision>
+        <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/> <!--TODO: fix this in stl orientation not in urdf -->
+        <geometry>
+		  <!--box size="0.001 0.001 0.001" /-->
+	      <mesh filename="package://raw_description/meshes/base/raw_base_tower_collision.stlb"/>
+          <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
+        </geometry>
+        </collision>
+
+    </link>
+
+
+
+    <link name="${name}_battery_front">
+       
+	<visual>
+	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
+	  <geometry>
+           <mesh filename="package://raw_description/meshes/base/raw_base_battery_front.stl"/>
+          </geometry> 
+          <material name="Red"/>
+        </visual>
+
+       <collision>
+        <origin xyz="0 0 0.075" rpy="0 0 0"/> 
+        <geometry>
+	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
+	      <!--mesh filename="package://raw_description/meshes/base/raw_base_battery_front.stlb"/-->
+        </geometry>
+        </collision>
+
+    </link>
+
+    <link name="${name}_battery_back">
+       
+	<visual>
+	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
+	  <geometry>
+            <mesh filename="package://raw_description/meshes/base/raw_base_battery_back.stl"/>
+          </geometry> 
+          <material name="Red"/>
+        </visual>
+
+       <collision>
+        <origin xyz="0 0 0.075" rpy="0 0 0"/> 
+        <geometry>
+	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
+	      <!--mesh filename="package://raw_description/meshes/base/raw_base_battery_back.stlb"/-->
+        </geometry>
+        </collision>
+
+    </link>
+
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
@@ -214,38 +284,52 @@
       <parent link="${name}_footprint"/>
     </joint>
 
+
+    <joint name="${name}_frame_joint" type="fixed">
+      <origin xyz=" -0.36 0 0.48" rpy="0 0 0" /> <!-- with the right offset !-->
+      <child link="${name}_tower" />
+      <parent link="${name}_link"/>
+    </joint>
+
+    <joint name="${name}_battery_front_joint" type="fixed">
+      <origin xyz=" -0.141 0.021 0.065" rpy="0 0 0" /> 
+      <child link="${name}_battery_front" />
+      <parent link="${name}_link"/>
+    </joint>
+
+    <joint name="${name}_battery_back_joint" type="fixed">
+      <origin xyz=" 0.139 0.036 0.065" rpy="0 0 0" /> 
+      <child link="${name}_battery_back" />
+      <parent link="${name}_link"/>
+    </joint>
+
+
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${-base_laser_y} ${base_laser_z}" rpy="0 0 ${-M_PI/2}" />
+      <origin xyz="${base_laser_x} ${-base_laser_y_front} ${base_laser_z}" rpy="${-M_PI/2} 0 ${M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI/2}" />
+      <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="${-M_PI/2} 0 ${-3*M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
 
 
     <!-- all four caster macros -->
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="${cal_caster_fl - M_PI/4}" >
-      <origin xyz="${caster_offset_x} ${caster_offset_y2} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${-caster_offset_x} ${-caster_offset_y1} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
     <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="${cal_caster_fr - M_PI/4}" >
-      <origin xyz="${caster_offset_x} ${-caster_offset_y1} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${-caster_offset_x} ${caster_offset_y2} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
     <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="${cal_caster_bl - M_PI / 4 + M_PI}" >
-      <origin xyz="${-caster_offset_x} ${caster_offset_y1} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${caster_offset_x} ${-caster_offset_y1} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
     <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI / 4 + M_PI}"  >
-      <origin xyz="${-caster_offset_x} ${-caster_offset_y2} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${caster_offset_x} ${caster_offset_y2} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-
-   <!-- cam3d -->
-   <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_link">
-      <origin xyz="0.51 0.12 0.27" rpy="-1.57 0 -1.57" />
-   </xacro:cob_kinect_v0>
-
 
     <!-- gazebo extensions -->
     <xacro:cob_base_gazebo name="${name}" />
