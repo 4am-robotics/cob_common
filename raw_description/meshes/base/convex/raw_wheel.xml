@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <NXUSTREAM2>
+    <NxuPhysicsCollection id="beshon" sdkVersion="244" nxuVersion="100">
+      <NxPhysicsSDKDesc id="SDK">
+        <hwPageSize>65536</hwPageSize>
+        <hwPageMax>256</hwPageMax>
+        <hwConvexMax>2048</hwConvexMax>
+      </NxPhysicsSDKDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_0">
+    <points>
+      0 0.0125 0.0625  0 -0.0125 0.0625  -0.044020481 -0.0125 0.044087984  0 0.0025 0.079999998  
+      -0.044020481 0.0125 0.044087984  -0.053551231 0.01059 0.053618729  -0.055113479 -0.008378 0.055180982  -0.042911001 -0.008378 0.065242998  
+      0 -0.01059 0.075878002  -0.035684001 0.00559 0.071052998  -0.008809 0.01059 0.075364999  -0.018336 -0.00559 0.077367  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  4 0 2  4 2 5  
+      6 5 2  6 2 7  8 1 3  8 2 1  
+      8 7 2  9 5 6  9 6 7  10 5 9  
+      10 3 0  10 9 3  10 0 4  10 4 5  
+      11 3 9  11 9 7  11 7 8  11 8 3  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_1">
+    <points>
+      0 -0.0125 0.0625  0.044020481 0.0125 0.044087984  0.044020481 -0.0125 0.044087984  0.025952 -0.01059 0.071301997  
+      0 0.0125 0.0625  0 0.0025 0.079999998  0.053551227 -0.01059 0.053618729  0.051422998 0.0025 0.061283998  
+      0.025952 0.01059 0.071301997  0 -0.01059 0.075878002  0.055113479 0.008378 0.055180982  0 0.01059 0.075878002  
+    </points>
+    <triangles>
+      0 1 2  0 2 3  4 1 0  4 0 5  
+      6 2 1  6 3 2  6 7 3  8 1 4  
+      8 5 3  8 3 7  9 3 5  9 5 0  
+      9 0 3  10 1 8  10 8 7  10 7 6  
+      10 6 1  11 4 5  11 5 8  11 8 4  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_2">
+    <points>
+      0 0.0125 -0.0625  0 -0.0125 -0.0625  0 -0.0025 -0.079999998  -0.044020481 0.0125 -0.044087984  
+      -0.044020481 -0.0125 -0.044087984  -0.053551227 -0.01059 -0.053618729  -0.055113479 0.008378 -0.055180982  -0.042911001 0.008378 -0.065242998  
+      0 0.01059 -0.075878002  -0.035684001 -0.00559 -0.071052998  -0.008809 -0.01059 -0.075364999  -0.018336 0.00559 -0.077367  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  4 1 3  4 3 5  
+      6 5 3  6 3 7  8 0 2  8 3 0  
+      8 7 3  9 5 6  9 6 7  10 5 9  
+      10 2 1  10 9 2  10 1 4  10 4 5  
+      11 2 9  11 9 7  11 7 8  11 8 2  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_3">
+    <points>
+      0 0.0125 -0.0625  0.044020481 -0.0125 -0.044087984  0.044020481 0.0125 -0.044087984  0 -0.0125 -0.0625  
+      0 -0.0025 -0.079999998  0.034054 -0.01059 -0.067806996  0.017499 0.01059 -0.073833004  0.051422998 0.0025 -0.061283998  
+      0.053551231 -0.01059 -0.053618729  0 0.01059 -0.075878002  0.055113479 0.008378 -0.055180982  0 -0.01059 -0.075878002  
+    </points>
+    <triangles>
+      0 1 2  3 1 0  3 0 4  5 1 3  
+      6 7 5  6 5 4  6 0 2  8 1 5  
+      8 5 7  8 2 1  9 4 0  9 0 6  
+      9 6 4  10 2 8  10 8 7  10 7 6  
+      10 6 2  11 3 4  11 4 5  11 5 3  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_4">
+    <points>
+      -0.044020481 -0.0125 -0.044087984  -0.062233001 0.0125 0  -0.062233001 -0.0125 0  -0.044020481 0.0125 -0.044087984  
+      -0.056462124 -0.0025 -0.056529623  -0.069672003 0.01059 -0.030053999  -0.075749002 0.01059 0  -0.079865001 -0.0025 -0.004652  
+      -0.069672003 -0.01059 -0.030053999  -0.053551227 0.01059 -0.053618729  -0.075749002 -0.01059 0  -0.053551227 -0.01059 -0.053618729  
+    </points>
+    <triangles>
+      0 1 2  3 1 0  3 0 4  5 1 3  
+      6 1 5  6 5 7  6 2 1  8 7 5  
+      8 5 4  8 0 2  9 3 4  9 4 5  
+      9 5 3  10 7 8  10 8 2  10 2 6  
+      10 6 7  11 4 0  11 0 8  11 8 4  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_5">
+    <points>
+      0.044020481 0.0125 0.044087984  0.051582355 -0.012011 0.051649857  0.056461956 0.0025 0.056529455  0.076903999 -0.008378 0.01356  
+      0.062233001 -0.0125 -0  0.062233001 0.0125 -0  0.075749002 0.01059 -0  0.077958003 -0.008378 -0  
+      0.044020481 -0.0125 0.044087984  0.073008001 0.00559 0.031493001  0.055192001 0.01059 0.052071001  0.068857998 -0.00559 0.039755002  
+    </points>
+    <triangles>
+      0 1 2  3 1 4  5 4 0  5 6 4  
+      7 4 6  7 6 3  7 3 4  8 0 4  
+      8 4 1  8 1 0  9 3 6  10 9 6  
+      10 0 2  10 2 9  10 6 5  10 5 0  
+      11 3 9  11 9 2  11 2 1  11 1 3  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_6">
+    <points>
+      -0.044020481 -0.0125 0.044087984  -0.044020481 0.0125 0.044087984  -0.056461956 0.0025 0.056529455  -0.062233001 0.0125 0  
+      -0.072967 -0.012011 0  -0.075749002 0.01059 0  -0.062233001 -0.0125 0  -0.060862999 -0.01059 0.045311  
+      -0.076638997 -0.0025 0.022944  -0.053551231 -0.01059 0.053618729  -0.071704 0.008378 0.030929999  -0.079865001 -0.0025 0  
+    </points>
+    <triangles>
+      0 1 2  3 4 5  3 5 1  3 1 0  
+      6 0 4  6 4 3  6 3 0  7 2 8  
+      7 4 0  7 8 4  9 0 2  9 2 7  
+      9 7 0  10 5 8  10 8 2  10 2 1  
+      10 1 5  11 5 4  11 4 8  11 8 5  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_7">
+    <points>
+      0.044020481 -0.0125 -0.044087984  0.062233001 -0.0125 -0  0.044020481 0.0125 -0.044087984  0.056462124 -0.0025 -0.056529623  
+      0.079375997 -0.00559 -0  0.076638997 0.0025 -0.022944  0.072967 0.012011 -0  0.062233001 0.0125 -0  
+      0.060862999 0.01059 -0.045311  0.065711997 -0.01059 -0.037939001  0.053551231 0.01059 -0.053618729  0.053551231 -0.01059 -0.053618729  
+    </points>
+    <triangles>
+      0 1 2  0 2 3  4 5 6  4 6 1  
+      7 1 6  7 6 2  7 2 1  8 5 3  
+      8 6 5  8 2 6  9 3 5  9 5 4  
+      9 1 0  9 4 1  10 3 2  10 2 8  
+      10 8 3  11 0 3  11 3 9  11 9 0  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxSceneDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel">
+        <filterBool>false</filterBool>
+        <filterOp0>NX_FILTEROP_AND</filterOp0>
+        <filterOp1>NX_FILTEROP_AND</filterOp1>
+        <filterOp2>NX_FILTEROP_AND</filterOp2>
+        <NxGroupsMask id="groupMask0" bits0="0" bits1="0" bits2="0" bits3="0"/>
+        <NxGroupsMask id="groupMask1" bits0="0" bits1="0" bits2="0" bits3="0"/>
+        <gravity>0 -9.800000191 0</gravity>
+        <maxTimestep>0.016666668</maxTimestep>
+        <maxIter>8</maxIter>
+        <timeStepMethod>NX_TIMESTEP_FIXED</timeStepMethod>
+        <maxBounds>FLT_MIN FLT_MIN FLT_MIN  FLT_MAX FLT_MAX FLT_MAX</maxBounds>
+        <NxSceneLimits id="limits">
+          <maxNbActors>0</maxNbActors>
+          <maxNbBodies>0</maxNbBodies>
+          <maxNbStaticShapes>0</maxNbStaticShapes>
+          <maxNbDynamicShapes>0</maxNbDynamicShapes>
+          <maxNbJoints>0</maxNbJoints>
+        </NxSceneLimits>
+        <simType>NX_SIMULATION_SW</simType>
+        <groundPlane>true</groundPlane>
+        <boundsPlanes>false</boundsPlanes>
+        <NxSceneFlags id="flags">
+          <NX_SF_DISABLE_SSE>false</NX_SF_DISABLE_SSE>
+          <NX_SF_DISABLE_COLLISIONS>false</NX_SF_DISABLE_COLLISIONS>
+          <NX_SF_SIMULATE_SEPARATE_THREAD>true</NX_SF_SIMULATE_SEPARATE_THREAD>
+          <NX_SF_ENABLE_MULTITHREAD>false</NX_SF_ENABLE_MULTITHREAD>
+        </NxSceneFlags>
+        <internalThreadCount>0</internalThreadCount>
+        <backgroundThreadCount>0</backgroundThreadCount>
+        <threadMask>1431655764</threadMask>
+        <backgroundThreadMask>1431655764</backgroundThreadMask>
+        <NxMaterialDesc id="Material_0" userProperties="" hasSpring="false" materialIndex="0">
+          <dynamicFriction>0.5</dynamicFriction>
+          <staticFriction>0.5</staticFriction>
+          <restitution>0</restitution>
+          <dynamicFrictionV>0</dynamicFrictionV>
+          <staticFrictionV>0</staticFrictionV>
+          <frictionCombineMode>NX_CM_AVERAGE</frictionCombineMode>
+          <restitutionCombineMode>NX_CM_AVERAGE</restitutionCombineMode>
+          <dirOfAnisotropy>1 0 0</dirOfAnisotropy>
+          <NxMaterialFlag id="flags">
+            <NX_MF_ANISOTROPIC>false</NX_MF_ANISOTROPIC>
+            <NX_MF_DISABLE_FRICTION>false</NX_MF_DISABLE_FRICTION>
+            <NX_MF_DISABLE_STRONG_FRICTION>false</NX_MF_DISABLE_STRONG_FRICTION>
+          </NxMaterialFlag>
+        </NxMaterialDesc>
+    <NxActorDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel" userProperties="" hasBody="true" name="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel">
+      <globalPose>1 0 0    0 1 0    0 0 1    0 0 0 </globalPose>
+			<NxBodyDesc>
+        <mass>1</mass>
+        <linearDamping>0</linearDamping>
+        <angularDamping>0</angularDamping>
+        <solverIterationCount>32</solverIterationCount>
+        <NxBodyFlag id="flags">
+          <NX_BF_POSE_SLEEP_TEST>true</NX_BF_POSE_SLEEP_TEST>
+          <NX_AF_DISABLE_COLLISION>false</NX_AF_DISABLE_COLLISION>
+        </NxBodyFlag>
+      </NxBodyDesc>
+      <name>Bip01 Pelvis</name>
+      <NxConvexShapeDesc id="Shape_0" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_0">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_1" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_1">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_2" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_2">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_3" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_3">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_4" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_4">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_5" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_5">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_6" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_6">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_7" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel_7">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+    </NxActorDesc>
+  </NxSceneDesc>
+	 <NxSceneInstance id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_wheel">
+	 	 <sceneName>beshon</sceneName>
+	 	 <NxuUserProperties></NxuUserProperties>
+	 	 <rootNode>1	0	0	0	1	0	0	0	1	0	0 0</rootNode>
+	 	 <newScene>false</newScene>
+	 	 <ignorePlane>true</ignorePlane>
+	 	 <numSceneInstances>0</numSceneInstances>
+	 </NxSceneInstance>
+  </NxuPhysicsCollection>
+</NXUSTREAM2>

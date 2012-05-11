@@ -74,7 +74,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_base_wheel.stlb"/>
+	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stlb"/>
         </geometry>
         
         <material name="Wheel_${suffix}" />
@@ -83,7 +83,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_base_wheel.stlb"/>
+	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stlb"/>
         </geometry>
       </collision>
     </link>
@@ -121,7 +121,7 @@
         <geometry>
           <!--mesh filename="package://cob_description/meshes/base/caster.stl" /-->  <!--modified by jie-->
           <!--box size="0.192 0.164 0.013" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_base_caster.stlb"/>
+	  <mesh filename="package://raw_description/meshes/base/raw_caster.stlb"/>
 		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
@@ -170,7 +170,7 @@
       <visual>
         <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
-          <mesh filename="package://raw_description/meshes/base/raw_base_frame.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
         <material name="Grey2"/>
@@ -180,7 +180,7 @@
         <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
 	      <!--box size="0.001 0.001 0.001" /-->
-	      <mesh filename="package://raw_description/meshes/base/raw_base_frame.stlb"/>
+	      <mesh filename="package://raw_description/meshes/base/raw_base.stlb"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
@@ -193,7 +193,7 @@
 	<visual>
 	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
 	  <geometry>
-          <mesh filename="package://raw_description/meshes/base/raw_base_tower.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_tower.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
           </geometry> 
           <material name="Green"/>
@@ -203,7 +203,7 @@
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/> <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
 		  <!--box size="0.001 0.001 0.001" /-->
-	      <mesh filename="package://raw_description/meshes/base/raw_base_tower_collision.stlb"/>
+	      <mesh filename="package://raw_description/meshes/base/raw_tower_collision.stlb"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
         </collision>
@@ -217,7 +217,7 @@
 	<visual>
 	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
 	  <geometry>
-           <mesh filename="package://raw_description/meshes/base/raw_base_battery_front.stl"/>
+           <mesh filename="package://raw_description/meshes/base/raw_battery_front.stl"/>
           </geometry> 
           <material name="Red"/>
         </visual>
@@ -226,7 +226,7 @@
         <origin xyz="0 0 0.075" rpy="0 0 0"/> 
         <geometry>
 	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
-	      <!--mesh filename="package://raw_description/meshes/base/raw_base_battery_front.stlb"/-->
+	      <!--mesh filename="package://raw_description/meshes/base/raw_battery_front.stlb"/-->
         </geometry>
         </collision>
 
@@ -237,7 +237,7 @@
 	<visual>
 	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
 	  <geometry>
-            <mesh filename="package://raw_description/meshes/base/raw_base_battery_back.stl"/>
+            <mesh filename="package://raw_description/meshes/base/raw_battery_back.stl"/>
           </geometry> 
           <material name="Red"/>
         </visual>
@@ -246,7 +246,7 @@
         <origin xyz="0 0 0.075" rpy="0 0 0"/> 
         <geometry>
 	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
-	      <!--mesh filename="package://raw_description/meshes/base/raw_base_battery_back.stlb"/-->
+	      <!--mesh filename="package://raw_description/meshes/base/raw_battery_back.stlb"/-->
         </geometry>
         </collision>
 

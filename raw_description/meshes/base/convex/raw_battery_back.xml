@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <NXUSTREAM2>
+    <NxuPhysicsCollection id="beshon" sdkVersion="244" nxuVersion="100">
+      <NxPhysicsSDKDesc id="SDK">
+        <hwPageSize>65536</hwPageSize>
+        <hwPageMax>256</hwPageMax>
+        <hwConvexMax>2048</hwConvexMax>
+      </NxPhysicsSDKDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_0">
+    <points>
+      -0.122500002 0.152999997 -0.068499997  -0.245000005 0.082939997 -0.001  -0.245000005 0.082939997 -0.068499997  -0.245000005 0.152999997 -0.001  
+      -0.245000005 0.152999997 -0.068499997  -0.243000001 0.150000006 -0.001  
+    </points>
+    <triangles>
+      0 1 2  3 2 1  4 3 0  4 0 2  
+      4 2 3  5 0 3  5 3 1  5 1 0  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_1">
+    <points>
+      0.122500002 0 -0.063500002  0.245000005 0.076499999 -0.001  0.245000005 0.076499999 -0.063500002  0.122500002 0 -0.001  
+      0.243881553 0.000209532 -0.001  0.243822321 0.000180298 -0.063500002  0.245000005 0.002 -0.063500002  0.245000005 0.002 -0.001  
+      0.244710833 0.001014365 -0.063500002  0.244717881 0.001009577 -0.001  0.243000001 0 -0.001  0.243000001 0 -0.063500002  
+    </points>
+    <triangles>
+      0 1 2  3 4 1  3 1 0  5 0 2  
+      6 5 2  6 2 1  7 1 4  7 6 1  
+      8 4 5  8 5 6  9 7 4  9 4 8  
+      9 6 7  9 8 6  10 3 0  10 4 3  
+      10 5 4  11 0 5  11 5 10  11 10 0  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_2">
+    <points>
+      -0.245000005 0.152999997 -0.001  -0.122500002 0.152999997 -0.001  -0.245000005 0.076499999 -0.001  -0.122500002 0.152999997 0.066500001  
+      -0.245000005 0.076499999 0.066500001  -0.245000005 0.152999997 0.066500001  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  3 2 1  4 0 2  
+      4 2 3  5 3 0  5 0 4  5 4 3  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_3">
+    <points>
+      0.122500002 0.076499999 -0.126000002  0.245000005 0.076499999 -0.063500002  0.24399069 0.076499999 -0.125718281  0.122500002 0 -0.063500002  
+      0.122500002 0.002 -0.126000002  0.243822321 0.000180298 -0.063500002  0.243764997 0.000152 -0.123999998  0.243000001 0.002 -0.126000002  
+      0.122500002 0 -0.123999998  0.244847998 0.002 -0.124765001  0.245000005 0.002 -0.063500002  0.245000005 0.076499999 -0.123999998  
+    </points>
+    <triangles>
+      0 1 2  3 1 0  3 0 4  5 1 3  
+      5 3 6  7 4 0  7 0 2  8 4 7  
+      8 7 6  8 6 3  8 3 4  9 6 7  
+      9 7 2  10 5 6  10 6 9  10 1 5  
+      11 1 10  11 10 9  11 2 1  11 9 2  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_4">
+    <points>
+      -0.183750004 0.149625003 0.100249998  -0.183750004 0.149625003 -0.102250002  0.183750004 0.149625003 0.032749999  -0.183750004 0.156375006 -0.102250002  
+      0.183750004 0.156375006 -0.102250002  -0.183750004 0.156375006 0.100249998  0.153125003 0.156062499 0.100249998  0.183750004 0.149625003 -0.102250002  
+      0.183750004 0.156375006 0.032749999  0.153125003 0.149937496 0.100249998  
+    </points>
+    <triangles>
+      0 1 2  3 1 0  3 4 1  5 4 3  
+      5 0 6  5 3 0  7 2 1  7 1 4  
+      7 4 2  8 4 5  8 5 6  8 6 2  
+      8 2 4  9 2 6  9 6 0  9 0 2  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_5">
+    <points>
+      0.245000005 0.076499999 -0.123999998  0.245000005 0.152999997 -0.136000007  0.245000005 0.152999997 -0.068499997  0.122500002 0.152999997 -0.068499997  
+      0.122500002 0.076499999 -0.126000002  0.122500002 0.150000006 -0.136000007  0.245000005 0.076499999 -0.068499997  0.122500002 0.152999997 -0.136000007  
+      0.243000001 0.076499999 -0.126000002  0.244202748 0.076499999 -0.125576273  0.245000005 0.150000006 -0.136000007  0.244788811 0.076499999 -0.124884911  
+    </points>
+    <triangles>
+      0 1 2  3 2 1  4 3 5  6 3 4  
+      6 4 0  6 0 2  6 2 3  7 1 5  
+      7 5 3  7 3 1  8 0 4  8 4 5  
+      9 0 8  10 9 8  10 1 0  10 5 1  
+      10 8 5  11 0 9  11 9 10  11 10 0  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_6">
+    <points>
+      -0.122500002 0.152999997 0.066500001  -0.122500002 0.076499999 0.123999998  -0.245000005 0.076499999 0.066500001  -0.122500002 0.152999997 0.134000003  
+      -0.245000005 0.152999997 0.134000003  -0.245000005 0.152999997 0.066500001  -0.245000005 0.076499999 0.123999998  -0.122500002 0.150000006 0.134000003  
+      -0.245000005 0.150000006 0.134000003  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  4 3 0  5 0 2  
+      5 2 4  5 4 0  6 2 1  6 4 2  
+      7 6 1  7 1 3  7 3 4  8 4 6  
+      8 6 7  8 7 4  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_7">
+    <points>
+      0.245000005 0.076499999 0.123999998  0.122500002 0.076499999 0.123999998  0.245000005 0.076499999 0.066500001  0.245000005 0.152999997 0.134000003  
+      0.122500002 0.152999997 0.066500001  0.122500002 0.152999997 0.134000003  0.245000005 0.152999997 0.066500001  0.245000005 0.150000006 0.134000003  
+      0.122500002 0.150000006 0.134000003  
+    </points>
+    <triangles>
+      0 1 2  2 3 0  4 2 1  5 3 4  
+      5 4 1  6 3 2  6 2 4  6 4 3  
+      7 3 5  7 0 3  7 1 0  8 5 1  
+      8 1 7  8 7 5  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_8">
+    <points>
+      -0.122500002 0.152999997 -0.136000007  -0.122500002 0.082939997 -0.126000002  -0.245000005 0.150000006 -0.136000007  -0.122500002 0.152999997 -0.068499997  
+      -0.245000005 0.082939997 -0.068499997  -0.245000005 0.152999997 -0.068499997  -0.243764997 0.082939997 -0.125847995  -0.224999994 0.165879995 -0.094884999  
+      -0.236054003 0.165879995 -0.107161999  -0.229521006 0.165879995 -0.116154  -0.245000005 0.152999997 -0.136000007  -0.214429006 0.165879995 -0.109435  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  4 1 3  5 2 4  
+      5 4 3  6 2 1  6 1 4  6 4 2  
+      7 5 3  8 5 7  8 7 9  10 8 9  
+      10 2 5  10 5 8  10 0 2  10 9 0  
+      11 0 9  11 9 7  11 3 0  11 7 3  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_9">
+    <points>
+      0.245000005 0.076499999 0.066500001  0.122500002 0.152999997 0.066500001  0.245000005 0.076499999 -0.068499997  0.245000005 0.152999997 0.066500001  
+      0.245000005 0.152999997 -0.068499997  0.122500002 0.152999997 -0.068499997  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  2 3 0  4 1 3  
+      4 3 2  5 2 1  5 1 4  5 4 2  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_10">
+    <points>
+      0.122500002 0.076499999 -0.126000002  0.122500002 0.152999997 -0.136000007  0.122500002 0.152999997 -0.068499997  -0.122500002 0.076499999 -0.126000002  
+      -0.122500002 0.150000006 -0.136000007  -0.122500002 0.152999997 -0.068499997  -0.122500002 0.152999997 -0.136000007  0.122500002 0.150000006 -0.136000007  
+    </points>
+    <triangles>
+      0 1 2  3 4 0  3 0 2  5 4 3  
+      5 3 2  5 2 1  6 1 4  6 4 5  
+      6 5 1  7 0 4  7 4 1  7 1 0  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_11">
+    <points>
+      0.122500002 0.152999997 0.066500001  0.122500002 0.076499999 0.123999998  -0.122500002 0.152999997 0.066500001  0.122500002 0.152999997 0.134000003  
+      -0.122500002 0.076499999 0.123999998  -0.122500002 0.150000006 0.134000003  -0.122500002 0.152999997 0.134000003  0.122500002 0.150000006 0.134000003  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  2 3 0  4 2 1  
+      4 1 5  4 5 2  6 3 2  6 2 5  
+      6 5 3  7 1 3  7 3 5  7 5 1  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_12">
+    <points>
+      -0.122500002 0 -0.001  -0.243000001 0 0.123999998  -0.243764997 0.000152 -0.001  -0.245000005 0.076499999 0.123999998  
+      -0.122500002 0.076499999 0.123999998  -0.245000005 0.076499999 -0.001  -0.122500002 0 0.123999998  -0.245000005 0.002 0.123999998  
+      -0.245000005 0.002 -0.001  -0.244414002 0.000586 0.123999998  -0.244847998 0.001235 -0.001  
+    </points>
+    <triangles>
+      0 1 2  3 1 4  5 3 4  5 4 0  
+      5 0 2  6 0 4  6 4 1  6 1 0  
+      7 3 5  7 1 3  8 5 2  8 7 5  
+      9 2 1  9 1 7  10 8 2  10 2 9  
+      10 7 8  10 9 7  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_13">
+    <points>
+      0.122500002 0.076499999 0.123999998  0.245000005 0.076499999 0.123999998  0.245000005 0.076499999 -0.001  0.122500002 0 -0.001  
+      0.244000003 0.000268 0.123999998  0.122500002 0 0.123999998  0.243881553 0.000209532 -0.001  0.245000005 0.002 -0.001  
+      0.245000005 0.002 0.123999998  0.244717881 0.001009577 -0.001  0.244732007 0.001 0.123999998  0.243000001 0 0.123999998  
+    </points>
+    <triangles>
+      0 1 2  0 2 3  0 4 1  5 4 0  
+      5 0 3  6 3 2  7 6 2  7 2 1  
+      8 1 4  8 7 1  9 4 6  9 6 7  
+      10 8 4  10 4 9  10 7 8  10 9 7  
+      11 5 3  11 3 6  11 4 5  11 6 4  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_14">
+    <points>
+      -0.244414002 0.000586 -0.001  -0.122500002 0 -0.001020576  -0.245000005 0.082939997 -0.001  -0.122500002 0.082939997 -0.126000002  
+      -0.122500002 0.000152 -0.124765001  -0.244414002 0.082939997 -0.125413999  -0.243000001 0.002 -0.126000002  -0.243000001 0 -0.123999998  
+      -0.245000005 0.002 -0.123999998  -0.122500002 0.002 -0.126000002  -0.243000001 0.000586 -0.125413999  -0.244414002 0.000586 -0.123999998  
+    </points>
+    <triangles>
+      0 1 2  3 2 1  4 3 1  5 2 3  
+      5 3 6  7 1 0  7 4 1  8 5 6  
+      8 0 2  8 2 5  9 6 3  9 3 4  
+      10 6 9  10 9 4  10 8 6  10 4 7  
+      11 8 10  11 10 7  11 7 0  11 0 8  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_15">
+    <points>
+      0.122500002 0.000152 -0.124765001  0.122500002 0.076499999 -0.126000002  0.122500002 0 -0.001  -0.122500002 0.076499999 -0.126000002  
+      -0.122500002 0.002 -0.126000002  -0.122479841 0 -0.001  -0.122500002 0 -0.123999998  0.122500002 0.002 -0.126000002  
+      -0.122500002 0.000586 -0.125413999  0.122500002 0.001235 -0.125847995  
+    </points>
+    <triangles>
+      0 1 2  3 2 1  3 1 4  5 2 3  
+      5 3 4  6 0 2  6 2 5  6 5 4  
+      7 4 1  7 1 0  8 0 6  8 6 4  
+      9 7 0  9 0 8  9 4 7  9 8 4  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxConvexMeshDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_16">
+    <points>
+      0.122500002 0 -0.001  0.122500002 0 0.123999998  -0.122500002 0 -0.001  0.122500002 0.076499999 0.123999998  
+      -0.122500002 0.076499999 0.123999998  -0.122500002 0 0.123999998  
+    </points>
+    <triangles>
+      0 1 2  1 0 3  2 3 0  4 1 3  
+      4 3 2  5 2 1  5 1 4  5 4 2  
+    </triangles>
+  </NxConvexMeshDesc>
+  <NxSceneDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back">
+        <filterBool>false</filterBool>
+        <filterOp0>NX_FILTEROP_AND</filterOp0>
+        <filterOp1>NX_FILTEROP_AND</filterOp1>
+        <filterOp2>NX_FILTEROP_AND</filterOp2>
+        <NxGroupsMask id="groupMask0" bits0="0" bits1="0" bits2="0" bits3="0"/>
+        <NxGroupsMask id="groupMask1" bits0="0" bits1="0" bits2="0" bits3="0"/>
+        <gravity>0 -9.800000191 0</gravity>
+        <maxTimestep>0.016666668</maxTimestep>
+        <maxIter>8</maxIter>
+        <timeStepMethod>NX_TIMESTEP_FIXED</timeStepMethod>
+        <maxBounds>FLT_MIN FLT_MIN FLT_MIN  FLT_MAX FLT_MAX FLT_MAX</maxBounds>
+        <NxSceneLimits id="limits">
+          <maxNbActors>0</maxNbActors>
+          <maxNbBodies>0</maxNbBodies>
+          <maxNbStaticShapes>0</maxNbStaticShapes>
+          <maxNbDynamicShapes>0</maxNbDynamicShapes>
+          <maxNbJoints>0</maxNbJoints>
+        </NxSceneLimits>
+        <simType>NX_SIMULATION_SW</simType>
+        <groundPlane>true</groundPlane>
+        <boundsPlanes>false</boundsPlanes>
+        <NxSceneFlags id="flags">
+          <NX_SF_DISABLE_SSE>false</NX_SF_DISABLE_SSE>
+          <NX_SF_DISABLE_COLLISIONS>false</NX_SF_DISABLE_COLLISIONS>
+          <NX_SF_SIMULATE_SEPARATE_THREAD>true</NX_SF_SIMULATE_SEPARATE_THREAD>
+          <NX_SF_ENABLE_MULTITHREAD>false</NX_SF_ENABLE_MULTITHREAD>
+        </NxSceneFlags>
+        <internalThreadCount>0</internalThreadCount>
+        <backgroundThreadCount>0</backgroundThreadCount>
+        <threadMask>1431655764</threadMask>
+        <backgroundThreadMask>1431655764</backgroundThreadMask>
+        <NxMaterialDesc id="Material_0" userProperties="" hasSpring="false" materialIndex="0">
+          <dynamicFriction>0.5</dynamicFriction>
+          <staticFriction>0.5</staticFriction>
+          <restitution>0</restitution>
+          <dynamicFrictionV>0</dynamicFrictionV>
+          <staticFrictionV>0</staticFrictionV>
+          <frictionCombineMode>NX_CM_AVERAGE</frictionCombineMode>
+          <restitutionCombineMode>NX_CM_AVERAGE</restitutionCombineMode>
+          <dirOfAnisotropy>1 0 0</dirOfAnisotropy>
+          <NxMaterialFlag id="flags">
+            <NX_MF_ANISOTROPIC>false</NX_MF_ANISOTROPIC>
+            <NX_MF_DISABLE_FRICTION>false</NX_MF_DISABLE_FRICTION>
+            <NX_MF_DISABLE_STRONG_FRICTION>false</NX_MF_DISABLE_STRONG_FRICTION>
+          </NxMaterialFlag>
+        </NxMaterialDesc>
+    <NxActorDesc id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back" userProperties="" hasBody="true" name="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back">
+      <globalPose>1 0 0    0 1 0    0 0 1    0 0 0 </globalPose>
+			<NxBodyDesc>
+        <mass>1</mass>
+        <linearDamping>0</linearDamping>
+        <angularDamping>0</angularDamping>
+        <solverIterationCount>32</solverIterationCount>
+        <NxBodyFlag id="flags">
+          <NX_BF_POSE_SLEEP_TEST>true</NX_BF_POSE_SLEEP_TEST>
+          <NX_AF_DISABLE_COLLISION>false</NX_AF_DISABLE_COLLISION>
+        </NxBodyFlag>
+      </NxBodyDesc>
+      <name>Bip01 Pelvis</name>
+      <NxConvexShapeDesc id="Shape_0" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_0">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_1" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_1">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_2" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_2">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_3" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_3">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_4" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_4">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_5" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_5">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_6" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_6">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_7" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_7">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_8" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_8">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_9" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_9">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_10" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_10">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_11" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_11">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_12" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_12">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_13" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_13">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_14" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_14">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_15" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_15">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+      <NxConvexShapeDesc id="Shape_16" meshData="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back_16">
+      <NxShapeDesc>
+        <localPose>1 0 0    0 1 0    0 0 1    0 0 0 </localPose>
+        <skinWidth>0</skinWidth>
+      </NxShapeDesc>
+      </NxConvexShapeDesc>
+    </NxActorDesc>
+  </NxSceneDesc>
+	 <NxSceneInstance id="/home/fxm-lc/git/care-o-bot/cob_common/raw_description/meshes/base/convex/raw_battery_back">
+	 	 <sceneName>beshon</sceneName>
+	 	 <NxuUserProperties></NxuUserProperties>
+	 	 <rootNode>1	0	0	0	1	0	0	0	1	0	0 0</rootNode>
+	 	 <newScene>false</newScene>
+	 	 <ignorePlane>true</ignorePlane>
+	 	 <numSceneInstances>0</numSceneInstances>
+	 </NxSceneInstance>
+  </NxuPhysicsCollection>
+</NXUSTREAM2>
