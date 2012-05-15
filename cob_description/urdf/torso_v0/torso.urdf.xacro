@@ -9,40 +9,6 @@
 
 	<xacro:macro name="cob_torso_v0" params="name parent *origin">
 
-		<!-- joint between base_link and torso_tray_link -->
-		<joint name="${name}_tray_joint" type="revolute">
-			<origin xyz="0.2406 0.1900 0.7320" rpy="2.3561 0 0" />
-			<parent link="${parent}"/>
-			<child link="${name}_tray_link"/>
-			<axis xyz="0 0 1" />
-			<calibration rising="${torso_tray_ref}"/>
-			<dynamics damping="5.0" friction="0.5"/>
-			<limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
-		</joint>
-
-		<link name="${name}_tray_link">
-			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="0.1"/>
-				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-			</inertial>
-
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/tray.stl" />
-				</geometry>
-				<material name="Green" />
-			</visual>
-
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/tray_collision.stlb" />
-				</geometry>
-			</collision>
-		</link>
-
 		<!-- joint between base_link and torso_lower_neck_pan_link -->
 		<joint name="${name}_lower_neck_pan_joint" type="revolute">
 			<insert_block name="origin" />
@@ -98,7 +64,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/lower_neck.stl" />
+					<mesh filename="package://cob_description/meshes/torso/lower_neck.stl" />
 				</geometry>
 				<material name="Red" />
 			</visual>
@@ -106,7 +72,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/lower_neck_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/torso/lower_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -166,7 +132,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/upper_neck.stl" />
+					<mesh filename="package://cob_description/meshes/torso/upper_neck.stl" />
 				</geometry>
 				<material name="Grey" />
 			</visual>
@@ -174,7 +140,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/upper_neck_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/torso/upper_neck_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
@@ -196,7 +162,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/head_cover.stl" />
+					<mesh filename="package://cob_description/meshes/torso/head_cover.stl" />
 				</geometry>
 				<material name="Blue" />
 			</visual>
@@ -204,7 +170,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_v0/head_cover_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/torso/head_cover_collision.stlb" />
 				</geometry>
 			</collision>
 		</link>
