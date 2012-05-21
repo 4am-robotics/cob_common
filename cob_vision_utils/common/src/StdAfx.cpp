@@ -1,1 +1,0 @@
-#include "../include/cob_vision_utils/StdAfx.h"

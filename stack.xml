@@ -1,25 +1,16 @@
 <stack>
-  <description brief="cob_robots">cob_robots</description>
+  <description brief="Care-O-bot stack with common packages">
+
+     The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc. Also the urdf desciption of the robot is located in this stack.
+
+  </description>
   <author>Maintained by Florian Weisshardt</author>
-  <license>LGPL</license>  
+  <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/cob_robots</url>
-  <depend stack="camera_drivers" /> <!-- prosilica_camera -->
-  <depend stack="cob_command_tools" /> <!-- cob_dashboard, cob_teleop, cob_script_server -->
-  <depend stack="cob_common" /> <!-- cob_description -->
-  <depend stack="cob_driver" /> <!-- cob_relayboard, cob_sick_s300, cob_hokuyo, cob_tray_sensors, cob_undercarriage_ctrl, cob_head_axis, cob_camera_sensors, cob_base_drive_chain, cob_light, cob_trajectory_controller, cob_sound -->
-  <depend stack="cob_environments" /> <!-- cob_default_env_config -->
-  <depend stack="diagnostics" /> <!-- diagnostic_aggregator -->
-  <depend stack="image_pipeline" /> <!-- image_proc -->
-  <depend stack="joystick_drivers" /> <!-- joy -->
-  <depend stack="laser_drivers" /> <!-- hokuyo_node -->
-  <depend stack="openni_kinect" /> <!-- openni_launch, openni_camera -->
-  <depend stack="pr2_common" /> <!-- pr2_dashboard_aggregator -->
-  <depend stack="pr2_robot" /> <!-- pr2_computer_monitor -->
-  <depend stack="robot_model" /> <!-- robot_state_publisher -->
-  <depend stack="ros" />
-  <depend stack="ros_comm" /> <!-- rostest -->
-  <depend stack="schunk_modular_robotics" /> <!-- schunk_powercube_chain, schunk_sdh, schunk_description -->
-  <depend stack="wifi_drivers" /> <!-- wifi_ddwrt -->
+  <url>http://ros.org/wiki/cob_common</url>
+  <depend stack="common_msgs" /> <!-- trajectory_msgs, geometry_msgs -->
+  <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
+  <depend stack="ros" /> <!-- roslib -->
+  <depend stack="ros_comm" /> <!-- rostest, std_msgs -->
 
 </stack>
