@@ -29,7 +29,7 @@
 			</inertial>
 
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" /> 
+				<origin xyz="0 0 -0.26" rpy="0 0 0" /> 
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
@@ -37,7 +37,7 @@
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 -0.26" rpy="0 0 0" /> 
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
