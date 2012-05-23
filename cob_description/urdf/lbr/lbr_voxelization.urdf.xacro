@@ -48,7 +48,6 @@
 			<calibration rising="${arm_1_ref}"/>
 			<dynamics damping="10" />
 			<limit effort="200" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
-			<!--limit effort="370" velocity="0.4363" lower="-6.2831853" upper="6.2831853"/-->
 			<safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-2.9670 + 0.01}" soft_upper_limit="${2.9670 - 0.01}" />
 		</joint>
 
@@ -78,7 +77,7 @@
 
 		<!-- joint between arm_1_link and arm_2_link -->	
 		<joint name="${name}_2_joint" type="revolute">
-			<origin xyz="0 -0.002 0.1915" rpy="1.5708 0 0"/>
+			<origin xyz="0 -0.002 0.1915" rpy="${M_PI/2} 0 0"/>
 			<parent link="${name}_1_link"/>
 			<child link="${name}_2_link"/>
 			<axis xyz="0 0 1"/>
@@ -105,7 +104,7 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0.085 0.0" rpy="1.5708 0 0" />
+				<origin xyz="0 0.085 0.0" rpy="${M_PI/2} 0 0" />
 				<geometry>
 					<cylinder radius="0.08" length="0.25"/>
 				</geometry>
@@ -114,14 +113,13 @@
 
 		<!-- joint between arm_2_link and arm_3_link -->	
 		<joint name="${name}_3_joint" type="revolute">
-			<origin xyz="0 0.2085 0" rpy="-1.5708 0 0"/>
+			<origin xyz="0 0.2085 0" rpy="-${M_PI/2} 0 0"/>
 			<parent link="${name}_2_link"/>
 			<child link="${name}_3_link"/>
 			<axis xyz="0 0 1"/>
 			<calibration rising="${arm_3_ref}"/>
 			<dynamics damping="5" />
 			<limit effort="100" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
-			<!--limit effort="176" velocity="0.4189" lower="-6.2831853" upper="6.2831853"/-->
 			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.9670 + 0.01}" soft_upper_limit="${2.9670 - 0.01}" />
 		</joint>
 
@@ -151,7 +149,7 @@
 
 		<!-- joint between arm_3_link and arm_4_link -->
 		<joint name="${name}_4_joint" type="revolute">
-			<origin xyz="0 0.002 0.1915" rpy="-1.5708 0 0" />
+			<origin xyz="0 0.002 0.1915" rpy="-${M_PI/2} 0 0" />
 			<parent link="${name}_3_link"/>
 			<child link="${name}_4_link"/>
 			<axis xyz="0 0 1" />
@@ -179,7 +177,7 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 -0.085 0" rpy="-1.5708 0 0" />
+				<origin xyz="0 -0.085 0" rpy="-${M_PI/2} 0 0" />
 				<geometry>
 					<cylinder radius="0.08" length="0.25"/>
 				</geometry>
@@ -188,14 +186,13 @@
 
 		<!-- joint between arm_4_link and arm_5_link -->
 		<joint name="${name}_5_joint" type="revolute">
-			<origin xyz="0 -0.2085 0" rpy="1.5708 0 0" />
+			<origin xyz="0 -0.2085 0" rpy="${M_PI/2} 0 0" />
 			<parent link="${name}_4_link"/>
 			<child link="${name}_5_link"/>
 			<axis xyz="0 0 1" />
 			<calibration rising="${arm_5_ref}"/>
 			<dynamics damping="5" />
 			<limit effort="100" velocity="1.9634" lower="-2.9670" upper="2.9670" />
-			<!--limit effort="41.6" velocity="0.4363" upper="6.2831853" lower="-6.2831853" /-->
 			<safety_controller k_position="20" k_velocity="25" soft_lower_limit="${-2.9670 + 0.01}" soft_upper_limit="${2.9670 - 0.01}" />
 		</joint>
 
@@ -224,7 +221,7 @@
 
 		<!-- joint between arm_5_link and arm_6_link -->
 		<joint name="${name}_6_joint" type="revolute">
-			<origin xyz="0 0.046 0.1815" rpy="1.5708 0 0" />
+			<origin xyz="0 0.046 0.1815" rpy="${M_PI/2} 0 0" />
 			<parent link="${name}_5_link"/>
 			<child link="${name}_6_link"/>
 			<axis xyz="0 0 1" />
@@ -251,7 +248,7 @@
 			</visual>
 			
 			<collision>
-				<origin xyz="0 0 0.046" rpy="1.5708 0 0" />
+				<origin xyz="0 0 0.046" rpy="${M_PI/2} 0 0" />
 				<geometry>
 					<cylinder radius="0.08" length="0.12"/>
 				</geometry>
@@ -260,7 +257,7 @@
 
 		<!-- joint between arm_6_link and arm_7_link -->
 		<joint name="${name}_7_joint" type="revolute">
-			<origin xyz="0 0.057 0.0455" rpy="-1.5708 0 0" />
+			<origin xyz="0 0.057 0.0455" rpy="-${M_PI/2} 0 0" />
 			<parent link="${name}_6_link"/>
 			<child link="${name}_7_link"/>
 			<axis xyz="0 0 1" />

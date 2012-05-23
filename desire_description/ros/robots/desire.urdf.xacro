@@ -47,11 +47,11 @@
   </xacro:desire_torso_v0>
   
   <xacro:desire_lbr_v0 name="arm_left" parent="base_link">
-    <origin xyz="0.35 0.0 1.25239" rpy="3.1415926 0.7854 -1.8326" />
+    <origin xyz="0.35 0.0 1.25239" rpy="${M_PI} 0.7854 -1.8326" />
   </xacro:desire_lbr_v0>
   
   <!--xacro:desire_lbr_v0 name="arm_right" parent="base_link">
-    <origin xyz="0.35 0.0 1.25239" rpy="-3.1415926 -0.7854 +1.8326" />
+    <origin xyz="0.35 0.0 1.25239" rpy="-${M_PI} -0.7854 +1.8326" />
   </xacro:desire_lbr_v0-->
   
   <xacro:desire_head_v0 name="head" parent="base_link">
@@ -59,11 +59,11 @@
   </xacro:desire_head_v0>
   
   <!--<xacro:desire_sdh_v0 name="sdh_left" parent="arm_left_7_link">
-    <origin xyz="0 0 0" rpy="0 3.1415926 0" />
+    <origin xyz="0 0 0" rpy="0 ${M_PI} 0" />
   </xacro:desire_sdh_v0>
   
   <xacro:desire_sdh_v0 name="sdh_right" parent="arm_right_7_link">
-    <origin xyz="0 0 0" rpy="0 3.1415926 0" />
+    <origin xyz="0 0 0" rpy="0 ${M_PI} 0" />
   </xacro:desire_sdh_v0>-->
   
 </robot>
