@@ -17,7 +17,7 @@
 			<axis xyz="0 0 1" />
 			<calibration rising="${torso_lower_neck_pan_ref}"/>
 			<dynamics damping="25.0" friction="10.0"/>
-			<limit effort="24" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+			<limit effort="24" lower="-0.2" upper="0.2" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_lower_neck_pan_link">
@@ -45,13 +45,13 @@
 
 		<!-- joint between torso_lower_neck_pan_link and torso_lower_neck_tilt_link -->
 		<joint name="${name}_lower_neck_tilt_joint" type="revolute">
-			<origin xyz="0 0 0" rpy="1.5708 0 0" />
+			<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
 			<parent link="${name}_lower_neck_pan_link"/>
 			<child link="${name}_lower_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_lower_neck_tilt_ref}"/>
-			<limit effort="46" lower="-1.5" upper="1.5" velocity="0.5"/>
+			<limit effort="46" lower="-0.4" upper="0.4" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_lower_neck_tilt_link">
@@ -79,13 +79,13 @@
 
 		<!-- joint between torso_lower_neck_tilt_link and torso_upper_neck_pan_link -->
 		<joint name="${name}_upper_neck_pan_joint" type="revolute">
-			<origin xyz="0 -0.237 0" rpy="-1.5708 0 0" />
+			<origin xyz="0 -0.237 0" rpy="-${M_PI/2} 0 0" />
 			<parent link="${name}_lower_neck_tilt_link"/>
 			<child link="${name}_upper_neck_pan_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_upper_neck_pan_ref}"/>
-			<limit effort="4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+			<limit effort="4" lower="-0.2" upper="0.2" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_upper_neck_pan_link">
@@ -113,13 +113,13 @@
 
 		<!-- joint between torso_upper_neck_pan_link and torso_upper_neck_tilt_link -->
 		<joint name="${name}_upper_neck_tilt_joint" type="revolute">
-			<origin xyz="0 0 0" rpy="1.5708 0 0" />
+			<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
 			<parent link="${name}_upper_neck_pan_link"/>
 			<child link="${name}_upper_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_upper_neck_tilt_ref}"/>
-			<limit effort="24" lower="-1.5" upper="1.5" velocity="0.5"/>
+			<limit effort="24" lower="-0.4" upper="0.4" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_upper_neck_tilt_link">

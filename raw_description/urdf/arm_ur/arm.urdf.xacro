@@ -152,7 +152,7 @@
 
 		<!-- joint between arm_3_link and arm_4_link -->
 		<joint name="${name}_4_joint" type="revolute">
-			<origin xyz="-0.392 -0.11 0" rpy="0 3.14159 0" />
+			<origin xyz="-0.392 -0.11 0" rpy="0 ${M_PI} 0" />
 			<parent link="${name}_3_link"/>
 			<child link="${name}_4_link"/>
 			<axis xyz="0 -1 0" />
@@ -188,7 +188,7 @@
 
 		<!-- joint between arm_4_link and arm_5_link -->
 		<joint name="${name}_5_joint" type="revolute">
-			<origin xyz="-0.08984 0 0" rpy="3.14159 3.14159 3.14159" />
+			<origin xyz="-0.08984 0 0" rpy="${M_PI} ${M_PI} ${M_PI}" />
 			<parent link="${name}_4_link"/>
 			<child link="${name}_5_link"/>
 			<axis xyz="-1 0 0" />

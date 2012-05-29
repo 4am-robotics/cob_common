@@ -16,8 +16,6 @@
   <!-- all link geometry sizes are obtained from Function provided CAD model unless stated otherwise -->
   <!-- all simplified collision geometry are hand approximated from CAD model, sometimes from respective bounding boxes -->
 
-  <property name="M_PI" value="3.1415926535897931" />
-
   <property name="caster_offset_x" value="0.368" />  <!--modify here-->
   <property name="caster_offset_y1" value="0.126" />
   <property name="caster_offset_y2" value="0.178" />
@@ -243,7 +241,7 @@
 
    <!-- cam3d -->
    <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_link">
-      <origin xyz="0.51 0.12 0.27" rpy="-1.57 0 -1.57" />
+      <origin xyz="0.51 0.12 0.27" rpy="-${M_PI/2} 0 -${M_PI/2}" />
    </xacro:cob_kinect_v0>
 
 

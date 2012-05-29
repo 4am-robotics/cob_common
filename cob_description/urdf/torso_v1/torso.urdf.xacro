@@ -17,7 +17,7 @@
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_lower_neck_tilt_ref}"/>
-			<limit effort="41.4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+			<limit effort="41.4" lower="-0.25" upper="0.25" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_lower_neck_tilt_link">
@@ -28,7 +28,7 @@
 			</inertial>
 
 			<visual>
-				<origin xyz="0 0 0" rpy="3.14 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI} 0 0" />
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/lower_neck.stl" />
 				</geometry>
@@ -36,7 +36,7 @@
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0" rpy="3.14 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI} 0 0" />
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/lower_neck_collision.stlb" />
 				</geometry>
@@ -45,13 +45,13 @@
 		
 		<!-- joint between torso_lower_neck_tilt_link and torso_pan_link -->
 		<joint name="${name}_pan_joint" type="revolute">
-			<origin xyz="0 0 0" rpy="1.5708 0 0" />
+			<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
 			<parent link="${name}_lower_neck_tilt_link"/>
 			<child link="${name}_pan_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_pan_ref}"/>
-			<limit effort="41.4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+			<limit effort="41.4" lower="-0.2" upper="0.2" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_pan_link">
@@ -79,13 +79,13 @@
 
 		<!-- joint between torso_pan_link and torso_upper_neck_tilt_link -->
 		<joint name="${name}_upper_neck_tilt_joint" type="revolute">
-			<origin xyz="0 0 -0.2565" rpy="-1.5708 0 0" />
+			<origin xyz="0 0 -0.2565" rpy="-${M_PI/2} 0 0" />
 			<parent link="${name}_pan_link"/>
 			<child link="${name}_upper_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_upper_neck_tilt_ref}"/>
-			<limit effort="41.4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
+			<limit effort="41.4" lower="-0.4" upper="0.4" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_upper_neck_tilt_link">
@@ -96,7 +96,7 @@
 			</inertial>
 
 			<visual>
-				<origin xyz="0 0 0" rpy="3.1415926 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI} 0 0" />
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/upper_neck.stl" />
 				</geometry>
@@ -104,7 +104,7 @@
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0" rpy="3.1415926 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI} 0 0" />
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/upper_neck_collision.stlb" />
 				</geometry>
@@ -113,7 +113,7 @@
 
 		<!-- joint between torso_upper_neck_tilt_link and head_cover_link -->
 		<joint name="head_cover_joint" type="fixed">
-			<origin xyz="0 0 0" rpy="3.1415926 0 0" />
+			<origin xyz="0 0 0" rpy="${M_PI} 0 0" />
 			<parent link="${name}_upper_neck_tilt_link"/>
 			<child link="head_cover_link"/>
 		</joint>
