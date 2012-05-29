@@ -38,7 +38,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/tray/tray_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/tray/tray_collision.stl" />
 				</geometry>
 			</collision>
 		</link>
