@@ -4,16 +4,18 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find desire_description)/ros/urdf/base_v0/base.gazebo.xacro" />
-  <include filename="$(find desire_description)/ros/urdf/base_v0/base.transmission.xacro" />
+  <include filename="$(find desire_description)/urdf/base_desire/base.gazebo.xacro" />
+  <include filename="$(find desire_description)/urdf/base_desire/base.transmission.xacro" />
   
   <!-- modify here for test -->
-  <include filename="$(find cob_description)/ros/urdf/sensors/sick_s300_laser.urdf.xacro"/>
+  <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
 
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
   <!-- all link geometry sizes are obtained from Function provided CAD model unless stated otherwise -->
   <!-- all simplified collision geometry are hand approximated from CAD model, sometimes from respective bounding boxes -->
+
+  <property name="M_PI" value="3.1415926535897931" />
 
   <property name="caster_offset_x" value="0.235" />  <!--modify here-->
   <property name="caster_offset_y" value="0.185" />
@@ -68,7 +70,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/ros/meshes/base_v0/pr2_wheel.stl" />
+          <mesh filename="package://cob_description/meshes/base/pr2_wheel.stl" />
         </geometry>
         
         <material name="Wheel_${suffix}" />
@@ -111,7 +113,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="$(find cob_description)/ros/meshes/base_v0/caster.stl" />
+          <mesh filename="$(find cob_description)/meshes/base/caster.stl" />
         </geometry>
     
         <material name="Green" />
@@ -146,7 +148,8 @@
 
 
   <!-- The xacro macro xacro:desire_base contains: base, casters and wheels -->
-  <xacro:macro name="desire_base_v0" params="name">
+  <!--xacro:macro name="desire_base_v0" params="name"-->
+  <xacro:macro name="desire_base" params="name">
   <link name="${name}_link">
 
       <inertial>
@@ -160,7 +163,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <!-- modify here for test-->
         <geometry>
-          <mesh filename="package://desire_description/ros/meshes/base_v0/base.stl"/>
+          <mesh filename="package://desire_description/meshes/base_desire/base.stl"/>
         </geometry> 
         <material name="Green"/>
       </visual>
