@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="icob" >
+  
+  <!-- The following included files set up definitions of parts of the robot body -->
+  <!-- misc common stuff? -->
+  <include filename="$(find cob_description)/urdf/common.xacro" />
+
+  <!-- icob calibration -->
+  <include filename="$(find cob_description)/calibration/cob3-1.urdf.xacro" />
+  
+  <!-- icob base -->
+  <include filename="$(find icob_description)/ros/urdf/base_v1/base.urdf.xacro" />
+ 
+  <!-- torso 
+  <include filename="$(find cob_description)/urdf/torso_v0/torso.urdf.xacro" />
+-->
+  <!-- cob head
+  <include filename="$(find cob_description)/urdf/head_v0/head.urdf.xacro" />
+-->
+  <include filename="$(find cob_description)/urdf/lbr/lbr.urdf.xacro" />
+
+  <include filename="$(find schunk_description)/urdf/sdh/sdh.urdf.xacro" />
+
+  <!-- generic simulator_gazebo plugins for starting mechanism control, ros time, ros battery -->
+  <include filename="$(find cob_description)/gazebo/gazebo.urdf.xacro" />
+  
+  <!-- materials for visualization -->
+  <include filename="$(find cob_description)/urdf/materials.urdf.xacro" />
+
+  <include filename="$(find frida_description)/urdf/frida/frida.urdf.xacro" />
+
+
+  <!--<xacro:cob_base_v0 name="base"/-->
+  <xacro:icob_base_v1 name="base"/>	<!--with new collision_model, but no platform_controller available yet-->
+
+  <xacro:frida_torso name="frida_torso" parent="base_link">
+    <origin xyz="0.5 0.1 0.3" rpy="1.5708 0 0" />
+  </xacro:frida_torso>
+  
+  <xacro:cob_lbr name="arm_right" parent="base_link">
+    <origin xyz="0.5 0.1 0.7" rpy="-0.4 0.9 0.0" />
+  </xacro:cob_lbr>
+  
+  <xacro:cob_lbr name="arm_left" parent="base_link">
+    <origin xyz="0.5 -0.1 0.7" rpy="0.4 0.9 0.0" />
+  </xacro:cob_lbr>
+    
+  <xacro:schunk_sdh name="sdh" parent="arm_left_7_link">
+    <origin xyz="0 0 0.02" rpy="0 0 1.5708" />
+  </xacro:schunk_sdh>
+  
+</robot>

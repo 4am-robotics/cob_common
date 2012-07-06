@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- upload robot_description -->
+    <include file="$(find cob_hardware_config)/common/upload_robot.launch" />
+
+	<!-- start robot_state_publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+
+	<!-- start base -->
+	<include file="$(find cob_bringup)/components/base.launch" />
+
+	<!-- start relayboard -->
+	<include file="$(find cob_bringup)/components/relayboard.launch" />
+
+	<!-- start teleop -->
+	<include file="$(find cob_bringup)/tools/teleop.launch" />
+
+</launch>

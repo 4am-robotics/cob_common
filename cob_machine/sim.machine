@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+	<machine name="pc1" address="localhost" ros-root="$(env ROS_ROOT)" ros-package-path="$(env ROS_PACKAGE_PATH)"  default="true" />
+	<machine name="pc2" address="localhost" ros-root="$(env ROS_ROOT)" ros-package-path="$(env ROS_PACKAGE_PATH)"/>
+	<machine name="pc3" address="localhost" ros-root="$(env ROS_ROOT)" ros-package-path="$(env ROS_PACKAGE_PATH)"/>
+
+</launch>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find cob_bringup)/components/joy.launch" />
+
+	<node pkg="cob_teleop" type="cob_teleop" name="teleop_node" ns="teleop" output="screen">
+		<rosparam command="load" ns="/robot_config" file="$(find cob_hardware_config)/$(env ROBOT)/config/robot_modules.yaml"/>
+		<rosparam command="load" ns="/teleop" file="$(find cob_hardware_config)/$(env ROBOT)/config/teleop.yaml"/>
+	</node>
+
+</launch>

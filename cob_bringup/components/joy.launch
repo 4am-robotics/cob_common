@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+
+	<!-- run joystick -->
+	<node pkg="joy" type="joy_node" name="joy_node">
+		<rosparam command="load" file="$(find cob_hardware_config)/$(env ROBOT)/config/joy.yaml"/>
+	</node>
+
+</launch>
