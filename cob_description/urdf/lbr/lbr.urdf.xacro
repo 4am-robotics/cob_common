@@ -70,7 +70,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_1_collision.stlb" />
+					<mesh filename="package://cob_description/meshes/lbr/joint_1_collision.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -106,7 +106,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_2_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_2_collision.stl"/>
 				</geometry>
 			</collision>
 		</link>
@@ -142,7 +142,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_3_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_3_collision.stl"/>
 				</geometry>
 			</collision>
 		</link>	
@@ -179,7 +179,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_4_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_4_collision.stl"/>
 				</geometry>
 			</collision>
 		</link>
@@ -214,7 +214,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_5_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_5_collision.stl"/>
 				</geometry>
 			</collision>
 		</link>
@@ -250,7 +250,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_6_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_6_collision.stl"/>
 				</geometry>
 			</collision>
 		</link>
@@ -286,7 +286,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/lbr/joint_7_collision.stlb"/>
+					<mesh filename="package://cob_description/meshes/lbr/joint_7_collision.stl"/>
 				</geometry>
 			</collision>
 		</link>

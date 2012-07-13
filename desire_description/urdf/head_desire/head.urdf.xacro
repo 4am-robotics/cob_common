@@ -4,12 +4,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find desire_description)/ros/urdf/head_v0/head.gazebo.xacro" />
-	<include filename="$(find desire_description)/ros/urdf/head_v0/head.transmission.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/prosilica.urdf.xacro" />
-	<include filename="$(find cob_description)/ros/urdf/sensors/tof.urdf.xacro" />
+	<include filename="$(find desire_description)/urdf/head_desire/head.gazebo.xacro" />
+	<include filename="$(find desire_description)/urdf/head_desire/head.transmission.xacro" />
+	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+	<!--include filename="$(find cob_description)/urdf/sensors/tof.urdf.xacro" /-->
 
-	<xacro:macro name="desire_head_v0" params="name parent *origin">
+	<xacro:macro name="head_desire" params="name parent *origin">
 
 		<!-- joint between base_link and head_axis_link -->
 		<joint name="${name}_pan_joint" type="revolute">
@@ -19,7 +19,7 @@
 			<axis xyz="0 0 1" />
 			<dynamics damping="0.1" />
 			<calibration rising="${head_pan_ref}" falling="${head_pan_ref}"/>
-			<limit effort="100" lower="-0.7" upper="0.7" velocity="0.5"/>
+			<limit effort="100" lower="-1.4" upper="1.4" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_pan_link">
@@ -34,7 +34,7 @@
 				<geometry>
 					<box size="0.01 0.01 0.12"/>
 				</geometry>
-				<material name="Green" />
+				<material name="Blue" />
 			</visual>
 
 			<collision>
@@ -46,7 +46,7 @@
 		</link>
 		
 		<joint name="${name}_tilt_joint" type="revolute">
-			<origin xyz="0 0 0" rpy="${M_PI/2} 0 0"/>
+			<origin xyz="0 0 0" rpy="1.5708 0 0"/>
 			<parent link="${name}_pan_link"/>
 			<child link="${name}_tilt_link"/>
 			<axis xyz="0 0 1" />
@@ -65,23 +65,23 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://desire_description/ros/meshes/head_v0/head.stl"/>
+					<mesh filename="package://desire_description/meshes/head_desire/head.stl"/>
 				</geometry>
-				<material name="Green" />
+				<material name="Blue" />
 			</visual>
 
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://desire_description/ros/meshes/head_v0/head.stl"/>
+					<mesh filename="package://desire_description/meshes/head_desire/head.stl"/>
 				</geometry>
 			</collision>
 		</link>
 
 		<!-- right camera -->
 		<xacro:cob_prosilica_v0 name="${name}_color_camera_r" ros_topic="stereo/right"  parent="${name}_tilt_link">
-			<!--origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+M_PI/2} ${cam_r_yaw+M_PI}"{cam_r_roll-M_PI} /-->
-<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+M_PI/2} ${cam_r_yaw}" />	
+			<!--origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw+3.14159}"{cam_r_roll-3.14159} /-->
+<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z-0.06}" rpy="${cam_r_roll} ${cam_r_pitch+1.5708} ${cam_r_yaw}" />	
 		</xacro:cob_prosilica_v0>
 
 		<!-- left camera -->
@@ -95,8 +95,8 @@
 		</xacro:cob_tof_v0>
 
 		<!-- extensions -->
-		<xacro:desire_head_gazebo_v0 name="${name}" />
-		<xacro:desire_head_transmission_v0 name="${name}" />
+		<xacro:head_desire_gazebo_v0 name="${name}" />
+		<xacro:head_desire_transmission_v0 name="${name}" />
 
 	</xacro:macro>
 
