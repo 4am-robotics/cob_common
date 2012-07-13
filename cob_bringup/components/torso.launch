@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-	<node name="torso_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
-		<rosparam command="load" file="$(find cob_hardware_config)/$(env ROBOT)/config/torso.yaml"/>
-	</node>
-	<node ns="torso_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
-
-</launch>

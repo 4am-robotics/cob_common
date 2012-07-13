@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-	<node name="tray_controller" pkg="schunk_powercube_chain" type="schunk_powercube_chain" cwd="node" respawn="false" output="screen" >
-		<rosparam command="load" file="$(find cob_hardware_config)/$(env ROBOT)/config/tray.yaml"/>
-	</node>
- 	<node ns="tray_controller" name="joint_trajectory_controller" pkg="cob_trajectory_controller" type="cob_trajectory_controller" cwd="node" respawn="false" output="screen" />
-
-</launch>

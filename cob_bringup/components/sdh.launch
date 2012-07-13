@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-	<node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="true" output="screen" >
-		<rosparam command="load" file="$(find cob_hardware_config)/$(env ROBOT)/config/sdh.yaml"/>
-	</node>
-
-</launch>
