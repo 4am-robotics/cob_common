@@ -80,7 +80,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stlb"/>
+	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
         </geometry>
         
         <material name="Wheel_${suffix}" />
@@ -89,7 +89,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stlb"/>
+	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
         </geometry>
       </collision>
     </link>
@@ -124,7 +124,7 @@
       <visual>
         <origin xyz="0 0 0.002" rpy="${M_PI/2} 0.0 ${-M_PI/2}" />
         <geometry>
-	  <mesh filename="package://raw_description/meshes/base/raw_caster.stlb"/>
+	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
 		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
@@ -186,7 +186,7 @@
         <origin xyz="0 0.075 0" rpy="${M_PI/2} ${-M_PI/2} 0"/> 
         <geometry>
 	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
-	      <!--mesh filename="package://raw_description/meshes/base/raw_battery.stlb"/-->
+	      <!--mesh filename="package://raw_description/meshes/base/raw_battery.stl"/-->
         </geometry>
        </collision>
 
@@ -219,7 +219,7 @@
       <collision>
         <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
-	   <mesh filename="package://raw_description/meshes/base/raw_base.stlb"/>
+	   <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry>
       </collision>
       
@@ -244,7 +244,7 @@
        <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/> <!--TODO: fix this in stl orientation not in urdf -->
         <geometry>
-	   <mesh filename="package://raw_description/meshes/base/raw_tower_collision.stlb"/>
+	   <mesh filename="package://raw_description/meshes/base/raw_tower_collision.stl"/>
         </geometry>
         </collision>
 
