@@ -28,7 +28,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.stlb"/>
+	  <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.stl"/>
           <!--box size="0.001 0.001 0.001" /-->
         </geometry>
         <material name="Red" />
@@ -37,7 +37,6 @@
       <collision>
         <origin xyz="0 -0.03 0" rpy="${M_PI/2} 0 0" />
         <geometry>
-   	  <!--mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.stlb"/-->
           <cylinder radius ="${cylinder_radius}" length ="${cylinder_length}" />
         </geometry>
       </collision>
