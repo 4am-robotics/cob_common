@@ -19,16 +19,16 @@
 
 
   <property name="caster_offset_x" value="0.368" />  <!--modify here-->
-  <property name="caster_offset_y_fl" value="0.155" />
-  <property name="caster_offset_y_fr" value="0.165" />
-  <property name="caster_offset_y_bl" value="0.105" />
-  <property name="caster_offset_y_br" value="0.215" />
+  <property name="caster_offset_y_bl" value="0.184" />
+  <property name="caster_offset_y_br" value="0.136" />
+  <property name="caster_offset_y_fl" value="0.134" />
+  <property name="caster_offset_y_fr" value="0.186" />
   <property name="caster_offset_z" value="0.09" />
 
   <property name="battery_offset_x_f" value="0.141" /> 
   <property name="battery_offset_x_r" value="0.139" /> 
-  <property name="battery_offset_y_f" value="0.021" />
-  <property name="battery_offset_y_r" value="0.036" />
+  <property name="battery_offset_y_f" value="-0.008" />
+  <property name="battery_offset_y_r" value="0.007" />
   <property name="battery_offset_z" value="0.065" />
 
   <property name="caster_wheel_offset_y" value="0 " />
@@ -44,14 +44,15 @@
   <property name="tower_mass" value="6.49" />  
 
   <!-- simplified box collision geometry for battery -->
-  <property name="battery_size_x" value="0.24" />
-  <property name="battery_size_y" value="0.48" />
-  <property name="battery_size_z" value="0.148" />
+  <property name="battery_size_x" value="0.5" />
+  <property name="battery_size_y" value="0.148" />
+  <property name="battery_size_z" value="0.26" />
 
   <property name="base_laser_x" value="0.465" />
-  <property name="base_laser_y_back" value="0.259" />
-  <property name="base_laser_y_front" value="0.203" />
+  <property name="base_laser_y_back" value="0.23" />
+  <property name="base_laser_y_front" value="0.232" />
   <property name="base_laser_z" value="0.178" />
+
 
 
   <!--                                                      -->
@@ -122,7 +123,7 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0.002" rpy="${M_PI/2} 0.0 ${-M_PI/2}" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
 	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
 		  <!--box size="0.001 0.001 0.001" /-->
@@ -132,7 +133,7 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <box size="0.001 0.001 0.001" />
         </geometry>
@@ -183,7 +184,7 @@
        </visual>
 
       <collision>
-        <origin xyz="0 0.075 0" rpy="${M_PI/2} ${-M_PI/2} 0"/> 
+        <origin xyz="0 0.075 0" rpy="0 0 0"/> <!-- TODO: Change the origin of the stl, so that collision model doesn't need to be translated  -->
         <geometry>
 	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
 	      <!--mesh filename="package://raw_description/meshes/base/raw_battery.stl"/-->
@@ -209,7 +210,7 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
+        <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry> 
@@ -217,7 +218,7 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0.029 0.219" rpy="${M_PI/2} 0 ${M_PI/2}" />  <!--TODO: fix this in stl orientation not in urdf -->
+        <origin xyz="0 0 0" rpy="0 0 0" /> 
         <geometry>
 	   <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry>
@@ -234,7 +235,7 @@
                  iyy="0.26" iyz="0.0" izz="0.24" />
       </inertial>     
       <visual>
-	  <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/>
+	  <origin xyz="0 0 0" rpy="0 0 0"/>
 	  <geometry>
             <mesh filename="package://raw_description/meshes/base/raw_tower.stl"/>
           </geometry> 
@@ -242,13 +243,19 @@
        </visual>
 
        <collision>
-        <origin xyz="0 0 0" rpy="${M_PI/2} 0 ${-M_PI/2}"/> <!--TODO: fix this in stl orientation not in urdf -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
 	   <mesh filename="package://raw_description/meshes/base/raw_tower_collision.stl"/>
         </geometry>
         </collision>
 
     </link>
+
+    <joint name="${name}_frame_joint" type="fixed">
+      <origin xyz=" -0.36 0.029 0.48" rpy="0 0 0" /> 
+      <child link="${name}_tower" />
+      <parent link="${name}_link"/>
+    </joint>
 
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
@@ -283,21 +290,17 @@
     </joint>
 
 
-    <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz=" -0.36 0 0.48" rpy="0 0 0" /> <!-- with the right offset !-->
-      <child link="${name}_tower" />
-      <parent link="${name}_link"/>
-    </joint>
+
 
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${-base_laser_y_front} ${base_laser_z}" rpy="${-M_PI/2} 0 ${M_PI/4}" />
+      <origin xyz="${base_laser_x} ${-base_laser_y_front} ${base_laser_z}" rpy="0 0 ${-M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="${-M_PI/2} 0 ${-3*M_PI/4}" />
+      <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="0 0 ${-5*M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
     
@@ -314,16 +317,16 @@
 
     <!-- all four caster macros -->
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="${cal_caster_fl - M_PI/4}" >
-      <origin xyz="${-caster_offset_x} ${-caster_offset_y_fl} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${-caster_offset_x} ${-caster_offset_y_bl} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
     <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="${cal_caster_fr - M_PI/4}" >
-      <origin xyz="${-caster_offset_x} ${caster_offset_y_fr} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${-caster_offset_x} ${caster_offset_y_br} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
     <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="${cal_caster_bl - M_PI / 4 + M_PI}" >
-      <origin xyz="${caster_offset_x} ${-caster_offset_y_bl} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${caster_offset_x} ${-caster_offset_y_fl} ${caster_offset_z}" rpy=" 0 0 0" />
     </xacro:cob_caster>
     <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI / 4 + M_PI}"  >
-      <origin xyz="${caster_offset_x} ${caster_offset_y_br} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${caster_offset_x} ${caster_offset_y_fr} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
 
    <!-- cam3d -->
