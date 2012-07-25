@@ -8,6 +8,7 @@
   <license>BSD,LGPL</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
+  <depend stack="arm_navigation" /> <!-- kinematics_msgs, arm_navigation_msgs -->
   <depend stack="common_msgs" /> <!-- trajectory_msgs, geometry_msgs -->
   <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
   <depend stack="ros" /> <!-- roslib -->
