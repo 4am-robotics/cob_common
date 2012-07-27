@@ -5,22 +5,22 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="sick_s300_laser_gazebo_v0" params="name ros_topic update_rate min_angle max_angle">
+  <xacro:macro name="phidgets_distance_gazebo_v0" params="name ros_topic update_rate">
     <gazebo reference="${name}_link">
       <sensor:ray name="${name}">
-        <rayCount>541</rayCount>
-        <rangeCount>541</rangeCount>
+        <rayCount>10</rayCount>
+        <rangeCount>10</rangeCount>
         <laserCount>1</laserCount>
 
         <origin>0.0 0.0 0.0</origin>
         <displayRays>false</displayRays>
 
-        <minAngle>${min_angle*180.0/M_PI}</minAngle>
-        <maxAngle>${max_angle*180.0/M_PI}</maxAngle>
+        <minAngle>${-0.2*180.0/M_PI}</minAngle>
+        <maxAngle>${0.2*180.0/M_PI}</maxAngle>
 
-        <minRange>0.05</minRange>
-        <maxRange>30.0</maxRange>
-        <resRange>0.03</resRange>
+        <minRange>0.01</minRange> <!-- real value from sensor datasheet is 0.04m -->
+        <maxRange>0.4</maxRange>  <!-- real value from sensor datasheet is 0.30m -->
+        <resRange>0.005</resRange>
         <updateRate>${update_rate}</updateRate>
         <controller:gazebo_ros_laser name="gazebo_ros_${name}_controller" plugin="libgazebo_ros_laser.so">
           <gaussianNoise>0.005</gaussianNoise>
@@ -31,7 +31,6 @@
           <interface:laser name="gazebo_ros_${name}_iface" />
         </controller:gazebo_ros_laser>
       </sensor:ray>
-      <material value="PR2/Yellow" />
     </gazebo>
   </xacro:macro>
 

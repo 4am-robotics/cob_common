@@ -10,21 +10,44 @@
       <imageFormat>R8G8B8</imageFormat>
       <imageSize>640 480</imageSize>
       <hfov>57</hfov>
-      <nearClip>0.01</nearClip>
+      <nearClip>0.1</nearClip>
       <farClip>5</farClip>
       <updateRate>20.0</updateRate>
       <baseline>0.2</baseline>
-      <controller:gazebo_ros_openni_kinect name="${name}_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
+      <controller:gazebo_ros_openni_kinect name="${name}_depth_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20.0</updateRate>
+        <imageTopicName>${ros_topic}/ir/image_raw</imageTopicName>
+        <cameraInfoTopicName>${ros_topic}/ir/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>${ros_topic}/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>${ros_topic}/depth/points</pointCloudTopicName>
+        <frameName>${name}_link</frameName>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+      </controller:gazebo_ros_openni_kinect>
+    </sensor:camera>
+    <sensor:camera name="${name}_frame_sensor">
+      <imageFormat>R8G8B8</imageFormat>
+      <imageSize>640 480</imageSize>
+      <hfov>57</hfov>
+      <nearClip>0.1</nearClip>
+      <farClip>5</farClip>
+      <updateRate>20.0</updateRate>
+      <baseline>0.2</baseline>
+      <controller:gazebo_ros_openni_kinect name="${name}_rgb_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>20.0</updateRate>
         <imageTopicName>${ros_topic}/rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>${ros_topic}/camera_info</cameraInfoTopicName>
-		<depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
-        <depthImageInfoTopicName>${ros_topic}/depth/camera_info</depthImageInfoTopicName>
-		<pointCloudTopicName>${ros_topic}/depth/points</pointCloudTopicName>
-		<frameName>/${name}_link</frameName>
+        <!--pointCloudTopicName>${ros_topic}/rgb/points</pointCloudTopicName-->
+        <cameraInfoTopicName>${ros_topic}/rgb/camera_info</cameraInfoTopicName>
+        <frameName>${name}_link</frameName>
         <pointCloudCutoff>0.5</pointCloudCutoff>
-    	<distortionK1>0.00000001</distortionK1>
+        <distortionK1>0.00000001</distortionK1>
         <distortionK2>0.00000001</distortionK2>
         <distortionK3>0.00000001</distortionK3>
         <distortionT1>0.00000001</distortionT1>
@@ -36,4 +59,5 @@
 </xacro:macro>
 
 </root>
+
 

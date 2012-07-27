@@ -21,6 +21,12 @@
     </gazebo>
   </xacro:macro>
 
+  <xacro:macro name="cob_batteries_gazebo" params="name">   <!-- added for raw model - fxmlc -->
+    <gazebo reference="${name}_battery">
+      <material value="PR2/Plug" />
+    </gazebo>
+  </xacro:macro>
+
   <xacro:macro name="cob_base_gazebo" params="name">
     <gazebo reference="${name}_link">
       <selfCollide>true</selfCollide>
@@ -34,7 +40,14 @@
           <interface:bumper name="${name}_bumper_iface" />
         </controller:gazebo_ros_bumper>
       </sensor:contact>
-      <material>Gazebo/Grey</material>
+      <!--material>Gazebo/Grey</material-->
+      <material value="PR2/Grey2" />
+    </gazebo>
+
+    <gazebo reference="${name}_tower">		<!-- added for raw model - fxmlc -->
+      <selfCollide>true</selfCollide>
+      <!--material>Gazebo/Grey</material-->
+      <material value="PR2/Grey" />
     </gazebo>
 
 
