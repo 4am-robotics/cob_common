@@ -6,7 +6,6 @@
 
 	<include filename="$(find cob_description)/urdf/head_v3/head.gazebo.xacro" />
 	<include filename="$(find cob_description)/urdf/head_v3/head.transmission.xacro" />
-	
 	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
 	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
