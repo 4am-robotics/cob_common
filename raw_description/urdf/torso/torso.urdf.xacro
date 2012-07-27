@@ -10,7 +10,7 @@
 	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
 	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
-	<xacro:macro name="cob_torso_v1" params="name parent *origin">
+	<xacro:macro name="raw_torso" params="name parent *origin">
 
         
 		<!-- joint between base_link and torso_tilt_link -->
@@ -29,7 +29,7 @@
 			</inertial>
 
 			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" /> 
+				<origin xyz="0 0 -0.26" rpy="0 0 0" /> 
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
@@ -37,7 +37,7 @@
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0 -0.26" rpy="0 0 0" /> 
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
@@ -128,8 +128,8 @@
 		</xacro:cob_kinect_v0>
 
 		<!-- extensions -->
-		<xacro:cob_torso_gazebo_v1 name="${name}" />
-		<xacro:cob_torso_transmission_v1 name="${name}" />
+		<xacro:raw_torso_gazebo name="${name}" />
+		<xacro:raw_torso_transmission name="${name}" />
 
 	</xacro:macro>
 	
