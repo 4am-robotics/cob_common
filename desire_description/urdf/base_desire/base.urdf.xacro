@@ -70,7 +70,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/base_desire/pr2_wheel.stl" />
+          <mesh filename="package://cob_description/meshes/base/pr2_wheel.stl" />
         </geometry>
         
         <material name="Wheel_${suffix}" />
@@ -113,7 +113,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="$(find cob_description)/meshes/base_desire/caster.stl" />
+          <mesh filename="$(find cob_description)/meshes/base/caster.stl" />
         </geometry>
     
         <material name="Green" />
