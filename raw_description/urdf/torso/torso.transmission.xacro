@@ -13,8 +13,8 @@
 			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
-		<transmission name="${name}__tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}__tilt_motor"/>
+		<transmission name="${name}_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_tilt_motor"/>
 			<joint name="${name}_tilt_joint"/>
 			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
