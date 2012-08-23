@@ -252,7 +252,7 @@
     </link>
 
     <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz=" -0.36 0.029 0.48" rpy="0 0 0" /> 
+      <origin xyz=" 0.36 -0.029 0.48" rpy="0 0 3.14159265" /> 
       <child link="${name}_tower" />
       <parent link="${name}_link"/>
     </joint>
