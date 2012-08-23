@@ -6,18 +6,18 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<xacro:macro name="raw_torso_transmission" params="name">
-		
+
+		<transmission name="${name}_pan_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_pan_motor"/>
+			<joint name="${name}_pan_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
+
 		<transmission name="${name}_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
 			<actuator name="${name}_tilt_motor"/>
 			<joint name="${name}_tilt_joint"/>
 			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
-		
-		<transmission name="head_axis_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="head_axis_motor"/>
-			<joint name="head_axis_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
-		</transmission>				
 
 	</xacro:macro>
 
