@@ -18,7 +18,7 @@
 		</gazebo>
 
 		<gazebo reference="${name}_upper_neck_tilt_link">
-			<material>Gazebo/Grey</material>
+			<material>IPA/Grey1</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

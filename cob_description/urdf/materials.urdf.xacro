@@ -14,7 +14,7 @@
 	</material>
 
 	<material name="Grey2">
-		<color rgba="0.9 0.9 0.9 1.0"/>
+		<color rgba="0.81 0.81 0.81 1.0"/>
 	</material>
 
 	<material name="Red">
