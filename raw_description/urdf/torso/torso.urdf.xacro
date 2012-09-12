@@ -83,7 +83,7 @@
 			<origin xyz="0.0 0.0 0.047" rpy="0.0 0.0 0.0" />
    			<parent link="${name}_1_link"/>
 			<child link="torso_2_link"/>
-			<axis xyz="0 0 -1.0" />
+			<axis xyz="0 1.0 0" />
 			<dynamics damping="0.1" />
 			<calibration rising="0.0"/>
 			<limit effort="100" lower="-3.2" upper="1.57" velocity="1.4"/>
