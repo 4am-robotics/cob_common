@@ -29,6 +29,16 @@
 		<color rgba="0.0 0.0 0.0 1.0"/>
 	</material>
 
+        <material name="Transparent">
+                <color rgba="0.81 0.81 0.81 0.0"/>
+        </material>
+
+        <material name="LightBlue">
+                <color rgba="0.624 0.698 0.858 1"/>
+        </material>
+
+
+
 	<material name="Caster">
 		<texture filename="package://pr2_ogre/Media/materials/textures/pr2_caster_texture.png" />
 	</material>
