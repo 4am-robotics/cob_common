@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
+
+	<xacro:macro name="raw_boxgripper" params="name parent *origin">
+
+        
+		<!-- joint between arm_ee_link and raw_boxgripper_link -->
+		<joint name="${name}_joint" type="fixed" >
+			<insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_link" />
+		</joint>
+
+
+		<link name="${name}_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.57307"/>
+				<inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+			</inertial>
+
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" /> 
+				<geometry>
+					<box size="0.003 0.26 0.04"/>
+				</geometry>
+				<material name="Grey" />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.003 0.26 0.04"/>
+				</geometry>
+			</collision>
+		</link> 
+
+		<!-- extensions -->
+		<xacro:raw_boxgripper_gazebo name="${name}" />
+
+	</xacro:macro>
+	
+</robot>
