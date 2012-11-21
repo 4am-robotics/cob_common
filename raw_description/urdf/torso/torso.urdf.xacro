@@ -46,12 +46,12 @@
 
 		<!-- joint between base_link and torso_lower_neck_tilt_link -->
 		<joint name="${name}_pan_joint" type="revolute">
-			<origin xyz="0.0 0.0 0.3074" rpy="0.0 0.0 -0.48" />
+			<origin xyz="0.0 0.0 0.3074" rpy="0.0 0.0 0.0" />
 			<parent link="${name}_0_link"/>
 			<child link="${name}_1_link"/>
 			<axis xyz="0 0 -1.0" />
 			<dynamics damping="25.0" friction="10.0"/>
-			<calibration rising="0.0"/>
+			<calibration rising="${torso_pan_ref}"/>
 			<limit effort="41.4" lower="-6.2831" upper="6.2831" velocity="0.5"/>
 		</joint>
 
@@ -83,9 +83,9 @@
 			<origin xyz="0.0 0.0 0.047" rpy="0.0 0.0 0.0" />
    			<parent link="${name}_1_link"/>
 			<child link="torso_2_link"/>
-			<axis xyz="0 0 -1.0" />
+			<axis xyz="0 1.0 0" />
 			<dynamics damping="0.1" />
-			<calibration rising="0.0"/>
+			<calibration rising="${torso_tilt_ref}"/>
 			<limit effort="100" lower="-3.2" upper="1.57" velocity="1.4"/>
 		</joint>
 
