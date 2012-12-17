@@ -8,12 +8,12 @@
 	<xacro:macro name="cob_torso_gazebo_v1" params="name">
 
 		<gazebo reference="${name}_lower_neck_tilt_link">
-			<material>Gazebo/Red</material>
+			<material>Gazebo/Grey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="${name}_pan_link">
-			<material>Gazebo/Blue</material>
+			<material>Gazebo/Grey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
@@ -23,7 +23,7 @@
 		</gazebo>
 
 		<gazebo reference="head_cover_link">
-			<material>Gazebo/Blue</material>
+			<material>Gazebo/Black</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

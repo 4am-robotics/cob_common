@@ -25,7 +25,7 @@
         <geometry>
           <box size="0.02 0.02 0.075"/>
         </geometry>
-        <material name="Red" />
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>
@@ -54,7 +54,7 @@
         <geometry>
           <box size="0.01 0.01 0.01"/>
         </geometry>
-        <material name="Red" />
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>

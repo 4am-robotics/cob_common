@@ -35,7 +35,7 @@
 					<interface:camera name="${name}_iface" />
 				</controller:gazebo_ros_prosilica>
 			</sensor:camera>
-			<material value="Gazebo/Red" />
+			<material value="Gazebo/Black" />
 			<turnGravityOff>true</turnGravityOff>
 		</gazebo>
 

@@ -8,42 +8,42 @@
 	<xacro:macro name="cob_lbr_gazebo" params="name">
 
 		<gazebo reference="${name}_0_link">
-			<material value="PR2/Red" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="${name}_1_link">
-			<material value="PR2/Blue" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 	
 		<gazebo reference="${name}_2_link">
-			<material value="PR2/Red" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 	
 		<gazebo reference="${name}_3_link">
-			<material value="PR2/Blue" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 	
 		<gazebo reference="${name}_4_link">
-			<material value="PR2/Red" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="${name}_5_link">
-			<material value="PR2/Blue" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="${name}_6_link">
-			<material value="PR2/Red" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="${name}_7_link">
-			<material value="PR2/Blue" />
+			<material value="IPA/Orange" />
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
