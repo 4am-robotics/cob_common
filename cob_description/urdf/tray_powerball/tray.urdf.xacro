@@ -182,8 +182,8 @@
 		</xacro:phidgets_distance_v0>
 
 		<!-- extensions -->
-		<xacro:cob_tray_gazebo name="${name}" />
-		<xacro:cob_tray_transmission name="${name}" />
+		<xacro:cob_tray_powerball_gazebo name="${name}" />
+		<xacro:cob_tray_powerball_transmission name="${name}" />
 
 	</xacro:macro>
 	

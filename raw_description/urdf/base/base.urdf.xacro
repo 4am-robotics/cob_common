@@ -129,7 +129,7 @@
 		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
-        <material name="Grey" />
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>
@@ -214,7 +214,7 @@
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry> 
-        <material name="Grey"/>
+        <material name="IPA/DarkGrey"/>
       </visual>
 
       <collision>
@@ -239,7 +239,7 @@
 	  <geometry>
             <mesh filename="package://raw_description/meshes/base/raw_tower.stl"/>
           </geometry> 
-          <material name="Grey2"/>
+          <material name="IPA/DarkGrey"/>
        </visual>
 
        <collision>
