@@ -28,7 +28,7 @@
 				<geometry>
 					<cylinder radius="0.060" length="0.14"/>
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 
 			<collision>
@@ -63,7 +63,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_1.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -98,7 +98,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_2.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -133,7 +133,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_3.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -169,7 +169,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_4.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -203,7 +203,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_5.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -238,7 +238,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_6.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -273,7 +273,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/lbr/joint_7.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>

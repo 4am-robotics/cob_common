@@ -157,7 +157,7 @@
           <mesh filename="package://cob_description/meshes/base/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
-        <material name="Grey"/>
+        <material name="IPA/DarkGrey"/>
       </visual>
 
       <collision>

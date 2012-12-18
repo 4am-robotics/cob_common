@@ -9,12 +9,12 @@
 		<color rgba="0.0 0.8 0.0 1.0"/>
 	</material>
 
-	<material name="Grey">
+	<material name="IPA/DarkGrey">
 		<color rgba="0.7 0.7 0.7 1.0"/>
 	</material>
 
-	<material name="Grey2">
-		<color rgba="0.9 0.9 0.9 1.0"/>
+	<material name="IPA/LightGrey">
+		<color rgba="0.81 0.81 0.81 1.0"/>
 	</material>
 
 	<material name="Red">
@@ -25,8 +25,16 @@
 		<color rgba="1.0 1.0 1.0 1.0"/>
 	</material>
 
-	<material name="Black">
+	<material name="IPA/Black">
 		<color rgba="0.0 0.0 0.0 1.0"/>
+	</material>
+
+	<material name="IPA/Orange">
+		<color rgba="1.0 0.5 0.0 1.0"/>
+	</material>
+
+	<material name="Schunk/DarkGolden">
+		<color rgba="0.72 0.5255 0.043 1.0"/>
 	</material>
 
 	<material name="Caster">

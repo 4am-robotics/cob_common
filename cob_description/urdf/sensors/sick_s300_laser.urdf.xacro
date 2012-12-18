@@ -31,7 +31,7 @@
 	  <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.stl"/>
           <!--box size="0.001 0.001 0.001" /-->
         </geometry>
-        <material name="Red" />
+        <material name="IPA/DarkGrey" />
       </visual>
       
       <collision>
