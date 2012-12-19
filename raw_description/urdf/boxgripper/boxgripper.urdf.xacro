@@ -29,7 +29,7 @@
 				<geometry>
 					<box size="0.003 0.26 0.04"/>
 				</geometry>
-				<material name="Grey" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 
 			<collision>

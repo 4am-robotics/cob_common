@@ -33,7 +33,7 @@
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
-				<material name="Grey" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 
 			<collision>
