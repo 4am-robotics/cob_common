@@ -11,7 +11,7 @@
       <imageSize>640 480</imageSize>
       <hfov>57</hfov>
       <nearClip>0.1</nearClip>
-      <farClip>5</farClip>
+      <farClip>100</farClip>
       <updateRate>20.0</updateRate>
       <baseline>0.2</baseline>
       <controller:gazebo_ros_openni_kinect name="${name}_depth_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
@@ -36,7 +36,7 @@
       <imageSize>640 480</imageSize>
       <hfov>57</hfov>
       <nearClip>0.1</nearClip>
-      <farClip>5</farClip>
+      <farClip>100</farClip>
       <updateRate>20.0</updateRate>
       <baseline>0.2</baseline>
       <controller:gazebo_ros_openni_kinect name="${name}_rgb_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
