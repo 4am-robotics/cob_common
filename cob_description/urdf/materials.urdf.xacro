@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <robot>
 
-	<material name="Blue">
-		<color rgba="0.0 0.0 0.8 1.0"/>
-	</material>
-
-	<material name="Green">
-		<color rgba="0.0 0.8 0.0 1.0"/>
-	</material>
 
 	<material name="IPA/DarkGrey">
 		<color rgba="0.7 0.7 0.7 1.0"/>
@@ -15,14 +8,6 @@
 
 	<material name="IPA/LightGrey">
 		<color rgba="0.81 0.81 0.81 1.0"/>
-	</material>
-
-	<material name="Red">
-		<color rgba="0.8 0.0 0.0 1.0"/>
-	</material>
-
-	<material name="White">
-		<color rgba="1.0 1.0 1.0 1.0"/>
 	</material>
 
 	<material name="IPA/Black">
@@ -33,23 +18,19 @@
 		<color rgba="1.0 0.5 0.0 1.0"/>
 	</material>
 
-	<material name="Schunk/DarkGolden">
-		<color rgba="0.72 0.5255 0.043 1.0"/>
-	</material>
-
-	<material name="Caster">
+	<material name="IPA/Caster">
 		<texture filename="package://pr2_ogre/Media/materials/textures/pr2_caster_texture.png" />
 	</material>
 
-	<material name="Wheel_l">
+	<material name="IPA/Wheel_l">
 		<texture filename="package://pr2_ogre/Media/materials/textures/pr2_wheel_left.png" />
 	</material>
 
-	<material name="Wheel_r">
+	<material name="IPA/Wheel_r">
 		<texture filename="package://pr2_ogre/Media/materials/textures/pr2_wheel_right.png" />
 	</material>
 
-	<material name="RollLinks">
+	<material name="IPA/RollLinks">
 		<texture filename="package://pr2_ogre/Media/materials/textures/pr2_wheel_left.png" />
 	</material>
 

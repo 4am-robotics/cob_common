@@ -9,12 +9,12 @@
 
 		
 		<gazebo reference="${name}_pan_link">
-			<material>Gazebo/Blue</material>
+			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="${name}_tilt_link">
-			<material>Gazebo/Grey</material>
+			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

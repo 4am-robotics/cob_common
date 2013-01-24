@@ -28,7 +28,7 @@
 				<geometry>
 					<cylinder radius="0.060" length="0.14"/>
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 
 			<collision>
@@ -64,7 +64,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_1.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -100,7 +100,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_2.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -136,7 +136,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_3.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -173,7 +173,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_4.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -208,7 +208,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_5.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -244,7 +244,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_6.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>
@@ -280,7 +280,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/ros/meshes/lbr_v0/joint_7.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Orange" />
 			</visual>
 			
 			<collision>

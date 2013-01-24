@@ -73,7 +73,7 @@
           <mesh filename="package://cob_description/meshes/base/pr2_wheel.stl" />
         </geometry>
         
-        <material name="Wheel_${suffix}" />
+        <material name="IPA/Wheel_${suffix}" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
@@ -116,7 +116,7 @@
           <mesh filename="$(find cob_description)/meshes/base/caster.stl" />
         </geometry>
     
-        <material name="Green" />
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>
@@ -165,7 +165,7 @@
         <geometry>
           <mesh filename="package://desire_description/meshes/base_desire/base.stl"/>
         </geometry> 
-        <material name="Green"/>
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>
@@ -193,7 +193,7 @@
           <box size="0.01 0.01 0.01" />
         </geometry>
         
-        <material name="Red" />
+        <material name="IPA/DarkGrey" />
       </visual>
       <collision>
 
