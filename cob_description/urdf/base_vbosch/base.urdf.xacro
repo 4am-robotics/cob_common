@@ -73,7 +73,7 @@
           <cylinder radius="${wheel_radius}" length="${wheel_length}" />
         </geometry>
         
-        <material name="Wheel_${suffix}" />
+        <material name="IPA/Wheel_${suffix}" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
@@ -119,7 +119,7 @@
 		  <box size="0.001 0.001 0.001" />
         </geometry>
     
-        <material name="Green" />
+        <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
@@ -196,7 +196,7 @@
           <box size="0.01 0.01 0.01" />
         </geometry>
         
-        <material name="Red" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
 

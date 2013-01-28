@@ -33,7 +33,7 @@
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
-				<material name="IPA/DarkGrey" />
+        		<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -67,7 +67,7 @@
 				<geometry>
 					<cylinder length="0.1" radius="0.1"/>
 				</geometry>
-				<material name="Red" />
+                <material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -101,7 +101,7 @@
 				<geometry>
 					<box size="0.01 0.01 0.01"/>
 				</geometry>
-				<material name="Green" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>

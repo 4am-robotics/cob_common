@@ -31,7 +31,7 @@
           <interface:laser name="gazebo_ros_${name}_iface" />
         </controller:gazebo_ros_laser>
       </sensor:ray>
-      <material value="Gazebo/Grey" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 

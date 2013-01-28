@@ -25,7 +25,7 @@
         <geometry>
           <box size="0.001 0.001 0.001" />
         </geometry>
-        <material name="Red" />
+        <material name="IPA/DarkGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />

@@ -12,7 +12,7 @@
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 		<gazebo reference="${name}_2_link">
-			<material>IPA/DarkGrey</material>
+			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 		<gazebo reference="${name}_3_link">

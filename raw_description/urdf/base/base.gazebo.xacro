@@ -11,19 +11,19 @@
       <mu2 value="100.0" />
       <kp  value="1000000.0" />
       <kd  value="1.0" />
-      <material value="PR2/wheel_${suffix}" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="cob_caster_gazebo" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
-      <material value="PR2/caster_texture" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="cob_batteries_gazebo" params="name">   <!-- added for raw model - fxmlc -->
     <gazebo reference="${name}_battery">
-      <material value="PR2/Plug" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 
@@ -41,13 +41,13 @@
         </controller:gazebo_ros_bumper>
       </sensor:contact>
       <!--material>Gazebo/Grey</material-->
-      <material value="Gazebo/Grey" />
+      <material value="IPA/LightGrey" />
     </gazebo>
 
     <gazebo reference="${name}_tower">		<!-- added for raw model - fxmlc -->
       <selfCollide>true</selfCollide>
       <!--material>Gazebo/Grey</material-->
-      <material value="Gazebo/Grey" />
+      <material value="IPA/LightGrey" />
     </gazebo>
 
 
