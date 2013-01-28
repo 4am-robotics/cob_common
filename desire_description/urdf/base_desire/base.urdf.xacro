@@ -74,7 +74,7 @@
           <mesh filename="package://cob_description/meshes/base/pr2_wheel.stl" />
         </geometry>
         
-        <material name="IPA/Wheel_${suffix}" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
