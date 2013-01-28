@@ -84,7 +84,7 @@
 	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
         </geometry>
         
-        <material name="IPA/Wheel_${suffix}" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->

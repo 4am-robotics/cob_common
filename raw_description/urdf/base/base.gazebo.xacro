@@ -11,19 +11,19 @@
       <mu2 value="100.0" />
       <kp  value="1000000.0" />
       <kd  value="1.0" />
-      <material value="IPA/wheel_${suffix}" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="cob_caster_gazebo" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
-      <material value="IPA/caster_texture" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="cob_batteries_gazebo" params="name">   <!-- added for raw model - fxmlc -->
     <gazebo reference="${name}_battery">
-      <material value="IPA/Plug" />
+      <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>
 
