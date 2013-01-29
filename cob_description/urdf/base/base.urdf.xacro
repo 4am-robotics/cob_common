@@ -214,7 +214,7 @@
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser top -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${laser_top_x} ${laser_top_y} ${laser_top_z}" rpy="${laser_top_roll} ${laser_top_pitch} ${laser_top_yaw}" />
     </xacro:hokuyo_lx30_laser_v0>
 
