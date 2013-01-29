@@ -27,7 +27,7 @@
         <geometry>
           <box size="0.02 0.02 0.075"/>
         </geometry>
-        <material name="IPA/DarkGrey" />
+        <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
@@ -56,7 +56,7 @@
         <geometry>
           <box size="0.01 0.01 0.01"/>
         </geometry>
-        <material name="IPA/DarkGrey" />
+        <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
@@ -68,7 +68,7 @@
     </link>
 
    <!-- for simulation -->
-   <xacro:cob_tof_gazebo_v0 name="${name} ros_topic="${ros_topic}"/>
+   <xacro:cob_tof_gazebo_v0 name="${name}" ros_topic="${ros_topic}"/>
 
   </xacro:macro>
 

@@ -54,6 +54,7 @@
         <distortionT2>0.00000001</distortionT2>
       </controller:gazebo_ros_openni_kinect>
     </sensor:camera>
+    <material>IPA/LightGrey</material>
   </gazebo>
 
 </xacro:macro>

@@ -28,7 +28,7 @@
 		</gazebo>
 
 		<gazebo reference="head_cover_link">
-			<material>IPA/LightGrey</material>
+			<material>IPA/Black</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
