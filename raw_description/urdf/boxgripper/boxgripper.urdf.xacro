@@ -10,12 +10,69 @@
 
         
 		<!-- joint between arm_ee_link and raw_boxgripper_link -->
-		<joint name="${name}_joint" type="fixed" >
+		<joint name="${name}_base_joint" type="fixed" >
 			<insert_block name="origin" />
 			<parent link="${parent}" />
-			<child link="${name}_link" />
+			<child link="${name}_base_link" />
 		</joint>
 
+		<link name="${name}_base_link">
+			<visual>
+				<origin xyz="0.001 0 0" rpy="0 0 0" /> 
+				<geometry>
+					<box size="0.002 0.045 0.045"/>
+				</geometry>
+				<material name="IPA/DarkGrey" />
+			</visual>
+
+			<collision>
+				<origin xyz="0.001 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.002 0.045 0.045"/>
+				</geometry>
+			</collision>
+
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.02"/>
+				<inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+			</inertial>
+		</link>
+
+		<joint name="${name}_middle_joint" type="fixed" >
+			<origin xyz="0.02 0 -0.061" rpy="0 -0.24 0" />
+			<parent link="${name}_base_link" />
+			<child link="${name}_middle_link" />
+		</joint>
+
+		<link name="${name}_middle_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.02"/>
+				<inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+			</inertial>
+
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" /> 
+				<geometry>
+					<box size="0.002 0.03 0.1433"/>
+				</geometry>
+				<material name="IPA/DarkGrey" />
+			</visual>
+
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.002 0.03 0.1433"/>
+				</geometry>
+			</collision>
+		</link> 
+
+		<joint name="${name}_joint" type="fixed" >
+			<origin xyz="0.04 0 -0.122" rpy="0 0.12 0" />
+			<parent link="${name}_base_link" />
+			<child link="${name}_link" />
+		</joint>
 
 		<link name="${name}_link">
 			<inertial>
@@ -27,7 +84,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" /> 
 				<geometry>
-					<box size="0.003 0.26 0.04"/>
+					<box size="0.002 0.26 0.04"/>
 				</geometry>
 				<material name="IPA/DarkGrey" />
 			</visual>
@@ -35,7 +92,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<box size="0.003 0.26 0.04"/>
+					<box size="0.002 0.26 0.04"/>
 				</geometry>
 			</collision>
 		</link> 
