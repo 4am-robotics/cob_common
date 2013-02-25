@@ -17,7 +17,7 @@
 			<axis xyz="0 0 1" />
 			<calibration rising="${torso_lower_neck_pan_ref}"/>
 			<dynamics damping="25.0" friction="10.0"/>
-			<limit effort="24" lower="-0.2" upper="0.2" velocity="0.5"/>
+			<limit effort="24" lower="-1.0" upper="1.0" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_lower_neck_pan_link">
@@ -32,7 +32,7 @@
 				<geometry>
 					<box size="0.01 0.01 0.01"/>
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -66,7 +66,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/lower_neck.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -85,7 +85,7 @@
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
 			<calibration rising="${torso_upper_neck_pan_ref}"/>
-			<limit effort="4" lower="-0.2" upper="0.2" velocity="0.5"/>
+			<limit effort="4" lower="-1.0" upper="1.0" velocity="0.5"/>
 		</joint>
 
 		<link name="${name}_upper_neck_pan_link">
@@ -100,7 +100,7 @@
 				<geometry>
 					<box size="0.01 0.01 0.01"/>
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -134,7 +134,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/upper_neck.stl" />
 				</geometry>
-				<material name="Grey" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -164,7 +164,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/head_cover.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/Black" />
 			</visual>
 
 			<collision>

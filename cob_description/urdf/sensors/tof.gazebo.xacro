@@ -38,7 +38,7 @@
             <interface:laser name="${name}_ray_block_iface" />
           </controller:gazebo_ros_block_laser>
         </sensor:ray>
-    <material value="Gazebo/Red" />
+    <material value="IPA/LightGrey" />
     <turnGravityOff>true</turnGravityOff>
   </gazebo>
 

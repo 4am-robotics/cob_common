@@ -8,7 +8,7 @@
 	<xacro:macro name="cob_tray_gazebo" params="name">
 
 		<gazebo reference="${name}_link">
-			<material>Gazebo/Green</material>
+			<material>IPA/DarkGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

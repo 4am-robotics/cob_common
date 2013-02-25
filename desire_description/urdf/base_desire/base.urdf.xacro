@@ -9,6 +9,7 @@
   
   <!-- modify here for test -->
   <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
+  <include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
@@ -73,7 +74,7 @@
           <mesh filename="package://cob_description/meshes/base/pr2_wheel.stl" />
         </geometry>
         
-        <material name="Wheel_${suffix}" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
@@ -116,7 +117,7 @@
           <mesh filename="$(find cob_description)/meshes/base/caster.stl" />
         </geometry>
     
-        <material name="Green" />
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>
@@ -165,7 +166,7 @@
         <geometry>
           <mesh filename="package://desire_description/meshes/base_desire/base.stl"/>
         </geometry> 
-        <material name="Green"/>
+        <material name="IPA/DarkGrey" />
       </visual>
 
       <collision>
@@ -193,7 +194,7 @@
           <box size="0.01 0.01 0.01" />
         </geometry>
         
-        <material name="Red" />
+        <material name="IPA/DarkGrey" />
       </visual>
       <collision>
 
@@ -222,6 +223,11 @@
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
     </xacro:sick_s300_laser_v0>
+
+     <!-- cam3d -->
+     <xacro:cob_kinect_v0 name="head_cam3d" ros_topic="cam3d" parent="base_link">
+    		<origin xyz="0.40 0 1.4246" rpy="0 0 0" />
+     </xacro:cob_kinect_v0>
 
 
     <!-- all four caster macros -->

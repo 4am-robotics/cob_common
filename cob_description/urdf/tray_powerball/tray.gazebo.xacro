@@ -5,10 +5,18 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="cob_head_gazebo_v2" params="name">
+	<xacro:macro name="cob_tray_powerball_gazebo" params="name">
 
-		<gazebo reference="${name}_axis_link">
-			<material>IPA/LightGrey</material>
+		<gazebo reference="${name}_1_link">
+			<material>IPA/DarkGrey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+		<gazebo reference="${name}_2_link">
+			<material>IPA/DarkGrey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+		<gazebo reference="${name}_3_link">
+			<material>IPA/DarkGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

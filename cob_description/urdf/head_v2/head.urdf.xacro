@@ -34,7 +34,7 @@
 				<geometry>
 					<box size="0.01 0.01 0.12"/>
 				</geometry>
-				<material name="Green" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
