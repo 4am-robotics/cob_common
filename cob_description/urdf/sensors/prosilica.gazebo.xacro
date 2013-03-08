@@ -10,8 +10,8 @@
 			<sensor:camera name="${name}_sensor">
 				<!--geom>${name}_link</geom-->
 				<imageFormat>R8G8B8</imageFormat>
-				<imageSize>1338 1038</imageSize>
-				<hfov>45</hfov>
+				<imageSize>1360 1024</imageSize>
+				<hfov>33</hfov><!--opening angle of Fujinon HF9HA-1B-->
 				<nearClip>0.1</nearClip>
 				<farClip>100</farClip>
 				<updateRate>10.0</updateRate>
@@ -26,7 +26,7 @@
 					<CxPrime>697.69</CxPrime>
 					<Cx>697.69</Cx>
 					<Cy>530.51</Cy>
-					<focal_length>1615</focal_length> <!-- image_width / (2*tan(hfov_radian /2)) -->
+					<focal_length>1450</focal_length> <!-- image_width / (2*tan(hfov_radian /2)) -->
 					<distortion_k1>0.00000001</distortion_k1>
 					<distortion_k2>0.00000001</distortion_k2>
 					<distortion_k3>0.00000001</distortion_k3>
@@ -35,7 +35,7 @@
 					<interface:camera name="${name}_iface" />
 				</controller:gazebo_ros_prosilica>
 			</sensor:camera>
-			<material value="Gazebo/Black" />
+			<material value="IPA/LightGrey" />
 			<turnGravityOff>true</turnGravityOff>
 		</gazebo>
 

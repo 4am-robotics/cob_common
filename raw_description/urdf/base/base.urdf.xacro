@@ -84,7 +84,7 @@
 	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
         </geometry>
         
-        <material name="Wheel_${suffix}" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
@@ -129,7 +129,7 @@
 		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
-        <material name="IPA/DarkGrey" />
+        <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
@@ -180,7 +180,7 @@
 	  <geometry>
             <mesh filename="package://raw_description/meshes/base/raw_battery.stl"/>
           </geometry> 
-          <material name="Red"/>
+        <material name="IPA/LightGrey" />
        </visual>
 
       <collision>
@@ -214,7 +214,7 @@
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry> 
-        <material name="IPA/DarkGrey"/>
+        <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
@@ -239,7 +239,7 @@
 	  <geometry>
             <mesh filename="package://raw_description/meshes/base/raw_tower.stl"/>
           </geometry> 
-          <material name="IPA/DarkGrey"/>
+        <material name="IPA/LightGrey" />
        </visual>
 
        <collision>
@@ -273,7 +273,7 @@
           <box size="0.01 0.01 0.01" />
         </geometry>
         
-        <material name="Red" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0.1" rpy="0 0 0" />

@@ -8,7 +8,7 @@
 	<xacro:macro name="cob_head_gazebo_v1" params="name">
 
 		<gazebo reference="${name}_axis_link">
-			<material>Green</material>
+			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

@@ -26,7 +26,7 @@
         <geometry>
           <box size="0.001 0.001 0.001" />
         </geometry>
-        <material name="IPA/DarkGrey" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
