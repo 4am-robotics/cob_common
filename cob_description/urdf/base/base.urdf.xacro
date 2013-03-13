@@ -63,7 +63,7 @@
           <cylinder radius="${wheel_radius}" length="${wheel_length}" />
         </geometry>
         
-        <material name="Wheel_${suffix}" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
@@ -109,7 +109,7 @@
 		  <box size="0.001 0.001 0.001" />
         </geometry>
     
-        <material name="Green" />
+        <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
@@ -157,7 +157,7 @@
           <mesh filename="package://cob_description/meshes/base/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
-        <material name="IPA/DarkGrey"/>
+        <material name="IPA/LightGrey"/>
       </visual>
 
       <collision>
@@ -186,7 +186,7 @@
           <box size="0.01 0.01 0.01" />
         </geometry>
         
-        <material name="Red" />
+        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0.1" rpy="0 0 0" />
@@ -214,7 +214,7 @@
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser top -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
       <origin xyz="${laser_top_x} ${laser_top_y} ${laser_top_z}" rpy="${laser_top_roll} ${laser_top_pitch} ${laser_top_yaw}" />
     </xacro:hokuyo_lx30_laser_v0>
 

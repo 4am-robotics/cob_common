@@ -11,7 +11,7 @@
       <mu2 value="100.0" />
       <kp  value="1000000.0" />
       <kd  value="1.0" />
-      <material value="PR2/wheel_${suffix}" />
+      <material>IPA/LightGrey</material>
     </gazebo>
   </xacro:macro>
 
@@ -34,7 +34,7 @@
           <interface:bumper name="${name}_bumper_iface" />
         </controller:gazebo_ros_bumper>
       </sensor:contact>
-      <material>Gazebo/Grey</material>
+      <material>IPA/LightGrey</material>
     </gazebo>
 
 

@@ -32,7 +32,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/lower_neck.stl" />
 				</geometry>
-				<material name="IPA/DarkGrey" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -66,7 +66,7 @@
 				<geometry>
 					<box size="0.01 0.01 0.01"/>
 				</geometry>
-				<material name="IPA/Black" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -100,7 +100,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/torso/upper_neck.stl" />
 				</geometry>
-				<material name="IPA/DarkGrey" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>

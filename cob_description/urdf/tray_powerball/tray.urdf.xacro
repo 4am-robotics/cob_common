@@ -33,7 +33,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/tray_powerball/tray_link_1.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 
 			<collision>
@@ -66,7 +66,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/tray_powerball/tray_link_2.stl" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 
 			<collision>
@@ -100,7 +100,7 @@
 				<geometry>
 					<mesh filename="package://cob_description/meshes/tray_powerball/tray_link_3.stl" />
 				</geometry>
-				<material name="Blue" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 
 			<collision>
@@ -130,7 +130,7 @@
 				<geometry>
 					<box size="0.001 0.001 0.001" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
@@ -157,7 +157,7 @@
 				<geometry>
 					<box size="0.001 0.001 0.001" />
 				</geometry>
-				<material name="Red" />
+				<material name="IPA/DarkGrey" />
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
