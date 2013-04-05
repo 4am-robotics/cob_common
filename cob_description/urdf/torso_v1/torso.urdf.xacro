@@ -60,21 +60,6 @@
 				<mass value="1.0"/>
 				<inertia ixx="0.200549" ixy="0.001322" ixz="-0.000000" iyy="0.123664" iyz="-0.000000" izz="0.104101" />
 			</inertial>
-
-			<visual>
-				<origin xyz="0 0 0.005" rpy="0 0 0" />
-				<geometry>
-					<box size="0.01 0.01 0.01"/>
-				</geometry>
-				<material name="IPA/LightGrey" />
-			</visual>
-
-			<collision>
-				<origin xyz="0 0 0.0005" rpy="0 0 0" />
-				<geometry>
-					<box size="0.001 0.001 0.001"/>
-				</geometry>
-			</collision>
 		</link>
 
 		<!-- joint between torso_pan_link and torso_upper_neck_tilt_link -->
