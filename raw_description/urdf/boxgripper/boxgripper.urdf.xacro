@@ -33,9 +33,9 @@
 			</visual>
 
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0.06 0 -0.02" rpy="0 0 0" />
 				<geometry>
-					<box size="0.04 0.26 0.003"/>
+					<box size="0.16 0.28 0.07"/>
 				</geometry>
 			</collision>
 		</link> 
