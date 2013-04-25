@@ -12,6 +12,11 @@
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
+		<gazebo reference="${name}_base_link">
+			<material>Gazebo/Blue</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
 	</xacro:macro>
 
 </robot>
