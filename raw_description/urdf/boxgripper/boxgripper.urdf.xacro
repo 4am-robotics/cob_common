@@ -41,10 +41,14 @@
 			</visual>
 
 			<collision>
-				<origin xyz="-0.02 -0.06 0" rpy="0 0 -0.45" />
+				<origin xyz="0 0 0" rpy="0 0 -0.45" />
+				<geometry>
+				  <mesh filename="package://raw_description/meshes/boxgripper/boxgripper_collision.stl"/>
+				</geometry>
+				<!--origin xyz="-0.02 -0.06 0" rpy="0 0 -0.45" />
 				<geometry>
 					<box size="0.05 0.16 0.27"/>
-				</geometry>
+				</geometry-->
 			</collision>
 		</link> 
 
