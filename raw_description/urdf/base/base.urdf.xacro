@@ -218,11 +218,14 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.17" rpy="0 0 0" /> 
+		<origin xyz="0 0 0.0" rpy="0 0 0" /> 
         <geometry>
-	   <!--mesh filename="package://raw_description/meshes/base/raw_base.stl"/-->
-	   <box size="1.04 0.58 0.31" />
+			<mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry>
+        <!--origin xyz="0 0 0.17" rpy="0 0 0" /> 
+        <geometry>
+			<box size="1.04 0.58 0.31" />
+        </geometry-->
       </collision>
       
     </link>
