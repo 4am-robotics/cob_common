@@ -16,5 +16,9 @@
   <depend package="ivcon"/>
   <depend package="urdf"/>
   <depend package="cob_description"/>
+  <depend package="gazebo"/>
+  <export>
+    <gazebo gazebo_media_path="${prefix}" />
+  </export>
 
 </package>

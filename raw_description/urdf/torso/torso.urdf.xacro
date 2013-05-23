@@ -7,8 +7,8 @@
 	<include filename="$(find raw_description)/urdf/torso/torso.gazebo.xacro" />
 	<include filename="$(find raw_description)/urdf/torso/torso.transmission.xacro" />
 
-	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
-	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+	<!--include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" /-->
+	<!--include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" /-->
 
 	<xacro:macro name="raw_torso" params="name parent *origin">
 
@@ -65,7 +65,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="3.14 0 0" />
 				<geometry>
-					<cylinder length="0.1" radius="0.1"/>
+					<cylinder length="0.3" radius="0.15"/>
 				</geometry>
                 <material name="IPA/LightGrey" />
 			</visual>
@@ -73,7 +73,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="3.14 0 0" />
 				<geometry>
-					<cylinder length="0.1" radius="0.1"/>
+					<cylinder length="0.3" radius="0.15"/>
 				</geometry>
 			</collision>
 		</link>
@@ -113,14 +113,14 @@
 		</link>
 
 		<!-- left camera -->
-		<xacro:cob_prosilica_v0 name="head_color_camera_l" ros_topic="stereo/left" parent="torso_2_link">
+		<!--xacro:cob_prosilica_v0 name="head_color_camera_l" ros_topic="stereo/left" parent="torso_2_link">
 			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
-		</xacro:cob_prosilica_v0>
+		</xacro:cob_prosilica_v0-->
 
 		<!-- right camera -->
-		<xacro:cob_prosilica_v0 name="head_color_camera_r" ros_topic="stereo/right" parent="torso_2_link">
+		<!--xacro:cob_prosilica_v0 name="head_color_camera_r" ros_topic="stereo/right" parent="torso_2_link">
 			<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
-		</xacro:cob_prosilica_v0>
+		</xacro:cob_prosilica_v0-->
 
 		<!-- cam3d -->
 		<xacro:cob_kinect_v0 name="head_cam3d" ros_topic="cam3d" parent="torso_2_link">

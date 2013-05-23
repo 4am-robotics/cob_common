@@ -40,7 +40,7 @@
   <property name="base_cg_z" value="0" /!-->
   <property name="base_mass" value="83.1" />  
   <property name="battery_mass" value="83.1" />  <!--to be checked out-->
- <property name="caster_mass" value="5.9" />  
+  <property name="caster_mass" value="5.9" />  
   <property name="tower_mass" value="6.49" />  
 
   <!-- simplified box collision geometry for battery -->
@@ -60,7 +60,7 @@
   <!--                                                      -->
   <xacro:macro name="cob_wheel" params="suffix parent reflect">
 
-    <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
+	<joint name="${parent}_${suffix}_wheel_joint" type="continuous">
       <axis xyz="0 1 0" />
       <limit effort="100" velocity="100"/> <!-- alpha tested effort and velocity limits -->
       <safety_controller  k_velocity="10" />
@@ -68,29 +68,28 @@
       <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
       <parent link="${parent}_rotation_link"/>
       <child link="${parent}_${suffix}_wheel_link"/>
-    </joint>
+	</joint>
 
-    <link name="${parent}_${suffix}_wheel_link">
+	<link name="${parent}_${suffix}_wheel_link">
       <inertial>
         <mass value="0.44036" />
         <origin xyz="0 0 0" />
         <inertia  ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
                   iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
       </inertial>
-      <visual>
+	  <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
+		  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
         </geometry>
-        
         <material name="IPA/LightGrey" />
-      </visual>
+	  </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
-          <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
+          <sphere radius="${wheel_radius}"/>
+		  <!--mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/-->
         </geometry>
       </collision>
     </link>
@@ -125,8 +124,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-		  <!--box size="0.001 0.001 0.001" /-->
+			<mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+			<!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -146,8 +145,7 @@
 
   <xacro:macro name="cob_caster" params="suffix parent *origin ref_position">
 
-    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster"
-                             ref_position="${ref_position}" >
+    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" ref_position="${ref_position}" >
       <insert_block name="origin" />
     </xacro:cob_caster_hub>
 
@@ -176,12 +174,12 @@
                  iyy="0.01" iyz="0.0" izz="0.01" />
       </inertial>  	
       <visual>
-	  <origin xyz="0 0 0" rpy="0 0 0"/>
-	  <geometry>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
             <mesh filename="package://raw_description/meshes/base/raw_battery.stl"/>
-          </geometry> 
+        </geometry> 
         <material name="IPA/LightGrey" />
-       </visual>
+      </visual>
 
       <collision>
         <origin xyz="0 0.075 0" rpy="0 0 0"/> <!-- TODO: Change the origin of the stl, so that collision model doesn't need to be translated  -->
@@ -189,8 +187,7 @@
 	      <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
 	      <!--mesh filename="package://raw_description/meshes/base/raw_battery.stl"/-->
         </geometry>
-       </collision>
-
+      </collision>
     </link>
 
     <!-- extensions -->
@@ -218,10 +215,14 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" /> 
+		<origin xyz="0 0 0.0" rpy="0 0 0" /> 
         <geometry>
-	   <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
+			<mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry>
+        <!--origin xyz="0 0 0.17" rpy="0 0 0" /> 
+        <geometry>
+			<box size="1.04 0.58 0.31" />
+        </geometry-->
       </collision>
       
     </link>
@@ -243,11 +244,12 @@
        </visual>
 
        <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-	   <mesh filename="package://raw_description/meshes/base/raw_tower_collision.stl"/>
-        </geometry>
-        </collision>
+         <origin xyz="0 -0.03 -0.1" rpy="0 0 0"/>
+         <geometry>
+			<!--mesh filename="package://raw_description/meshes/base/raw_tower_collision.stl"/-->
+			<box size="0.32 0.58 0.24" />
+         </geometry>
+       </collision>
 
     </link>
 
@@ -288,8 +290,6 @@
       <child link="${name}_link" />
       <parent link="${name}_footprint"/>
     </joint>
-
-
 
 
     <!--modify here for test: front,base and top lasers -->
