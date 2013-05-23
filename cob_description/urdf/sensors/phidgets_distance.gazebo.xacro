@@ -6,33 +6,39 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="phidgets_distance_gazebo_v0" params="name ros_topic update_rate">
-    <gazebo reference="${name}_link">
-      <sensor:ray name="${name}">
-        <rayCount>10</rayCount>
-        <rangeCount>10</rangeCount>
-        <laserCount>1</laserCount>
+	<gazebo reference="${name}_link">
+		
+		<sensor name="${name}" type="ray">
+			<always_on>true</always_on>
+			<update_rate>${update_rate}</update_rate>
+			<pose>0 0 0 0 0 0</pose>
+			<visualize>false</visualize>
+			<ray>
+				<scan>
+					<horizontal>
+						<samples>10</samples>
+						<resolution>1.0</resolution>
+						<min_angle>-0.2</min_angle>
+						<max_angle>0.2</max_angle>
+					</horizontal>
+				</scan>
+				<range>
+					<min>0.01</min>		<!-- real value from sensor datasheet is 0.04m -->
+					<max>0.4</max>		<!-- real value from sensor datasheet is 0.30m -->
+					<resolution>0.005</resolution>
+				</range>
+			</ray>
+			<plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
+				<gaussianNoise>0.005</gaussianNoise>
+				<alwaysOn>true</alwaysOn>
+				<updateRate>${update_rate}</updateRate>
+				<topicName>${ros_topic}</topicName>
+				<frameName>/${name}_link</frameName>
+			</plugin>
+		</sensor>	
 
-        <origin>0.0 0.0 0.0</origin>
-        <displayRays>false</displayRays>
-
-        <minAngle>${-0.2*180.0/M_PI}</minAngle>
-        <maxAngle>${0.2*180.0/M_PI}</maxAngle>
-
-        <minRange>0.01</minRange> <!-- real value from sensor datasheet is 0.04m -->
-        <maxRange>0.4</maxRange>  <!-- real value from sensor datasheet is 0.30m -->
-        <resRange>0.005</resRange>
-        <updateRate>${update_rate}</updateRate>
-        <controller:gazebo_ros_laser name="gazebo_ros_${name}_controller" plugin="libgazebo_ros_laser.so">
-          <gaussianNoise>0.005</gaussianNoise>
-          <alwaysOn>true</alwaysOn>
-          <updateRate>${update_rate}</updateRate>
-          <topicName>${ros_topic}</topicName>
-          <frameName>/${name}_link</frameName>
-          <interface:laser name="gazebo_ros_${name}_iface" />
-        </controller:gazebo_ros_laser>
-      </sensor:ray>
-      <material>IPA/LightGrey</material>
-    </gazebo>
+		<material>IPA/LightGrey</material>
+	</gazebo>
   </xacro:macro>
 
 </robot>
