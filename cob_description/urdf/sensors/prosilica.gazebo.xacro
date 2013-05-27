@@ -7,15 +7,22 @@
 	<xacro:macro name="cob_prosilica_gazebo_v0" params="name ros_topic">
 
 		<gazebo reference="${name}_frame">
-			<sensor:camera name="${name}_sensor">
-				<!--geom>${name}_link</geom-->
-				<imageFormat>R8G8B8</imageFormat>
-				<imageSize>1360 1024</imageSize>
-				<hfov>33</hfov><!--opening angle of Fujinon HF9HA-1B-->
-				<nearClip>0.1</nearClip>
-				<farClip>100</farClip>
-				<updateRate>10.0</updateRate>
-				<controller:gazebo_ros_prosilica name="${name}_controller" plugin="libgazebo_ros_prosilica.so">
+			<sensor type="depth" name="${name}_sensor">
+				<always_on>true</always_on>
+				<update_rate>10.0</update_rate>
+				<camera>
+					<horizontal_fov>0.58</horizontal_fov>	<!--opening angle of Fujinon HF9HA-1B-->
+					<image>
+						<format>R8G8B8</format>
+						<width>1360</width>
+						<height>1024</height>
+					</image>
+					<clip>
+						<near>0.1</near>
+						<far>100</far>
+					</clip>
+				</camera>
+				<plugin name="${name}_controller" filename="libgazebo_ros_prosilica.so">
 					<alwaysOn>true</alwaysOn>
 					<updateRate>10.0</updateRate>
 					<topicName>${ros_topic}_image_data</topicName>
@@ -26,15 +33,15 @@
 					<CxPrime>697.69</CxPrime>
 					<Cx>697.69</Cx>
 					<Cy>530.51</Cy>
-					<focal_length>1450</focal_length> <!-- image_width / (2*tan(hfov_radian /2)) -->
+					<focal_length>1450</focal_length>	<!-- image_width / (2*tan(hfov_radian /2)) -->
 					<distortion_k1>0.00000001</distortion_k1>
 					<distortion_k2>0.00000001</distortion_k2>
 					<distortion_k3>0.00000001</distortion_k3>
 					<distortion_t1>0.00000001</distortion_t1>
 					<distortion_t2>0.00000001</distortion_t2>
-					<interface:camera name="${name}_iface" />
-				</controller:gazebo_ros_prosilica>
-			</sensor:camera>
+				</plugin>
+			</sensor>
+
 			<material value="IPA/LightGrey" />
 			<turnGravityOff>true</turnGravityOff>
 		</gazebo>

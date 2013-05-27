@@ -7,30 +7,34 @@
 
   <xacro:macro name="hokuyo_SR400_laser_gazebo_v0" params="name ros_topic update_rate min_angle max_angle">
     <gazebo reference="${name}_link">
-      <sensor:ray name="${name}">
-        <rayCount>150</rayCount>
-        <rangeCount>150</rangeCount>
-        <laserCount>1</laserCount>
-
-        <origin>0.0 0.0 0.0</origin>
-        <displayRays>false</displayRays>
-
-        <minAngle>${min_angle*180.0/M_PI}</minAngle>
-        <maxAngle>${max_angle*180.0/M_PI}</maxAngle>
-
-        <minRange>0.30</minRange>
-        <maxRange>5.0</maxRange>
-        <resRange>0.01</resRange>
-        <updateRate>${update_rate}</updateRate>
-        <controller:gazebo_ros_laser name="gazebo_ros_${name}_controller" plugin="libgazebo_ros_laser.so">
-          <gaussianNoise>0.005</gaussianNoise>
-          <alwaysOn>true</alwaysOn>
-          <updateRate>${update_rate}</updateRate>
-          <topicName>${ros_topic}</topicName>
-          <frameName>${name}_link</frameName>
-          <interface:laser name="gazebo_ros_${name}_iface" />
-        </controller:gazebo_ros_laser>
-      </sensor:ray>
+      <sensor name="${name}" type="ray">
+		<always_on>true</always_on>
+		<update_rate>${update_rate}</update_rate>
+		<pose>0 0 0 0 0 0</pose>
+		<visualize>false</visualize>
+		<ray>
+			<scan>
+				<horizontal>
+					<samples>150</samples>
+					<resolution>1.0</resolution>
+					<min_angle>${min_angle}</min_angle>
+					<max_angle>${max_angle}</max_angle>
+				</horizontal>
+			</scan>
+			<range>
+				<min>0.30</min>
+				<max>5.0</max>
+				<resolution>0.01</resolution>
+			</range>
+		</ray>
+		<plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
+			<gaussianNoise>0.005</gaussianNoise>
+			<alwaysOn>true</alwaysOn>
+			<updateRate>${update_rate}</updateRate>
+			<topicName>${ros_topic}</topicName>
+			<frameName>${name}_link</frameName>
+		</plugin>
+      </sensor>				
       <material>IPA/LightGrey</material>
     </gazebo>
   </xacro:macro>

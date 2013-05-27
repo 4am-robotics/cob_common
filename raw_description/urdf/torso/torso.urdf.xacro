@@ -8,7 +8,7 @@
 	<include filename="$(find raw_description)/urdf/torso/torso.transmission.xacro" />
 
 	<!--include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" /-->
-	<include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+	<!--include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" /-->
 
 	<xacro:macro name="raw_torso" params="name parent *origin">
 

@@ -40,7 +40,7 @@
   <property name="base_cg_z" value="0" /!-->
   <property name="base_mass" value="83.1" />  
   <property name="battery_mass" value="83.1" />  <!--to be checked out-->
-  <property name="caster_mass" value="5.9" />  
+ <property name="caster_mass" value="5.9" />  
   <property name="tower_mass" value="6.49" />  
 
   <!-- simplified box collision geometry for battery -->
@@ -125,8 +125,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-        <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-		    <!--box size="0.001 0.001 0.001" /-->
+	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -218,11 +218,14 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.17" rpy="0 0 0" /> 
+		<origin xyz="0 0 0.0" rpy="0 0 0" /> 
         <geometry>
-        <!--mesh filename="package://raw_description/meshes/base/raw_base.stl"/-->
-          <box size="1.04 0.58 0.31" />
+			<mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
         </geometry>
+        <!--origin xyz="0 0 0.17" rpy="0 0 0" /> 
+        <geometry>
+	   		<box size="1.04 0.58 0.31" />
+        </geometry-->
       </collision>
       
     </link>
@@ -254,7 +257,7 @@
     </link>
 
     <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz=" 0.36 -0.029 0.48" rpy="0 0 3.14159265" />
+      <origin xyz=" 0.36 -0.029 0.48" rpy="0 0 3.14159265" /> 
       <child link="${name}_tower" />
       <parent link="${name}_link"/>
     </joint>
