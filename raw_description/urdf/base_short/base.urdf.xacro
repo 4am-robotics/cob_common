@@ -5,8 +5,8 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <include filename="$(find cob_description)/urdf/common.xacro"/>
-  <include filename="$(find raw_description)/urdf/base/base.gazebo.xacro" />
-  <include filename="$(find raw_description)/urdf/base/base.transmission.xacro" />
+  <include filename="$(find raw_description)/urdf/base_short/base.gazebo.xacro" />
+  <include filename="$(find raw_description)/urdf/base_short/base.transmission.xacro" />
 
   <!-- sensors -->
   <include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
@@ -32,14 +32,14 @@
   <property name="caster_wheel_offset_y" value="0 " />
   <property name="wheel_length" value="0.034" />
   <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
+  <!--property name="wheel_radius" value="0.08" /-->
 
   <!--property name="base_cg_x" value="0" />
   <property name="base_cg_y" value="0.0" />
   <property name="base_cg_z" value="0" /!-->
-  <property name="base_mass" value="83.1" />  
-  <property name="battery_mass" value="83.1" />  <!--to be checked out-->
- <property name="caster_mass" value="5.9" />  
-  <property name="tower_mass" value="6.49" />  
+  <property name="base_mass" value="43.1" />  
+  <property name="battery_mass" value="40" />  <!--to be checked out-->
+  <property name="caster_mass" value="5.9" />  
 
   <!-- simplified box collision geometry for battery -->
   <property name="battery_size_x" value="0.5" />
@@ -79,16 +79,17 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_wheel.dae"/>
         </geometry>
         
-        <material name="IPA/LightGrey" />
+        <!--material name="IPA/LightGrey" /-->
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
+          <sphere radius="${wheel_radius}"/>
+          <!--mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/-->
         </geometry>
       </collision>
     </link>
@@ -123,8 +124,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-		  <!--box size="0.001 0.001 0.001" /-->
+          <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+          <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -168,7 +169,7 @@
 
     <link name="${name}_battery">
       <inertial>
-        <mass value="1.0" />
+        <mass value="${battery_mass}" />
         <origin xyz="0 0 0" />
         <inertia ixx="0.01" ixy="0.0" ixz="0.0"
                  iyy="0.01" iyz="0.0" izz="0.01" />
@@ -178,7 +179,7 @@
 	  <geometry>
             <mesh filename="package://raw_description/meshes/base/raw_battery.stl"/>
           </geometry> 
-        <material name="IPA/LightGrey" />
+        <material name="Gazebo/Black" />
        </visual>
 
       <collision>
@@ -198,7 +199,7 @@
 
   <!-- The xacro macro xacro:cob_base contains: base, casters and wheels -->
   <xacro:macro name="raw_base" params="name">
-  <link name="${name}_link">
+    <link name="${name}_link">
 
       <inertial>
         <mass value="${base_mass}" />
@@ -208,20 +209,20 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <origin xyz="0 0 0.209" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_base_short.dae"/>
         </geometry> 
         <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" /> 
+        <origin xyz="0 0 0.209" rpy="0 0 0" /> 
         <geometry>
-	   <mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/>
+          <!--box size="0.758 0.573 0.096"/--> <!-- Laserscan measures inside this box -->
+          <mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/>
         </geometry>
-      </collision>
-      
+      </collision>  
     </link>
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
@@ -267,6 +268,11 @@
       <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="0 0 ${-5*M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
+
+    <!-- battery-->
+    <xacro:cob_batteries name="${name}_battery" parent="${name}_link">
+      <origin xyz="${-battery_offset_x_f} ${battery_offset_y_f} ${battery_offset_z}" rpy="${M_PI/2} 0 ${-M_PI/2}" />
+    </xacro:cob_batteries>
         
     <!-- all four caster macros -->
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="${cal_caster_fl - M_PI/4}" >
