@@ -5,8 +5,8 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <include filename="$(find cob_description)/urdf/common.xacro"/>
-  <include filename="$(find raw_description)/urdf/base/base.gazebo.xacro" />
-  <include filename="$(find raw_description)/urdf/base/base.transmission.xacro" />
+  <include filename="$(find raw_description)/urdf/base_long/base.gazebo.xacro" />
+  <include filename="$(find raw_description)/urdf/base_long/base.transmission.xacro" />
 
   <!-- sensors -->
   <include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
@@ -34,14 +34,15 @@
   <property name="caster_wheel_offset_y" value="0 " />
   <property name="wheel_length" value="0.034" />
   <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
+  <!--property name="wheel_radius" value="0.08" /-->
 
   <!--property name="base_cg_x" value="0" />
   <property name="base_cg_y" value="0.0" />
   <property name="base_cg_z" value="0" /!-->
   <property name="base_mass" value="83.1" />  
   <property name="battery_mass" value="83.1" />  <!--to be checked out-->
- <property name="caster_mass" value="5.9" />  
-  <property name="tower_mass" value="6.49" />  
+  <property name="caster_mass" value="5.9" />  
+    
 
   <!-- simplified box collision geometry for battery -->
   <property name="battery_size_x" value="0.5" />
@@ -81,10 +82,11 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
-	  <mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_wheel.dae"/>
         </geometry>
         
-        <material name="IPA/LightGrey" />
+        <!--material name="IPA/LightGrey" /-->
+
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
@@ -125,8 +127,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-		  <!--box size="0.001 0.001 0.001" /-->
+        <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+		    <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -180,7 +182,7 @@
 	  <geometry>
             <mesh filename="package://raw_description/meshes/base/raw_battery.stl"/>
           </geometry> 
-        <material name="IPA/LightGrey" />
+        <material name="Gazebo/Black" />
        </visual>
 
       <collision>
@@ -210,58 +212,22 @@
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <origin xyz="0 0 0.209" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_base_long.dae"/>
         </geometry> 
-        <material name="IPA/LightGrey" />
+        <!--material name="IPA/LightGrey" /-->
       </visual>
 
       <collision>
-		<origin xyz="0 0 0.0" rpy="0 0 0" /> 
+        <origin xyz="0 0 0.209" rpy="0 0 0" /> 
         <geometry>
-			<mesh filename="package://raw_description/meshes/base/raw_base.stl"/>
+          <mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/>
+          <!--box size="1.04 0.58 0.31" /-->
         </geometry>
-        <!--origin xyz="0 0 0.17" rpy="0 0 0" /> 
-        <geometry>
-	   		<box size="1.04 0.58 0.31" />
-        </geometry-->
       </collision>
       
     </link>
-
-
-    <link name="${name}_tower">
-      <inertial>
-        <mass value="${tower_mass}" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.1" ixy="0.002" ixz="0.01"
-                 iyy="0.26" iyz="0.0" izz="0.24" />
-      </inertial>     
-      <visual>
-	  <origin xyz="0 0 0" rpy="0 0 0"/>
-	  <geometry>
-            <mesh filename="package://raw_description/meshes/tower/raw_tower.stl"/>
-          </geometry> 
-        <material name="IPA/LightGrey" />
-       </visual>
-
-       <collision>
-        <origin xyz="0 -0.03 -0.1" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://raw_description/meshes/tower/raw_tower_collision.stl"/>
-          <!--box size="0.32 0.58 0.24" /-->
-        </geometry>
-        </collision>
-
-    </link>
-
-    <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz=" 0.36 -0.029 0.48" rpy="0 0 3.14159265" /> 
-      <child link="${name}_tower" />
-      <parent link="${name}_link"/>
-    </joint>
-
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
