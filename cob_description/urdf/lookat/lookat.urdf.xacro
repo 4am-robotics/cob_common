@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<include filename="$(find cob_description)/urdf/lookat/lookat.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/lookat/lookat.transmission.xacro" />
+
+
+	<xacro:macro name="cob_lookat" params="name parent *origin *axis">
+	
+		<joint name="${name}_axis_joint" type="fixed">
+			<insert_block name="origin" />
+			<parent link="${parent}"/>
+			<child link="${name}_axis_link"/>
+		</joint>
+		
+		<link name="${name}_axis_link"/>
+		
+		<joint name="${name}_back_joint" type="prismatic">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="${name}_axis_link"/>
+			<child link="${name}_x_link"/>
+			<insert_block name="axis" />	<!--axis xyz="-1 0 0" /-->
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="0.3" upper="5.0" velocity="1"/>      
+		</joint>
+		
+		<link name="${name}_x_link"/>
+		
+		<joint name="${name}_x_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="${name}_x_link"/>
+			<child link="${name}_y_link"/>
+			<axis xyz="1 0 0" />
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>      
+		</joint>
+		
+		<link name="${name}_y_link"/>
+		
+		<joint name="${name}_y_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="${name}_y_link"/>
+			<child link="${name}_z_link"/>
+			<axis xyz="0 1 0" />
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>      
+		</joint>
+		
+		<link name="${name}_z_link"/>
+		
+		<joint name="${name}_z_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="${name}_z_link"/>
+			<child link="${name}_focus_frame"/>
+			<axis xyz="0 0 1" />
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>      
+		</joint>
+		
+		<link name="${name}_focus_frame">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.05 0.05 0.2"/>
+				</geometry>
+				<material name="IPA/Black" />
+			</visual>
+		</link>
+
+		<!-- extensions -->
+		<xacro:cob_lookat_gazebo name="${name}" />
+		<xacro:cob_lookat_transmission name="${name}" /> 
+
+	</xacro:macro>
+
+</robot>
