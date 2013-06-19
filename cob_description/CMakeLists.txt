@@ -1,37 +1,7 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(cob_description)
 
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
-
-rosbuild_init()
-
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-
-#uncomment if you have defined messages
-#rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
-
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-#rosbuild_add_executable(example examples/example.cpp)
-#target_link_libraries(example ${PROJECT_NAME})
-
-# mesh file generations
-rosbuild_find_ros_package(ivcon)
-rosbuild_find_ros_package(convex_decomposition)
+find_package(catkin REQUIRED COMPONENTS convex_decomposition ivcon)
 
 # iterate through all the stl files to:
 #  1. convert to *.iv files
@@ -68,7 +38,7 @@ foreach(it ${cob_stl_files})
     #create obj files for convex decomposition from stl files
     add_custom_command(
       OUTPUT ${basepath}/convex/${basename}.obj
-      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
+      COMMAND ivcon
       ARGS ${it} ${basepath}/convex/${basename}.obj
       DEPENDS ${it} ${basepath}/convex)
 
@@ -77,7 +47,7 @@ foreach(it ${cob_stl_files})
     #convex decompose object files
     add_custom_command(
       OUTPUT ${basepath}/convex/${basename}_convex.obj
-      COMMAND ${convex_decomposition_PACKAGE_PATH}/convex_decomposition/bin/convex_decomposition
+      COMMAND convex_decomposition
       ARGS ${basepath}/convex/${basename}.obj -v12 -p10
       DEPENDS ${basepath}/convex/${basename}.obj ${basepath}/convex)
 
@@ -86,7 +56,7 @@ foreach(it ${cob_stl_files})
     #convert obj files back to stlb, put in directory named convex
     add_custom_command(
       OUTPUT ${basepath}/convex/${basename}_convex.stlb
-      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
+      COMMAND ivcon
       ARGS ${basepath}/convex/${basename}_convex.obj ${basepath}/convex/${basename}_convex.stlb
       DEPENDS ${it} ${basepath}/convex ${basepath}/convex/${basename}_convex.obj)
 
@@ -95,34 +65,26 @@ foreach(it ${cob_stl_files})
     #convert obj files back to stla, put in directory named convex
     add_custom_command(
       OUTPUT ${basepath}/convex/${basename}_convex.stla
-      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
+      COMMAND ivcon
       ARGS ${basepath}/convex/${basename}_convex.obj ${basepath}/convex/${basename}_convex.stla
       DEPENDS ${it} ${basepath}/convex ${basepath}/convex/${basename}_convex.obj)
 
     set(cob_gen_files ${cob_gen_files} ${basepath}/convex/${basename}_convex.stla)
 
-    #convert stl files to stlb, put in directory named stlb
-    add_custom_command(
-      OUTPUT ${basepath}/${basename}.stlb
-      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
-      ARGS ${basepath}/${basename}.stl ${basepath}/${basename}.stlb
-      DEPENDS ${it} ${basepath}/${basename}.stl)
-
-    set(cob_gen_files ${cob_gen_files} ${basepath}/${basename}.stlb)
-
     #create iv files
     add_custom_command(
       OUTPUT ${basepath}/iv/${basename}.iv
-      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
+      COMMAND ivcon
       ARGS ${it} ${basepath}/iv/${basename}.iv
       DEPENDS ${basepath}/iv ${it})
     add_custom_command(
       OUTPUT ${basepath}/convex/${basename}_convex.iv
-      COMMAND ${ivcon_PACKAGE_PATH}/bin/ivcon
+      COMMAND ivcon
       ARGS ${basepath}/convex/${basename}_convex.obj ${basepath}/convex/${basename}_convex.iv
       DEPENDS ${it} ${basepath}/convex ${basepath}/convex/${basename}_convex.obj)
      
     set(cob_gen_files ${cob_gen_files} ${basepath}/iv/${basename}.iv ${basepath}/convex/${basename}_convex.iv)
+
 
   ENDIF ( ${basename} MATCHES "_convex" )
 
@@ -130,5 +92,14 @@ endforeach(it)
 
 add_custom_target(media_files ALL DEPENDS ${cob_gen_files})
 
-#TODO; stop bin and lib from being generated
+#catkin_package(CATKIN_DEPENDS xacro)
+catkin_package(CATKIN_DEPENDS)
+
+#catkin_add_gtest(test_urdf test/test_urdf.cpp WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+foreach(dir meshes gazebo materials robots documents urdf)
+   install(DIRECTORY ${dir}/ 
+      DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
+endforeach(dir)
+
 

@@ -6,54 +6,70 @@
   
 <xacro:macro name="cob_kinect_gazebo_v0" params="name ros_topic">
   <gazebo reference="${name}_frame">
-    <sensor:camera name="${name}_frame_sensor">
-      <imageFormat>R8G8B8</imageFormat>
-      <imageSize>640 480</imageSize>
-      <hfov>57</hfov>
-      <nearClip>0.1</nearClip>
-      <farClip>100</farClip>
-      <updateRate>20.0</updateRate>
-      <baseline>0.2</baseline>
-      <controller:gazebo_ros_openni_kinect name="${name}_depth_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>20.0</updateRate>
-        <imageTopicName>${ros_topic}/ir/image_raw</imageTopicName>
-        <cameraInfoTopicName>${ros_topic}/ir/camera_info</cameraInfoTopicName>
-        <depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
-        <depthImageInfoTopicName>${ros_topic}/depth/camera_info</depthImageInfoTopicName>
-        <pointCloudTopicName>${ros_topic}/depth/points</pointCloudTopicName>
-        <frameName>${name}_link</frameName>
-        <pointCloudCutoff>0.5</pointCloudCutoff>
-        <distortionK1>0.00000001</distortionK1>
-        <distortionK2>0.00000001</distortionK2>
-        <distortionK3>0.00000001</distortionK3>
-        <distortionT1>0.00000001</distortionT1>
-        <distortionT2>0.00000001</distortionT2>
-      </controller:gazebo_ros_openni_kinect>
-    </sensor:camera>
-    <sensor:camera name="${name}_frame_sensor">
-      <imageFormat>R8G8B8</imageFormat>
-      <imageSize>640 480</imageSize>
-      <hfov>57</hfov>
-      <nearClip>0.1</nearClip>
-      <farClip>100</farClip>
-      <updateRate>20.0</updateRate>
-      <baseline>0.2</baseline>
-      <controller:gazebo_ros_openni_kinect name="${name}_rgb_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>20.0</updateRate>
-        <imageTopicName>${ros_topic}/rgb/image_raw</imageTopicName>
-        <!--pointCloudTopicName>${ros_topic}/rgb/points</pointCloudTopicName-->
-        <cameraInfoTopicName>${ros_topic}/rgb/camera_info</cameraInfoTopicName>
-        <frameName>${name}_link</frameName>
-        <pointCloudCutoff>0.5</pointCloudCutoff>
-        <distortionK1>0.00000001</distortionK1>
-        <distortionK2>0.00000001</distortionK2>
-        <distortionK3>0.00000001</distortionK3>
-        <distortionT1>0.00000001</distortionT1>
-        <distortionT2>0.00000001</distortionT2>
-      </controller:gazebo_ros_openni_kinect>
-    </sensor:camera>
+	  
+	<sensor type="depth" name="${name}_frame_sensor">
+		<always_on>true</always_on>
+		<update_rate>20.0</update_rate>
+		<camera>
+			<horizontal_fov>${57.0*M_PI/180.0}</horizontal_fov>
+			<image>
+				<format>R8G8B8</format>
+				<width>640</width>
+				<height>480</height>
+			</image>
+			<clip>
+				<near>0.1</near>
+				<far>100</far>
+			</clip>
+		</camera>
+		<plugin name="${name}_depth_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>20.0</updateRate>
+			<imageTopicName>${ros_topic}/ir/image_raw</imageTopicName>
+			<cameraInfoTopicName>${ros_topic}/ir/camera_info</cameraInfoTopicName>
+			<depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
+			<depthImageInfoTopicName>${ros_topic}/depth/camera_info</depthImageInfoTopicName>
+			<pointCloudTopicName>${ros_topic}/depth/points</pointCloudTopicName>
+			<frameName>${name}_link</frameName>
+			<pointCloudCutoff>0.5</pointCloudCutoff>
+			<distortionK1>0.00000001</distortionK1>
+			<distortionK2>0.00000001</distortionK2>
+			<distortionK3>0.00000001</distortionK3>
+			<distortionT1>0.00000001</distortionT1>
+			<distortionT2>0.00000001</distortionT2>
+		</plugin>
+	</sensor>
+    
+	<sensor type="depth" name="${name}_frame_sensor">
+		<always_on>true</always_on>
+		<update_rate>20.0</update_rate>
+		<camera>
+			<horizontal_fov>${57.0*M_PI/180.0}</horizontal_fov>
+			<image>
+				<format>R8G8B8</format>
+				<width>640</width>
+				<height>480</height>
+			</image>
+			<clip>
+				<near>0.1</near>
+				<far>100</far>
+			</clip>
+		</camera>
+		<plugin name="${name}_rgb_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>20.0</updateRate>
+			<imageTopicName>${ros_topic}/rgb/image_raw</imageTopicName>
+			<cameraInfoTopicName>${ros_topic}/rgb/camera_info</cameraInfoTopicName>
+			<frameName>${name}_link</frameName>
+			<pointCloudCutoff>0.5</pointCloudCutoff>
+			<distortionK1>0.00000001</distortionK1>
+			<distortionK2>0.00000001</distortionK2>
+			<distortionK3>0.00000001</distortionK3>
+			<distortionT1>0.00000001</distortionT1>
+			<distortionT2>0.00000001</distortionT2>
+		</plugin>
+	</sensor>
+
     <material>IPA/LightGrey</material>
   </gazebo>
 
