@@ -1,0 +1,30 @@
+<package>
+  <name>raw_description</name>
+  <version>0.5.0</version>
+  <description>This package contains the description (mechanical, kinematic, visual,
+  etc.) of the Care-O-bot robot. The files in this package are parsed and used by
+  a variety of other components. Most users will not interact directly
+  with this package.</description>
+  <license>LGPL</license>
+
+  <url type="website">http://ros.org/wiki/cob_description</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <maintainer email="aub@ipa.fhg.de">Alexander Bubeck</maintainer>
+  <author email="aub@ipa.fhg.de">Alexander Bubeck</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>convex_decomposition</build_depend>
+  <build_depend>ivcon</build_depend>
+  
+  <run_depend>cob_description</run_depend>
+
+  
+  <test_depend>gtest</test_depend>
+  <test_depend>urdfdom</test_depend>
+
+  <export>
+    <gazebo gazebo_media_path="${prefix}"/>
+  </export>
+</package>

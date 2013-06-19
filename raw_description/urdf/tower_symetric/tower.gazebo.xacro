@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="raw_tower_symetric_gazebo" params="name">
+
+		<gazebo reference="${name}_base_link">
+			<selfCollide>false</selfCollide>
+      		<!--material>Gazebo/Grey</material-->
+      		<!--material value="IPA/Metal" /-->
+		</gazebo>
+
+	</xacro:macro>
+
+</robot>
