@@ -24,10 +24,14 @@
   <property name="wheel_length" value="0.034" />
   <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
 
+  <property name="caster_wheel_offset_y" value="0 " />
+
   <property name="base_cg_x" value="-0.061" />
   <property name="base_cg_y" value="0.0" />
   <property name="base_cg_z" value="0.293" />
   <property name="base_mass" value="116.0" />
+
+ <property name="caster_mass" value="5.9" />  
 
   <!-- simplified box collision geometry for base -->
   <property name="base_size_x" value="0.8" />
@@ -94,26 +98,24 @@
     <link name="${suffix}_rotation_link">
 
       <inertial>
-        <mass value="3.473082"/>
-        <origin xyz="0 0 0.07" />
-        <inertia  ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
-                  iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
+        <mass value="${caster_mass}"/>
+        <origin xyz="0 0 0" />
+        <inertia  ixx="0.04" ixy="-0.0007" ixz="0.0"
+                  iyy="0.02" iyz="-0.000004" izz="0.05" />
       </inertial>
 
       <visual>
-        <!--origin xyz="0 0 0.085" rpy="0 0 0" /-->  <!--modified by jie-->
-		<origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <!--mesh filename="package://cob_description/meshes/base/caster.stl" /-->  <!--modified by jie-->
-          <!--box size="0.192 0.164 0.013" /-->
-		  <box size="0.001 0.001 0.001" />
+	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+		  <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
-        <origin xyz="0 0 0.002" rpy="0.0 0.0 0.0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <box size="0.001 0.001 0.001" />
         </geometry>
@@ -163,7 +165,6 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-		  <!--box size="0.001 0.001 0.001" /-->
 	      <mesh filename="package://cob_description/meshes/base/base_collision.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
@@ -173,28 +174,7 @@
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
-    <link name="${name}_footprint">
-      <inertial>
-        <mass value="1.0" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                 iyy="0.01" iyz="0.0" izz="0.01" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-        
-        <material name="IPA/LightGrey" />
-      </visual>
-      <collision>
-        <origin xyz="0 0 0.1" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
-    </link>
+    <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />

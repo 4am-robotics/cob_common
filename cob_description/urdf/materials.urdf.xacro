@@ -18,5 +18,9 @@
 		<color rgba="0.0 0.0 0.0 1.0"/>
 	</material>
 
+	<material name="IPA/Blue">
+		<color rgba="0.0 0.0 0.5 1.0"/>
+	</material>
+
 
 </robot>
