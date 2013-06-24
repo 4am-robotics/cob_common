@@ -9,14 +9,14 @@
     <sensor:camera name="${name}_frame_sensor">
       <imageFormat>R8G8B8</imageFormat>
       <imageSize>640 480</imageSize>
-      <hfov>57</hfov>
+      <hfov>62</hfov>
       <nearClip>0.1</nearClip>
       <farClip>100</farClip>
-      <updateRate>20.0</updateRate>
+      <updateRate>1.0</updateRate>
       <baseline>0.2</baseline>
       <controller:gazebo_ros_openni_kinect name="${name}_depth_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>20.0</updateRate>
+        <updateRate>1.0</updateRate>
         <imageTopicName>${ros_topic}/ir/image_raw</imageTopicName>
         <cameraInfoTopicName>${ros_topic}/ir/camera_info</cameraInfoTopicName>
         <depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
@@ -34,14 +34,14 @@
     <sensor:camera name="${name}_frame_sensor">
       <imageFormat>R8G8B8</imageFormat>
       <imageSize>640 480</imageSize>
-      <hfov>57</hfov>
+      <hfov>62</hfov>
       <nearClip>0.1</nearClip>
       <farClip>100</farClip>
-      <updateRate>20.0</updateRate>
+      <updateRate>1.0</updateRate>
       <baseline>0.2</baseline>
       <controller:gazebo_ros_openni_kinect name="${name}_rgb_frame_controller" plugin="libgazebo_ros_openni_kinect.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>20.0</updateRate>
+        <updateRate>1.0</updateRate>
         <imageTopicName>${ros_topic}/rgb/image_raw</imageTopicName>
         <!--pointCloudTopicName>${ros_topic}/rgb/points</pointCloudTopicName-->
         <cameraInfoTopicName>${ros_topic}/rgb/camera_info</cameraInfoTopicName>
