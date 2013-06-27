@@ -28,7 +28,7 @@ class TestUrdf(unittest.TestCase):
 			self.fail("cannot convert xacro")
 
 		# check if urdf is correct
-		if os.system("`rospack find urdf_parser`/bin/check_urdf /tmp/test.urdf") != 0:
+		if os.system("rosrun urdfdom check_urdf /tmp/test.urdf") != 0:
 			self.fail("urdf not correct")
  
 if __name__ == '__main__':
