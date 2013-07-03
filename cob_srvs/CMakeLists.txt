@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cob_srvs)
 
-find_package(catkin REQUIRED COMPONENTS std_msgs trajectory_msgs geometry_msgs)
+find_package(catkin REQUIRED COMPONENTS std_msgs trajectory_msgs geometry_msgs message_generation)
 
 
 #uncomment if you have defined services
@@ -20,6 +20,8 @@ generate_messages(
 )
 
 catkin_package(
+    CATKIN_DEPENDS message_runtime
     DEPENDS std_msgs trajectory_msgs geometry_msgs
     INCLUDE_DIRS
 )
+
