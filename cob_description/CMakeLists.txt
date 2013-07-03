@@ -90,7 +90,7 @@ foreach(it ${cob_stl_files})
 
 endforeach(it)
 
-add_custom_target(media_files ALL DEPENDS ${cob_gen_files})
+add_custom_target(media_files_cob ALL DEPENDS ${cob_gen_files})
 
 #catkin_package(CATKIN_DEPENDS xacro)
 catkin_package(CATKIN_DEPENDS)
