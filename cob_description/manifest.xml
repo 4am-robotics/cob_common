@@ -15,6 +15,7 @@
   <depend package="rostest"/>
   <depend package="convex_decomposition"/>
   <depend package="ivcon"/>
+  <depend package="urdf"/>
   <depend package="urdfdom"/>
   <depend package="xacro"/>
   <export>
