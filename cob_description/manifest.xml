@@ -13,8 +13,6 @@
   <url>http://ros.org/wiki/cob_description</url>
 
   <depend package="rostest"/>
-  <depend package="convex_decomposition"/>
-  <depend package="ivcon"/>
   <depend package="urdf"/>
   <depend package="gazebo"/>
   <export>
