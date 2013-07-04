@@ -13,8 +13,8 @@
   <url>http://ros.org/wiki/cob_description</url>
 
   <depend package="urdf"/>
+  <depend package="xacro"/>
   <depend package="cob_description"/>
-  <depend package="gazebo"/>
   <export>
     <gazebo gazebo_media_path="${prefix}" />
   </export>

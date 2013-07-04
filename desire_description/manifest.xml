@@ -13,6 +13,7 @@
   <url>http://ros.org/wiki/desire_description</url>
 
   <depend package="urdf"/>
+  <depend package="xacro"/>
   <depend package="cob_description"/>
 
 </package>
