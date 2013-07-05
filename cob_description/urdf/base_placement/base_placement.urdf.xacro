@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="cob_base_placement" params="name">
+		<link name="base_placement_odom_link"/> 
+		
+		<joint name="base_placement_x_joint" type="prismatic">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="base_placement_odom_link"/>
+			<child link="base_placement_x_link"/>
+			<axis xyz="1 0 0" />
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-10.0" upper="10.0" velocity="1"/>      
+		</joint>
+		
+		<link name="base_placement_x_link"/>
+		
+		<joint name="base_placement_y_joint" type="prismatic">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="base_placement_x_link"/>
+			<child link="base_placement_y_link"/>
+			<axis xyz="0 1 0" />
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-10.0" upper="10.0" velocity="1"/>      
+		</joint>
+		
+		<link name="base_placement_y_link"/>
+		
+		<joint name="base_placement_theta_joint" type="revolute">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="base_placement_y_link"/>
+			<child link="base_placement_theta_link"/>
+			<axis xyz="0 0 1" />
+			<dynamics damping="5.0" friction="0.5"/>
+			<limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>      
+		</joint>
+		
+		<link name="base_placement_theta_link"/>
+	</xacro:macro>
+
+</robot>
