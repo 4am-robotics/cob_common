@@ -12,9 +12,11 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_description</url>
 
-  <depend package="convex_decomposition"/>
-  <depend package="ivcon"/>
   <depend package="urdf"/>
+  <depend package="xacro"/>
   <depend package="cob_description"/>
+  <export>
+    <gazebo gazebo_media_path="${prefix}" />
+  </export>
 
 </package>
