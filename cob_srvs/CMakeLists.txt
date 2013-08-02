@@ -20,8 +20,6 @@ generate_messages(
 )
 
 catkin_package(
-    CATKIN_DEPENDS message_runtime
-    DEPENDS std_msgs trajectory_msgs geometry_msgs
-    INCLUDE_DIRS
+    CATKIN_DEPENDS message_runtime std_msgs trajectory_msgs geometry_msgs
 )
 
