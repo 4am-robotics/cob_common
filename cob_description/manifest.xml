@@ -13,10 +13,9 @@
   <url>http://ros.org/wiki/cob_description</url>
 
   <depend package="rostest"/>
-  <depend package="convex_decomposition"/>
-  <depend package="ivcon"/>
   <depend package="urdf"/>
-  <depend package="gazebo"/>
+  <depend package="urdfdom"/>
+  <depend package="xacro"/>
   <export>
     <gazebo gazebo_media_path="${prefix}" />
   </export>

@@ -12,9 +12,8 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/desire_description</url>
 
-  <depend package="convex_decomposition"/>
-  <depend package="ivcon"/>
   <depend package="urdf"/>
+  <depend package="xacro"/>
   <depend package="cob_description"/>
 
 </package>
