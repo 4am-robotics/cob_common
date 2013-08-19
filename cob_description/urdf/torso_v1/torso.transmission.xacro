@@ -7,22 +7,31 @@
 
 	<xacro:macro name="cob_torso_transmission_v1" params="name">
 
-		<transmission name="${name}_lower_neck_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_lower_neck_tilt_motor"/>
+		<transmission name="${name}_lower_neck_tilt_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_lower_neck_tilt_motor">
+				<hardwareInterface>EffortJointInterface</hardwareInterface>
+	        	<mechanicalReduction>1</mechanicalReduction>
+	      	</actuator>
 			<joint name="${name}_lower_neck_tilt_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
-		<transmission name="${name}_pan_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_pan_motor"/>
+		<transmission name="${name}_pan_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_pan_motor">
+				<hardwareInterface>EffortJointInterface</hardwareInterface>
+	        	<mechanicalReduction>1</mechanicalReduction>
+	      	</actuator>
 			<joint name="${name}_pan_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
-		<transmission name="${name}_upper_neck_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_upper_neck_tilt_motor"/>
+		<transmission name="${name}_upper_neck_tilt_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_upper_neck_tilt_motor">
+				<hardwareInterface>EffortJointInterface</hardwareInterface>
+	        	<mechanicalReduction>1</mechanicalReduction>
+	      	</actuator>
 			<joint name="${name}_upper_neck_tilt_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
 	</xacro:macro>

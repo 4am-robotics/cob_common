@@ -22,7 +22,7 @@
 						<far>100</far>
 					</clip>
 				</camera>
-				<plugin name="${name}_controller" filename="libgazebo_ros_prosilica.so">
+				<!--plugin name="${name}_controller" filename="libgazebo_ros_prosilica.so">
 					<alwaysOn>true</alwaysOn>
 					<updateRate>10.0</updateRate>
 					<topicName>${ros_topic}_image_data</topicName>
@@ -39,7 +39,7 @@
 					<distortion_k3>0.00000001</distortion_k3>
 					<distortion_t1>0.00000001</distortion_t1>
 					<distortion_t2>0.00000001</distortion_t2>
-				</plugin>
+				</plugin-->
 			</sensor>
 
 			<material value="IPA/LightGrey" />
