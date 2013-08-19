@@ -7,10 +7,13 @@
 
 	<xacro:macro name="cob_tray_transmission" params="name">
 
-		<transmission name="${name}_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_motor"/>
+		<transmission name="${name}_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_motor">
+				<hardwareInterface>EffortJointInterface</hardwareInterface>
+	        	<mechanicalReduction>1</mechanicalReduction>
+	      	</actuator>
 			<joint name="${name}_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
 	</xacro:macro>

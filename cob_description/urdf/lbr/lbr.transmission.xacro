@@ -7,46 +7,67 @@
 
 	<xacro:macro name="cob_lbr_transmission" params="name">
 
-		<transmission name="${name}_1_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_1_motor"/>
+		<transmission name="${name}_1_trans">
+		  	<type>transmission_interface/SimpleTransmission</type>
+	      	<actuator name="${name}_1_motor">
+	        	<hardwareInterface>EffortJointInterface</hardwareInterface>
+	        	<mechanicalReduction>1</mechanicalReduction>
+	      	</actuator>
 			<joint name="${name}_1_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 	
-		<transmission name="${name}_2_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_2_motor"/>
+		<transmission name="${name}_2_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_2_motor">
+        		<hardwareInterface>EffortJointInterface</hardwareInterface>
+        		<mechanicalReduction>1</mechanicalReduction>
+      		</actuator>
 			<joint name="${name}_2_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 	
-		<transmission name="${name}_3_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_3_motor"/>
+		<transmission name="${name}_3_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_3_motor">
+        		<hardwareInterface>EffortJointInterface</hardwareInterface>
+        		<mechanicalReduction>1</mechanicalReduction>
+      		</actuator>
 			<joint name="${name}_3_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 	
-		<transmission name="${name}_4_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_4_motor"/>
+		<transmission name="${name}_4_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_4_motor">
+        		<hardwareInterface>EffortJointInterface</hardwareInterface>
+        		<mechanicalReduction>1</mechanicalReduction>
+      		</actuator>
 			<joint name="${name}_4_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 	
-		<transmission name="${name}_5_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_5_motor"/>
+		<transmission name="${name}_5_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_5_motor">
+        		<hardwareInterface>EffortJointInterface</hardwareInterface>
+        		<mechanicalReduction>1</mechanicalReduction>
+      		</actuator>
 			<joint name="${name}_5_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 	
-		<transmission name="${name}_6_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_6_motor"/>
+		<transmission name="${name}_6_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_6_motor">
+        		<hardwareInterface>EffortJointInterface</hardwareInterface>
+        		<mechanicalReduction>1</mechanicalReduction>
+      		</actuator>
 			<joint name="${name}_6_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
-		<transmission name="${name}_7_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_7_motor"/>
+		<transmission name="${name}_7_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="${name}_7_motor">
+        		<hardwareInterface>EffortJointInterface</hardwareInterface>
+        		<mechanicalReduction>1</mechanicalReduction>
+      		</actuator>
 			<joint name="${name}_7_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
 		</transmission>
 
 	</xacro:macro>
