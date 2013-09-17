@@ -25,11 +25,11 @@ class TestUrdf(unittest.TestCase):
 
 		# check if xacro can be converted
 		if os.system("`rospack find xacro`/xacro.py " + file_to_test + " > /tmp/test.urdf") != 0:
-			self.fail("cannot convert xacro")
+			self.fail("cannot convert xacro. file: " + file_to_test)
 
 		# check if urdf is correct
-		if os.system("`rospack find urdf_parser`/bin/check_urdf /tmp/test.urdf") != 0:
-			self.fail("urdf not correct")
+		if os.system("rosrun urdfdom check_urdf /tmp/test.urdf") != 0:
+			self.fail("urdf not correct. file: " + file_to_test)
  
 if __name__ == '__main__':
 	import rosunit
