@@ -4,7 +4,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find raw_description)/urdf/tower_symetric/tower.gazebo.xacro" />
+  <xacro:include filename="$(find raw_description)/urdf/tower_symetric/tower.gazebo.xacro" />
 
   <!-- Properties -->
   <property name="tower_mass" value="6.49" />

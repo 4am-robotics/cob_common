@@ -4,7 +4,7 @@
       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
       xmlns:xacro="http://ros.org/wiki/xacro">
   
-  <include filename="$(find cob_description)/urdf/sensors/kinect.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.gazebo.xacro" />
 
   <xacro:macro name="cob_kinect_v0" params="name parent *origin ros_topic">
     <joint name="${name}_joint" type="fixed">

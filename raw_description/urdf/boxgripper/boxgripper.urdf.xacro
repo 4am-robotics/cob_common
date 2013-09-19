@@ -4,7 +4,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
+	<xacro:include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
 
 	<xacro:macro name="raw_boxgripper" params="name parent *origin">
 
