@@ -12,5 +12,7 @@
   <depend stack="robot_model" /> <!-- convex_decomposition, ivcon, urdf -->
   <depend stack="ros" /> <!-- roslib -->
   <depend stack="ros_comm" /> <!-- rostest, std_msgs -->
-  <depend stack="simulator_gazebo" />
+  <depend stack="urdf" />
+  <depend stack="urdfdom" />
+  <depend stack="xacro" />
 </stack>
