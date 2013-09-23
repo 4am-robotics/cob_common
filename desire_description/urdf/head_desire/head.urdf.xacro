@@ -4,9 +4,9 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find desire_description)/urdf/head_desire/head.gazebo.xacro" />
-	<include filename="$(find desire_description)/urdf/head_desire/head.transmission.xacro" />
-	<include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+	<xacro:include filename="$(find desire_description)/urdf/head_desire/head.gazebo.xacro" />
+	<xacro:include filename="$(find desire_description)/urdf/head_desire/head.transmission.xacro" />
+	<xacro:include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
 	<!--include filename="$(find cob_description)/urdf/sensors/tof.urdf.xacro" /-->
 
 	<xacro:macro name="head_desire" params="name parent *origin">

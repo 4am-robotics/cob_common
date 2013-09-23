@@ -4,8 +4,8 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find raw_description)/urdf/torso/torso.gazebo.xacro" />
-	<include filename="$(find raw_description)/urdf/torso/torso.transmission.xacro" />
+	<xacro:include filename="$(find raw_description)/urdf/torso/torso.gazebo.xacro" />
+	<xacro:include filename="$(find raw_description)/urdf/torso/torso.transmission.xacro" />
 
 	<!--include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" /-->
 	<!--include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" /-->
