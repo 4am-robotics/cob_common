@@ -5,17 +5,13 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="cob_ur_conector_gazebo" params="name">
+	<xacro:macro name="cob_ur_connector_transmission" params="name">
 
-		<gazebo reference="${name}_fixed_link">
-			<material>IPA/DarkGrey</material>
-			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
-
-		<gazebo reference="${name}_link">
-			<material>IPA/DarkGrey</material>
-			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
+		<transmission name="${name}_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_motor"/>
+			<joint name="${name}_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 
 	</xacro:macro>
 
