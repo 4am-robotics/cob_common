@@ -33,7 +33,7 @@
         <geometry>
            <box size="0.02 0.02 0.075"/>
         </geometry>
-      </collision >
+      </collision>
     </link>
     
     <joint name="${name}_frame_joint" type="fixed">
