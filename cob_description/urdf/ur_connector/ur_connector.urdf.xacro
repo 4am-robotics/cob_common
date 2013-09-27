@@ -4,12 +4,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/urdf/ur_conector/ur_conector.gazebo.xacro" />
-	<include filename="$(find cob_description)/urdf/ur_conector/ur_conector.transmission.xacro" />
+	<include filename="$(find cob_description)/urdf/ur_connector/ur_connector.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/ur_connector/ur_connector.transmission.xacro" />
 
-	<xacro:macro name="cob_ur_conector" params="name parent *origin">
+	<xacro:macro name="cob_ur_connector" params="name parent *origin">
 
-		<!-- joint between base_link and ur_conector_link -->
+		<!-- joint between base_link and ur_connector_link -->
 		<joint name="${name}_fixed_joint" type="fixed">
 			<insert_block name="origin" />
 			<parent link="${parent}"/>
@@ -26,7 +26,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/ur_conector/ur_conector1.stl" />
+					<mesh filename="package://cob_description/meshes/ur_connector/ur_connector1.stl" />
 				</geometry>
 				<material name="IPA/DarkGrey" />
 			</visual>
@@ -34,12 +34,12 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/ur_conector/ur_conector1.stl" />
+					<mesh filename="package://cob_description/meshes/ur_connector/ur_connector1.stl" />
 				</geometry>
 			</collision>
 		</link>
 
-		<!-- joint between base_link and ur_conector_link -->
+		<!-- joint between base_link and ur_connector_link -->
 		<joint name="${name}_joint" type="revolute">
 			<origin xyz="-0.0201 -0.1736 0.136" rpy="0 0 0"/>
 			<parent link="${name}_fixed_link"/>
@@ -60,7 +60,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/ur_conector/ur_conector2.stl" />
+					<mesh filename="package://cob_description/meshes/ur_connector/ur_connector2.stl" />
 				</geometry>
 				<material name="IPA/DarkGrey" />
 			</visual>
@@ -68,15 +68,15 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/ur_conector/ur_conector2.stl" />
+					<mesh filename="package://cob_description/meshes/ur_connector/ur_connector2.stl" />
 				</geometry>
 			</collision>
 		</link>
 
 
 		<!-- extensions -->
-		<xacro:cob_ur_conector_gazebo name="${name}" />
-		<xacro:cob_ur_conector_transmission name="${name}" />
+		<xacro:cob_ur_connector_gazebo name="${name}" />
+		<xacro:cob_ur_connector_transmission name="${name}" />
 
 	</xacro:macro>
 	
