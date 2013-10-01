@@ -44,16 +44,6 @@
 
     <link name="${name}_frame"/>
 
-
-
-    <joint name="${name}_frame_depth_joint" type="fixed">
-      <origin xyz="-0.02 0 0" rpy="0 0 0" />
-      <parent link="${name}_link"/>
-      <child link="${name}_depth_link"/>
-    </joint>
-
-    <link name="${name}_depth_link"/>
-
     <!-- extensions -->
     <xacro:cob_kinect_gazebo_v0 name="${name}" ros_topic="${ros_topic}" />
   </xacro:macro>
