@@ -14,7 +14,8 @@
 
   <depend package="rostest"/>
   <depend package="urdf"/>
-  <depend package="gazebo"/>
+  <depend package="urdfdom"/>
+  <depend package="xacro"/>
   <export>
     <gazebo gazebo_media_path="${prefix}" />
   </export>
