@@ -4,12 +4,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find raw_description)/urdf/tower_symetric/tower.gazebo.xacro" />
+  <include filename="$(find raw_description)/urdf/tower_asymetric/tower.gazebo.xacro" />
 
   <!-- Properties -->
   <property name="tower_mass" value="6.49" />
 
-  <xacro:macro name="tower_symetric" params="name parent *origin" >
+  <xacro:macro name="tower_asymetric" params="name parent *origin" >
 
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
@@ -35,17 +35,17 @@
       </visual>
 
        <collision>
-        <origin xyz="0 -0.03 -0.1" rpy="0 0 0"/>
+        <origin xyz="0 0 0.0865" rpy="0 0 0"/>
         <geometry>
           <!--mesh filename="package://raw_description/meshes/base/raw_tower_collision.stl"/-->
-          <box size="0.32 0.58 0.24" />
+          <box size="0.316 0.573 0.173" />
         </geometry>
         </collision>
 
     </link>
 
     <!-- extensions -->
-    <xacro:raw_tower_symetric_gazebo name="${name}" />
+    <xacro:raw_tower_asymetric_gazebo name="${name}" />
 
   </xacro:macro>
 
