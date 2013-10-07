@@ -21,6 +21,8 @@
   <build_depend>ivcon</build_depend>
 
   <run_depend>cob_description</run_depend>
+   <run_depend>gazebo_ros</run_depend>
+
 
   <test_depend>gtest</test_depend>
   <test_depend>urdfdom</test_depend>
