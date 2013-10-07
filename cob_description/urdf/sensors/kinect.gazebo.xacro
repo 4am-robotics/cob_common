@@ -23,13 +23,15 @@
 			</clip>
 		</camera>
 		<plugin name="${name}_depth_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+			<baseline>0.2</baseline>
 			<alwaysOn>true</alwaysOn>
-			<updateRate>20.0</updateRate>
-			<imageTopicName>${ros_topic}/ir/image_raw</imageTopicName>
-			<cameraInfoTopicName>${ros_topic}/ir/camera_info</cameraInfoTopicName>
-			<depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
-			<depthImageInfoTopicName>${ros_topic}/depth/camera_info</depthImageInfoTopicName>
-			<pointCloudTopicName>${ros_topic}/depth/points</pointCloudTopicName>
+			<updateRate>2.0</updateRate>
+			<cameraName>${ros_topic}</cameraName>
+			<imageTopicName>/${ros_topic}/ir/image_raw</imageTopicName>
+			<cameraInfoTopicName>/${ros_topic}/ir/camera_info</cameraInfoTopicName>
+			<depthImageTopicName>/${ros_topic}/depth/image_raw</depthImageTopicName>
+			<depthImageInfoTopicName>/${ros_topic}/depth/camera_info</depthImageInfoTopicName>
+			<pointCloudTopicName>/${ros_topic}/depth/points</pointCloudTopicName>
 			<frameName>${name}_link</frameName>
 			<pointCloudCutoff>0.5</pointCloudCutoff>
 			<distortionK1>0.00000001</distortionK1>
@@ -39,7 +41,7 @@
 			<distortionT2>0.00000001</distortionT2>
 		</plugin>
 	</sensor>
-    
+    <!--
 	<sensor type="depth" name="${name}_frame_sensor">
 		<always_on>true</always_on>
 		<update_rate>20.0</update_rate>
@@ -68,7 +70,7 @@
 			<distortionT1>0.00000001</distortionT1>
 			<distortionT2>0.00000001</distortionT2>
 		</plugin>
-	</sensor>
+	</sensor-->
 
     <material>IPA/LightGrey</material>
   </gazebo>
