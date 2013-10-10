@@ -4,9 +4,6 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/urdf/lookat/lookat.gazebo.xacro" />
-	<include filename="$(find cob_description)/urdf/lookat/lookat.transmission.xacro" />
-
 
 	<xacro:macro name="cob_lookat" params="name parent *origin *axis">
 	
@@ -24,7 +21,7 @@
 			<child link="${name}_x_link"/>
 			<insert_block name="axis" />	<!--axis xyz="-1 0 0" /-->
 			<dynamics damping="5.0" friction="0.5"/>
-			<limit effort="100" lower="0.3" upper="5.0" velocity="1"/>      
+			<limit effort="100" lower="-5.0" upper="5.0" velocity="1"/>      
 		</joint>
 		
 		<link name="${name}_x_link"/>
@@ -61,6 +58,7 @@
 		</joint>
 		
 		<link name="${name}_focus_frame">
+<!--
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
@@ -68,11 +66,8 @@
 				</geometry>
 				<material name="IPA/Black" />
 			</visual>
+-->
 		</link>
-
-		<!-- extensions -->
-		<xacro:cob_lookat_gazebo name="${name}" />
-		<xacro:cob_lookat_transmission name="${name}" /> 
 
 	</xacro:macro>
 
