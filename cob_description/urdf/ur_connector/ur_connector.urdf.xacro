@@ -45,8 +45,9 @@
 			<parent link="${name}_fixed_link"/>
 			<child link="${name}_link"/>
 			<axis xyz="0 0 1"/>
-			<dynamics damping="5.0" friction="0.5"/>
-			<limit effort="100" lower="-3.31612" upper="3.31612" velocity="5"/>
+			<dynamics damping="10"/>
+			<limit effort="200" velocity="1.9634" lower="1.0" upper="4.6"/>
+            <safety_controller k_position="20" k_velocity="50" soft_lower_limit="${1.0 - 0.01}" soft_upper_limit="${4.6 - 0.01}" />
 		</joint>
 
 		<link name="${name}_link">
