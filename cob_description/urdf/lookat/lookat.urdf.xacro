@@ -5,7 +5,7 @@
 	   xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-	<xacro:macro name="cob_lookat" params="name parent *origin *axis">
+	<xacro:macro name="cob_lookat" params="name parent *origin *axis lower upper">
 	
 		<!-- joint between torso_upper_neck_tilt_link and lookat_base_link -->
 		<joint name="${name}_base_joint" type="fixed">
@@ -29,7 +29,7 @@
 			<child link="${name}_x_link"/>
 			<insert_block name="axis" />	<!--axis xyz="-1 0 0" /-->
 			<dynamics damping="5.0" friction="0.5"/>
-			<limit effort="100" lower="-5.0" upper="5.0" velocity="1"/>	  
+			<limit effort="100" lower="${lower}" upper="${upper}" velocity="1"/>	  
 		</joint>
 		
 		<link name="${name}_x_link"/>
