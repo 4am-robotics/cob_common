@@ -9,10 +9,27 @@
 
 	<xacro:macro name="cob_torso_v1" params="name parent *origin">
 
+
+		<!-- joint between base_link and torso_base_link -->
+		<joint name="${name}_base_joint" type="fixed" >
+			<insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_base_link" />
+		</joint>
+
+		<link name="${name}_base_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.01"/>
+				<inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+			</inertial>
+		</link>
+
+
 		<!-- joint between base_link and torso_lower_neck_tilt_link -->
 		<joint name="${name}_lower_neck_tilt_joint" type="revolute">
-			<insert_block name="origin" />
-			<parent link="${parent}"/>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="${name}_base_link"/>
 			<child link="${name}_lower_neck_tilt_link"/>
 			<axis xyz="0 0 1" />
 			<dynamics damping="25.0" friction="10.0"/>
