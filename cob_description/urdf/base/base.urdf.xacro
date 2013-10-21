@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/base/base.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/base/base.transmission.xacro" />
@@ -107,8 +104,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-		  <!--box size="0.001 0.001 0.001" /-->
+    <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+      <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -165,7 +162,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	      <mesh filename="package://cob_description/meshes/base/base_collision.stl"/>
+        <mesh filename="package://cob_description/meshes/base/base_collision.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>

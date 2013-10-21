@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find desire_description)/urdf/base_desire/base.gazebo.xacro" />
   <xacro:include filename="$(find desire_description)/urdf/base_desire/base.transmission.xacro" />
@@ -226,7 +223,7 @@
 
      <!-- cam3d -->
      <xacro:cob_kinect_v0 name="head_cam3d" ros_topic="cam3d" parent="base_link">
-    		<origin xyz="0.40 0 1.4246" rpy="0 0 0" />
+        <origin xyz="0.40 0 1.4246" rpy="0 0 0" />
      </xacro:cob_kinect_v0>
 
 

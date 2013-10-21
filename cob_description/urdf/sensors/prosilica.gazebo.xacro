@@ -1,54 +1,51 @@
 <?xml version="1.0"?>
-<root xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-      xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-      xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-      xmlns:xacro="http://ros.org/wiki/xacro">
+<root xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<xacro:macro name="cob_prosilica_gazebo_v0" params="name ros_topic">
+  <xacro:macro name="cob_prosilica_gazebo_v0" params="name ros_topic">
 
-		<gazebo reference="${name}_frame">
-			
-			<sensor type="camera" name="${name}_sensor">
-				<always_on>true</always_on>
-				<update_rate>10.0</update_rate>
-				
-				<camera name="${name}_sensor">
-					<horizontal_fov>0.58</horizontal_fov>	
-					<image>
-						<format>R8G8B8</format>
-						<width>1360</width>
-						<height>1024</height>
-					</image>
-					<clip>
-						<near>0.1</near>
-						<far>100</far>
-					</clip>
-				</camera>
-				<plugin name="${name}_controller" filename="libgazebo_ros_camera.so">
-					<alwaysOn>true</alwaysOn>
-					<updateRate>0.0</updateRate>
-					<topicName>${ros_topic}_image_data</topicName>
-					<imageTopicName>/${ros_topic}/image_raw</imageTopicName>
-					<cameraInfoTopicName>/${ros_topic}/camera_info</cameraInfoTopicName>
-					<pollServiceName>/${name}/request_image</pollServiceName>
-					<frameName>/${name}_link</frameName>
-					<cameraName>${name}_sensor</cameraName>
-					<CxPrime>697.69</CxPrime>
-					<Cx>697.69</Cx>
-					<Cy>530.51</Cy>
-					<focal_length>1450</focal_length>	
-					<distortion_k1>0.00000001</distortion_k1>
-					<distortion_k2>0.00000001</distortion_k2>
-					<distortion_k3>0.00000001</distortion_k3>
-					<distortion_t1>0.00000001</distortion_t1>
-					<distortion_t2>0.00000001</distortion_t2>
-				</plugin>
-			</sensor>
-			
-			<material value="IPA/LightGrey" />
-			<turnGravityOff>true</turnGravityOff>
-		</gazebo>
+    <gazebo reference="${name}_frame">
+      
+      <sensor type="camera" name="${name}_sensor">
+        <always_on>true</always_on>
+        <update_rate>10.0</update_rate>
+        
+        <camera name="${name}_sensor">
+          <horizontal_fov>0.58</horizontal_fov>  
+          <image>
+            <format>R8G8B8</format>
+            <width>1360</width>
+            <height>1024</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+        </camera>
+        <plugin name="${name}_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <topicName>${ros_topic}_image_data</topicName>
+          <imageTopicName>/${ros_topic}/image_raw</imageTopicName>
+          <cameraInfoTopicName>/${ros_topic}/camera_info</cameraInfoTopicName>
+          <pollServiceName>/${name}/request_image</pollServiceName>
+          <frameName>/${name}_link</frameName>
+          <cameraName>${name}_sensor</cameraName>
+          <CxPrime>697.69</CxPrime>
+          <Cx>697.69</Cx>
+          <Cy>530.51</Cy>
+          <focal_length>1450</focal_length>  
+          <distortion_k1>0.00000001</distortion_k1>
+          <distortion_k2>0.00000001</distortion_k2>
+          <distortion_k3>0.00000001</distortion_k3>
+          <distortion_t1>0.00000001</distortion_t1>
+          <distortion_t2>0.00000001</distortion_t2>
+        </plugin>
+      </sensor>
+      
+      <material value="IPA/LightGrey" />
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
 
-	</xacro:macro>
+  </xacro:macro>
 
 </root>
