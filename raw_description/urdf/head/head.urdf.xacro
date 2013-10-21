@@ -4,8 +4,8 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
-    <include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+    <xacro:include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+    <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
     <xacro:macro name="raw_head" params="name parent *origin">
         <!-- joint between torso_2_link and head_base_link -->
