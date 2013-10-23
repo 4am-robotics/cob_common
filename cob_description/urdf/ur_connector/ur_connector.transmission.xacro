@@ -3,10 +3,13 @@
 
   <xacro:macro name="cob_ur_connector_transmission" params="name">
 
-    <transmission name="${name}_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_motor"/>
-      <joint name="${name}_joint"/>
-      <mechanicalReduction>1</mechanicalReduction>
+    <transmission name="${name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_joint"/>      
+      <actuator name="${name}_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
     </transmission>
 
   </xacro:macro>
