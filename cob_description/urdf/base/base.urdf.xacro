@@ -1,15 +1,12 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find cob_description)/urdf/base/base.gazebo.xacro" />
-  <include filename="$(find cob_description)/urdf/base/base.transmission.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/base/base.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/base/base.transmission.xacro" />
 
   <!-- sensors -->
-  <include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
-  <include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
+  <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
+  <xacro:include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
 
   <!-- DATA SOURCES -->
   <!-- all link offsets, CG, limits are obtained from Function Engineering spreadsheet 090224_link_data.xls unless stated otherwise -->
@@ -107,8 +104,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-		  <!--box size="0.001 0.001 0.001" /-->
+    <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+      <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -165,7 +162,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	      <mesh filename="package://cob_description/meshes/base/base_collision.stl"/>
+        <mesh filename="package://cob_description/meshes/base/base_collision.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>

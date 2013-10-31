@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_head_transmission_v3" params="name">
+  <xacro:macro name="cob_ur_connector_transmission" params="name">
 
-    <transmission name="${name}_axis_trans">
+    <transmission name="${name}_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="${name}_axis_motor">
+      <joint name="${name}_joint"/>      
+      <actuator name="${name}_motor">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-      <joint name="${name}_axis_joint"/>
     </transmission>
 
   </xacro:macro>

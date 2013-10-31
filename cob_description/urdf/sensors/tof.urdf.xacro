@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
        name="LaserBlock">
   
-  <include filename="$(find cob_description)/urdf/sensors/tof.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/tof.gazebo.xacro" />
 
   <xacro:macro name="cob_tof_v0" params="name parent *origin ros_topic">
 

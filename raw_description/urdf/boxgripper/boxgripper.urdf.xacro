@@ -1,60 +1,57 @@
 <?xml version="1.0"?>
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
+  <xacro:include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
 
-	<xacro:macro name="raw_boxgripper" params="name parent *origin">
+  <xacro:macro name="raw_boxgripper" params="name parent *origin">
 
         
-		<!-- joint between arm_ee_link and raw_boxgripper_link -->
-		<joint name="${name}_base_joint" type="fixed" >
-			<insert_block name="origin" />
-			<parent link="${parent}" />
-			<child link="${name}_base_link" />
-		</joint>
+    <!-- joint between arm_ee_link and raw_boxgripper_link -->
+    <joint name="${name}_base_joint" type="fixed" >
+      <insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${name}_base_link" />
+    </joint>
 
-		<link name="${name}_base_link"/>
+    <link name="${name}_base_link"/>
 
-		<joint name="${name}_joint" type="fixed" >
-			<origin xyz="0.04 0.122 0" rpy="0 0 0.12" />
-			<parent link="${name}_base_link" />
-			<child link="${name}_link" />
-		</joint>
+    <joint name="${name}_joint" type="fixed" >
+      <origin xyz="0.04 0.122 0" rpy="0 0 0.12" />
+      <parent link="${name}_base_link" />
+      <child link="${name}_link" />
+    </joint>
 
 
-		<link name="${name}_link">
-			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="0.57307"/>
-				<inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
-			</inertial>
+    <link name="${name}_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.57307"/>
+        <inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+      </inertial>
 
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0" /> 
-				<geometry>
-					<box size="0.002 0.04 0.26"/>
-				</geometry>
-				<material name="IPA/DarkGrey" />
-			</visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" /> 
+        <geometry>
+          <box size="0.002 0.04 0.26"/>
+        </geometry>
+        <material name="IPA/DarkGrey" />
+      </visual>
 
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 -0.45" />
-				<geometry>
-				  <mesh filename="package://raw_description/meshes/boxgripper/boxgripper_collision.stl"/>
-				</geometry>
-				<!--origin xyz="-0.02 -0.06 0" rpy="0 0 -0.45" />
-				<geometry>
-					<box size="0.05 0.16 0.27"/>
-				</geometry-->
-			</collision>
-		</link> 
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 -0.45" />
+        <geometry>
+          <mesh filename="package://raw_description/meshes/boxgripper/boxgripper_collision.stl"/>
+        </geometry>
+        <!--origin xyz="-0.02 -0.06 0" rpy="0 0 -0.45" />
+        <geometry>
+          <box size="0.05 0.16 0.27"/>
+        </geometry-->
+      </collision>
+    </link> 
 
-		<!-- extensions -->
-		<xacro:raw_boxgripper_gazebo name="${name}" />
+    <!-- extensions -->
+    <xacro:raw_boxgripper_gazebo name="${name}" />
 
-	</xacro:macro>
-	
+  </xacro:macro>
+  
 </robot>

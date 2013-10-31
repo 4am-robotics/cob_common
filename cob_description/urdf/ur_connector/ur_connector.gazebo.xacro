@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="raw_torso_gazebo" params="name">
+  <xacro:macro name="cob_ur_connector_gazebo" params="name">
 
-    <gazebo reference="${name}_pan_link">
-      <material>IPA/LightGrey</material>
+    <gazebo reference="${name}_fixed_link">
+      <material>IPA/DarkGrey</material>
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <gazebo reference="${name}_tilt_link">
-      <material>IPA/LightGrey</material>
+    <gazebo reference="${name}_link">
+      <material>IPA/DarkGrey</material>
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
