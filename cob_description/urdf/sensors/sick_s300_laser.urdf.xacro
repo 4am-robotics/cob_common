@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
-
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.gazebo.xacro" />
 
@@ -28,7 +24,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-	  <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.dae"/>
+    <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.dae"/>
           <!--box size="0.001 0.001 0.001" /-->
         </geometry>
         <material name="IPA/LightGrey" />

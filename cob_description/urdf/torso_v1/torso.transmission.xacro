@@ -1,30 +1,35 @@
 <?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="cob_torso_transmission_v1" params="name">
 
-	<xacro:macro name="cob_torso_transmission_v1" params="name">
+    <transmission name="${name}_lower_neck_tilt_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_lower_neck_tilt_joint"/>
+      <actuator name="${name}_lower_neck_tilt_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
 
-		<transmission name="${name}_lower_neck_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_lower_neck_tilt_motor"/>
-			<joint name="${name}_lower_neck_tilt_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
-		</transmission>
+    <transmission name="${name}_pan_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_pan_joint"/>
+      <actuator name="${name}_pan_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
 
-		<transmission name="${name}_pan_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_pan_motor"/>
-			<joint name="${name}_pan_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
-		</transmission>
-
-		<transmission name="${name}_upper_neck_tilt_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_upper_neck_tilt_motor"/>
-			<joint name="${name}_upper_neck_tilt_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
-		</transmission>
-
-	</xacro:macro>
+    <transmission name="${name}_upper_neck_tilt_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_upper_neck_tilt_joint"/>
+      <actuator name="${name}_upper_neck_tilt_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    
+  </xacro:macro>
 
 </robot>
