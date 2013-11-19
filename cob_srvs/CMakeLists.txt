@@ -5,7 +5,10 @@ find_package(catkin REQUIRED COMPONENTS std_msgs trajectory_msgs geometry_msgs m
 
 
 #uncomment if you have defined services
-add_service_files(FILES
+add_service_files(
+  DIRECTORY 
+  srv 
+  FILES
   Trigger.srv
   SetMaxVel.srv
   SetOperationMode.srv
@@ -20,8 +23,7 @@ generate_messages(
 )
 
 catkin_package(
-    CATKIN_DEPENDS message_runtime
-    DEPENDS std_msgs trajectory_msgs geometry_msgs
+    CATKIN_DEPENDS message_runtime std_msgs trajectory_msgs geometry_msgs
     INCLUDE_DIRS
 )
 
