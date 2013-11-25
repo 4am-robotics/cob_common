@@ -5,12 +5,16 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="raw_tower_asymetric_gazebo" params="name">
+	<xacro:macro name="cob_ur_connector_gazebo" params="name">
 
-		<gazebo reference="${name}_base_link">
-			<selfCollide>false</selfCollide>
-      		<!--material>Gazebo/Grey</material-->
-      		<!--material value="IPA/Metal" /-->
+		<gazebo reference="${name}_fixed_link">
+			<material>IPA/DarkGrey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="${name}_link">
+			<material>IPA/DarkGrey</material>
+			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 	</xacro:macro>

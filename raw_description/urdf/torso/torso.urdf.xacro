@@ -7,33 +7,29 @@
 	<include filename="$(find raw_description)/urdf/torso/torso.gazebo.xacro" />
 	<include filename="$(find raw_description)/urdf/torso/torso.transmission.xacro" />
 
-	<!--include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" /-->
-	<!--include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" /-->
 
 	<xacro:macro name="raw_torso" params="name parent *origin">
-
-        
+		
 		<!-- joint between base_link and torso_tilt_link -->
 		<joint name="${name}_0_joint" type="fixed" >
 			<insert_block name="origin" />
 			<parent link="${parent}" />
 			<child link="${name}_0_link" />
 		</joint>
-
-
+		
 		<link name="${name}_0_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<mass value="0.57307"/>
 				<inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
 			</inertial>
-
+			
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" /> 
 				<geometry>
 					<cylinder length="0.521" radius="0.04"/>
 				</geometry>
-        		<material name="IPA/LightGrey" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -67,7 +63,7 @@
 				<geometry>
 					<cylinder length="0.3" radius="0.15"/>
 				</geometry>
-                <material name="IPA/LightGrey" />
+				<material name="IPA/LightGrey" />
 			</visual>
 
 			<collision>
@@ -112,20 +108,6 @@
 			</collision>
 		</link>
 
-		<!-- left camera -->
-		<!--xacro:cob_prosilica_v0 name="head_color_camera_l" ros_topic="stereo/left" parent="torso_2_link">
-			<origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
-		</xacro:cob_prosilica_v0-->
-
-		<!-- right camera -->
-		<!--xacro:cob_prosilica_v0 name="head_color_camera_r" ros_topic="stereo/right" parent="torso_2_link">
-			<origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
-		</xacro:cob_prosilica_v0-->
-
-		<!-- cam3d -->
-		<xacro:cob_kinect_v0 name="head_cam3d" ros_topic="cam3d" parent="torso_2_link">
-			<origin xyz="${cam3d_x} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
-		</xacro:cob_kinect_v0>
 
 		<!-- extensions -->
 		<xacro:raw_torso_gazebo name="${name}" />
