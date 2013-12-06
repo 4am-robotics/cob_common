@@ -18,7 +18,7 @@
 			<axis xyz="0 0 1" />
 			<calibration rising="${tray_1_ref}"/>
 			<dynamics damping="5.0" friction="0.5"/>
-			<limit effort="100" lower="-1.37" upper="0.02" velocity="5"/>
+			<limit effort="100" lower="1.37" upper="-0.02" velocity="5"/>
 		</joint>
 
 		<link name="${name}_1_link">
