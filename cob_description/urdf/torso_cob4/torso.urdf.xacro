@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<include filename="$(find cob_description)/urdf/torso_cob4/torso.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/torso_cob4/torso.transmission.xacro" />
+
+	<xacro:macro name="cob_torso" params="parent name *origin">
+
+		<joint name="torso_base_joint" type="fixed">
+		  <insert_block name="origin" />
+		  <child link="torso_base_link" />
+		  <parent link="${parent}"/>
+		</joint>
+    
+		<link name="torso_base_link"/>
+
+		<joint name="torso_1_joint" type="revolute">
+		  <origin xyz="0 0 0.04642" rpy="0 0 0"/>
+		  <child link="torso_1_link" />
+		  <parent link="torso_base_link"/>
+		  <calibration rising="${torso_1_ref}"/>
+		  <axis xyz="0 0 1" />
+		  <dynamics damping="0.1" />
+		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+		</joint>
+
+		<link name="torso_1_link"/>
+
+		<joint name="torso_2_joint" type="revolute">
+		  <origin xyz="0 -0.14734 0.07547" rpy="-0.5236 0 0" />
+		  <child link="torso_2_link" />
+		  <parent link="torso_1_link"/>
+		  <calibration rising="${torso_2_ref}"/>
+		  <axis xyz="0 0 1" />
+		  <dynamics damping="0.1" />
+		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+		</joint>
+
+		<link name="torso_2_link"/>
+
+		<joint name="torso_3_joint" type="revolute">
+		  <origin xyz="0 0.06223 0.15206" rpy="0.5236 0 0" />
+		  <child link="torso_3_link" />
+		  <parent link="torso_2_link"/>
+		  <calibration rising="${torso_3_ref}"/>
+		  <axis xyz="0 0 1" />
+		  <dynamics damping="0.1" />
+		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+		</joint>
+
+		<link name="torso_3_link">
+			<inertial>
+				<mass value="10" />
+				<origin xyz="0 0 0" />
+			<inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423"
+						 iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
+			</inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />  
+				<geometry>
+					<mesh filename="package://cob_description/meshes/torso_cob4/torso_link.stl"/>
+				</geometry> 
+				<material name="IPA/LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.001 0.001 0.001" />
+				</geometry>
+			</collision>
+		</link>
+    
+	<!-- extensions -->
+	<xacro:cob_torso_gazebo name="${name}" />
+	<xacro:cob_torso_transmission name="${name}" />
+
+	</xacro:macro>
+
+</robot>
