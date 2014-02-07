@@ -63,7 +63,7 @@
 		  <visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />  
 			<geometry>
-				<mesh filename="package://cob_description/meshes/head_cob4/head_link.stl"/>
+				<mesh filename="package://cob4_description/meshes/head/head_link.stl"/>
 			</geometry> 
 			<material name="IPA/LightGrey"/>
 		  </visual>
