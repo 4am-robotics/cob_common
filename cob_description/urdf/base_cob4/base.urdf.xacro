@@ -32,7 +32,7 @@
 	<property name="base_size_z" value="0.23" />
 	<property name="base_collision_size_z" value="0.04" />
   
-	<xacro:macro name="cob_base" params="name">
+	<xacro:macro name="cob4_base" params="name">
 
 		<link name="base_footprint">
 			<inertial>
@@ -112,7 +112,7 @@
 			<origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
 		</xacro:cob_caster>
 
-	<xacro:cob_base_gazebo name="${name}" />
+	<xacro:cob4_base_gazebo name="${name}" />
 	</xacro:macro>
 
 	<!--                                                      -->

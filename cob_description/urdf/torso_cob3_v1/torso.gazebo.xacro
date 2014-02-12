@@ -5,25 +5,30 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="cob4_torso_gazebo" params="name">
+	<xacro:macro name="cob3_torso_gazebo_v1" params="name">
 
-		<gazebo reference="${name}_base_link">
-            <material>IPA/LightGrey</material>
+		<gazebo reference="${name}_lower_neck_pan_link">
+			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
-		<gazebo reference="${name}_1_link">
+		<gazebo reference="${name}_lower_neck_tilt_link">
 			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
-		
-		<gazebo reference="${name}_2_link">
+
+		<gazebo reference="${name}_upper_neck_pan_link">
 			<material>IPA/LightGrey</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
-		
-		<gazebo reference="${name}_3_link">
+
+		<gazebo reference="${name}_upper_neck_tilt_link">
 			<material>IPA/LightGrey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="head_cover_link">
+			<material>IPA/Black</material>
 			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 

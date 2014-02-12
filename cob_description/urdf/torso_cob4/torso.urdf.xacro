@@ -7,7 +7,7 @@
 	<include filename="$(find cob_description)/urdf/torso_cob4/torso.gazebo.xacro" />
 	<include filename="$(find cob_description)/urdf/torso_cob4/torso.transmission.xacro" />
 
-	<xacro:macro name="cob_torso" params="parent name *origin">
+	<xacro:macro name="cob4_torso" params="parent name *origin">
 
 		<joint name="torso_base_joint" type="fixed">
 		  <insert_block name="origin" />
@@ -74,8 +74,8 @@
 		</link>
     
 	<!-- extensions -->
-	<xacro:cob_torso_gazebo name="${name}" />
-	<xacro:cob_torso_transmission name="${name}" />
+	<xacro:cob4_torso_gazebo name="${name}" />
+	<xacro:cob4_torso_transmission name="${name}" />
 
 	</xacro:macro>
 

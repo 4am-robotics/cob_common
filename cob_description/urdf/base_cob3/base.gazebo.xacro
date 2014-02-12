@@ -21,7 +21,7 @@
     </gazebo>
   </xacro:macro>
 
-  <xacro:macro name="cob4_base_gazebo" params="name">
+  <xacro:macro name="cob3_base_gazebo" params="name">
 	<gazebo reference="${name}_link">
 		<selfCollide>true</selfCollide>
 		<sensor name='${name}_contact_sensor' type='contact'>
@@ -34,7 +34,7 @@
 				<bumperTopicName>${name}_bumper</bumperTopicName>
 			</plugin>
 		</sensor>
-		<material>IPA/DarkGrey</material>
+		<material>IPA/LightGrey</material>
 	</gazebo>
 
     <gazebo>

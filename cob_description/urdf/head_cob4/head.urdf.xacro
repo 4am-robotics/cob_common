@@ -7,7 +7,7 @@
 	<include filename="$(find cob_description)/urdf/head_cob4/head.gazebo.xacro" />
 	<include filename="$(find cob_description)/urdf/head_cob4/head.transmission.xacro" />
 
-	<xacro:macro name="cob_head" params="parent name *origin">
+	<xacro:macro name="cob4_head" params="parent name *origin">
 
 		<joint name="head_base_joint" type="fixed">
 		  <insert_block name="origin" />
@@ -63,7 +63,7 @@
 		  <visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />  
 			<geometry>
-				<mesh filename="package://cob4_description/meshes/head/head_link.stl"/>
+				<mesh filename="package://cob_description/meshes/head_cob4/head_link.stl"/>
 			</geometry> 
 			<material name="IPA/LightGrey"/>
 		  </visual>
@@ -77,8 +77,8 @@
 		</link>
 
 	<!-- extensions -->
-	<xacro:cob_head_gazebo name="${name}" />
-	<xacro:cob_head_transmission name="${name}" />
+	<xacro:cob4_head_gazebo name="${name}" />
+	<xacro:cob4_head_transmission name="${name}" />
 
 	</xacro:macro>
 

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="cob_sensorring" params="parent name *origin">
+
+		<joint name="sensorring_joint" type="revolute">
+			  <insert_block name="origin" />
+			  <child link="sensorring_link" />
+			  <parent link="${parent}"/>
+			  <calibration rising="${head_sensor_ref}"/>
+			  <axis xyz="0 0 1" />
+			  <dynamics damping="0.1" />
+			  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+		</joint>
+    
+		<link name="sensorring_link"/>
+
+	</xacro:macro>
+
+</robot>
