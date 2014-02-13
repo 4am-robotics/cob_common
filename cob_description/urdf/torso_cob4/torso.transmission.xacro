@@ -5,27 +5,25 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<xacro:macro name="cob4_torso_gazebo" params="name">
+	<xacro:macro name="cob4_torso_transmission" params="name">
 
-		<gazebo reference="${name}_base_link">
-            <material>IPA/LightGrey</material>
-			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
+		<transmission name="${name}_1_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_1_motor"/>
+			<joint name="${name}_1_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 
-		<gazebo reference="${name}_1_link">
-			<material>IPA/LightGrey</material>
-			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
+		<transmission name="${name}_2_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_2_motor"/>
+			<joint name="${name}_2_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 		
-		<gazebo reference="${name}_2_link">
-			<material>IPA/LightGrey</material>
-			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
-		
-		<gazebo reference="${name}_3_link">
-			<material>IPA/LightGrey</material>
-			<turnGravityOff>false</turnGravityOff>
-		</gazebo>
+		<transmission name="${name}_3_trans" type="pr2_mechanism_model/SimpleTransmission">
+			<actuator name="${name}_3_motor"/>
+			<joint name="${name}_3_joint"/>
+			<mechanicalReduction>1</mechanicalReduction>
+		</transmission>
 
 	</xacro:macro>
 

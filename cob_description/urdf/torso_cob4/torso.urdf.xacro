@@ -61,7 +61,8 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />  
 				<geometry>
-					<mesh filename="package://cob_description/meshes/torso_cob4/torso_link.stl"/>
+					<!--mesh filename="package://cob_description/meshes/torso_cob4/torso_link.stl"/-->
+					<box size="0.001 0.001 0.001" />
 				</geometry> 
 				<material name="IPA/LightGrey"/>
 			</visual>
@@ -74,8 +75,8 @@
 		</link>
     
 	<!-- extensions -->
-	<xacro:cob4_torso_gazebo name="${name}" />
-	<xacro:cob4_torso_transmission name="${name}" />
+	<xacro:cob4_torso_gazebo name="torso" />
+	<xacro:cob4_torso_transmission name="torso" />
 
 	</xacro:macro>
 
