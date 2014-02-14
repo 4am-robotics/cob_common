@@ -15,7 +15,13 @@
 		  <parent link="${parent}"/>
 		</joint>
     
-		<link name="torso_base_link"/>
+		<link name="torso_base_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+		</link>
 
 		<joint name="torso_1_joint" type="revolute">
 		  <origin xyz="0 0 0.04642" rpy="0 0 0"/>
@@ -27,7 +33,13 @@
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
-		<link name="torso_1_link"/>
+		<link name="torso_1_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="2"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+		</link>
 
 		<joint name="torso_2_joint" type="revolute">
 		  <origin xyz="0 -0.14734 0.07547" rpy="-0.5236 0 0" />
@@ -39,7 +51,13 @@
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
-		<link name="torso_2_link"/>
+		<link name="torso_2_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="2"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+		</link>
 
 		<joint name="torso_3_joint" type="revolute">
 		  <origin xyz="0 0.06223 0.15206" rpy="0.5236 0 0" />
@@ -61,8 +79,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />  
 				<geometry>
-					<!--mesh filename="package://cob_description/meshes/torso_cob4/torso_link.stl"/-->
-					<box size="0.001 0.001 0.001" />
+					<mesh filename="package://cob_description/meshes/torso_cob4/torso_link.stl"/>
 				</geometry> 
 				<material name="IPA/LightGrey"/>
 			</visual>

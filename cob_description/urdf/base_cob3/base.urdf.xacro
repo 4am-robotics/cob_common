@@ -144,8 +144,8 @@
 
   <!-- The xacro macro xacro:cob_base contains: base, casters and wheels -->
   <xacro:macro name="cob3_base" params="name">
+  
   <link name="${name}_link">
-
       <inertial>
         <mass value="${base_mass}" />
         <origin xyz="0 0 0" />
@@ -169,7 +169,6 @@
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>
-      
     </link>
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,

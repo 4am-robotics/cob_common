@@ -15,7 +15,13 @@
 		  <parent link="${parent}"/>
 		</joint>
 		
-		<link name="head_base_link"/>
+		<link name="head_base_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+		</link>
 
 		<joint name="head_1_joint" type="revolute">
 		  <origin xyz="0 0 0.0305" rpy="0 0 0"/>
@@ -27,7 +33,13 @@
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
-		<link name="head_1_link"/>
+		<link name="head_1_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+		</link>
 
 		<joint name="head_2_joint" type="revolute">
 		  <origin xyz="0 -0.07725 -0.00439" rpy="-0.349 0 0" />
@@ -39,7 +51,13 @@
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
-		<link name="head_2_link"/>
+		<link name="head_2_link">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+		</link>
 
 
 		<joint name="head_3_joint" type="revolute">
