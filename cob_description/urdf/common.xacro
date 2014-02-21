@@ -40,7 +40,7 @@
     </inertial>
   </xacro:macro>
   
-    <xacro:macro name="default_inertial">
+  <xacro:macro name="default_inertial">
     <inertial>
       <mass value="0.01" />
       <origin xyz="0 0 0" />
