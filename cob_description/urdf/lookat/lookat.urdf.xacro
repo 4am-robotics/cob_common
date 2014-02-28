@@ -5,7 +5,7 @@
 	   xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-	<xacro:macro name="cob_lookat" params="name parent *origin *axis lower upper">
+	<xacro:macro name="lookat" params="name parent *origin *axis lower upper">
 	
 		<!-- joint between torso_upper_neck_tilt_link and lookat_base_link -->
 		<joint name="${name}_base_joint" type="fixed">

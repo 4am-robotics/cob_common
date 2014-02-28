@@ -4,8 +4,8 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<include filename="$(find cob_description)/urdf/cob3_torso/torso.gazebo.xacro" />
-	<include filename="$(find cob_description)/urdf/cob3_torso/torso.transmission.xacro" />
+	<include filename="$(find cob_description)/urdf/cob3_torso/torso_v2.gazebo.xacro" />
+	<include filename="$(find cob_description)/urdf/cob3_torso/torso_v2.transmission.xacro" />
 
 	<xacro:macro name="torso" params="name parent *origin">
 
