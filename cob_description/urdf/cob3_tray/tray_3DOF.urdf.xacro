@@ -31,7 +31,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob3_3DOF_tray/tray_link_1.stl" />
+					<mesh filename="package://cob_description/meshes/cob3_tray_3DOF/tray_link_1.stl" />
 				</geometry>
 				<material name="IPA/DarkGrey" />
 			</visual>
@@ -39,7 +39,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob3_3DOF_tray/tray_link_1.stl" />
+					<mesh filename="package://cob_description/meshes/cob3_tray_3DOF/tray_link_1.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -64,7 +64,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob3_3DOF_tray/tray_link_2.stl" />
+					<mesh filename="package://cob_description/meshes/cob3_tray_3DOF/tray_link_2.stl" />
 				</geometry>
 				<material name="IPA/DarkGrey" />
 			</visual>
@@ -72,7 +72,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob3_3DOF_tray/tray_link_2.stl" />
+					<mesh filename="package://cob_description/meshes/cob3_tray_3DOF/tray_link_2.stl" />
 				</geometry>
 			</collision>
 		</link>
@@ -98,7 +98,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob3_3DOF_tray/tray_link_3.stl" />
+					<mesh filename="package://cob_description/meshes/cob3_tray_3DOF/tray_link_3.stl" />
 				</geometry>
 				<material name="IPA/DarkGrey" />
 			</visual>
@@ -106,7 +106,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob3_3DOF_tray/tray_link_3.stl" />
+					<mesh filename="package://cob_description/meshes/cob3_tray_3DOF/tray_link_3.stl" />
 				</geometry>
 			</collision>
 		</link>
