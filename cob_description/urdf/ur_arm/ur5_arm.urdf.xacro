@@ -6,7 +6,7 @@
 
 	<include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 
-	<xacro:macro name="cob_ur5" params="parent name *origin">
+	<xacro:macro name="ur5" params="parent name *origin">
 	
 		<!-- mount the arm to the robot -->
 		<joint name="${name}_base_joint" type="fixed" >
