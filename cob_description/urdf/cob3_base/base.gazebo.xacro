@@ -11,13 +11,13 @@
       <mu2 value="100.0" />
       <kp  value="1000000.0" />
       <kd  value="1.0" />
-      <material>IPA/LightGrey</material>
+      <material value="IPA/LightGrey"/>
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="cob_caster_gazebo" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
-      <material value="PR2/caster_texture" />
+      <material value="IPA/Metal" />
     </gazebo>
   </xacro:macro>
 
@@ -32,6 +32,7 @@
 				<alwaysOn>true</alwaysOn>
 				<updateRate>100.0</updateRate>
 				<bumperTopicName>${name}_bumper</bumperTopicName>
+				<frameName>world</frameName>
 			</plugin>
 		</sensor>
 		<material>IPA/LightGrey</material>
