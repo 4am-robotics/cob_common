@@ -104,8 +104,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-    <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-      <!--box size="0.001 0.001 0.001" /-->
+          <mesh filename="package://raw_description/meshes/cob3_base/raw_caster.stl"/>
+          <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
         <material name="IPA/LightGrey" />
@@ -152,7 +152,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_description/meshes/base/base.stl"/>
+          <mesh filename="package://cob_description/meshes/cob3_base/base.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry> 
         <material name="IPA/LightGrey"/>
@@ -160,7 +160,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-        <mesh filename="package://cob_description/meshes/base/base_collision.stl"/>
+        <mesh filename="package://cob_description/meshes/cob3_base/base_collision.stl"/>
           <!--box size="${base_size_x} ${base_size_y} ${base_collision_size_z}" /-->
         </geometry>
       </collision>

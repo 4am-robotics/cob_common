@@ -182,7 +182,7 @@
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+					<mesh filename="package://raw_description/meshes/cob4_base/raw_caster.stl"/>
 				</geometry>
 				<material name="IPA/LightGrey" />
 			</visual>
