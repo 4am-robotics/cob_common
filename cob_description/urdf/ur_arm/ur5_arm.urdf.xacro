@@ -5,7 +5,9 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
-
+	
+	<property name="wrist_3_length" value="0.0823" />
+	
 	<xacro:macro name="ur5" params="parent name *origin">
 	
 		<!-- mount the arm to the robot -->
@@ -17,6 +19,15 @@
 		
 		<!-- include universal_robot arm -->
 		<xacro:ur5_robot prefix="arm_"/>
+		
+		<!-- additional ee_link -->
+		<joint name="${name}_ee_fixed_joint" type="fixed">
+			<parent link="${name}_wrist_3_link" />
+			<child link = "${name}_ee_link" />
+			<origin xyz="0.0 ${wrist_3_length} 0.0" rpy="0.0 0.0 ${pi/2.0}" />
+		</joint>
+		
+		<link name="${name}_ee_link" />
 	
 	</xacro:macro>
 
