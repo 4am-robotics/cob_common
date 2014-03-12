@@ -4,6 +4,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
+	<include filename="$(find cob_description)/urdf/common.xacro" />
 	<include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 	
 	<property name="wrist_3_length" value="0.0823" />
@@ -24,7 +25,7 @@
 		<joint name="${name}_ee_fixed_joint" type="fixed">
 			<parent link="${name}_wrist_3_link" />
 			<child link = "${name}_ee_link" />
-			<origin xyz="0.0 ${wrist_3_length} 0.0" rpy="0.0 0.0 ${pi/2.0}" />
+			<origin xyz="0.0 ${wrist_3_length} 0.0" rpy="0.0 0.0 ${M_PI/2.0}" />
 		</joint>
 		
 		<link name="${name}_ee_link" />
