@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <material name="IPA/LightGrey">
     <color rgba="0.7 0.7 0.7 1.0"/>
@@ -20,6 +20,5 @@
   <material name="IPA/Blue">
     <color rgba="0.0 0.0 0.5 1.0"/>
   </material>
-
 
 </robot>

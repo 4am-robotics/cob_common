@@ -16,7 +16,7 @@
     </joint>
     
     <!-- include universal_robot arm -->
-    <xacro:ur10_robot prefix="arm_">  </xacro:ur10_robot>
+    <xacro:ur10_robot prefix="arm_"/>
     
     <!-- additional ee_link -->
     <joint name="${name}_ee_fixed_joint" type="fixed">

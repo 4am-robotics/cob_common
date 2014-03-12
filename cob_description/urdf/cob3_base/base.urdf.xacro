@@ -104,7 +104,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://raw_description/meshes/cob3_base/raw_caster.stl"/>
+          <mesh filename="package://cob_description/meshes/cob3_base/caster.stl"/>
           <!--box size="0.001 0.001 0.001" /-->
         </geometry>
     
