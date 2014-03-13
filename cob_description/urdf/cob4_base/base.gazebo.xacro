@@ -5,7 +5,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-  <xacro:macro name="desire_wheel_gazebo_v0" params="suffix parent">
+  <xacro:macro name="cob_wheel_gazebo" params="suffix parent">
     <gazebo reference="${parent}_${suffix}_wheel_link">
       <mu1 value="100.0" />
       <mu2 value="100.0" />
@@ -15,18 +15,18 @@
     </gazebo>
   </xacro:macro>
 
-  <xacro:macro name="desire_caster_gazebo_v0" params="suffix">
+  <xacro:macro name="cob_caster_gazebo" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
       <material value="IPA/Metal" />
     </gazebo>
   </xacro:macro>
 
-  <xacro:macro name="desire_base_gazebo_v0" params="name">
+  <xacro:macro name="base_gazebo" params="name">
 	<gazebo reference="${name}_link">
 		<selfCollide>true</selfCollide>
 		<sensor name='${name}_contact_sensor' type='contact'>
 			<contact>
-			<collision>${name}_link_geom</collision>
+				<collision>${name}_link_geom</collision>
 			</contact>
 			<plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
 				<alwaysOn>true</alwaysOn>
@@ -35,8 +35,7 @@
 				<bumperTopicName>${name}_bumper</bumperTopicName>
 			</plugin>
 		</sensor>
-
-		<material>Gazebo/Grey</material>
+		<material>IPA/DarkGrey</material>
 	</gazebo>
 
     <gazebo>
@@ -47,12 +46,11 @@
 			<topicName>${name}_pose_ground_truth</topicName>
 			<gaussianNoise>0.01</gaussianNoise>
 			<frameName>map</frameName>
-			<xyzOffsets>25.7 25.7 0</xyzOffsets>	<!-- initialize odometry for fake localization-->
+			<xyzOffsets>25.7 25.7 0</xyzOffsets> <!-- initialize odometry for fake localization-->
 			<rpyOffsets>0 0 0</rpyOffsets>
-		</plugin>	
-
+		</plugin>				
 		<canonicalBody>${name}_footprint</canonicalBody>
-	</gazebo>
+    </gazebo>
   </xacro:macro>
 
 </robot>
