@@ -68,7 +68,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/base/pr2_wheel.stl" />
+          <mesh filename="package://desire_description/meshes/base_desire/cob_wheel.stl" />
         </geometry>
         
         <material name="IPA/LightGrey" />
@@ -111,7 +111,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="$(find cob_description)/meshes/base/caster.stl" />
+          <mesh filename="$(find desire_description)/meshes/base_desire/caster.stl" />
         </geometry>
     
         <material name="IPA/DarkGrey" />

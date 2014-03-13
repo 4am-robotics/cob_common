@@ -179,7 +179,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_base/caster.stl"/>
+          <!--mesh filename="package://cob_description/meshes/cob4_base/caster.stl"/-->
+          <box size="0.01 0.01 0.01" />
         </geometry>
         <material name="IPA/LightGrey" />
       </visual>
