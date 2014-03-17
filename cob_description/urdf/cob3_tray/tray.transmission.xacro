@@ -1,18 +1,17 @@
 <?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="tray_transmission" params="name">
 
-	<xacro:macro name="tray_transmission" params="name">
+    <transmission name="${name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_joint"/>      
+      <actuator name="${name}_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
 
-		<transmission name="${name}_trans" type="pr2_mechanism_model/SimpleTransmission">
-			<actuator name="${name}_motor"/>
-			<joint name="${name}_joint"/>
-			<mechanicalReduction>1</mechanicalReduction>
-		</transmission>
-
-	</xacro:macro>
+  </xacro:macro>
 
 </robot>
