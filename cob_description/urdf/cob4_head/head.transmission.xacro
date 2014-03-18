@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="head_transmission" params="name">
+
+    <transmission name="${name}_1_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_1_joint"/>
+      <actuator name="${name}_1_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    
+    <transmission name="${name}_2_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_2_joint"/>
+      <actuator name="${name}_2_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    
+    <transmission name="${name}_3_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_3_joint"/>
+      <actuator name="${name}_3_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>

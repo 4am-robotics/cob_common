@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="torso_transmission" params="name">
+
+    <transmission name="${name}_lower_neck_tilt_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_lower_neck_tilt_joint"/>
+      <actuator name="${name}_lower_neck_tilt_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="${name}_pan_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_pan_joint"/>
+      <actuator name="${name}_pan_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="${name}_upper_neck_tilt_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}_upper_neck_tilt_joint"/>
+      <actuator name="${name}_upper_neck_tilt_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+    
+  </xacro:macro>
+
+</robot>

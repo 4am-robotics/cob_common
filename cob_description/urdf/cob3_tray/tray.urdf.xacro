@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/cob3_tray/tray.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/cob3_tray/tray.transmission.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/phidgets_distance.urdf.xacro" />
+
+  <xacro:macro name="tray" params="name parent *origin">
+
+    <!-- joint between base_link and tray_link -->
+    <joint name="${name}_joint" type="revolute">
+      <insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+      <axis xyz="0 0 1" />
+      <calibration rising="${tray_ref}"/>
+      <dynamics damping="5.0" friction="0.5"/>
+      <limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
+    </joint>
+
+    <link name="${name}_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_tray/tray.stl" />
+        </geometry>
+        <material name="IPA/DarkGrey" />
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_tray/tray_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- additional links at the corners of the tray -->
+    <joint name="${name}_base_joint" type="fixed" >
+      <origin xyz="0 0 0" rpy="-2.3561 0 0"/>
+      <parent link="${name}_link" />
+      <child link="${name}_base_link" />
+    </joint>
+
+    <link name="${name}_base_link"/>
+
+    <joint name="${name}_right_joint" type="fixed" >
+      <origin xyz="0.4 -0.3 0.1" rpy="0 0 0"/>
+      <parent link="${name}_base_link" />
+      <child link="${name}_right_link" />
+    </joint>
+
+    <link name="${name}_right_link"/>
+
+    <joint name="${name}_left_joint" type="fixed" >
+      <origin xyz="0.4 0.05 0.1" rpy="0 0 0"/>
+      <parent link="${name}_base_link" />
+      <child link="${name}_left_link" />
+    </joint>
+
+    <link name="${name}_left_link"/>
+    
+    <!-- phidgets distance sensors -->
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_1" ros_topic="/tray_sensors/range_1_sim" update_rate="10" parent="${name}_left">
+      <origin xyz="-0.275 0 0.02" rpy="0 0 ${-M_PI/2}" />
+    </xacro:phidgets_distance_v0>
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_2" ros_topic="/tray_sensors/range_2_sim" update_rate="10" parent="${name}_left">
+      <origin xyz="-0.2 0 0.02" rpy="0 0 ${-M_PI/2}" />
+    </xacro:phidgets_distance_v0>
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_3" ros_topic="/tray_sensors/range_3_sim" update_rate="10" parent="${name}_left">
+      <origin xyz="-0.125 0 0.02" rpy="0 0 ${-M_PI/2}" />
+    </xacro:phidgets_distance_v0>
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_4" ros_topic="/tray_sensors/range_4_sim" update_rate="10" parent="${name}_left">
+      <origin xyz="-0.05 0 0.02" rpy="0 0 ${-M_PI/2}" />
+    </xacro:phidgets_distance_v0>
+
+    <!-- extensions -->
+    <xacro:tray_gazebo name="${name}" />
+    <xacro:tray_transmission name="${name}" />
+
+  </xacro:macro>
+  
+</robot>

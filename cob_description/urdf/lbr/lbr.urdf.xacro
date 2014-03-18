@@ -4,7 +4,7 @@
   <xacro:include filename="$(find cob_description)/urdf/lbr/lbr.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/lbr/lbr.transmission.xacro" />
 
-  <xacro:macro name="cob_lbr" params="parent name *origin">
+  <xacro:macro name="lbr" params="parent name *origin">
 
     <!-- joint between base_link and arm_0_link -->
     <joint name="${name}_0_joint" type="fixed" >
@@ -282,8 +282,8 @@
     </link>
 
     <!-- extensions -->
-    <xacro:cob_lbr_gazebo name="${name}" />
-    <xacro:cob_lbr_transmission name="${name}" />
+    <xacro:lbr_gazebo name="${name}" />
+    <xacro:lbr_transmission name="${name}" />
 
   </xacro:macro>
 

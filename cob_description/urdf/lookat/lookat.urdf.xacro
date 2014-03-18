@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_lookat" params="name parent *origin *axis lower upper">
+  <xacro:macro name="lookat" params="name parent *origin *axis lower upper">
   
     <!-- joint between torso_upper_neck_tilt_link and lookat_base_link -->
     <joint name="${name}_base_joint" type="fixed">
@@ -10,14 +10,7 @@
       <child link="${name}_base_link"/>
     </joint>
   
-    <link name="${name}_base_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.5"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
-    </link>
-    
+    <link name="${name}_base_link"/>
     
     <joint name="${name}_lin_joint" type="prismatic">
       <origin xyz="0 0 0" rpy="0 0 0" />

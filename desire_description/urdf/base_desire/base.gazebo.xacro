@@ -7,13 +7,13 @@
       <mu2 value="100.0" />
       <kp  value="1000000.0" />
       <kd  value="1.0" />
-      <material value="PR2/wheel_${suffix}" />
+      <material value="IPA/LightGrey"/>
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="desire_caster_gazebo_v0" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
-      <material value="PR2/caster_texture" />
+      <material value="IPA/Metal" />
     </gazebo>
   </xacro:macro>
 
@@ -27,6 +27,7 @@
       <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>100.0</updateRate>
+        <frameName>world</frameName>
         <bumperTopicName>${name}_bumper</bumperTopicName>
       </plugin>
     </sensor>

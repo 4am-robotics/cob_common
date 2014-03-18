@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="torso_gazebo" params="name">
+
+    <gazebo reference="${name}_lower_neck_tilt_link">
+      <material>IPA/LightGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="${name}_pan_link">
+      <material>IPA/LightGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="${name}_upper_neck_tilt_link">
+      <material>IPA/LightGrey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="head_cover_link">
+      <material>IPA/Black</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_lbr_gazebo" params="name">
+  <xacro:macro name="lbr_gazebo" params="name">
 
     <gazebo reference="${name}_0_link">
       <material>IPA/Orange</material>

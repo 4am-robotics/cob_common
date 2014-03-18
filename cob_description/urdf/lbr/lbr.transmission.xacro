@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_lbr_transmission" params="name">
+  <xacro:macro name="lbr_transmission" params="name">
 
     <transmission name="${name}_1_trans">
       <type>transmission_interface/SimpleTransmission</type>

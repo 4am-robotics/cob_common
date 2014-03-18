@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/cob3_torso/torso_v2.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/cob3_torso/torso_v2.transmission.xacro" />
+
+  <xacro:macro name="torso" params="name parent *origin">
+
+
+    <!-- joint between base_link and torso_base_link -->
+    <joint name="${name}_base_joint" type="fixed" >
+      <insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${name}_base_link" />
+    </joint>
+
+    <link name="${name}_base_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.01"/>
+        <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+      </inertial>
+    </link>
+
+
+    <!-- joint between base_link and torso_lower_neck_tilt_link -->
+    <joint name="${name}_lower_neck_tilt_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${name}_base_link"/>
+      <child link="${name}_lower_neck_tilt_link"/>
+      <axis xyz="0 0 1" />
+      <dynamics damping="25.0" friction="10.0"/>
+      <calibration rising="${torso_lower_neck_tilt_ref}"/>
+      <limit effort="200.0" lower="-0.25" upper="0.21" velocity="0.5"/>
+      <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-0.25 + 0.01}" soft_upper_limit="${0.25 - 0.01}" /-->
+    </joint>
+
+    <link name="${name}_lower_neck_tilt_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="6.209720"/>
+        <inertia ixx="0.171118" ixy="0.002544" ixz="-0.000000" iyy="0.083077" iyz="0.000000" izz="0.120948" />
+      </inertial>
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_torso/lower_neck.stl" />
+        </geometry>
+        <material name="IPA/LightGrey" />
+      </visual>
+
+      <collision>
+            <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+            <geometry>
+                  <mesh filename="package://cob_description/meshes/cob3_torso/lower_neck_collision.stl" />
+            </geometry>
+      </collision>
+    </link>
+    
+    <!-- joint between torso_lower_neck_tilt_link and torso_pan_link -->
+    <joint name="${name}_pan_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
+      <parent link="${name}_lower_neck_tilt_link"/>
+      <child link="${name}_pan_link"/>
+      <axis xyz="0 0 1" />
+      <dynamics damping="25.0" friction="10.0"/>
+      <calibration rising="${torso_pan_ref}"/>
+      <limit effort="200.0" lower="-0.12" upper="0.12" velocity="0.5"/>
+      <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-0.2 + 0.01}" soft_upper_limit="${0.2 - 0.01}" /-->
+    </joint>
+
+    <link name="${name}_pan_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1.0"/>
+        <inertia ixx="0.200549" ixy="0.001322" ixz="-0.000000" iyy="0.123664" iyz="-0.000000" izz="0.104101" />
+      </inertial>
+    </link>
+
+    <!-- joint between torso_pan_link and torso_upper_neck_tilt_link -->
+    <joint name="${name}_upper_neck_tilt_joint" type="revolute">
+      <origin xyz="0 0 -0.2565" rpy="-${M_PI/2} 0 0" />
+      <parent link="${name}_pan_link"/>
+      <child link="${name}_upper_neck_tilt_link"/>
+      <axis xyz="0 0 1" />
+      <dynamics damping="25.0" friction="10.0"/>
+      <calibration rising="${torso_upper_neck_tilt_ref}"/>
+      <limit effort="200.0" lower="-0.37" upper="0.37" velocity="0.5"/>
+      <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-0.4 + 0.01}" soft_upper_limit="${0.4 - 0.01}" /-->
+    </joint>
+
+    <link name="${name}_upper_neck_tilt_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="6.744238"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_torso/upper_neck.stl" />
+        </geometry>
+        <material name="IPA/LightGrey" />
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+        <geometry>
+          <!--mesh filename="package://cob_description/meshes/cob3_torso/upper_neck_collision.stl" /-->
+          <mesh filename="package://cob_description/meshes/cob3_torso/upper_neck.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- joint between torso_upper_neck_tilt_link and head_cover_link -->
+    <joint name="head_cover_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+      <parent link="${name}_upper_neck_tilt_link"/>
+      <child link="head_cover_link"/>
+    </joint>
+
+    <link name="head_cover_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.5"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_torso/head_cover.stl" />
+        </geometry>
+        <material name="IPA/Black" />
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_torso/head_cover_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- extensions -->
+    <xacro:torso_gazebo name="${name}" />
+    <xacro:torso_transmission name="${name}" />
+
+  </xacro:macro>
+  
+</robot>

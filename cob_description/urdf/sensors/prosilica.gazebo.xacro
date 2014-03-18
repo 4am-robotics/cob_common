@@ -23,22 +23,23 @@
         </camera>
         <plugin name="${name}_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>0.0</updateRate>
+          <updateRate>10.0</updateRate>
+          <cameraName>${name}_sensor</cameraName>
+          <frameName>/${name}_link</frameName>
           <topicName>${ros_topic}_image_data</topicName>
           <imageTopicName>/${ros_topic}/image_raw</imageTopicName>
           <cameraInfoTopicName>/${ros_topic}/camera_info</cameraInfoTopicName>
           <pollServiceName>/${name}/request_image</pollServiceName>
-          <frameName>/${name}_link</frameName>
-          <cameraName>${name}_sensor</cameraName>
           <CxPrime>697.69</CxPrime>
           <Cx>697.69</Cx>
           <Cy>530.51</Cy>
-          <focal_length>1450</focal_length>  
-          <distortion_k1>0.00000001</distortion_k1>
-          <distortion_k2>0.00000001</distortion_k2>
-          <distortion_k3>0.00000001</distortion_k3>
-          <distortion_t1>0.00000001</distortion_t1>
-          <distortion_t2>0.00000001</distortion_t2>
+          <focalLength>2278.722731</focalLength>	<!-- focal_length = width_ / (2.0 * tan( HFOV/2.0 )) -->
+          <hackBaseline>0.0</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
         </plugin>
       </sensor>
       

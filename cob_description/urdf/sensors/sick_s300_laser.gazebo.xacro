@@ -28,7 +28,8 @@
           <alwaysOn>true</alwaysOn>
           <updateRate>${update_rate}</updateRate>
           <topicName>${ros_topic}</topicName>
-        <frameName>${name}_link</frameName>
+          <frameName>${name}_link</frameName>
+          <hokuyoMinIntensity>101.0</hokuyoMinIntensity>
       </plugin>
     </sensor>  
 

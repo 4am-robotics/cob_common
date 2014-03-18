@@ -4,7 +4,7 @@
   <xacro:include filename="$(find cob_description)/urdf/ur_connector/ur_connector.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/ur_connector/ur_connector.transmission.xacro" />
 
-  <xacro:macro name="cob_ur_connector" params="name parent *origin">
+  <xacro:macro name="ur_connector" params="name parent *origin">
 
     <!-- joint between base_link and ur_connector_link -->
     <joint name="${name}_fixed_joint" type="fixed">
@@ -72,8 +72,8 @@
 
 
     <!-- extensions -->
-    <xacro:cob_ur_connector_gazebo name="${name}" />
-    <xacro:cob_ur_connector_transmission name="${name}" />
+    <xacro:ur_connector_gazebo name="${name}" />
+    <xacro:ur_connector_transmission name="${name}" />
 
   </xacro:macro>
   
