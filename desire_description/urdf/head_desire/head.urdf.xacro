@@ -15,7 +15,7 @@
       <child link="${name}_pan_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.1" />
-      <calibration rising="${head_pan_ref}" falling="${head_pan_ref}"/>
+      <calibration rising="${head_pan_ref}"/>
       <limit effort="100" lower="-1.4" upper="1.4" velocity="0.5"/>
     </joint>
 
@@ -48,7 +48,7 @@
       <child link="${name}_tilt_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.1" />
-      <calibration rising="${head_tilt_ref}" falling="${head_tilt_ref}"/>
+      <calibration rising="${head_tilt_ref}"/>
       <limit effort="100" lower="-0.25" upper="0.35" velocity="0.5"/>
     </joint>
     

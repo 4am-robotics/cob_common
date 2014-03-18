@@ -21,8 +21,8 @@
     </camera>
     <plugin name="${name}_controller" filename="libgazebo_ros_openni_kinect.so">
       <alwaysOn>true</alwaysOn>
-      <updateRate>2.0</updateRate>
-      <cameraName>${name}</cameraName>
+      <updateRate>20.0</updateRate>
+      <cameraName>${ros_topic}</cameraName>
       <frameName>${name}_link</frameName>
       <imageTopicName>${ros_topic}/rgb/image_raw</imageTopicName>
       <depthImageTopicName>${ros_topic}/depth/image_raw</depthImageTopicName>
