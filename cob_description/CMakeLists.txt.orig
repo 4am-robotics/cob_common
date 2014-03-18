@@ -1,0 +1,34 @@
+cmake_minimum_required(VERSION 2.4.6)
+project(cob_description)
+
+find_package(catkin REQUIRED COMPONENTS)
+
+#catkin_package(CATKIN_DEPENDS xacro)
+catkin_package()
+
+#catkin_add_gtest(test_urdf test/test_urdf.cpp WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+
+
+install(DIRECTORY urdf/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
+)
+
+<<<<<<< HEAD
+#install(DIRECTORY Media/
+#    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/Media
+#)
+
+=======
+>>>>>>> 4f7e323cde0c53710b624ef141310063ad936b9f
+install(DIRECTORY gazebo/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/gazebo
+)
+
+install(DIRECTORY meshes/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/meshes
+)
+
+install(DIRECTORY test/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/test
+)
