@@ -60,7 +60,7 @@
 		</link>
 
 		<joint name="torso_3_joint" type="revolute">
-		  <origin xyz="0 0.06223 0.15206" rpy="0.5236 0 0" />
+		  <origin xyz="0 0.09228 0.13477" rpy="0.5236 0 0" />
 		  <child link="torso_3_link" />
 		  <parent link="torso_2_link"/>
 		  <calibration rising="${torso_3_ref}"/>

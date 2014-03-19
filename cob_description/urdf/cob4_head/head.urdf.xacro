@@ -61,7 +61,7 @@
 
 
 		<joint name="head_3_joint" type="revolute">
-		  <origin xyz="0 0.08001 0.06809" rpy="0.349 0 0" />
+		  <origin xyz="0 0.04668 0.0976" rpy="0.349 0 0" />
 		  <child link="head_3_link" />
 		  <parent link="head_2_link"/>
 		  <calibration rising="${head_3_ref}"/>
