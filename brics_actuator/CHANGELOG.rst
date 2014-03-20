@@ -2,8 +2,8 @@
 Changelog for package brics_actuator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.2 (2014-03-20)
+------------------
 * update CMakeLists
 * Contributors: ipa-fxm
 

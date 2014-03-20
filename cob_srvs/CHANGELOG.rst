@@ -2,8 +2,8 @@
 Changelog for package cob_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.2 (2014-03-20)
+------------------
 * update CMakeLists
 * Contributors: ipa-fxm
 

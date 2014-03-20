@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.2 (2014-03-20)
+------------------
 * merge with groovy_dev_cob4
 * fixed gazebo_plugins
 * fixed path to file

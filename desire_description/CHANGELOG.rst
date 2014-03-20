@@ -2,8 +2,8 @@
 Changelog for package desire_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.2 (2014-03-20)
+------------------
 * merge with groovy_dev
 * fix file to mesh files
 * fixes while testing in simulation
