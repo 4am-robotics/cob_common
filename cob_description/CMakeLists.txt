@@ -3,7 +3,6 @@ project(cob_description)
 
 find_package(catkin REQUIRED COMPONENTS)
 
-#catkin_package(CATKIN_DEPENDS xacro)
 catkin_package()
 
 #catkin_add_gtest(test_urdf test/test_urdf.cpp WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
