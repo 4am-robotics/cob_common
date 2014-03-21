@@ -25,6 +25,6 @@ generate_messages(
 )
 
 catkin_package(
-    DEPENDS roslib std_msgs geometry_msgs
+    CATKIN_DEPENDS std_msgs geometry_msgs message_runtime
     INCLUDE_DIRS
 )
