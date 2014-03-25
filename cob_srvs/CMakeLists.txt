@@ -23,6 +23,6 @@ catkin_package(
     CATKIN_DEPENDS message_runtime std_msgs trajectory_msgs geometry_msgs
 )
 
-install(DIRECTORY test/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/test
+install(PROGRAMS test/init_test.py
+    DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/test
 )
