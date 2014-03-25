@@ -24,5 +24,5 @@ catkin_package(
 )
 
 install(PROGRAMS test/init_test.py
-    DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/test
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/test
 )
