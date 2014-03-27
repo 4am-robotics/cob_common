@@ -18,15 +18,6 @@
     <!-- include universal_robot arm -->
     <xacro:ur10_robot prefix="arm_"/>
     
-    <!-- additional ee_link -->
-    <joint name="${name}_ee_fixed_joint" type="fixed">
-      <parent link="${name}_wrist_3_link" />
-      <child link = "${name}_ee_link" />
-      <origin xyz="0.0 ${wrist_3_length} 0.0" rpy="0.0 0.0 ${M_PI/2.0}" />
-    </joint>
-    
-    <link name="${name}_ee_link" />
-    
   </xacro:macro>
 
 </robot>
