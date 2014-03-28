@@ -3,6 +3,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+  <!--xacro:include filename="$(find ur_description)/urdf/ur5_joint_limited.urdf.xacro" /-->
   
   <property name="wrist_3_length" value="0.0823" />
   
