@@ -8,6 +8,9 @@ find_package(catkin REQUIRED COMPONENTS std_msgs trajectory_msgs geometry_msgs m
 add_service_files(FILES
   Trigger.srv
   SetMaxVel.srv
+  SetInt.srv
+  SetFloat.srv
+  SetString.srv
   SetOperationMode.srv
   SetJointTrajectory.srv
   SetJointStiffness.srv
@@ -21,8 +24,4 @@ generate_messages(
 
 catkin_package(
     CATKIN_DEPENDS message_runtime std_msgs trajectory_msgs geometry_msgs
-)
-
-install(PROGRAMS test/init_test.py
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/test
 )

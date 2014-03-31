@@ -1,0 +1,4 @@
+float32 data
+---
+bool success
+std_msgs/String errorMessage
