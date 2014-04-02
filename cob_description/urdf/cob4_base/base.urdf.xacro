@@ -66,7 +66,7 @@
 
 		<link name="base_link">
 			<inertial>
-				<mass value="50" />
+				<mass value="100" />
 				<origin xyz="0 0 0" />
 				<inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423"
 						 iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
@@ -82,8 +82,8 @@
 			<collision>
 				<origin xyz="0 0 0.05" rpy="0 0 3.14159" />
 				<geometry>
-					<mesh filename="package://cob_description/meshes/cob4_base/base_link.stl"/>
-					<!--box size="0.01 0.01 0.01" /-->
+					<!--mesh filename="package://cob_description/meshes/cob4_base/base_link.stl"/-->
+					<box size="0.01 0.01 0.01" />
 				</geometry>
 			</collision>
 		</link>
