@@ -31,14 +31,14 @@
 		  <parent link="torso_base_link"/>
 		  <calibration rising="${torso_1_ref}"/>
 		  <axis xyz="0 0 1" />
-		  <dynamics damping="0.1" />
+		  <dynamics damping="2.0" friction="0.0"/>
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
 		<link name="torso_1_link">
 			<inertial>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<mass value="5"/>
+				<mass value="50"/>
 				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 			</inertial>
 		</link>
@@ -49,7 +49,7 @@
 		  <parent link="torso_1_link"/>
 		  <calibration rising="${torso_2_ref}"/>
 		  <axis xyz="0 0 1" />
-		  <dynamics damping="0.1" />
+		  <dynamics damping="2.0" friction="0.0"/>
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
@@ -67,16 +67,15 @@
 		  <parent link="torso_2_link"/>
 		  <calibration rising="${torso_3_ref}"/>
 		  <axis xyz="0 0 1" />
-		  <dynamics damping="0.1" />
+		  <dynamics damping="2.0" friction="0.0"/>
 		  <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
 		</joint>
 
 		<link name="torso_3_link">
 			<inertial>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<origin xyz="0 0 0.3" rpy="0 0 0"/>
 				<mass value="20" />
-			<inertia ixx="0.1" ixy="0" ixz="0"
-						 iyy="0.01" iyz="0" izz="0.01" />
+			<inertia ixx="0.1" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 			</inertial>
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />  
