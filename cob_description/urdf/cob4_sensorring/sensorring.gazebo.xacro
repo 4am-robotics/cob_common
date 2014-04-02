@@ -9,7 +9,7 @@
 
 		<gazebo reference="${name}_link">
 			<material>IPA/DarkGrey</material>
-			<turnGravityOff>false</turnGravityOff>
+			<gravity>true</gravity>
 		</gazebo>
 
 	</xacro:macro>
