@@ -58,7 +58,7 @@
 
 
     <joint name="head_3_joint" type="revolute">
-      <origin xyz="0 0.08001 0.06809" rpy="0.349 0 0" />
+      <origin xyz="0 0.04668 0.0976" rpy="0.349 0 0" />
       <child link="head_3_link" />
       <parent link="head_2_link"/>
       <calibration rising="${head_3_ref}"/>
@@ -69,10 +69,9 @@
 
     <link name="head_3_link">
       <inertial>
-      <mass value="10" />
+      <mass value="1" />
       <origin xyz="0 0 0" />
-      <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423"
-           iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
       <visual>
