@@ -89,7 +89,7 @@
       </collision>
     </link>
     
-    <joint name="torso_3center_joint" type="fixed">
+    <joint name="torso_center_joint" type="fixed">
       <origin xyz="0.0 0.0 0.18566" rpy="0 0 0" />
       <child link="torso_center_link" />
       <parent link="torso_3_link"/>
