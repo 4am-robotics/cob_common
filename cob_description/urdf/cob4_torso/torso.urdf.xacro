@@ -71,7 +71,7 @@
     <link name="torso_3_link">
       <inertial>
         <mass value="20" />
-        <origin xyz="0 0 0.3" rpy="0 0 0"/>
+        <origin xyz="0 0 0.18566" rpy="0 0 0"/>
       <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
       <visual>
@@ -88,6 +88,22 @@
         </geometry>
       </collision>
     </link>
+    
+    <joint name="torso_center_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.18566" rpy="0 0 0" />
+      <child link="torso_center_link" />
+      <parent link="torso_3_link"/>
+    </joint>
+    
+    <link name="torso_center_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+    </link>
+
+
     
     <!-- left camera -->
     <xacro:cob_kinect_v0 name="${name}_cam3d_left" ros_topic="cam3d_left" parent="${name}_3_link">
