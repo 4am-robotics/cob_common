@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   
-  <include filename="$(find cob_description)/urdf/sensors/softkinetic.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/softkinetic.gazebo.xacro" />
 
   <xacro:macro name="softkinetic" params="name parent ros_topic *origin">
     <joint name="${name}_joint" type="fixed">
