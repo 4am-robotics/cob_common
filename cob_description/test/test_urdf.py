@@ -28,7 +28,7 @@ class TestUrdf(unittest.TestCase):
 			self.fail("cannot convert xacro. file: " + file_to_test)
 
 		# check if urdf is correct
-		if os.system("rosrun urdfdom check_urdf /tmp/test.urdf") != 0:
+		if os.system("check_urdf /tmp/test.urdf") != 0:
 			self.fail("urdf not correct. file: " + file_to_test)
  
 if __name__ == '__main__':
