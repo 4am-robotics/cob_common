@@ -90,6 +90,21 @@
       </collision>
     </link>
 
+
+    <joint name="head_center_joint" type="fixed">
+      <origin xyz="0.0 0.0 -0.28247" rpy="0 0 0" />
+      <child link="head_center_link" />
+      <parent link="head_3_link"/>
+    </joint>
+    
+    <link name="head_center_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+    </link>
+    
   <!-- extensions -->
   <xacro:head_gazebo name="${name}" />
   <xacro:head_transmission name="${name}" />
