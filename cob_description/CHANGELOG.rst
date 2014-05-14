@@ -2,6 +2,12 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.3 (2014-03-31)
+------------------
+* reminder comment ;-)
+* ee_link is now back in ur_description
+* Contributors: ipa-fxm
+
 0.5.2 (2014-03-20)
 ------------------
 * merged with ipa320
