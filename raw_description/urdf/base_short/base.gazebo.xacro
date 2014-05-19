@@ -3,13 +3,13 @@
 
   <xacro:macro name="cob_wheel_gazebo" params="suffix parent">
     <gazebo reference="${parent}_${suffix}_wheel_link">
-      <material value="IPA/LightGrey"/>
+      <!--material value="IPA/LightGrey"/-->
     </gazebo>
   </xacro:macro>
 
   <xacro:macro name="cob_caster_gazebo" params="suffix">
     <gazebo reference="${suffix}_caster_rotation_link">
-      <material value="IPA/Metal" />
+      <!--material value="IPA/Metal" /-->
     </gazebo>
   </xacro:macro>
 
