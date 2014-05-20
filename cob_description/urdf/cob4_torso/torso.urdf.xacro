@@ -106,17 +106,17 @@
 
     
     <!-- left camera -->
-    <xacro:cob_kinect_v0 name="${name}_cam3d_left" ros_topic="cam3d_left" parent="${name}_3_link">
+    <xacro:cob_kinect_v0 name="${name}_cam3d_left" ros_topic="torso_cam3d_left" parent="${name}_3_link">
         <origin xyz="${torso_cam3d_left_x} ${torso_cam3d_left_y} ${torso_cam3d_left_z}" rpy="${torso_cam3d_left_roll} ${torso_cam3d_left_pitch} ${torso_cam3d_left_yaw}" />
     </xacro:cob_kinect_v0>
 
     <!-- right camera -->
-    <xacro:cob_kinect_v0 name="${name}_cam3d_right" ros_topic="cam3d_right" parent="${name}_3_link">
+    <xacro:cob_kinect_v0 name="${name}_cam3d_right" ros_topic="torso_cam3d_right" parent="${name}_3_link">
         <origin xyz="${torso_cam3d_right_x} ${torso_cam3d_right_y} ${torso_cam3d_right_z}" rpy="${torso_cam3d_right_roll} ${torso_cam3d_right_pitch} ${torso_cam3d_right_yaw}" />
     </xacro:cob_kinect_v0>
 
     <!-- down camera -->
-    <xacro:softkinetic name="${name}_cam3d_down" ros_topic="cam3d_down" parent="${name}_3_link">
+    <xacro:softkinetic name="${name}_cam3d_down" ros_topic="torso_cam3d_down" parent="${name}_3_link">
         <origin xyz="${torso_cam3d_down_x} ${torso_cam3d_down_y} ${torso_cam3d_down_z}" rpy="${torso_cam3d_down_roll} ${torso_cam3d_down_pitch} ${torso_cam3d_down_yaw}" />
     </xacro:softkinetic>
 		
