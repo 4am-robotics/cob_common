@@ -2,9 +2,7 @@
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:macro name="cob_prosilica_gazebo_v0" params="name ros_topic">
-
     <gazebo reference="${name}_frame">
-      
       <sensor type="camera" name="${name}_sensor">
         <always_on>true</always_on>
         <update_rate>10.0</update_rate>
@@ -20,9 +18,13 @@
             <near>0.1</near>
             <far>100</far>
           </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.0</stddev>
+          </noise>
         </camera>
         <plugin name="${name}_controller" filename="libgazebo_ros_camera.so">
-          <alwaysOn>true</alwaysOn>
           <updateRate>10.0</updateRate>
           <cameraName>${name}_sensor</cameraName>
           <frameName>/${name}_link</frameName>
@@ -44,9 +46,7 @@
       </sensor>
       
       <material value="IPA/LightGrey" />
-      <turnGravityOff>true</turnGravityOff>
     </gazebo>
-
   </xacro:macro>
 
 </root>
