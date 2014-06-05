@@ -32,7 +32,6 @@
         <bumperTopicName>${name}_bumper</bumperTopicName>
       </plugin>
     </sensor>
-    <material>IPA/LightGrey</material>
   </gazebo>
 
     <gazebo>

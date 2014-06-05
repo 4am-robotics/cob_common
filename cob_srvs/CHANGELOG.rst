@@ -2,6 +2,12 @@
 Changelog for package cob_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.3 (2014-03-31)
+------------------
+* merge
+* add new service
+* Contributors: Florian Weisshardt
+
 0.5.2 (2014-03-20)
 ------------------
 * update CMakeLists
