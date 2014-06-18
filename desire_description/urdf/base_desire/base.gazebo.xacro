@@ -18,22 +18,6 @@
   </xacro:macro>
 
   <xacro:macro name="desire_base_gazebo_v0" params="name">
-  <gazebo reference="${name}_link">
-    <selfCollide>true</selfCollide>
-    <sensor name='${name}_contact_sensor' type='contact'>
-      <contact>
-      <collision>${name}_link_geom</collision>
-      </contact>
-      <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>100.0</updateRate>
-        <frameName>world</frameName>
-        <bumperTopicName>${name}_bumper</bumperTopicName>
-      </plugin>
-    </sensor>
-
-    <material>Gazebo/Grey</material>
-  </gazebo>
 
     <gazebo>
     <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
