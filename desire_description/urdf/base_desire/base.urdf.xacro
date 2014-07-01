@@ -178,31 +178,7 @@
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
-    <link name="${name}_footprint">
-      <inertial>
-        <mass value="1.0" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                 iyy="0.01" iyz="0.0" izz="0.01" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-        
-        <material name="IPA/DarkGrey" />
-      </visual>
-      <collision>
-
-        <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
-             surface of the collision box matches the top surface of the PR2 base -->
-        <origin xyz="0 0 ${0.051+base_collision_size_z/2}" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
-    </link>
+    <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />

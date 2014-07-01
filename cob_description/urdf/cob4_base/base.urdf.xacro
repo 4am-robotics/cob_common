@@ -30,30 +30,8 @@
   <property name="base_collision_size_z" value="0.04" />
   
   <xacro:macro name="base" params="name">
-
-    <link name="base_footprint">
-      <inertial>
-        <mass value="1.0" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-             iyy="0.01" iyz="0.0" izz="0.01" />
-        </inertial>
-        <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-        
-        <material name="IPA/LightGrey" />
-        </visual>
-        <collision>
-        <origin xyz="0 0 0.1" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-        </collision>
-    </link>
-
+    
+    <link name="base_footprint"/>
 
     <joint name="base_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
