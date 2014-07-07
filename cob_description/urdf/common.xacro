@@ -10,30 +10,30 @@
   <property name="cal_caster_br" value="0.0" />
 
   <!-- see https://secure.wikimedia.org/wikipedia/en/wiki/List_of_moment_of_inertia_tensors -->
-  <xacro:macro name="sphere_inertial" params="radius mass">
+  <xacro:macro name="sphere_inertial" params="radius mass *origin">
     <inertial>
       <mass value="${mass}" />
-      <origin xyz="0 0 0" />
+      <insert_block name="origin" />
       <inertia ixx="${0.4 * mass * radius * radius}" ixy="0.0" ixz="0.0"
         iyy="${0.4 * mass * radius * radius}" iyz="0.0"
         izz="${0.4 * mass * radius * radius}" />
     </inertial>
   </xacro:macro>
 
-  <xacro:macro name="cylinder_inertial" params="radius length mass">
+  <xacro:macro name="cylinder_inertial" params="radius length mass *origin">
     <inertial>
       <mass value="${mass}" />
-      <origin xyz="0 0 0" />
+      <insert_block name="origin" />
       <inertia ixx="${0.0833333 * mass * (3 * radius * radius + length * length)}" ixy="0.0" ixz="0.0"
         iyy="${0.0833333 * mass * (3 * radius * radius + length * length)}" iyz="0.0"
         izz="${0.5 * mass * radius * radius}" />
     </inertial>
   </xacro:macro>
 
-  <xacro:macro name="box_inertial" params="x y z mass">
+  <xacro:macro name="box_inertial" params="x y z mass *origin">
     <inertial>
       <mass value="${mass}" />
-      <origin xyz="0 0 0" />
+      <insert_block name="origin" />
       <inertia ixx="${0.0833333 * mass * (y*y + z*z)}" ixy="0.0" ixz="0.0"
         iyy="${0.0833333 * mass * (x*x + z*z)}" iyz="0.0"
         izz="${0.0833333 * mass * (x*x + y*y)}" />

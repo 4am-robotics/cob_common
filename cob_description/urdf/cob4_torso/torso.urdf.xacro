@@ -28,7 +28,7 @@
       <parent link="torso_base_link"/>
       <calibration rising="${torso_1_ref}"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="2.0" friction="0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
@@ -46,7 +46,7 @@
       <parent link="torso_1_link"/>
       <calibration rising="${torso_2_ref}"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="2.0" friction="0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
@@ -64,7 +64,7 @@
       <parent link="torso_2_link"/>
       <calibration rising="${torso_3_ref}"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="2.0" friction="0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
