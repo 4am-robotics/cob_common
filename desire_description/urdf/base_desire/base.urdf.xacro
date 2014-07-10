@@ -189,12 +189,12 @@
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="3.1416 0 0" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
+      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="3.1416 0 ${M_PI}" />
     </xacro:sick_s300_laser_v0>
 
      <!-- cam3d -->
