@@ -17,30 +17,23 @@
       <parent link="${name}_link"/>
       <child link="${name}_frame"/>
     </joint>
+    
     <link name="${name}_frame">
-
-      <inertial>
-        <mass value="0.1" />
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="0.01"  ixy="0.0"  ixz="0.0"
-                 iyy="0.01"  iyz="0.0"
-                 izz="0.01" />
-      </inertial>
-
+      <xacro:box_inertial x="0.105" y="0.03" z="0.023" mass="0.5">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </xacro:box_inertial>
       <visual>
         <origin xyz="0.0 0.0 0" rpy="0 0 0"/>
         <geometry>
           <box size="0.002 0.002 0.002"/>
         </geometry>
       </visual>
-
       <collision>
         <origin xyz="0.0 0.0 0" rpy="0 0 0"/>
         <geometry>
           <box size="0.002 0.002 0.002"/>>
         </geometry>
       </collision>
-
     </link>
 
     <joint name="${name}_optical_joint" type="fixed">
