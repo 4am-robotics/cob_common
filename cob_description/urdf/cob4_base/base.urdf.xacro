@@ -56,7 +56,7 @@
       <collision>
         <origin xyz="0 0 0.0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_base/base.dae"/>
+          <mesh filename="package://cob_description/meshes/cob4_base/base_reduced.stl"/>
           <!--box size="0.01 0.01 0.01" /-->
         </geometry>
       </collision>
