@@ -77,7 +77,8 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <box size="0.001 0.001 0.001" />
+          <mesh filename="package://cob_description/meshes/cob4_torso/torso_link.stl"/>
+          <!--box size="0.001 0.001 0.001" /-->
         </geometry>
       </collision>
     </link>
