@@ -199,10 +199,10 @@
     <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="${cal_caster_fr - M_PI/4}" >
       <origin xyz="${caster_offset_x} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-    <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="${cal_caster_bl - M_PI / 4 + M_PI}" >
+    <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="${cal_caster_bl - M_PI/4 + M_PI}" >
       <origin xyz="${-caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-    <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI / 4 + M_PI}"  >
+    <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="${cal_caster_br - M_PI/4 + M_PI}"  >
       <origin xyz="${-caster_offset_x} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
 
