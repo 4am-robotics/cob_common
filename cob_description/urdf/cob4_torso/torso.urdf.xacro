@@ -77,9 +77,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_torso/torso_link.stl"/>
+          <mesh filename="package://cob_description/meshes/cob4_torso/torso_link.dae"/>
         </geometry> 
-        <material name="IPA/LightGrey"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
