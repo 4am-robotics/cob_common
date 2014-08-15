@@ -17,7 +17,7 @@
     </joint>
     
     <!-- include universal_robot arm -->
-    <xacro:ur10_robot prefix="${name}_"/>
+    <xacro:ur10_robot prefix="${name}_" joint_limited="true"/>
     
   </xacro:macro>
 
