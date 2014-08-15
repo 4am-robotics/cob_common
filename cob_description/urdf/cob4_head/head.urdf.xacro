@@ -73,18 +73,18 @@
         <origin xyz="0 0 0" />
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_head/head_link.stl"/>
-        </geometry> 
-        <material name="IPA/LightGrey"/>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
+        </geometry>
       </visual>
+
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_head/head_link.stl"/>
-          <!--box size="0.001 0.001 0.001" /-->
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
         </geometry>
       </collision>
     </link>
