@@ -5,10 +5,6 @@ find_package(catkin REQUIRED COMPONENTS)
 
 catkin_package()
 
-#catkin_add_gtest(test_urdf test/test_urdf.cpp WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
-
-
-
 install(DIRECTORY urdf
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
@@ -28,3 +24,5 @@ install(DIRECTORY Media
 install(PROGRAMS test/test_urdf.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/test
 )
+
+#catkin_add_gtest(test_urdf test/test_urdf.cpp WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
