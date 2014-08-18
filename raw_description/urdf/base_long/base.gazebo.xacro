@@ -23,18 +23,17 @@
     <gazebo reference="${name}_link">
       <selfCollide>true</selfCollide>
       <sensor name='${name}_contact_sensor' type='contact'>
+        <always_on>true</always_on>
+        <update_rate>100.0</update_rate>
         <contact>
           <collision>${name}_link_geom</collision>
+          <topic>${name}_bumper</topic>
         </contact>
         <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>world</frameName>
           <bumperTopicName>${name}_bumper</bumperTopicName>
         </plugin>
       </sensor>
-      <!--material>Gazebo/Grey</material-->
-      <!--material value="IPA/Metal" /-->
     </gazebo>
 
     <gazebo>
@@ -43,10 +42,10 @@
         <updateRate>100.0</updateRate>
         <bodyName>${name}_link</bodyName>
         <topicName>${name}_pose_ground_truth</topicName>
-        <gaussianNoise>0.01</gaussianNoise>
         <frameName>map</frameName>
         <xyzOffsets>25.7 25.7 0</xyzOffsets>  <!-- initialize odometry for fake localization-->
         <rpyOffsets>0 0 0</rpyOffsets>
+        <gaussianNoise>0.01</gaussianNoise>
       </plugin>
       <canonicalBody>${name}_footprint</canonicalBody>
     </gazebo>

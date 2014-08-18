@@ -4,7 +4,6 @@
   <xacro:include filename="$(find raw_description)/urdf/torso/torso.gazebo.xacro" />
   <xacro:include filename="$(find raw_description)/urdf/torso/torso.transmission.xacro" />
 
-
   <xacro:macro name="raw_torso" params="name parent *origin">
     
     <!-- joint between base_link and torso_tilt_link -->
@@ -104,7 +103,6 @@
         </geometry>
       </collision>
     </link>
-
 
     <!-- extensions -->
     <xacro:raw_torso_gazebo name="${name}" />
