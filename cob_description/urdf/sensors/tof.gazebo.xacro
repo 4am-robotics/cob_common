@@ -42,8 +42,7 @@
           <frameName>/${name}_frame</frameName>
           <hokuyoMinIntensity>101</hokuyoMinIntensity>
         </plugin>
-      </sensor>  
-    
+      </sensor>
       <material value="IPA/LightGrey" />
     </gazebo>
   </xacro:macro>

@@ -28,17 +28,15 @@
         <geometry>
           <mesh filename="package://raw_description/meshes/tower/raw_tower_asymetric.dae"/>
         </geometry> 
-        <!--material name="IPA/LightGrey" /-->
       </visual>
 
-       <collision>
+      <collision>
         <origin xyz="0 0 0.0865" rpy="0 0 0"/>
         <geometry>
           <!--mesh filename="package://raw_description/meshes/base/raw_tower_collision.stl"/-->
           <box size="0.316 0.573 0.173" />
         </geometry>
-        </collision>
-
+      </collision>
     </link>
 
     <!-- extensions -->
