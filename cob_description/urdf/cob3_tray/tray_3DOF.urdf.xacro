@@ -24,7 +24,6 @@
         <mass value="1.6"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -32,7 +31,6 @@
         </geometry>
         <material name="IPA/DarkGrey" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -57,7 +55,6 @@
         <mass value="1"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -65,7 +62,6 @@
         </geometry>
         <material name="IPA/DarkGrey" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -73,7 +69,6 @@
         </geometry>
       </collision>
     </link>
-
 
     <joint name="${name}_3_joint" type="revolute">
       <origin xyz="0.0 -0.0671 0.0671" rpy="1.570796 0 0"/>
@@ -91,7 +86,6 @@
         <mass value="1"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -99,7 +93,6 @@
         </geometry>
         <material name="IPA/DarkGrey" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -107,8 +100,6 @@
         </geometry>
       </collision>
     </link>
-
-    
 
     <joint name="${name}_right_joint" type="fixed" >
       <origin xyz="-0.1146 0 0.3741570" rpy="0 0 0"/>

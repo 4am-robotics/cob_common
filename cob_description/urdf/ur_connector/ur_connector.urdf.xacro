@@ -44,7 +44,7 @@
       <axis xyz="0 0 1"/>
       <dynamics damping="10"/>
       <limit effort="200" velocity="1.9634" lower="1.0" upper="4.6"/>
-            <safety_controller k_position="20" k_velocity="50" soft_lower_limit="${1.0 - 0.01}" soft_upper_limit="${4.6 - 0.01}" />
+      <safety_controller k_position="20" k_velocity="50" soft_lower_limit="${1.0 - 0.01}" soft_upper_limit="${4.6 - 0.01}" />
     </joint>
 
     <link name="${name}_link">
@@ -69,7 +69,6 @@
         </geometry>
       </collision>
     </link>
-
 
     <!-- extensions -->
     <xacro:ur_connector_gazebo name="${name}" />

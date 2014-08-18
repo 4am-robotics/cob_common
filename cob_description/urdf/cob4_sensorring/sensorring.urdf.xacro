@@ -4,7 +4,6 @@
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.transmission.xacro" />
   
-  
   <xacro:macro name="sensorring" params="parent name *origin">
 
     <joint name="${name}_joint" type="revolute">
