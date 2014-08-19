@@ -19,8 +19,9 @@
 
   <xacro:macro name="desire_base_gazebo_v0" params="name">
     <gazebo reference="${name}_link">
-      <selfCollide>true</selfCollide>
       <material>Gazebo/Grey</material>
+<!-- FXM: the contact sensor currently does not work (the reason is within gazebo, NOT the bumper_plugin) -->
+<!--
       <sensor name='${name}_contact_sensor' type='contact'>
         <always_on>true</always_on>
         <update_rate>100.0</update_rate>
@@ -33,6 +34,7 @@
           <bumperTopicName>${name}_bumper</bumperTopicName>
         </plugin>
       </sensor>
+-->
     </gazebo>
 
     <gazebo>
@@ -45,7 +47,7 @@
         <xyzOffsets>25.7 25.7 0</xyzOffsets>  <!-- initialize odometry for fake localization-->
         <rpyOffsets>0 0 0</rpyOffsets>
         <gaussianNoise>0.01</gaussianNoise>
-      </plugin>  
+      </plugin>
       <canonicalBody>${name}_footprint</canonicalBody>
     </gazebo>
   </xacro:macro>
