@@ -3,8 +3,8 @@
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.gazebo.xacro" />
 
-  <property name="cylinder_radius" value="0.044" />  <!--simple collision model for the laser -->
-  <property name="cylinder_length" value="0.09" /> 
+  <property name="cylinder_radius" value="0.05" />  <!--simple collision model for the laser -->
+  <property name="cylinder_length" value="0.15" /> 
 
   <xacro:macro name="sick_s300_laser_v0" params="name parent *origin ros_topic update_rate min_angle max_angle">
     <joint name="${name}_joint" type="fixed">
@@ -15,21 +15,17 @@
     </joint>
     
     <link name="${name}_link" type="laser">
-      <inertial>
-        <mass value="0.001" />
+      <xacro:cylinder_inertial radius="${cylinder_radius}" length="${cylinder_length}" mass="1.2">
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001" />
-      </inertial>
-      
+      </xacro:cylinder_inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-    <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.dae"/>
+          <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.dae"/>
           <!--box size="0.001 0.001 0.001" /-->
         </geometry>
         <material name="IPA/LightGrey" />
       </visual>
-      
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -37,7 +33,9 @@
         </geometry>
       </collision>
     </link>
+    
     <!-- gazebo extensions -->
     <xacro:sick_s300_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
   </xacro:macro>
+  
 </robot>

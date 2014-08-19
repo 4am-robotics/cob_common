@@ -6,13 +6,13 @@
 
   <xacro:macro name="head" params="parent name *origin">
 
-    <joint name="head_base_joint" type="fixed">
+    <joint name="${name}_base_joint" type="fixed">
       <insert_block name="origin" />
-      <child link="head_base_link" />
+      <child link="${name}_base_link" />
       <parent link="${parent}"/>
     </joint>
     
-    <link name="head_base_link">
+    <link name="${name}_base_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.1"/>
@@ -20,17 +20,17 @@
       </inertial>
     </link>
 
-    <joint name="head_1_joint" type="revolute">
+    <joint name="${name}_1_joint" type="revolute">
       <origin xyz="0 0 0.0305" rpy="0 0 0"/>
-      <child link="head_1_link" />
-      <parent link="head_base_link"/>
+      <child link="${name}_1_link" />
+      <parent link="${name}_base_link"/>
       <calibration rising="${head_1_ref}"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.1" />
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
-    <link name="head_1_link">
+    <link name="${name}_1_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.1"/>
@@ -38,17 +38,17 @@
       </inertial>
     </link>
 
-    <joint name="head_2_joint" type="revolute">
+    <joint name="${name}_2_joint" type="revolute">
       <origin xyz="0 -0.07725 -0.00439" rpy="-0.349 0 0" />
-      <child link="head_2_link" />
-      <parent link="head_1_link"/>
+      <child link="${name}_2_link" />
+      <parent link="${name}_1_link"/>
       <calibration rising="${head_2_ref}"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.1" />
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
-    <link name="head_2_link">
+    <link name="${name}_2_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.1"/>
@@ -56,54 +56,45 @@
       </inertial>
     </link>
 
-
-    <joint name="head_3_joint" type="revolute">
+    <joint name="${name}_3_joint" type="revolute">
       <origin xyz="0 0.04668 0.0976" rpy="0.349 0 0" />
-      <child link="head_3_link" />
-      <parent link="head_2_link"/>
+      <child link="${name}_3_link" />
+      <parent link="${name}_2_link"/>
       <calibration rising="${head_3_ref}"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.1" />
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
-    <link name="head_3_link">
+    <link name="${name}_3_link">
       <inertial>
-      <mass value="1" />
-      <origin xyz="0 0 0" />
-      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+        <mass value="1" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
       <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />  
-      <geometry>
-        <mesh filename="package://cob_description/meshes/cob4_head/head_link.stl"/>
-      </geometry> 
-      <material name="IPA/LightGrey"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
+        </geometry>
       </visual>
 
       <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <box size="0.001 0.001 0.001" />
-      </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
+        </geometry>
       </collision>
     </link>
 
-
-    <joint name="head_center_joint" type="fixed">
+    <joint name="${name}_center_joint" type="fixed">
       <origin xyz="0.0 0.0 -0.28247" rpy="0 0 0" />
-      <child link="head_center_link" />
-      <parent link="head_3_link"/>
+      <child link="${name}_center_link" />
+      <parent link="${name}_3_link"/>
     </joint>
     
-    <link name="head_center_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
-    </link>
+    <link name="${name}_center_link"/>
     
   <!-- extensions -->
   <xacro:head_gazebo name="${name}" />

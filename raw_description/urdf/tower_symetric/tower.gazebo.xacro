@@ -5,8 +5,6 @@
 
     <gazebo reference="${name}_base_link">
       <selfCollide>false</selfCollide>
-          <!--material>Gazebo/Grey</material-->
-          <!--material value="IPA/Metal" /-->
     </gazebo>
 
   </xacro:macro>

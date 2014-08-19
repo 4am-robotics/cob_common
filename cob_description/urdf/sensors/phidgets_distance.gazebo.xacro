@@ -33,7 +33,6 @@
           <frameName>/${name}_link</frameName>
         </plugin>
       </sensor>  
-
       <material>IPA/LightGrey</material>
     </gazebo>
   </xacro:macro>

@@ -4,23 +4,19 @@
   <xacro:macro name="torso_gazebo" params="name">
 
     <gazebo reference="${name}_base_link">
-            <material>IPA/LightGrey</material>
-      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
     <gazebo reference="${name}_1_link">
-      <material>IPA/LightGrey</material>
-      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
     </gazebo>
     
     <gazebo reference="${name}_2_link">
-      <material>IPA/LightGrey</material>
-      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
     </gazebo>
     
     <gazebo reference="${name}_3_link">
-      <material>IPA/LightGrey</material>
-      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
   </xacro:macro>

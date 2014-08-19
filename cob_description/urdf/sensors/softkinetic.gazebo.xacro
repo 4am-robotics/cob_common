@@ -44,7 +44,6 @@
           <focalLength>0.0</focalLength>
         </plugin>
       </sensor>
-
       <material>IPA/LightGrey</material>
     </gazebo>
   </xacro:macro>
