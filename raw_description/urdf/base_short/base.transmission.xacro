@@ -9,7 +9,6 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${parent}_${suffix}_wheel_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>${reflect * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -23,7 +22,6 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${suffix}_rotation_motor" >
-       <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>${-1 * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>

@@ -9,7 +9,6 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_lower_neck_tilt_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -20,7 +19,6 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_pan_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -31,7 +29,6 @@
         <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_upper_neck_tilt_motor">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
