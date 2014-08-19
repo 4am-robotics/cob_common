@@ -17,6 +17,8 @@
   
   <run_depend>cob_description</run_depend>
 
+  <run_depend>gazebo_ros</run_depend>
+
   <export>
     <gazebo_ros gazebo_media_path="${prefix}"/>
   </export>
