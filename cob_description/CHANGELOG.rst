@@ -2,6 +2,59 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* consistency changes due to latest gazebo tag format
+* unify materials
+* consitency changes due to new transmission format
+* unify materials
+* include gazebo_ros dependendy to export materials
+* merge with hydro_dev
+* cleanup dependencies
+* new collision mesh
+* beautify indentation + cleaning up
+* beautify indentation
+* merge with hydro_dev
+* for cob3 the topic name should be /cam3d..
+* adapt to latest changes in official ros-industrial repo
+* Coloured mesh files
+* use base mesh with less vertices for collision checking
+* use correct mesh for collision geometry
+* re-export meshes from meshlab to fix assimp error message
+* better approximation of inertias for some more cob4 components
+* fixed center of masses
+* use default damping
+* correct inertias for cob4 torso
+* enable gravity
+* rotate scanner
+* temporary commit for torso inertias
+* merged with ipa320/hydro_dev
+* removed bumpers and changed transmission config to new syntax
+* update gazebo tags for sensor plugins
+* no inertia in base_footprint
+* deleted unnecessary head versions
+* update gazebo tags for sensor plugins
+* wrong topic names
+* un-hardcodize ur-macro
+* beautify mesh files
+* Merge pull request `#95 <https://github.com/ipa320/cob_common/issues/95>`_ from ipa320/hydro_release_candidate
+  bring back changes from Hydro release candidate
+* New head_center_link
+* New maintainer
+* update cob4_base stl file
+* remove material physic properties of wheels to use default, fixes `#90 <https://github.com/ipa320/cob_common/issues/90>`_
+* deleted offset
+* Merge error
+* merge
+* New stl files for cob4
+* fix xacro:include tag
+* New center joint on torso
+* New center joint on torso
+* fix softkinetic settings
+* fix urdf test
+* merge cob4
+* Contributors: Alexander Bubeck, Felix Messmer, Florian Weisshardt, Nadia Hammoudeh García, fmw, ipa-cob3-8, ipa-cob4-1, ipa-fxm, ipa-fxm-fm, ipa-nhg
+
 0.5.3 (2014-03-31)
 ------------------
 * reminder comment ;-)

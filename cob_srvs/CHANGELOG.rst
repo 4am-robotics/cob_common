@@ -2,6 +2,12 @@
 Changelog for package cob_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* cleaning up debs
+* cleaning up debs
+* Contributors: ipa-fxm
+
 0.5.3 (2014-03-31)
 ------------------
 * merge
