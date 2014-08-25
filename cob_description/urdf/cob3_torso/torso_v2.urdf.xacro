@@ -6,7 +6,6 @@
 
   <xacro:macro name="torso" params="name parent *origin">
 
-
     <!-- joint between base_link and torso_base_link -->
     <joint name="${name}_base_joint" type="fixed" >
       <insert_block name="origin" />
@@ -21,7 +20,6 @@
         <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
       </inertial>
     </link>
-
 
     <!-- joint between base_link and torso_lower_neck_tilt_link -->
     <joint name="${name}_lower_neck_tilt_joint" type="revolute">
@@ -41,7 +39,6 @@
         <mass value="6.209720"/>
         <inertia ixx="0.171118" ixy="0.002544" ixz="-0.000000" iyy="0.083077" iyz="0.000000" izz="0.120948" />
       </inertial>
-      
       <visual>
         <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
         <geometry>
@@ -49,12 +46,11 @@
         </geometry>
         <material name="IPA/LightGrey" />
       </visual>
-
       <collision>
-            <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
-            <geometry>
-                  <mesh filename="package://cob_description/meshes/cob3_torso/lower_neck_collision.stl" />
-            </geometry>
+        <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob3_torso/lower_neck_collision.stl" />
+        </geometry>
       </collision>
     </link>
     
@@ -96,8 +92,6 @@
         <mass value="6.744238"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-
-      
       <visual>
         <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
         <geometry>
@@ -105,7 +99,6 @@
         </geometry>
         <material name="IPA/LightGrey" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
         <geometry>
@@ -128,7 +121,6 @@
         <mass value="0.5"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-      
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -136,7 +128,6 @@
         </geometry>
         <material name="IPA/Black" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>

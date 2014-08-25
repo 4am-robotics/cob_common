@@ -3,6 +3,7 @@
 
   <!--  Caster wheel transmission   -->
   <xacro:macro name="cob_wheel_transmission" params="suffix parent reflect">
+    
     <transmission name="${parent}_${suffix}_wheel_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${parent}_${suffix}_wheel_joint" />
@@ -11,10 +12,12 @@
         <mechanicalReduction>${reflect * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>
+    
   </xacro:macro>
 
   <!-- Hub transmission only -->
   <xacro:macro name="cob_caster_transmission" params="suffix">
+    
     <transmission name="${suffix}_rotation_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${suffix}_rotation_joint" />
@@ -23,5 +26,6 @@
         <mechanicalReduction>${-1 * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>
+    
   </xacro:macro>
 </robot>
