@@ -10,6 +10,7 @@ add_message_files(
   BatteryState2.msg
   BatteryState.msg
   DashboardState.msg
+  EmergencyStopState.msg
   PowerBoardState.msg
   PowerState.msg
 )
