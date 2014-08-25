@@ -70,7 +70,6 @@
         <geometry>
           <mesh filename="package://desire_description/meshes/base_desire/cob_wheel.stl" />
         </geometry>
-        
         <material name="IPA/LightGrey" />
       </visual>
       <collision>
@@ -99,24 +98,21 @@
       <parent link="${parent}"/>
       <child link="${suffix}_rotation_link" />
     </joint>
+    
     <link name="${suffix}_rotation_link">
-
       <inertial>
         <mass value="3.473082"/>
         <origin xyz="0 0 0.07" />
         <inertia  ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
                   iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
       </inertial>
-
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://desire_description/meshes/base_desire/caster.stl" />
         </geometry>
-    
         <material name="IPA/DarkGrey" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0.07" rpy="0.0 0.0 0.0" />
         <geometry>
@@ -148,24 +144,20 @@
   <!-- The xacro macro xacro:desire_base contains: base, casters and wheels -->
   <!--xacro:macro name="desire_base_v0" params="name"-->
   <xacro:macro name="desire_base" params="name">
-  <link name="${name}_link">
-
+    <link name="${name}_link">
       <inertial>
         <mass value="${base_mass}" />
         <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" />
         <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423"
                  iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
       </inertial>
-
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />  
-        <!-- modify here for test-->
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://desire_description/meshes/base_desire/base.stl"/>
         </geometry> 
         <material name="IPA/DarkGrey" />
       </visual>
-
       <collision>
         <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
              surface of the collision box matches the top surface of the PR2 base -->
@@ -178,31 +170,7 @@
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
-    <link name="${name}_footprint">
-      <inertial>
-        <mass value="1.0" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                 iyy="0.01" iyz="0.0" izz="0.01" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-        
-        <material name="IPA/DarkGrey" />
-      </visual>
-      <collision>
-
-        <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
-             surface of the collision box matches the top surface of the PR2 base -->
-        <origin xyz="0 0 ${0.051+base_collision_size_z/2}" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
-    </link>
+    <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -213,17 +181,17 @@
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      <origin xyz="${base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="${M_PI} 0 0" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="0 0 ${M_PI}" />
+      <origin xyz="${-base_laser_x} ${base_laser_y} ${base_laser_z}" rpy="${M_PI} 0 ${M_PI}" />
     </xacro:sick_s300_laser_v0>
 
      <!-- cam3d -->
      <xacro:cob_kinect_v0 name="head_cam3d" ros_topic="cam3d" parent="base_link">
-        <origin xyz="0.40 0 1.4246" rpy="0 0 0" />
+      <origin xyz="0.40 0 1.4246" rpy="0 0 0" />
      </xacro:cob_kinect_v0>
 
 
@@ -245,6 +213,5 @@
     <xacro:desire_base_gazebo_v0 name="${name}" />
 
   </xacro:macro>
-
 
 </robot>

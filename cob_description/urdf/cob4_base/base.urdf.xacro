@@ -30,30 +30,8 @@
   <property name="base_collision_size_z" value="0.04" />
   
   <xacro:macro name="base" params="name">
-
-    <link name="base_footprint">
-      <inertial>
-        <mass value="1.0" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-             iyy="0.01" iyz="0.0" izz="0.01" />
-        </inertial>
-        <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-        
-        <material name="IPA/LightGrey" />
-        </visual>
-        <collision>
-        <origin xyz="0 0 0.1" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-        </collision>
-    </link>
-
+    
+    <link name="base_footprint"/>
 
     <joint name="base_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -78,7 +56,7 @@
       <collision>
         <origin xyz="0 0 0.0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_base/base.dae"/>
+          <mesh filename="package://cob_description/meshes/cob4_base/base_collision.stl"/>
           <!--box size="0.01 0.01 0.01" /-->
         </geometry>
       </collision>
@@ -96,7 +74,6 @@
     <xacro:sick_s300_laser_v0 name="${name}_laser_right" parent="${name}" ros_topic="scan_right_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
       <origin xyz="${laser_right_x} ${laser_right_y} ${laser_right_z}" rpy="${laser_right_roll} ${laser_right_pitch} ${laser_right_yaw}" />
     </xacro:sick_s300_laser_v0>
-
     
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />

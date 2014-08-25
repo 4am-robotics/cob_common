@@ -81,15 +81,12 @@
           <!--cylinder radius="${wheel_radius}" length="${wheel_length}" /-->
           <mesh filename="package://raw_description/meshes/base/raw_wheel.dae"/>
         </geometry>
-        
-        <!--material name="IPA/LightGrey" /-->
-
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
           <sphere radius="${wheel_radius}"/>
-    <!--mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/-->
+          <!--mesh filename="package://raw_description/meshes/base/raw_wheel.stl"/-->
         </geometry>
       </collision>
     </link>
@@ -113,24 +110,20 @@
       <child link="${suffix}_rotation_link" />
     </joint>
     <link name="${suffix}_rotation_link">
-
       <inertial>
         <mass value="${caster_mass}"/>
         <origin xyz="0 0 0" />
         <inertia  ixx="0.04" ixy="-0.0007" ixz="0.0"
                   iyy="0.02" iyz="-0.000004" izz="0.05" />
       </inertial>
-
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-        <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
-        <!--box size="0.001 0.001 0.001" /-->
+          <mesh filename="package://raw_description/meshes/base/raw_caster.stl"/>
+          <!--box size="0.001 0.001 0.001" /-->
         </geometry>
-    
         <material name="IPA/LightGrey" />
       </visual>
-
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -157,7 +150,6 @@
     <!-- extensions -->
     <xacro:cob_caster_gazebo suffix="${suffix}" />
   </xacro:macro>
-
   
   <!-- battery macros-->
   <xacro:macro name="cob_batteries" params="name parent *origin ">
@@ -175,21 +167,19 @@
                  iyy="0.01" iyz="0.0" izz="0.01" />
       </inertial>    
       <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-            <mesh filename="package://raw_description/meshes/base/raw_battery.stl"/>
-          </geometry> 
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://raw_description/meshes/base/raw_battery.stl"/>
+        </geometry> 
         <material name="Gazebo/Black" />
-       </visual>
-
+      </visual>
       <collision>
         <origin xyz="0 0.075 0" rpy="0 0 0"/> <!-- TODO: Change the origin of the stl, so that collision model doesn't need to be translated  -->
         <geometry>
-        <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
-        <!--mesh filename="package://raw_description/meshes/base/raw_battery.stl"/-->
+          <box size="${battery_size_x} ${battery_size_y} ${battery_size_z}" />  
+          <!--mesh filename="package://raw_description/meshes/base/raw_battery.stl"/-->
         </geometry>
        </collision>
-
     </link>
 
     <!-- extensions -->
@@ -199,23 +189,19 @@
 
   <!-- The xacro macro xacro:cob_base contains: base, casters and wheels -->
   <xacro:macro name="raw_base" params="name">
-  <link name="${name}_link">
-
+    <link name="${name}_link">
       <inertial>
         <mass value="${base_mass}" />
         <origin xyz="0 0 0" />
         <inertia ixx="9.64" ixy="-0.02" ixz="0.44"
                  iyy="11.33" iyz="-0.007" izz="3.07" />
       </inertial>
-
       <visual>
         <origin xyz="0 0 0.209" rpy="0 0 0" />  
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_base_long.dae"/>
-        </geometry> 
-        <!--material name="IPA/LightGrey" /-->
+        </geometry>
       </visual>
-
       <collision>
         <origin xyz="0 0 0.209" rpy="0 0 0" /> 
         <geometry>
@@ -223,55 +209,31 @@
           <!--box size="1.04 0.58 0.31" /-->
         </geometry>
       </collision>
-      
     </link>
 
     <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin,
          navigation stack dedpends on this frame -->
-    <link name="${name}_footprint">
-      <inertial>
-        <mass value="1.0" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0.0" ixz="0.0"
-                 iyy="0.01" iyz="0.0" izz="0.01" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-        
-        <material name="IPA/LightGrey" />
-      </visual>
-      <collision>
-        <origin xyz="0 0 0.1" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
-    </link>
+    <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <child link="${name}_link" />
       <parent link="${name}_footprint"/>
     </joint>
-
-
-
+    
 
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${-base_laser_y_front} ${base_laser_z}" rpy="0 0 ${-M_PI/4}" />
+      <origin xyz="${base_laser_x} ${-base_laser_y_front} ${base_laser_z}" rpy="${M_PI} 0 ${-M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="0 0 ${-5*M_PI/4}" />
+      <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="${M_PI} 0 ${-5*M_PI/4}" />
     </xacro:sick_s300_laser_v0>
 
-    
+
     <!-- battery front-->
     <xacro:cob_batteries name="${name}_battery_front" parent="${name}_link">
       <origin xyz="${-battery_offset_x_f} ${battery_offset_y_f} ${battery_offset_z}" rpy="${M_PI/2} 0 ${-M_PI/2}" />

@@ -1,52 +1,52 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
-    <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/prosilica.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
-    <xacro:macro name="raw_head" params="name parent *origin">
-        <!-- joint between torso_2_link and head_base_link -->
-        <joint name="${name}_base_joint" type="fixed">
-            <insert_block name="origin" />
-            <parent link="${parent}"/>
-            <child link="${name}_base_link"/>
-        </joint>
+  <xacro:macro name="raw_head" params="name parent *origin">
+    <!-- joint between torso_2_link and head_base_link -->
+    <joint name="${name}_base_joint" type="fixed">
+      <insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_base_link"/>
+    </joint>
 
-        <link name="${name}_base_link"/>
+    <link name="${name}_base_link"/>
 
-        <!-- joint between head_base_link and head_axis_link -->
-        <joint name="${name}_axis_joint" type="fixed">
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <parent link="${name}_base_link"/>
-            <child link="${name}_axis_link"/>
-        </joint>
+    <!-- joint between head_base_link and head_axis_link -->
+    <joint name="${name}_axis_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${name}_base_link"/>
+      <child link="${name}_axis_link"/>
+    </joint>
 
-        <link name="${name}_axis_link"/>
+    <link name="${name}_axis_link"/>
 
-        <!--camera reference link-->
-        <joint name="${name}_cam_reference_joint" type="fixed">
-            <origin xyz="${cam_reference_x} ${cam_reference_y} ${cam_reference_z}" rpy="${cam_reference_roll} ${cam_reference_pitch} ${cam_reference_yaw}" />
-            <parent link="${name}_axis_link"/>
-            <child link="${name}_cam_reference_link"/>
-        </joint>
+    <!--camera reference link-->
+    <joint name="${name}_cam_reference_joint" type="fixed">
+      <origin xyz="${cam_reference_x} ${cam_reference_y} ${cam_reference_z}" rpy="${cam_reference_roll} ${cam_reference_pitch} ${cam_reference_yaw}" />
+      <parent link="${name}_axis_link"/>
+      <child link="${name}_cam_reference_link"/>
+    </joint>
 
-        <link name="${name}_cam_reference_link"/>
-        
-        <!-- left camera -->
-        <xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_cam_reference_link">
-            <origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
-        </xacro:cob_prosilica_v0>
+    <link name="${name}_cam_reference_link"/>
+      
+    <!-- left camera -->
+    <xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_cam_reference_link">
+      <origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
+    </xacro:cob_prosilica_v0>
 
-        <!-- right camera -->
-        <xacro:cob_prosilica_v0 name="${name}_color_camera_r" ros_topic="stereo/right" parent="${name}_cam_reference_link">
-            <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
-        </xacro:cob_prosilica_v0>
+    <!-- right camera -->
+    <xacro:cob_prosilica_v0 name="${name}_color_camera_r" ros_topic="stereo/right" parent="${name}_cam_reference_link">
+      <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
+    </xacro:cob_prosilica_v0>
 
-        <!-- cam3d -->
-        <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_cam_reference_link">
-            <origin xyz="${cam3d_x} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
-        </xacro:cob_kinect_v0>
+    <!-- cam3d -->
+    <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_cam_reference_link">
+      <origin xyz="${cam3d_x} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
+    </xacro:cob_kinect_v0>
 
-    </xacro:macro>
+  </xacro:macro>
 
 </robot>

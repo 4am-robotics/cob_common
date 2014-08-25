@@ -4,12 +4,25 @@
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.transmission.xacro" />
   
-  
   <xacro:macro name="sensorring" params="parent name *origin">
 
-    <joint name="${name}_joint" type="revolute">
+    <joint name="${name}_base_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
+      <child link="${name}_base_link" />
+    </joint>
+    
+    <link name="${name}_base_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
+    </link>
+
+    <joint name="${name}_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${name}_base_link"/>
       <child link="${name}_link" />
       <calibration rising="${sensorring_ref}"/>
       <axis xyz="0 0 1" />
@@ -18,11 +31,9 @@
     </joint>
     
     <link name="${name}_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:cylinder_inertial radius="0.250" length="0.1" mass="1.0">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </xacro:cylinder_inertial>
     </link>
     
     <!-- extensions -->
