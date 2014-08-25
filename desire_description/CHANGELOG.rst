@@ -4,6 +4,7 @@ Changelog for package desire_description
 
 Forthcoming
 -----------
+* update changelog
 * consistency changes due to latest gazebo tag format
 * consitency changes due to new transmission format
 * merge with hydro_dev

@@ -4,6 +4,7 @@ Changelog for package cob_description
 
 Forthcoming
 -----------
+* update changelog
 * consistency changes due to latest gazebo tag format
 * unify materials
 * consitency changes due to new transmission format

@@ -4,13 +4,14 @@ Changelog for package cob_common
 
 Forthcoming
 -----------
+* update changelog
 * introducing cob_msgs package in order to replace pr2_msgs
 * cleaning up debs
 * cleaning up debs
 * Merge pull request `#95 <https://github.com/ipa320/cob_common/issues/95>`_ from ipa320/hydro_release_candidate
   bring back changes from Hydro release candidate
 * New maintainer
-* Contributors: Felix Messmer, Nadia Hammoudeh García, ipa-fxm, ipa-nhg
+* Contributors: Felix Messmer, Florian Weisshardt, Nadia Hammoudeh García, ipa-fxm, ipa-nhg
 
 0.5.3 (2014-03-31)
 ------------------

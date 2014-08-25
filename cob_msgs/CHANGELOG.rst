@@ -4,11 +4,10 @@ Changelog for package cob_msgs
 
 Forthcoming
 -----------
+* add maintainer
+* update changelog
 * introducing cob_msgs package in order to replace pr2_msgs
-* Contributors: Felix Messmer
-
-* introducing cob_msgs package in order to replace pr2_msgs
-* Contributors: Felix Messmer
+* Contributors: Felix Messmer, Florian Weisshardt
 
 0.5.3 (2014-03-31)
 ------------------
