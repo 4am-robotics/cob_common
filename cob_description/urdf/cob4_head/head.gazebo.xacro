@@ -4,22 +4,18 @@
   <xacro:macro name="head_gazebo" params="name">
 
     <gazebo reference="${name}_base_link">
-      <material>IPA/LightGrey</material>
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
     
     <gazebo reference="${name}_1_link">
-            <material>IPA/LightGrey</material>
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
     <gazebo reference="${name}_2_link">
-      <material>IPA/LightGrey</material>
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
     
     <gazebo reference="${name}_3_link">
-      <material>IPA/LightGrey</material>
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 

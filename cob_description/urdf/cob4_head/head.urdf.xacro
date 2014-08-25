@@ -69,27 +69,34 @@
 
     <link name="head_3_link">
       <inertial>
-      <mass value="1" />
-      <origin xyz="0 0 0" />
-      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+        <mass value="1" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
 
       <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />  
-      <geometry>
-        <mesh filename="package://cob_description/meshes/cob4_head/head_link.stl"/>
-      </geometry> 
-      <material name="IPA/LightGrey"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
+        </geometry>
       </visual>
 
       <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <box size="0.001 0.001 0.001" />
-      </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <geometry>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
+        </geometry>
       </collision>
     </link>
 
+    <joint name="head_center_joint" type="fixed">
+      <origin xyz="0.0 0.0 -0.28247" rpy="0 0 0" />
+      <child link="head_center_link" />
+      <parent link="head_3_link"/>
+    </joint>
+    
+    <link name="head_center_link"/>
+    
   <!-- extensions -->
   <xacro:head_gazebo name="${name}" />
   <xacro:head_transmission name="${name}" />
