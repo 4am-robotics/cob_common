@@ -2,8 +2,8 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.4 (2014-08-25)
+------------------
 * add maintainer
 * update changelog
 * introducing cob_msgs package in order to replace pr2_msgs

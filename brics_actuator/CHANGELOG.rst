@@ -2,8 +2,8 @@
 Changelog for package brics_actuator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.4 (2014-08-25)
+------------------
 * update changelog
 * cleaning up debs
 * cleaning up debs

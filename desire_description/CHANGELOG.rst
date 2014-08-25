@@ -2,8 +2,8 @@
 Changelog for package desire_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.4 (2014-08-25)
+------------------
 * update changelog
 * consistency changes due to latest gazebo tag format
 * consitency changes due to new transmission format

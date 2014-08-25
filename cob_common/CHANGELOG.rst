@@ -2,8 +2,8 @@
 Changelog for package cob_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.4 (2014-08-25)
+------------------
 * update changelog
 * introducing cob_msgs package in order to replace pr2_msgs
 * cleaning up debs
