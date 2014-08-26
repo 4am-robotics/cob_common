@@ -56,7 +56,7 @@
       <collision>
         <origin xyz="0 0 0.0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_base/base_reduced.stl"/>
+          <mesh filename="package://cob_description/meshes/cob4_base/base_collision.stl"/>
           <!--box size="0.01 0.01 0.01" /-->
         </geometry>
       </collision>
@@ -74,7 +74,6 @@
     <xacro:sick_s300_laser_v0 name="${name}_laser_right" parent="${name}" ros_topic="scan_right_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
       <origin xyz="${laser_right_x} ${laser_right_y} ${laser_right_z}" rpy="${laser_right_roll} ${laser_right_pitch} ${laser_right_yaw}" />
     </xacro:sick_s300_laser_v0>
-
     
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />

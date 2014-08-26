@@ -3,9 +3,8 @@
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
-  <!--xacro:include filename="$(find ur_description)/urdf/ur5_joint_limited.urdf.xacro" /-->
   
-  <property name="wrist_3_length" value="0.0823" />
+  <!--property name="wrist_3_length" value="0.0823" /-->
   
   <xacro:macro name="ur5" params="parent name *origin">
   
@@ -17,7 +16,7 @@
     </joint>
     
     <!-- include universal_robot arm -->
-    <xacro:ur5_robot prefix="${name}_"/>
+    <xacro:ur5_robot prefix="${name}_" joint_limited="true"/>
   
   </xacro:macro>
 
