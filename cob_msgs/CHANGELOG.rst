@@ -2,8 +2,8 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.5.5 (2014-08-27)
+------------------
 * catkin_lint'ing
 * move EmergencyStopState.msg to cob_msgs
 * Contributors: ipa-fxm
