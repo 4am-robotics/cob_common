@@ -1,6 +1,6 @@
 <package>
   <name>brics_actuator</name>
-  <version>0.5.3</version>
+  <version>0.5.4</version>
   <description>brics_actuator</description>
 
   <license>BSD</license>
@@ -12,11 +12,9 @@
   <author email="aub@ipa.fhg.de">Alexander Bubeck</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>std_msgs</build_depend>
   <build_depend>geometry_msgs</build_depend>
   <build_depend>message_generation</build_depend>
 
-  <run_depend>std_msgs</run_depend>
   <run_depend>geometry_msgs</run_depend>
   <run_depend>message_runtime</run_depend>
   

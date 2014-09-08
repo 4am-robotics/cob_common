@@ -2,26 +2,28 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:macro name="cob_wheel_gazebo" params="suffix parent">
-    
     <gazebo reference="${parent}_${suffix}_wheel_link">
+      <gravity>true</gravity>
+      <self_collide>false</self_collide>
       <material value="IPA/LightGrey"/>
     </gazebo>
-    
   </xacro:macro>
 
   <xacro:macro name="cob_caster_gazebo" params="suffix">
-    
     <gazebo reference="${suffix}_caster_rotation_link">
+      <gravity>true</gravity>
+      <self_collide>false</self_collide>
       <material value="IPA/Metal"/>
     </gazebo>
-    
   </xacro:macro>
 
   <xacro:macro name="base_gazebo" params="name">
-    
     <gazebo reference="${name}_link">
-      <selfCollide>true</selfCollide>
+      <gravity>true</gravity>
+      <self_collide>false</self_collide>
       <material>IPA/LightGrey</material>
+<!-- FXM: the contact sensor currently does not work (the reason is within gazebo, NOT the bumper_plugin) -->
+<!--
       <sensor name='${name}_contact_sensor' type='contact'>
         <always_on>true</always_on>
         <update_rate>100.0</update_rate>
@@ -34,6 +36,7 @@
           <bumperTopicName>${name}_bumper</bumperTopicName>
         </plugin>
       </sensor>
+-->
     </gazebo>
 
     <gazebo>
@@ -49,7 +52,6 @@
       </plugin>
       <canonicalBody>${name}_footprint</canonicalBody>
     </gazebo>
-    
   </xacro:macro>
 
 </robot>

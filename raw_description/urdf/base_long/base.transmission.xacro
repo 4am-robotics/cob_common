@@ -5,9 +5,10 @@
   <xacro:macro name="cob_wheel_transmission" params="suffix parent reflect">
     <transmission name="cob_wheel_transmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${parent}_${suffix}_wheel_joint"/>      
-      <actuator name="${parent}_${suffix}_wheel_motor">
+      <joint name="${parent}_${suffix}_wheel_joint">      
         <hardwareInterface>EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${parent}_${suffix}_wheel_motor">
         <mechanicalReduction>${reflect * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>       
@@ -17,9 +18,10 @@
   <xacro:macro name="cob_caster_transmission" params="suffix">
     <transmission name="cob_caster_transmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${suffix}_rotation_joint"/>      
-      <actuator name="${suffix}_rotation_motor">
+      <joint name="${suffix}_rotation_joint">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
+      </joint>      
+      <actuator name="${suffix}_rotation_motor">
         <mechanicalReduction>${-1 * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>   
