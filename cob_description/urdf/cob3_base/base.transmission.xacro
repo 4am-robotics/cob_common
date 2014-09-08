@@ -6,10 +6,9 @@
     
     <transmission name="${parent}_${suffix}_wheel_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${parent}_${suffix}_wheel_joint" >
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-      </joint>
+      <joint name="${parent}_${suffix}_wheel_joint" />
       <actuator name="${parent}_${suffix}_wheel_motor">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>${reflect * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -21,10 +20,9 @@
     
     <transmission name="${suffix}_rotation_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${suffix}_rotation_joint" >
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
-      </joint>
+      <joint name="${suffix}_rotation_joint" />
       <actuator name="${suffix}_rotation_motor" >
+       <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>${-1 * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
     </transmission>

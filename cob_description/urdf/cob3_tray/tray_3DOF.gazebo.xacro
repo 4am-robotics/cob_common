@@ -4,19 +4,16 @@
   <xacro:macro name="tray_gazebo" params="name">
 
     <gazebo reference="${name}_1_link">
-      <gravity>true</gravity>
-      <self_collide>false</self_collide>
       <material>IPA/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
     </gazebo>
     <gazebo reference="${name}_2_link">
-      <gravity>true</gravity>
-      <self_collide>false</self_collide>
       <material>IPA/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
     </gazebo>
     <gazebo reference="${name}_3_link">
-      <gravity>true</gravity>
-      <self_collide>false</self_collide>
       <material>IPA/DarkGrey</material>
+      <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
   </xacro:macro>

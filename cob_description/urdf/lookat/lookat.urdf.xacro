@@ -17,8 +17,8 @@
       <parent link="${name}_base_link"/>
       <child link="${name}_x_link"/>
       <insert_block name="axis" />  <!--axis xyz="-1 0 0" /-->
-      <dynamics damping="0.0" friction="0.0"/>
-      <limit effort="100000" lower="${lower}" upper="${upper}" velocity="100000"/>    
+      <dynamics damping="5.0" friction="0.5"/>
+      <limit effort="100" lower="${lower}" upper="${upper}" velocity="1"/>    
     </joint>
     
     <link name="${name}_x_link"/>
@@ -28,8 +28,8 @@
       <parent link="${name}_x_link"/>
       <child link="${name}_y_link"/>
       <axis xyz="1 0 0" />
-      <dynamics damping="0.0" friction="0.0"/>
-      <limit effort="100000" lower="-${M_PI}" upper="${M_PI}" velocity="100000"/>    
+      <dynamics damping="5.0" friction="0.5"/>
+      <limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>    
     </joint>
     
     <link name="${name}_y_link"/>
@@ -39,8 +39,8 @@
       <parent link="${name}_y_link"/>
       <child link="${name}_z_link"/>
       <axis xyz="0 1 0" />
-      <dynamics damping="0.0" friction="0.0"/>
-      <limit effort="100000" lower="-${M_PI}" upper="${M_PI}" velocity="100000"/>    
+      <dynamics damping="5.0" friction="0.5"/>
+      <limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>    
     </joint>
     
     <link name="${name}_z_link"/>
@@ -50,8 +50,8 @@
       <parent link="${name}_z_link"/>
       <child link="${name}_focus_frame"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="0.0" friction="0.0"/>
-      <limit effort="100000" lower="-${M_PI}" upper="${M_PI}" velocity="100000"/>    
+      <dynamics damping="5.0" friction="0.5"/>
+      <limit effort="100" lower="-${M_PI}" upper="${M_PI}" velocity="1"/>    
     </joint>
     
     <link name="${name}_focus_frame">

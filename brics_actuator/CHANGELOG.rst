@@ -2,13 +2,6 @@
 Changelog for package brics_actuator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.5.4 (2014-08-25)
-------------------
-* update changelog
-* cleaning up debs
-* cleaning up debs
-* Contributors: Florian Weisshardt, ipa-fxm
-
 0.5.3 (2014-03-31)
 ------------------
 

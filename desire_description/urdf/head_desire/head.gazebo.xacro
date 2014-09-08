@@ -5,9 +5,11 @@
 
     <gazebo reference="${name}_axis1_link">
       <material>Gazebo/Blue</material>
+      <turnGravityOff>false</turnGravityOff>
     </gazebo>
     <gazebo reference="${name}_axis2_link">
       <material>Gazebo/Blue</material>
+      <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
   </xacro:macro>

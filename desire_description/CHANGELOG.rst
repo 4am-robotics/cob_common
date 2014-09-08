@@ -2,26 +2,6 @@
 Changelog for package desire_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.5.4 (2014-08-25)
-------------------
-* update changelog
-* consistency changes due to latest gazebo tag format
-* consitency changes due to new transmission format
-* merge with hydro_dev
-* cleanup dependencies
-* beautify indentation + cleaning up
-* Merge pull request `#112 <https://github.com/ipa320/cob_common/issues/112>`_ from ipa-cob4-1/hydro_dev
-  Rotated sick_s300 mesh file
-* use the  macros instead 3.14...
-* Merge github.com:ipa-cob4-1/cob_common into hydro_dev
-* switch laser scanner orientation
-* removed bumpers and changed transmission config to new syntax
-* no inertia in base_footprint
-* Merge pull request `#95 <https://github.com/ipa320/cob_common/issues/95>`_ from ipa320/hydro_release_candidate
-  bring back changes from Hydro release candidate
-* New maintainer
-* Contributors: Alexander Bubeck, Felix Messmer, Florian Weisshardt, Nadia Hammoudeh García, ipa-cob4-1, ipa-fxm, ipa-nhg
-
 0.5.3 (2014-03-31)
 ------------------
 

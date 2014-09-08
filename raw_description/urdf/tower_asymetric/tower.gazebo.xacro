@@ -4,8 +4,7 @@
   <xacro:macro name="raw_tower_asymetric_gazebo" params="name">
 
     <gazebo reference="${name}_base_link">
-      <gravity>true</gravity>
-      <self_collide>false</self_collide>
+      <selfCollide>false</selfCollide>
     </gazebo>
 
   </xacro:macro>

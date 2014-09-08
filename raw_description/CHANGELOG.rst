@@ -2,28 +2,6 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.5.4 (2014-08-25)
-------------------
-* update changelog
-* consistency changes due to latest gazebo tag format
-* consitency changes due to new transmission format
-* unify materials
-* include gazebo_ros dependendy to export materials
-* merge with hydro_dev
-* cleanup dependencies
-* beautify indentation + cleaning up
-* better approximation of inertias
-* Merge pull request `#112 <https://github.com/ipa320/cob_common/issues/112>`_ from ipa-cob4-1/hydro_dev
-  Rotated sick_s300 mesh file
-* use the  macros instead 3.14...
-* Merge github.com:ipa-cob4-1/cob_common into hydro_dev
-* switch laser scanner orientation
-* removed bumpers and changed transmission config to new syntax
-* no inertia in base_footprint
-* use collada material description
-* remove material physic properties of wheels to use default, fixes `#90 <https://github.com/ipa320/cob_common/issues/90>`_
-* Contributors: Alexander Bubeck, Felix Messmer, Florian Weisshardt, ipa-bnm, ipa-cob4-1, ipa-fxm, ipa-nhg
-
 0.5.3 (2014-03-31)
 ------------------
 
