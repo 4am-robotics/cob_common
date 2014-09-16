@@ -2,6 +2,19 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* new sick_s300 collision model
+* gazebo needs a new link for the topic, if we use the origin of the scanner (the center), the topic detects only the collision model
+* Deleting s300 stl mesh because the dae file is used
+* make lookat arbitrarily fast
+* use VelocityJointInterface for cob4_torso
+* new collision mesh
+* merge with 320
+* make lookat arbitrarily fast
+* use VelocityJointInterface for cob4_torso
+* Contributors: Florian Weisshardt, ipa-fxm, ipa-nhg
+
 0.5.5 (2014-08-27)
 ------------------
 

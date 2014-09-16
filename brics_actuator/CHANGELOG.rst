@@ -2,6 +2,9 @@
 Changelog for package brics_actuator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.5.5 (2014-08-27)
 ------------------
 
