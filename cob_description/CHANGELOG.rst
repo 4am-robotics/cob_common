@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.0 (2014-09-16)
+------------------
 * new sick_s300 collision model
 * gazebo needs a new link for the topic, if we use the origin of the scanner (the center), the topic detects only the collision model
 * Deleting s300 stl mesh because the dae file is used
