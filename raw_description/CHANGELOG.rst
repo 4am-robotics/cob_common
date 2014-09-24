@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.1 (2014-09-24)
+------------------
 * 1=true
 * fix bumper plugins
 * Contributors: ipa-fxm

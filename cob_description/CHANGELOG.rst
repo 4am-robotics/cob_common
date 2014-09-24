@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.1 (2014-09-24)
+------------------
 * fix mesh due to assimp error
 * fix bumper plugins
 * fixed center of gravity and inertia formulas

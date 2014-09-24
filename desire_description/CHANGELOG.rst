@@ -2,8 +2,8 @@
 Changelog for package desire_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.1 (2014-09-24)
+------------------
 * fix bumper plugins
 * Contributors: ipa-fxm
 
