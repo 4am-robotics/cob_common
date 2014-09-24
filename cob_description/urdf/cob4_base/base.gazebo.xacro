@@ -23,13 +23,11 @@
     <gazebo reference="${name}_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
-<!-- FXM: the contact sensor currently does not work (the reason is within gazebo, NOT the bumper_plugin) -->
-<!--
       <sensor name='${name}_contact_sensor' type='contact'>
         <always_on>true</always_on>
         <update_rate>100.0</update_rate>
         <contact>
-          <collision>${name}_link_geom</collision>
+          <collision>${name}_link_collision</collision>
           <topic>${name}_bumper</topic>
         </contact>
         <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
@@ -37,7 +35,6 @@
           <bumperTopicName>${name}_bumper</bumperTopicName>
         </plugin>
       </sensor>
--->
     </gazebo>
 
     <gazebo>
