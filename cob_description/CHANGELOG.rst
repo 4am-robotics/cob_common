@@ -2,6 +2,13 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix mesh due to assimp error
+* fix bumper plugins
+* fixed center of gravity and inertia formulas
+* Contributors: ipa-fxm, ipa-fxm-fm
+
 0.6.0 (2014-09-16)
 ------------------
 * new sick_s300 collision model
