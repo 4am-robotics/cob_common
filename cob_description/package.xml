@@ -1,6 +1,6 @@
 <package>
   <name>cob_description</name>
-  <version>0.5.3</version>
+  <version>0.5.4</version>
   <description>This package contains the description (mechanical, kinematic, visual,
   etc.) of the Care-O-bot robot. The files in this package are parsed and used by
   a variety of other components. Most users will not interact directly
@@ -15,6 +15,8 @@
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>gazebo_ros</run_depend>
 
   <export>
     <gazebo_ros gazebo_media_path="${prefix}"/>

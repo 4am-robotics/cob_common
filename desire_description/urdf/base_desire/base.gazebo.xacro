@@ -19,13 +19,12 @@
 
   <xacro:macro name="desire_base_gazebo_v0" params="name">
     <gazebo reference="${name}_link">
-      <selfCollide>true</selfCollide>
       <material>Gazebo/Grey</material>
       <sensor name='${name}_contact_sensor' type='contact'>
         <always_on>true</always_on>
         <update_rate>100.0</update_rate>
         <contact>
-          <collision>${name}_link_geom</collision>
+          <collision>${name}_link_collision</collision>
           <topic>${name}_bumper</topic>
         </contact>
         <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
@@ -45,7 +44,7 @@
         <xyzOffsets>25.7 25.7 0</xyzOffsets>  <!-- initialize odometry for fake localization-->
         <rpyOffsets>0 0 0</rpyOffsets>
         <gaussianNoise>0.01</gaussianNoise>
-      </plugin>  
+      </plugin>
       <canonicalBody>${name}_footprint</canonicalBody>
     </gazebo>
   </xacro:macro>

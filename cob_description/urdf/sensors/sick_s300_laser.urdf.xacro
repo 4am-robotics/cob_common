@@ -29,11 +29,12 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <cylinder radius="${cylinder_radius}" length="${cylinder_length}" />
+          <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser_collision.stl"/>
         </geometry>
       </collision>
     </link>
     
+
     <!-- gazebo extensions -->
     <xacro:sick_s300_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
   </xacro:macro>
