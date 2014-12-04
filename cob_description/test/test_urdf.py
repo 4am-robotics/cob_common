@@ -5,6 +5,7 @@ import roslib; roslib.load_manifest(PKG)
 import sys
 import os
 import unittest
+import subprocess
 
 ## A sample python unit test
 class TestUrdf(unittest.TestCase):
@@ -24,12 +25,14 @@ class TestUrdf(unittest.TestCase):
 			self.fail('file "' + file_to_test + '" not found')
 
 		# check if xacro can be converted
-		if os.system("`rospack find xacro`/xacro.py " + file_to_test + " > /tmp/test.urdf") != 0:
-			self.fail("cannot convert xacro. file: " + file_to_test)
+		p = subprocess.Popen("`rospack find xacro`/xacro.py " + file_to_test + " > /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		if p.returncode != 0 and p.returncode != None:
+			self.fail("cannot convert xacro. file: " + file_to_test + "\n" + p.stderr.read())
 
 		# check if urdf is correct
-		if os.system("check_urdf /tmp/test.urdf") != 0:
-			self.fail("urdf not correct. file: " + file_to_test)
+		p = subprocess.Popen("check_urdf /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		if p.returncode != 0 and p.returncode != None:
+			self.fail("urdf not correct. file: " + file_to_test + "\n" + p.stderr.read())
  
 if __name__ == '__main__':
 	import rosunit
