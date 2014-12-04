@@ -13,66 +13,73 @@
     </joint>
     
     <link name="${name}_base_link">
-      <xacro:default_inertial/>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
     </link>
 
-    <joint name="${name}_1_joint" type="revolute">
+    <joint name="${name}_1_joint" type="fixed">
       <origin xyz="0 0 0.0305" rpy="0 0 0"/>
-      <parent link="${name}_base_link"/>
       <child link="${name}_1_link" />
-      <axis xyz="0 0 1" />
-      <calibration rising="${head_1_ref}"/>
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      <parent link="${name}_base_link"/>
     </joint>
 
     <link name="${name}_1_link">
-      <xacro:default_inertial/>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
     </link>
 
-    <joint name="${name}_2_joint" type="revolute">
+    <joint name="${name}_2_joint" type="fixed">
       <origin xyz="0 -0.07725 -0.00439" rpy="-0.349 0 0" />
-      <parent link="${name}_1_link"/>
       <child link="${name}_2_link" />
-      <axis xyz="0 0 1" />
-      <calibration rising="${head_2_ref}"/>
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      <parent link="${name}_1_link"/>
     </joint>
 
     <link name="${name}_2_link">
-      <xacro:default_inertial/>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
     </link>
 
-    <joint name="${name}_3_joint" type="revolute">
+    <joint name="${name}_3_joint" type="fixed">
       <origin xyz="0 0.04668 0.0976" rpy="0.349 0 0" />
-      <parent link="${name}_2_link"/>
       <child link="${name}_3_link" />
-      <axis xyz="0 0 1" />
-      <calibration rising="${head_3_ref}"/>
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      <parent link="${name}_2_link"/>
     </joint>
 
     <link name="${name}_3_link">
-      <xacro:default_inertial/>
+      <inertial>
+        <mass value="1" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+      </inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
           <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
         </geometry>
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />  
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_head/head_link_collision.stl"/>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
         </geometry>
       </collision>
     </link>
 
     <joint name="${name}_center_joint" type="fixed">
       <origin xyz="0.0 0.0 -0.28247" rpy="0 0 0" />
-      <parent link="${name}_3_link"/>
       <child link="${name}_center_link" />
+      <parent link="${name}_3_link"/>
     </joint>
     
     <link name="${name}_center_link"/>
