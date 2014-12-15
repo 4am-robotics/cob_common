@@ -13,6 +13,9 @@ add_message_files(
   EmergencyStopState.msg
   PowerBoardState.msg
   PowerState.msg
+  Network.msg
+  SiteSurvey.msg
+
 )
 
 generate_messages(DEPENDENCIES geometry_msgs std_msgs)

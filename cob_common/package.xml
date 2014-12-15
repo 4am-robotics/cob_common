@@ -18,7 +18,6 @@
   <run_depend>cob_description</run_depend>
   <run_depend>cob_msgs</run_depend>
   <run_depend>cob_srvs</run_depend>
-  <run_depend>desire_description</run_depend>
   <run_depend>raw_description</run_depend>
 
 
