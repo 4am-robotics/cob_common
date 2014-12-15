@@ -2,6 +2,23 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.2 (2014-12-15)
+------------------
+* add new msgs
+* Contributors: ipa-nhg
+
+0.6.1 (2014-09-24)
+------------------
+
+0.6.0 (2014-09-16)
+------------------
+
+0.5.5 (2014-08-27)
+------------------
+* catkin_lint'ing
+* move EmergencyStopState.msg to cob_msgs
+* Contributors: ipa-fxm
+
 0.5.4 (2014-08-25)
 ------------------
 * add maintainer
