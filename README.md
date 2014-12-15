@@ -1,6 +1,7 @@
 cob_common
 ==========
 [![Build Status](https://travis-ci.org/ipa320/cob_common.svg?branch=indigo_dev)](https://travis-ci.org/ipa320/cob_common)
+
 This is a repository for Care-O-bot common packages.
 
 
