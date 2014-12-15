@@ -2,8 +2,8 @@
 Changelog for package cob_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.2 (2014-12-15)
+------------------
 * merge
 * delete desire_description
 * Contributors: Florian Weisshardt, ipa-fxm

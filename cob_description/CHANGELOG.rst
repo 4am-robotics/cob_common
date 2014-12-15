@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.2 (2014-12-15)
+------------------
 * fix syntax
 * added velocity and position controllers
 * more output for urdf test
