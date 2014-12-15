@@ -2,6 +2,18 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix syntax
+* added velocity and position controllers
+* more output for urdf test
+* static versions for torso and head
+* set limit for sensorring
+* prepare cob4 component descriptions for new structure
+* new reduced stl collision meshes
+* use VelocityJointInterface hardware interfaces for simulation of all bases
+* Contributors: Florian Weisshardt, ipa-cob4-2, ipa-fmw, ipa-fxm, ipa-nhg
+
 0.6.1 (2014-09-24)
 ------------------
 * fix mesh due to assimp error

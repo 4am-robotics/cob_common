@@ -2,6 +2,11 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add new msgs
+* Contributors: ipa-nhg
+
 0.6.1 (2014-09-24)
 ------------------
 

@@ -2,6 +2,11 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* use VelocityJointInterface hardware interfaces for simulation of all bases
+* Contributors: ipa-fxm
+
 0.6.1 (2014-09-24)
 ------------------
 * 1=true
