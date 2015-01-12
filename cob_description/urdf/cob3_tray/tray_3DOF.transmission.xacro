@@ -29,7 +29,7 @@
 
     <transmission name="${name}_3_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${name}_3_joint">      
+      <joint name="${name}_3_joint">  
         <hardwareInterface>EffortJointInterface</hardwareInterface>
         <hardwareInterface>PositionJointInterface</hardwareInterface>
         <hardwareInterface>VelocityJointInterface</hardwareInterface>

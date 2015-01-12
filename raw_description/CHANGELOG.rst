@@ -2,6 +2,23 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.2 (2014-12-15)
+------------------
+* use VelocityJointInterface hardware interfaces for simulation of all bases
+* Contributors: ipa-fxm
+
+0.6.1 (2014-09-24)
+------------------
+* 1=true
+* fix bumper plugins
+* Contributors: ipa-fxm
+
+0.6.0 (2014-09-16)
+------------------
+
+0.5.5 (2014-08-27)
+------------------
+
 0.5.4 (2014-08-25)
 ------------------
 * update changelog
