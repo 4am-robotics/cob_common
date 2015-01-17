@@ -80,7 +80,7 @@
     </xacro:cob_prosilica_v0>
 
     <!-- cam3d -->
-    <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_cam_reference_link">
+    <xacro:cob_kinect_v0 name="cam3d" ros_topic="cam3d" parent="${name}_cam_reference_link">
       <origin xyz="${cam3d_x} ${cam3d_y} ${cam3d_z}" rpy="${cam3d_roll} ${cam3d_pitch} ${cam3d_yaw}" />
     </xacro:cob_kinect_v0>
 
