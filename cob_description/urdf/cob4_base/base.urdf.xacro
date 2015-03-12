@@ -78,10 +78,10 @@
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-    <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="0" >
+    <xacro:cob_caster suffix="b" parent="${name}_link" ref_position="0" >
       <origin xyz="${-caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-    <xacro:cob_caster suffix="b" parent="${name}_link" ref_position="0" >
+    <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
 
