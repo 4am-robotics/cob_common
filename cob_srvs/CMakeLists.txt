@@ -3,8 +3,6 @@ project(cob_srvs)
 
 find_package(catkin REQUIRED COMPONENTS std_msgs trajectory_msgs geometry_msgs message_generation)
 
-
-#uncomment if you have defined services
 add_service_files(FILES
   Trigger.srv
   SetMaxVel.srv
