@@ -41,9 +41,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_gripper/palm.stl" />
+          <mesh filename="package://cob_description/meshes/cob4_gripper/palm.dae" />
         </geometry>
-        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -93,9 +92,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_gripper/finger_1.stl" />
+          <mesh filename="package://cob_description/meshes/cob4_gripper/finger_1.dae" />
         </geometry>
-        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -121,9 +119,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_gripper/finger_2.stl" />
+          <mesh filename="package://cob_description/meshes/cob4_gripper/finger_2.dae" />
         </geometry>
-        <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
