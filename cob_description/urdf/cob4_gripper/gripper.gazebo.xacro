@@ -6,19 +6,16 @@
     <gazebo reference="${name}_palm_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
-      <material>IPA/LightGrey</material>
     </gazebo>
 
     <gazebo reference="${name}_finger_1_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
-      <material>IPA/LightGrey</material>
     </gazebo>
 
     <gazebo reference="${name}_finger_2_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
-      <material>IPA/LightGrey</material>
     </gazebo>
 
   </xacro:macro>

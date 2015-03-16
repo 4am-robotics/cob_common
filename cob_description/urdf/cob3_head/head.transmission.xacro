@@ -6,7 +6,7 @@
     <transmission name="${name}_axis_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_axis_joint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_axis_motor">
         <mechanicalReduction>1</mechanicalReduction>

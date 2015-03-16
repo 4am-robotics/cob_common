@@ -6,7 +6,7 @@
     <transmission name="${name}_lower_neck_pan_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_lower_neck_pan_joint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_lower_neck_pan_motor">
         <mechanicalReduction>1</mechanicalReduction>
@@ -16,7 +16,7 @@
     <transmission name="${name}_lower_neck_tilt_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_lower_neck_tilt_joint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_lower_neck_tilt_motor">
         <mechanicalReduction>1</mechanicalReduction>
@@ -26,7 +26,7 @@
     <transmission name="${name}_upper_neck_pan_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_upper_neck_pan_joint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_upper_neck_pan_motor">
         <mechanicalReduction>1</mechanicalReduction>
@@ -36,7 +36,7 @@
     <transmission name="${name}_upper_neck_tilt_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_upper_neck_tilt_joint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${name}_upper_neck_tilt_motor">
         <mechanicalReduction>1</mechanicalReduction>
