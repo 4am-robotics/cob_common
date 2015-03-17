@@ -54,7 +54,7 @@
     </link>
 
     <joint name="${name}_2_joint" type="revolute">
-      <origin xyz="0 -0.07725 -0.00439" rpy="-0.349 0 0" />
+      <origin xyz="0 -0.07725 -0.00439" rpy="0.349 0 0" />
       <parent link="${name}_1_link"/>
       <child link="${name}_2_link" />
       <axis xyz="0 0 1" />
@@ -79,7 +79,7 @@
     </link>
 
     <joint name="${name}_3_joint" type="revolute">
-      <origin xyz="0 0.04668 0.0976" rpy="0.349 0 0" />
+      <origin xyz="0 0.09849 0.04476" rpy="-0.349 0 0" />
       <parent link="${name}_2_link"/>
       <child link="${name}_3_link" />
       <axis xyz="0 0 1" />
