@@ -29,7 +29,7 @@
   <property name="base_size_z" value="0.23" />
   <property name="base_collision_size_z" value="0.04" />
   
-  <xacro:macro name="base" params="name">
+  <xacro:macro name="base" params="name use_old_joint_names">
     
     <link name="base_footprint"/>
 
@@ -75,15 +75,29 @@
       <origin xyz="${laser_right_x} ${laser_right_y} ${laser_right_z}" rpy="${laser_right_roll} ${laser_right_pitch} ${laser_right_yaw}" />
     </xacro:sick_s300_laser_v0>
     
-    <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
-      <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster>
-    <xacro:cob_caster suffix="b" parent="${name}_link" ref_position="0" >
-      <origin xyz="${-caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster>
-    <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="0" >
-      <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster>
+    <xacro:if value="${use_old_joint_names}">
+      <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
+        <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:cob_caster>
+      <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="0" >
+        <origin xyz="${-caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:cob_caster>
+      <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="0" >
+        <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:cob_caster>
+    </xacro:if>
+    
+    <xacro:unless value="${use_old_joint_names}">
+      <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
+        <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:cob_caster>
+      <xacro:cob_caster suffix="b" parent="${name}_link" ref_position="0" >
+        <origin xyz="${-caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:cob_caster>
+      <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="0" >
+        <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:cob_caster>
+    </xacro:unless>
 
   <xacro:base_gazebo name="${name}" />
   </xacro:macro>
