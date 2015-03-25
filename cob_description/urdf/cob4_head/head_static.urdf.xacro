@@ -13,73 +13,93 @@
     </joint>
     
     <link name="${name}_base_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_1_joint" type="fixed">
       <origin xyz="0 0 0.0305" rpy="0 0 0"/>
-      <child link="${name}_1_link" />
       <parent link="${name}_base_link"/>
+      <child link="${name}_1_link" />
     </joint>
 
     <link name="${name}_1_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_2_joint" type="fixed">
       <origin xyz="0 -0.07725 -0.00439" rpy="-0.349 0 0" />
-      <child link="${name}_2_link" />
       <parent link="${name}_1_link"/>
+      <child link="${name}_2_link" />
     </joint>
 
     <link name="${name}_2_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_3_joint" type="fixed">
       <origin xyz="0 0.04668 0.0976" rpy="0.349 0 0" />
-      <child link="${name}_3_link" />
       <parent link="${name}_2_link"/>
+      <child link="${name}_3_link" />
     </joint>
 
     <link name="${name}_3_link">
-      <inertial>
-        <mass value="1" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:default_inertial/>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
         </geometry>
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_head/head_link.dae"/>
+          <mesh filename="package://cob_description/meshes/cob4_head/head_link_collision.stl"/>
         </geometry>
       </collision>
     </link>
 
     <joint name="${name}_center_joint" type="fixed">
       <origin xyz="0.0 0.0 -0.28247" rpy="0 0 0" />
-      <child link="${name}_center_link" />
       <parent link="${name}_3_link"/>
+      <child link="${name}_center_link" />
     </joint>
     
     <link name="${name}_center_link"/>

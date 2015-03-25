@@ -78,10 +78,10 @@
     <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-    <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="0" >
+    <xacro:cob_caster suffix="b" parent="${name}_link" ref_position="0" >
       <origin xyz="${-caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
-    <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="0" >
+    <xacro:cob_caster suffix="fr" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:cob_caster>
 
@@ -95,8 +95,8 @@
 
     <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
       <axis xyz="0 1 0" />
-      <limit effort="100" velocity="100"/> <!-- alpha tested effort and velocity limits -->
-      <safety_controller  k_velocity="10" />
+      <!--limit effort="100" velocity="100"/--> <!-- alpha tested effort and velocity limits -->
+      <!--safety_controller  k_velocity="10" /-->
       <dynamics damping="0.0" friction="0.0" />
       <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
       <parent link="${parent}_rotation_link"/>
@@ -136,8 +136,8 @@
     
     <joint name="${suffix}_rotation_joint" type="continuous">
       <axis xyz="0 0 1" />
-      <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
-      <safety_controller  k_velocity="10" />
+      <!--limit effort="100" velocity="100"/--> <!-- alpha tested velocity and effort limits -->
+      <!--safety_controller  k_velocity="10" /-->
       <calibration rising="${ref_position}"/>
       <dynamics damping="0.0" friction="0.0" />
       <insert_block name="origin" />

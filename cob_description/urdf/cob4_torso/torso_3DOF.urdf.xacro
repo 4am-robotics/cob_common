@@ -21,6 +21,18 @@
         <origin xyz="0.03 0.08 0.01" rpy="0 0 0" />
       </xacro:cylinder_inertial>
 -->
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_1_joint" type="revolute">
@@ -39,6 +51,18 @@
         <origin xyz="0 0 ${0.075/2}" rpy="0 0 0"/>
       </xacro:hollow_spherical_cap_inertial>
 -->
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_2_joint" type="revolute">
@@ -57,6 +81,18 @@
         <origin xyz="0.034 0.102 0.092" rpy="0.5236 0 0"/>
       </xacro:spherical_cap_inertial>
 -->
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_3_joint" type="revolute">
@@ -95,7 +131,21 @@
       <child link="${name}_center_link" />
     </joint>
     
-    <link name="${name}_center_link"/>
+    <link name="${name}_center_link">
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
 
 
     <!-- left camera -->

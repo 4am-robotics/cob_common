@@ -2,6 +2,41 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.2 (2014-12-15)
+------------------
+* fix syntax
+* added velocity and position controllers
+* more output for urdf test
+* static versions for torso and head
+* set limit for sensorring
+* prepare cob4 component descriptions for new structure
+* new reduced stl collision meshes
+* use VelocityJointInterface hardware interfaces for simulation of all bases
+* Contributors: Florian Weisshardt, ipa-cob4-2, ipa-fmw, ipa-fxm, ipa-nhg
+
+0.6.1 (2014-09-24)
+------------------
+* fix mesh due to assimp error
+* fix bumper plugins
+* fixed center of gravity and inertia formulas
+* Contributors: ipa-fxm, ipa-fxm-fm
+
+0.6.0 (2014-09-16)
+------------------
+* new sick_s300 collision model
+* gazebo needs a new link for the topic, if we use the origin of the scanner (the center), the topic detects only the collision model
+* Deleting s300 stl mesh because the dae file is used
+* make lookat arbitrarily fast
+* use VelocityJointInterface for cob4_torso
+* new collision mesh
+* merge with 320
+* make lookat arbitrarily fast
+* use VelocityJointInterface for cob4_torso
+* Contributors: Florian Weisshardt, ipa-fxm, ipa-nhg
+
+0.5.5 (2014-08-27)
+------------------
+
 0.5.4 (2014-08-25)
 ------------------
 * update changelog
