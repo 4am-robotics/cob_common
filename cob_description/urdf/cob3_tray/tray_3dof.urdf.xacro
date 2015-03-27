@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find cob_description)/urdf/cob3_tray/tray_3DOF.gazebo.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/cob3_tray/tray_3DOF.transmission.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/cob3_tray/tray_3dof.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/cob3_tray/tray_3dof.transmission.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/phidgets_distance.urdf.xacro" />
 
   <xacro:macro name="tray" params="name parent *origin">
