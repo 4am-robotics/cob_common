@@ -1,4 +1,4 @@
 string data
 ---
 bool success
-std_msgs/String errorMessage
+string message
