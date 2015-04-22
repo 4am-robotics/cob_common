@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS std_msgs message_generation)
 add_service_files(FILES
   Trigger.srv
   SetFloat.srv
+  SetInt.srv
   SetString.srv
 )
 
