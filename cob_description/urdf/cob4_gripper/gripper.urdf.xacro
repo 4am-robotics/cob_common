@@ -52,6 +52,28 @@
       </collision>
     </link>
 
+    <joint name="${name}_grasp_joint" type="fixed">
+      <origin xyz="0 0 0.11" rpy="0 -${M_PI/2} 0" />
+      <parent link="${name}_base_link"/>
+      <child link="${name}_grasp_link"/>
+    </joint>
+
+    <link name="${name}_grasp_link">
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
     <!-- joint between base_link and gripper_base_link -->
     <joint name="${name}_camera_joint" type="fixed" >
       <origin xyz="0 0 0" rpy="0 ${M_PI/2} 0" />
@@ -77,7 +99,7 @@
 
     <!-- joint between gripper_palm_link and gripper_finger_1_link -->
     <joint name="${name}_finger_1_joint" type="revolute">
-      <origin xyz="-0.04409 0.02163  0" rpy="${M_PI} 0 -0.2" />
+      <origin xyz="-0.04409 0.02163  0" rpy="0 0 -0.2" />
       <parent link="${name}_camera_link"/>
       <child link="${name}_finger_1_link"/>
       <axis xyz="0 0 1" />
