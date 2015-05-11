@@ -4,6 +4,7 @@
   <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
   <xacro:include filename="$(find raw_description)/urdf/base_short/base.gazebo.xacro" />
   <xacro:include filename="$(find raw_description)/urdf/base_short/base.transmission.xacro" />
+  <xacro:include filename="$(find cob_hardware_config)/raw3-3/urdf/properties.urdf.xacro" />
 
   <!-- sensors -->
   <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
@@ -224,12 +225,12 @@
     <!--modify here for test: front,base and top lasers -->
     <!-- base laser front -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${base_laser_x} ${-base_laser_y_front} ${base_laser_z}" rpy="${M_PI} 0 ${-M_PI/4}" />
+      <origin xyz="${laser_front_x} ${laser_front_y} ${base_laser_z}" rpy="${M_PI} 0 ${laser_front_yaw}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
-      <origin xyz="${-base_laser_x} ${base_laser_y_back} ${base_laser_z}" rpy="${M_PI} 0 ${-5*M_PI/4}" />
+      <origin xyz="${laser_rear_x} ${laser_rear_y} ${base_laser_z}" rpy="${M_PI} 0 ${laser_rear_yaw}" />
     </xacro:sick_s300_laser_v0>
 
 
