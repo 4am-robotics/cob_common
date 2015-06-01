@@ -1,2 +1,0 @@
-Poison poisonStamp
-JointValue[] accelerations
