@@ -13,7 +13,6 @@
       <parent link="${parent}"/>
       <child link="${name}_link"/>
       <axis xyz="0 0 1" />
-      <calibration rising="${tray_ref}"/>
       <dynamics damping="5.0" friction="0.5"/>
       <limit effort="100" lower="-3.31612" upper="0.2" velocity="5"/>
     </joint>

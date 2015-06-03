@@ -53,25 +53,25 @@
 
     <!-- arrangement of the three drive_wheel modules -->
     <xacro:if value="${use_old_joint_names}">
-      <xacro:drive_wheel parent="${name}_link" suffix="fl" ref_position="0" >
+      <xacro:drive_wheel parent="${name}_link" suffix="fl" >
         <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="bl" ref_position="0" >
+      <xacro:drive_wheel parent="${name}_link" suffix="bl" >
         <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="br" ref_position="0" >
+      <xacro:drive_wheel parent="${name}_link" suffix="br" >
         <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
     </xacro:if>
 
     <xacro:unless value="${use_old_joint_names}">
-      <xacro:drive_wheel parent="${name}_link" suffix="fl" ref_position="0" >
+      <xacro:drive_wheel parent="${name}_link" suffix="fl" >
         <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="b" ref_position="0" >
+      <xacro:drive_wheel parent="${name}_link" suffix="b" >
         <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="fr" ref_position="0" >
+      <xacro:drive_wheel parent="${name}_link" suffix="fr" >
         <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
     </xacro:unless>

@@ -4,7 +4,7 @@
   <xacro:include filename="$(find cob_description)/urdf/cob4_gripper/gripper.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_gripper/gripper.transmission.xacro" />
 
-  <xacro:macro name="gripper" params="name parent *origin finger_1_ref finger_2_ref">
+  <xacro:macro name="gripper" params="name parent *origin">
 
     <!-- joint between base_link and gripper_base_link -->
     <joint name="${name}_base_joint" type="fixed" >
@@ -104,7 +104,6 @@
       <child link="${name}_finger_1_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.0" friction="0.0"/>
-      <calibration rising="${finger_1_ref}"/>
       <limit effort="200" lower="-1.047" upper="0.872" velocity="0.5"/>
     </joint>
     
@@ -132,7 +131,6 @@
       <child link="${name}_finger_2_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="0.0" friction="0.0"/>
-      <calibration rising="${finger_2_ref}"/>
       <limit effort="200" lower="-${M_PI/2}" upper="${M_PI/2}" velocity="0.5"/>
     </joint>
 

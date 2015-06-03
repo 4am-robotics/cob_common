@@ -47,14 +47,13 @@
   </xacro:macro>
 
   <!-- Macro for Caster hub only -->
-  <xacro:macro name="cob_caster_hub" params="*origin parent suffix ref_position" >
+  <xacro:macro name="cob_caster_hub" params="*origin parent suffix" >
     
     <joint name="${suffix}_rotation_joint" type="continuous">
       <insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${suffix}_rotation_link" />
       <axis xyz="0 0 1" />
-      <calibration rising="${ref_position}"/>
       <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
       <safety_controller  k_velocity="10" />
       <dynamics damping="0.0" friction="0.0" />
@@ -87,10 +86,9 @@
 
 
 
-  <xacro:macro name="drive_wheel" params="*origin parent suffix ref_position">
+  <xacro:macro name="drive_wheel" params="*origin parent suffix">
 
-    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster"
-                          ref_position="${ref_position}" >
+    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" >
       <insert_block name="origin" />
     </xacro:cob_caster_hub>
 
