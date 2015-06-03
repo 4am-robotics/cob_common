@@ -2,29 +2,32 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!--  Caster wheel transmission   -->
-  <xacro:macro name="cob_wheel_transmission" params="suffix parent reflect">
-    <transmission name="cob_wheel_transmission">
+  <xacro:macro name="cob_wheel_transmission" params="parent suffix reflect">
+    
+    <transmission name="${parent}_${suffix}_wheel_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${parent}_${suffix}_wheel_joint">      
+      <joint name="${parent}_${suffix}_wheel_joint" >
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="${parent}_${suffix}_wheel_motor">
         <mechanicalReduction>${reflect * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
-    </transmission>       
+    </transmission>
+    
   </xacro:macro>
 
   <!-- Hub transmission only -->
   <xacro:macro name="cob_caster_transmission" params="suffix">
-    <transmission name="cob_caster_transmission">
+    
+    <transmission name="${suffix}_rotation_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${suffix}_rotation_joint">
+      <joint name="${suffix}_rotation_joint" >
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>      
-      <actuator name="${suffix}_rotation_motor">
+      </joint>
+      <actuator name="${suffix}_rotation_motor" >
         <mechanicalReduction>${-1 * 624/35 * 80/18}</mechanicalReduction>
       </actuator>
-    </transmission>   
+    </transmission>
+    
   </xacro:macro>
-  
 </robot>

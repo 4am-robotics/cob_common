@@ -1,24 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_wheel_gazebo" params="suffix parent">
-    <gazebo reference="${parent}_${suffix}_wheel_link">
-      <mu1 value="100.0" />
-      <mu2 value="100.0" />
-      <kp  value="1000000.0" />
-      <kd  value="1.0" />
-      <material value="IPA/LightGrey"/>
-    </gazebo>
-  </xacro:macro>
-
-  <xacro:macro name="cob_caster_gazebo" params="suffix">
-    <gazebo reference="${suffix}_caster_rotation_link">
-      <gravity>true</gravity>
-      <self_collide>false</self_collide>
-      <material value="IPA/Metal" />
-    </gazebo>
-  </xacro:macro>
-
   <xacro:macro name="base_gazebo" params="name">
     <gazebo reference="${name}_link">
       <gravity>true</gravity>
