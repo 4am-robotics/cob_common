@@ -40,7 +40,6 @@
       <parent link="${name}_base_link"/>
       <child link="${name}_1_link" />
       <axis xyz="0 0 1" />
-      <calibration rising="${torso_1_ref}"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
@@ -70,7 +69,6 @@
       <parent link="${name}_1_link"/>
       <child link="${name}_2_link" />
       <axis xyz="0 0 1" />
-      <calibration rising="${torso_2_ref}"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 
@@ -100,7 +98,6 @@
       <parent link="${name}_2_link"/>
       <child link="${name}_3_link" />
       <axis xyz="0 0 1" />
-      <calibration rising="${torso_3_ref}"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
     </joint>
 

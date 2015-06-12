@@ -3,12 +3,6 @@
 
   <property name="M_PI" value="3.1415926535897931" />
 
-  <!-- Casters -->
-  <property name="cal_caster_fl" value="0.0" />
-  <property name="cal_caster_fr" value="0.0" />
-  <property name="cal_caster_bl" value="0.0" />
-  <property name="cal_caster_br" value="0.0" />
-
   <!-- see https://secure.wikimedia.org/wikipedia/en/wiki/List_of_moment_of_inertia_tensors -->
   <xacro:macro name="sphere_inertial" params="radius mass *origin">
     <inertial>

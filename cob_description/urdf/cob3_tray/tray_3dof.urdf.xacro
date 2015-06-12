@@ -13,7 +13,6 @@
       <parent link="${parent}"/>
       <child link="${name}_1_link"/>
       <axis xyz="0 0 1" />
-      <calibration rising="${tray_1_ref}"/>
       <dynamics damping="5.0" friction="0.5"/>
       <limit effort="100" lower="-0.02" upper="1.37" velocity="5"/>
     </joint>
@@ -40,7 +39,6 @@
       <parent link="${name}_1_link"/>
       <child link="${name}_2_link"/>
       <axis xyz="0 0 1" />
-      <calibration rising="${tray_2_ref}"/>
       <dynamics damping="5.0" friction="0.5"/>
       <limit effort="100" lower="-3.34" upper="3.34" velocity="5"/>
     </joint>
@@ -67,7 +65,6 @@
       <parent link="${name}_2_link"/>
       <child link="${name}_3_link"/>
       <axis xyz="0 0 1" />
-      <calibration rising="${tray_3_ref}"/>
       <dynamics damping="5.0" friction="0.5"/>
       <limit effort="100" lower="-3.34" upper="3.34" velocity="5"/>
     </joint>

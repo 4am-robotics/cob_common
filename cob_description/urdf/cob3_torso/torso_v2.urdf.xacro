@@ -36,7 +36,6 @@
       <child link="${name}_lower_neck_tilt_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="25.0" friction="10.0"/>
-      <calibration rising="${torso_lower_neck_tilt_ref}"/>
       <limit effort="200.0" lower="-0.25" upper="0.21" velocity="0.5"/>
       <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-0.25 + 0.01}" soft_upper_limit="${0.25 - 0.01}" /-->
     </joint>
@@ -70,7 +69,6 @@
       <child link="${name}_pan_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="25.0" friction="10.0"/>
-      <calibration rising="${torso_pan_ref}"/>
       <limit effort="200.0" lower="-0.12" upper="0.12" velocity="0.5"/>
       <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-0.2 + 0.01}" soft_upper_limit="${0.2 - 0.01}" /-->
     </joint>
@@ -98,7 +96,6 @@
       <child link="${name}_upper_neck_tilt_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="25.0" friction="10.0"/>
-      <calibration rising="${torso_upper_neck_tilt_ref}"/>
       <limit effort="200.0" lower="-0.37" upper="0.37" velocity="0.5"/>
       <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="${-0.4 + 0.01}" soft_upper_limit="${0.4 - 0.01}" /-->
     </joint>

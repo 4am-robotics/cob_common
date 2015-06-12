@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.transmission.xacro" />
+
+  <property name="caster_wheel_offset_y" value="0.0" />
+  
+  <property name="caster_mass" value="5.9" />
+  <property name="wheel_mass" value="0.44036" />
+
+  <xacro:macro name="cob_wheel" params="parent suffix reflect">
+
+    <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
+      <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
+      <parent link="${parent}_rotation_link"/>
+      <child link="${parent}_${suffix}_wheel_link"/>
+      <axis xyz="0 1 0" />
+      <limit effort="100" velocity="100"/> <!-- alpha tested effort and velocity limits -->
+      <safety_controller  k_velocity="10" />
+      <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="${parent}_${suffix}_wheel_link">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="${wheel_mass}" />
+        <inertia  ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
+                  iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://cob_description/meshes/drive_wheel/wheel.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://cob_description/meshes/drive_wheel/wheel.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- extensions -->
+    <xacro:cob_wheel_gazebo parent="${parent}" suffix="${suffix}" />
+    <xacro:cob_wheel_transmission parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
+
+  </xacro:macro>
+
+  <!-- Macro for Caster hub only -->
+  <xacro:macro name="cob_caster_hub" params="*origin parent suffix" >
+    
+    <joint name="${suffix}_rotation_joint" type="continuous">
+      <insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${suffix}_rotation_link" />
+      <axis xyz="0 0 1" />
+      <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
+      <safety_controller  k_velocity="10" />
+      <dynamics damping="0.0" friction="0.0" />
+    </joint>
+    
+    <link name="${suffix}_rotation_link">
+      <inertial>
+        <origin xyz="0 0 0" />
+        <mass value="${caster_mass}"/>
+        <inertia  ixx="0.04" ixy="-0.0007" ixz="0.0"
+                  iyy="0.02" iyz="-0.000004" izz="0.05" />
+      </inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://cob_description/meshes/drive_wheel/caster.stl"/>
+        </geometry>
+        <material name="IPA/LightGrey" />
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>    
+
+    <!-- extensions -->
+    <xacro:cob_caster_transmission suffix="${suffix}" />
+    
+  </xacro:macro>
+
+
+
+  <xacro:macro name="drive_wheel" params="*origin parent suffix">
+
+    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" >
+      <insert_block name="origin" />
+    </xacro:cob_caster_hub>
+
+    <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1" />
+
+    <!-- extensions -->
+    <xacro:cob_caster_gazebo suffix="${suffix}" />
+    
+  </xacro:macro>
+
+</robot>

@@ -33,7 +33,6 @@
       <parent link="${name}_base_link"/>
       <child link="${name}_link" />
       <axis xyz="0 0 1" />
-      <calibration rising="${sensorring_ref}"/>
       <limit effort="100" lower="-6.2831" upper="6.2831" velocity="6.28"/>
     </joint>
     
