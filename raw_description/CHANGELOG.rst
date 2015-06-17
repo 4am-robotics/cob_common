@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.3 (2015-06-17)
+------------------
 * allow laser calibration
 * remove unsupported calibration_rising
 * separate xacro macro for drive_wheel module used in all bases + significant simplification

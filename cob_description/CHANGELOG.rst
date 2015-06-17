@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.3 (2015-06-17)
+------------------
 * missing dependency for urdf checks
 * remove unsupported calibration_rising
 * separate xacro macro for drive_wheel module used in all bases + significant simplification
