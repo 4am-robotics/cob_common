@@ -2,6 +2,11 @@
 Changelog for package cob_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.3 (2015-06-17)
+------------------
+* remove brics_actuator
+* Contributors: ipa-fxm
+
 0.6.2 (2014-12-15)
 ------------------
 * merge

@@ -2,6 +2,15 @@
 Changelog for package cob_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.3 (2015-06-17)
+------------------
+* Merge branch 'indigo_dev' of github.com:ipa320/cob_common into remove_Trigger_srv
+* readd SetInt service
+* remove Trigger from cob_srvs
+* cleanup cob_srvs
+* beautify CMakeLists
+* Contributors: ipa-fxm
+
 0.6.2 (2014-12-15)
 ------------------
 

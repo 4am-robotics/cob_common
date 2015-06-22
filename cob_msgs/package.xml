@@ -1,6 +1,6 @@
 <package>
   <name>cob_msgs</name>
-  <version>0.6.2</version>
+  <version>0.6.3</version>
   <description>
     This package is a copy of former pr2_msgs - ported to ROS Indigo
     Messages for representing PR2 state, such as battery information and the PR2 fingertip sensors.

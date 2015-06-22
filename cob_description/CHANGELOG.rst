@@ -2,6 +2,31 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.3 (2015-06-17)
+------------------
+* missing dependency for urdf checks
+* remove unsupported calibration_rising
+* separate xacro macro for drive_wheel module used in all bases + significant simplification
+* use extended collision model for torso
+* add grasp link to sdhx and fix finger orientation
+* fix type error
+* renamed 'dof'  urdfs
+* add temporary fix urdf argument for cob4_base joint_names
+* recalculated head joint positions
+* collada meshes for cob4_gripper
+* add new parameter with default value
+* allow cob3 components to be used with PositionJointInterface
+* renamed joints
+* Corrects the suffixes for the basis
+* redefined meshes origin
+* addapted urdf to the real gripper positions
+* proper meshes for cob4_gripper
+* Limits now come from the yaml files
+* correct collision checking for cob4 components
+* Openni needs that topic and link name are the same
+* missed joint
+* Contributors: Florian Weisshardt, ipa-cob3-9, ipa-cob4-2, ipa-cob4-6, ipa-fxm, ipa-nhg, thiagodefreitas
+
 0.6.2 (2014-12-15)
 ------------------
 * fix syntax
