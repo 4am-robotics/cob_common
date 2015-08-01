@@ -1,11 +1,12 @@
 #!/usr/bin/env python
-PKG='cob_description'
-import roslib; roslib.load_manifest(PKG)
 
 import sys
 import os
 import unittest
 import subprocess
+
+import rospy
+import rosunit
 
 ## A sample python unit test
 class TestUrdf(unittest.TestCase):
@@ -35,5 +36,4 @@ class TestUrdf(unittest.TestCase):
 			self.fail("urdf not correct. file: " + file_to_test + "\n" + p.stderr.read())
  
 if __name__ == '__main__':
-	import rosunit
-	rosunit.unitrun(PKG, 'test_urdf', TestUrdf) 
+	rosunit.unitrun('cob_description', 'test_urdf', TestUrdf) 
