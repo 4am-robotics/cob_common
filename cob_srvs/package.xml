@@ -8,12 +8,13 @@
   <url type="website">http://ros.org/wiki/cob_srvs</url>
   <!-- <url type="bugtracker"></url> -->
 
-
   <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+
   <build_depend>message_generation</build_depend>
+
   <run_depend>message_runtime</run_depend>
 
 </package>
