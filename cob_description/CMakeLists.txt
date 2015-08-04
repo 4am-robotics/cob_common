@@ -3,26 +3,14 @@ project(cob_description)
 
 find_package(catkin REQUIRED COMPONENTS)
 
-catkin_package()
-
-install(DIRECTORY urdf
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+catkin_package(
+  CATKIN_DEPENDS gazebo_ros rospy rosunit
 )
 
-install(DIRECTORY gazebo
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-install(DIRECTORY meshes
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-install(DIRECTORY Media
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(DIRECTORY gazebo Media meshes urdf
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 install(PROGRAMS test/test_urdf.py
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/test
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/test
 )
-
-#catkin_add_gtest(test_urdf test/test_urdf.cpp WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})

@@ -3,16 +3,10 @@ project(raw_description)
 
 find_package(catkin REQUIRED)
 
-catkin_package()
-
-install(DIRECTORY urdf
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+catkin_package(
+  CATKIN_DEPENDS cob_description gazebo_ros
 )
 
-install(DIRECTORY Media
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-install(DIRECTORY meshes
+install(DIRECTORY Media meshes urdf
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
