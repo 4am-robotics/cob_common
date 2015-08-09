@@ -5,8 +5,8 @@
     This package is a copy of former pr2_msgs - ported to ROS Indigo
     Messages for representing PR2 state, such as battery information and the PR2 fingertip sensors.
   </description>
-  
-  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer> 
+
+  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
   <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
 
   <license>BSD</license>

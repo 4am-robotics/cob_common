@@ -14,7 +14,7 @@
   <author email="aub@ipa.fhg.de">Alexander Bubeck</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-  
+
   <exec_depend>cob_description</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
 
