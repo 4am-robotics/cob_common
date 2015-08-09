@@ -1,4 +1,4 @@
-<package>
+<package format="2">
   <name>cob_description</name>
   <version>0.6.3</version>
   <description>This package contains the description (mechanical, kinematic, visual,
@@ -16,11 +16,9 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>liburdfdom-tools</build_depend>
-
-  <run_depend>gazebo_ros</run_depend>
-  <run_depend>rospy</run_depend>
-  <run_depend>rosunit</run_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>rosunit</exec_depend>
 
   <export>
     <gazebo_ros gazebo_media_path="${prefix}"/>
