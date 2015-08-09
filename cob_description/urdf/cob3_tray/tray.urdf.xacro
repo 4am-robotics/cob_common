@@ -86,7 +86,7 @@
     </joint>
 
     <link name="${name}_left_link"/>
-    
+
     <!-- phidgets distance sensors -->
     <xacro:phidgets_distance_v0 name="${name}_phidgets_1" ros_topic="/tray_sensors/range_1_sim" update_rate="10" parent="${name}_left">
       <origin xyz="-0.275 0 0.02" rpy="0 0 ${-M_PI/2}" />
@@ -106,5 +106,5 @@
     <xacro:tray_transmission name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

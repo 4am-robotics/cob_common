@@ -5,7 +5,7 @@
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.transmission.xacro" />
 
   <property name="caster_wheel_offset_y" value="0.0" />
-  
+
   <property name="caster_mass" value="5.9" />
   <property name="wheel_mass" value="0.44036" />
 
@@ -48,7 +48,7 @@
 
   <!-- Macro for Caster hub only -->
   <xacro:macro name="cob_caster_hub" params="*origin parent suffix" >
-    
+
     <joint name="${suffix}_rotation_joint" type="continuous">
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -58,7 +58,7 @@
       <safety_controller  k_velocity="10" />
       <dynamics damping="0.0" friction="0.0" />
     </joint>
-    
+
     <link name="${suffix}_rotation_link">
       <inertial>
         <origin xyz="0 0 0" />
@@ -77,11 +77,11 @@
           <box size="0.001 0.001 0.001" />
         </geometry>
       </collision>
-    </link>    
+    </link>
 
     <!-- extensions -->
     <xacro:cob_caster_transmission suffix="${suffix}" />
-    
+
   </xacro:macro>
 
 
@@ -96,7 +96,7 @@
 
     <!-- extensions -->
     <xacro:cob_caster_gazebo suffix="${suffix}" />
-    
+
   </xacro:macro>
 
 </robot>

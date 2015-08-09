@@ -4,7 +4,7 @@
   <xacro:include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
 
   <xacro:macro name="raw_boxgripper" params="name parent *origin">
-        
+
     <!-- joint between arm_ee_link and raw_boxgripper_link -->
     <joint name="${name}_base_joint" type="fixed" >
       <insert_block name="origin" />
@@ -26,7 +26,7 @@
       </xacro:box_inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" /> 
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <box size="0.002 0.04 0.26"/>
         </geometry>
@@ -39,11 +39,11 @@
           <mesh filename="package://raw_description/meshes/boxgripper/boxgripper_collision.stl"/>
         </geometry>
       </collision>
-    </link> 
+    </link>
 
     <!-- extensions -->
     <xacro:raw_boxgripper_gazebo name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

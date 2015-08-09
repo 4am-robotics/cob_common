@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <xacro:include filename="$(find cob_description)/urdf/sensors/softkinetic.gazebo.xacro" />
 
   <xacro:macro name="softkinetic" params="name parent ros_topic *origin">
@@ -9,15 +9,15 @@
       <parent link="${parent}"/>
       <child link="${name}_link"/>
     </joint>
-    
+
     <link name="${name}_link"/>
-    
+
     <joint name="${name}_frame_joint" type="fixed">
       <origin xyz="0 0 0" rpy="${-M_PI/2} ${-M_PI/2} 0" />
       <parent link="${name}_link"/>
       <child link="${name}_frame"/>
     </joint>
-    
+
     <link name="${name}_frame">
       <xacro:box_inertial x="0.105" y="0.03" z="0.023" mass="0.5">
         <origin xyz="0 0 0" rpy="0 0 0" />

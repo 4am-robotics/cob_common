@@ -31,7 +31,7 @@
     </joint>
 
     <link name="${name}_cam_reference_link"/>
-      
+
     <!-- left camera -->
     <xacro:cob_prosilica_v0 name="${name}_color_camera_l" ros_topic="stereo/left" parent="${name}_cam_reference_link">
       <origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
