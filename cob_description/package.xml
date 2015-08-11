@@ -19,6 +19,7 @@
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>rosunit</exec_depend>
+  <exec_depend>xacro</exec_depend>
 
   <export>
     <gazebo_ros gazebo_media_path="${prefix}"/>
