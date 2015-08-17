@@ -54,7 +54,7 @@
         <mass value="2.0"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -62,7 +62,7 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -71,7 +71,7 @@
       </collision>
     </link>
 
-    <!-- joint between arm_1_link and arm_2_link -->  
+    <!-- joint between arm_1_link and arm_2_link -->
     <joint name="${name}_2_joint" type="revolute">
       <origin xyz="0 -0.002 0.1915" rpy="${M_PI/2} 0 0"/>
       <parent link="${name}_1_link"/>
@@ -89,7 +89,7 @@
         <mass value="2.0"/>
         <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -97,7 +97,7 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -106,7 +106,7 @@
       </collision>
     </link>
 
-    <!-- joint between arm_2_link and arm_3_link -->  
+    <!-- joint between arm_2_link and arm_3_link -->
     <joint name="${name}_3_joint" type="revolute">
       <origin xyz="0 0.2085 0" rpy="-${M_PI/2} 0 0"/>
       <parent link="${name}_2_link"/>
@@ -124,7 +124,7 @@
         <mass value="2.0"/>
         <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -132,14 +132,14 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://cob_description/meshes/lbr/joint_3_collision.stl"/>
         </geometry>
       </collision>
-    </link>  
+    </link>
 
     <!-- joint between arm_3_link and arm_4_link -->
     <joint name="${name}_4_joint" type="revolute">
@@ -160,7 +160,7 @@
         <mass value="2.0"/>
         <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -168,7 +168,7 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -194,7 +194,7 @@
         <mass value="2.313272"/>
         <inertia ixx="0.03" ixy="0" ixz="0" iyy="0.03" iyz="0" izz="0.03" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -202,7 +202,7 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -229,7 +229,7 @@
         <mass value="2.057856"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -237,7 +237,7 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -264,7 +264,7 @@
         <mass value="1.120198"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
       </inertial>
-      
+
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -272,7 +272,7 @@
         </geometry>
         <material name="IPA/Orange" />
       </visual>
-      
+
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>

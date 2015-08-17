@@ -106,7 +106,7 @@
       <dynamics damping="0.0" friction="0.0"/>
       <limit effort="200" lower="-1.047" upper="0.872" velocity="0.5"/>
     </joint>
-    
+
 
     <link name="${name}_finger_1_link">
       <xacro:default_inertial/>
@@ -156,5 +156,5 @@
     <xacro:gripper_transmission name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

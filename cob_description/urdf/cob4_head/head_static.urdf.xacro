@@ -11,7 +11,7 @@
       <child link="${name}_base_link" />
       <parent link="${parent}"/>
     </joint>
-    
+
     <link name="${name}_base_link">
       <xacro:default_inertial/>
       <visual>
@@ -101,9 +101,9 @@
       <parent link="${name}_3_link"/>
       <child link="${name}_center_link" />
     </joint>
-    
+
     <link name="${name}_center_link"/>
-    
+
   <!-- extensions -->
   <xacro:head_gazebo name="${name}" />
   <xacro:head_transmission name="${name}" />

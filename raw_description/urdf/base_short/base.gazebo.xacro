@@ -24,7 +24,7 @@
           <frameName>world</frameName>
           <bumperTopicName>${name}_bumper</bumperTopicName>
         </plugin>
-      </sensor>  
+      </sensor>
     </gazebo>
 
     <gazebo>

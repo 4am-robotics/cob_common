@@ -27,7 +27,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://raw_description/meshes/tower/raw_tower_asymetric.dae"/>
-        </geometry> 
+        </geometry>
       </visual>
 
       <collision>

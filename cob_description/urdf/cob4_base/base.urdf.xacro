@@ -35,11 +35,11 @@
              iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />  
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://cob_description/meshes/cob4_base/base.dae"/>
           <!--box size="0.01 0.01 0.01" /-->
-        </geometry> 
+        </geometry>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />

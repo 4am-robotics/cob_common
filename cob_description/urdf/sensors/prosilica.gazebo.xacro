@@ -7,7 +7,7 @@
         <always_on>true</always_on>
         <update_rate>10.0</update_rate>
         <camera name="${name}_sensor">
-          <horizontal_fov>0.58</horizontal_fov>  
+          <horizontal_fov>0.58</horizontal_fov>
           <image>
             <format>R8G8B8</format>
             <width>1360</width>

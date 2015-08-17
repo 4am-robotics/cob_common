@@ -32,7 +32,7 @@
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
-    
+
   </xacro:macro>
 
 </robot>

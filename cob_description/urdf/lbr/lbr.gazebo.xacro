@@ -14,19 +14,19 @@
       <self_collide>false</self_collide>
       <material>IPA/Orange</material>
     </gazebo>
-  
+
     <gazebo reference="${name}_2_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
       <material>IPA/Orange</material>
     </gazebo>
-  
+
     <gazebo reference="${name}_3_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
       <material>IPA/Orange</material>
     </gazebo>
-  
+
     <gazebo reference="${name}_4_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>

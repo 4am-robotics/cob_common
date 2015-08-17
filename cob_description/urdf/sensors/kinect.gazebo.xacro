@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <xacro:macro name="cob_kinect_gazebo_v0" params="name ros_topic">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">

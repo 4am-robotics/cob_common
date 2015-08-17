@@ -13,7 +13,7 @@
       <child link="${name}_base_link" />
       <parent link="${parent}"/>
     </joint>
-    
+
     <link name="${name}_base_link">
       <xacro:default_inertial/>
 <!--
@@ -121,13 +121,13 @@
         </geometry>
       </collision>
     </link>
-    
+
     <joint name="${name}_center_joint" type="fixed">
       <origin xyz="0.0 0.0 0.18566" rpy="0 0 0" />
       <parent link="${name}_3_link"/>
       <child link="${name}_center_link" />
     </joint>
-    
+
     <link name="${name}_center_link">
       <xacro:default_inertial/>
       <visual>
@@ -159,7 +159,7 @@
     <xacro:softkinetic name="${name}_cam3d_down" ros_topic="torso_cam3d_down" parent="${name}_3_link">
       <origin xyz="${torso_cam3d_down_x} ${torso_cam3d_down_y} ${torso_cam3d_down_z}" rpy="${torso_cam3d_down_roll} ${torso_cam3d_down_pitch} ${torso_cam3d_down_yaw}" />
     </xacro:softkinetic>
-  
+
     <!-- extensions -->
     <xacro:torso_gazebo name="torso" />
     <xacro:torso_transmission name="torso" />
