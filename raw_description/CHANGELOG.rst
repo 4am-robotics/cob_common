@@ -2,6 +2,18 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix typo in collision mesh file name
+* add explicit exec_depend to xacro
+* fix catkin_minimum_required version
+* remove trailing whitespaces
+* remove trailing whitespaces
+* migrate to package format 2
+* sort dependencies
+* critically review dependencies
+* Contributors: ipa-fxm
+
 0.6.3 (2015-06-17)
 ------------------
 * allow laser calibration
