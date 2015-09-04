@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <xacro:macro name="softkinetic_gazebo" params="name ros_topic">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">

@@ -70,7 +70,7 @@
       <dynamics damping="25.0" friction="10.0"/>
       <limit effort="200" lower="-0.26" upper="0.25" velocity="0.5"/>
     </joint>
-    
+
 
     <link name="${name}_lower_neck_tilt_link">
       <xacro:default_inertial/>
@@ -186,5 +186,5 @@
     <xacro:torso_transmission name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

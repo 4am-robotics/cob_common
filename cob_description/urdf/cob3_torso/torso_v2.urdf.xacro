@@ -61,7 +61,7 @@
         </geometry>
       </collision>
     </link>
-    
+
     <!-- joint between torso_lower_neck_tilt_link and torso_pan_link -->
     <joint name="${name}_pan_joint" type="revolute">
       <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
@@ -147,5 +147,5 @@
     <xacro:torso_transmission name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

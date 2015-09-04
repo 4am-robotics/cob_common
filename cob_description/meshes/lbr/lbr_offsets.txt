@@ -16,7 +16,7 @@ Parent J3
 Child J4
 
 Joint 4
-xyz 0 0 0 
+xyz 0 0 0
 Parent J4
 Child J5
 

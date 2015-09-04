@@ -75,5 +75,5 @@
     <xacro:ur_connector_transmission name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

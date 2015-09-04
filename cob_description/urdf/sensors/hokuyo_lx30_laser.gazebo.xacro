@@ -32,7 +32,7 @@
           <topicName>${ros_topic}</topicName>
           <frameName>${name}_link</frameName>
         </plugin>
-      </sensor>    
+      </sensor>
       <material>IPA/LightGrey</material>
     </gazebo>
   </xacro:macro>
