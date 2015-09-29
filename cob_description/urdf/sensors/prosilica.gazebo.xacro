@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_prosilica_gazebo_v0" params="name ros_topic">
+  <xacro:macro name="cob_prosilica_gazebo_v0" params="name topic_prefix">
     <gazebo reference="${name}_frame">
       <sensor type="camera" name="${name}_sensor">
         <always_on>true</always_on>
@@ -27,9 +27,9 @@
           <updateRate>10.0</updateRate>
           <cameraName>${name}</cameraName>
           <frameName>${name}_link</frameName>
-          <topicName>${ros_topic}_image_data</topicName>
-          <imageTopicName>${ros_topic}_image_raw</imageTopicName>
-          <cameraInfoTopicName>${ros_topic}_camera_info</cameraInfoTopicName>
+          <topicName>${topic_prefix}image_data</topicName>
+          <imageTopicName>${topic_prefix}image_raw</imageTopicName>
+          <cameraInfoTopicName>${topic_prefix}camera_info</cameraInfoTopicName>
           <pollServiceName>request_image</pollServiceName>
           <CxPrime>697.69</CxPrime>
           <Cx>697.69</Cx>

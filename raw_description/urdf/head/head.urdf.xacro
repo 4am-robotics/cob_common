@@ -33,12 +33,12 @@
     <link name="${name}_cam_reference_link"/>
 
     <!-- left camera -->
-    <xacro:cob_prosilica_v0 name="${name}_color_camera_left" ros_topic="stereo" parent="${name}_cam_reference_link">
+    <xacro:cob_prosilica_v0 name="${name}_color_camera_left" topic_prefix="stereo" parent="${name}_cam_reference_link">
       <origin xyz="${cam_l_x} ${cam_l_y} ${cam_l_z}" rpy="${cam_l_roll} ${cam_l_pitch} ${cam_l_yaw}" />
     </xacro:cob_prosilica_v0>
 
     <!-- right camera -->
-    <xacro:cob_prosilica_v0 name="${name}_color_camera_right" ros_topic="stereo" parent="${name}_cam_reference_link">
+    <xacro:cob_prosilica_v0 name="${name}_color_camera_right" topic_prefix="stereo" parent="${name}_cam_reference_link">
       <origin xyz="${cam_r_x} ${cam_r_y} ${cam_r_z}" rpy="${cam_r_roll} ${cam_r_pitch} ${cam_r_yaw}" />
     </xacro:cob_prosilica_v0>
 
