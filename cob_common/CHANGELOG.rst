@@ -2,6 +2,32 @@
 Changelog for package cob_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.4 (2015-08-29)
+------------------
+* migrate to package format 2
+* critically review dependencies
+* Contributors: ipa-fxm
+
+0.6.3 (2015-06-17)
+------------------
+* remove brics_actuator
+* Contributors: ipa-fxm
+
+0.6.2 (2014-12-15)
+------------------
+* merge
+* delete desire_description
+* Contributors: Florian Weisshardt, ipa-fxm
+
+0.6.1 (2014-09-24)
+------------------
+
+0.6.0 (2014-09-16)
+------------------
+
+0.5.5 (2014-08-27)
+------------------
+
 0.5.4 (2014-08-25)
 ------------------
 * update changelog

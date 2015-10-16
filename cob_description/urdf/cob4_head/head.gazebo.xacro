@@ -7,7 +7,7 @@
       <gravity>true</gravity>
       <self_collide>false</self_collide>
     </gazebo>
-    
+
     <gazebo reference="${name}_1_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
@@ -17,7 +17,7 @@
       <gravity>true</gravity>
       <self_collide>false</self_collide>
     </gazebo>
-    
+
     <gazebo reference="${name}_3_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>

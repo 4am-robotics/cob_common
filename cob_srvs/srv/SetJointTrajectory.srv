@@ -1,4 +1,0 @@
-trajectory_msgs/JointTrajectory trajectory
----
-int64 success
-std_msgs/String errorMessage

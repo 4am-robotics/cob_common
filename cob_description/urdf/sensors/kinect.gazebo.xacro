@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <xacro:macro name="cob_kinect_gazebo_v0" params="name ros_topic">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">
@@ -33,6 +33,7 @@
           <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
           <depthImageCameraInfoTopicName>depth_registered/camera_info</depthImageCameraInfoTopicName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
+          <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
           <baseline>0.2</baseline>
           <hackBaseline>0.0</hackBaseline>
           <distortionK1>0.0</distortionK1>

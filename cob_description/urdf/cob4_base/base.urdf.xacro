@@ -2,67 +2,82 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/cob4_base/base.gazebo.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/cob4_base/base.transmission.xacro" />
-  
+
+  <!-- drive_wheel module -->
+  <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.urdf.xacro" />
+
+  <!-- sensors -->
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
 
+  <!-- properties -->
   <property name="caster_offset_x" value="0.24844" />  <!--modify here-->
   <property name="caster_offset_y" value="0.21515" />
   <property name="caster_offset_z" value="0.08" />
 
-  <property name="caster_wheel_offset_y" value="0.000" />
-  <property name="wheel_length" value="0.025" />
-  <property name="wheel_radius" value="0.074792" />   <!-- This is the 'effective' wheel radius. Wheel radius for uncompressed wheel is 0.079.  mp 20080801 -->
+  <property name="base_mass" value="50" />
 
-  <property name="caster_wheel_offset_y" value="0 " />
 
-  <property name="base_cg_x" value="-0.061" />
-  <property name="base_cg_y" value="0.0" />
-  <property name="base_cg_z" value="0.293" />
-  <property name="base_mass" value="116.0" />
+  <xacro:macro name="base" params="name use_old_joint_names">
 
-  <property name="caster_mass" value="5.9" />  
+    <link name="${name}_footprint"/>
 
-  <!-- simplified box collision geometry for base -->
-  <property name="base_size_x" value="0.8" />
-  <property name="base_size_y" value="0.6" />
-  <property name="base_size_z" value="0.23" />
-  <property name="base_collision_size_z" value="0.04" />
-  
-  <xacro:macro name="base" params="name">
-    
-    <link name="base_footprint"/>
-
-    <joint name="base_footprint_joint" type="fixed">
+    <joint name="${name}_footprint_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
-      <child link="base_link" />
-      <parent link="base_footprint"/>
+      <parent link="${name}_footprint"/>
+      <child link="${name}_link" />
     </joint>
 
-    <link name="base_link">
+    <link name="${name}_link">
       <inertial>
-        <mass value="50" />
         <origin xyz="0 0 0" />
+        <mass value="${base_mass}" />
         <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423"
              iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0.0" rpy="0 0 0" />  
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://cob_description/meshes/cob4_base/base.dae"/>
           <!--box size="0.01 0.01 0.01" /-->
-        </geometry> 
+        </geometry>
       </visual>
       <collision>
-        <origin xyz="0 0 0.0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://cob_description/meshes/cob4_base/base_collision.stl"/>
           <!--box size="0.01 0.01 0.01" /-->
         </geometry>
       </collision>
     </link>
-    
-    <!--modify here for test: front,base and top lasers -->
+
+
+    <!-- arrangement of the three drive_wheel modules -->
+    <xacro:if value="${use_old_joint_names}">
+      <xacro:drive_wheel parent="${name}_link" suffix="fl" >
+        <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:drive_wheel>
+      <xacro:drive_wheel parent="${name}_link" suffix="bl" >
+        <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:drive_wheel>
+      <xacro:drive_wheel parent="${name}_link" suffix="br" >
+        <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:drive_wheel>
+    </xacro:if>
+
+    <xacro:unless value="${use_old_joint_names}">
+      <xacro:drive_wheel parent="${name}_link" suffix="fl" >
+        <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:drive_wheel>
+      <xacro:drive_wheel parent="${name}_link" suffix="b" >
+        <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:drive_wheel>
+      <xacro:drive_wheel parent="${name}_link" suffix="fr" >
+        <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      </xacro:drive_wheel>
+    </xacro:unless>
+
+
+    <!-- sensors -->
     <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
       <origin xyz="${laser_front_x} ${laser_front_y} ${laser_front_z}" rpy="${laser_front_roll} ${laser_front_pitch} ${laser_front_yaw}" />
     </xacro:sick_s300_laser_v0>
@@ -70,117 +85,15 @@
     <xacro:sick_s300_laser_v0 name="${name}_laser_left" parent="${name}" ros_topic="scan_left_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
       <origin xyz="${laser_left_x} ${laser_left_y} ${laser_left_z}" rpy="${laser_left_roll} ${laser_left_pitch} ${laser_left_yaw}" />
     </xacro:sick_s300_laser_v0>
-    
+
     <xacro:sick_s300_laser_v0 name="${name}_laser_right" parent="${name}" ros_topic="scan_right_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
       <origin xyz="${laser_right_x} ${laser_right_y} ${laser_right_z}" rpy="${laser_right_roll} ${laser_right_pitch} ${laser_right_yaw}" />
     </xacro:sick_s300_laser_v0>
-    
-    <xacro:cob_caster suffix="fl" parent="${name}_link" ref_position="0" >
-      <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster>
-    <xacro:cob_caster suffix="bl" parent="${name}_link" ref_position="0" >
-      <origin xyz="${-caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster>
-    <xacro:cob_caster suffix="br" parent="${name}_link" ref_position="0" >
-      <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-    </xacro:cob_caster>
 
-  <xacro:base_gazebo name="${name}" />
-  </xacro:macro>
 
-  <!--                                                      -->
-  <!--           wheel                                      -->
-  <!--                                                      -->
-  <xacro:macro name="cob_wheel" params="suffix parent reflect">
-
-    <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
-      <axis xyz="0 1 0" />
-      <limit effort="100" velocity="100"/> <!-- alpha tested effort and velocity limits -->
-      <safety_controller  k_velocity="10" />
-      <dynamics damping="0.0" friction="0.0" />
-      <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
-      <parent link="${parent}_rotation_link"/>
-      <child link="${parent}_${suffix}_wheel_link"/>
-    </joint>
-
-    <link name="${parent}_${suffix}_wheel_link">
-      <inertial>
-        <mass value="0.44036" />
-        <origin xyz="0 0 0" />
-        <inertia  ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
-              iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
-        <geometry>
-          <cylinder radius="${wheel_radius}" length="${wheel_length}" />
-        </geometry>
-        <material name="IPA/LightGrey" />
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
-        <geometry>
-          <cylinder radius="${wheel_radius}" length="${wheel_length}" />
-        </geometry>
-      </collision>
-    </link>
-
-    <!-- extensions -->
-    <xacro:cob_wheel_gazebo parent="${parent}" suffix="${suffix}" />
-    <xacro:cob_wheel_transmission parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
+    <!-- gazebo extensions -->
+    <xacro:base_gazebo name="${name}" />
 
   </xacro:macro>
 
-  <!-- Macro for Caster hub only -->
-  <xacro:macro name="cob_caster_hub" params="suffix parent *origin ref_position" >
-    
-    <joint name="${suffix}_rotation_joint" type="continuous">
-      <axis xyz="0 0 1" />
-      <limit effort="100" velocity="100"/> <!-- alpha tested velocity and effort limits -->
-      <safety_controller  k_velocity="10" />
-      <calibration rising="${ref_position}"/>
-      <dynamics damping="0.0" friction="0.0" />
-      <insert_block name="origin" />
-      <parent link="${parent}"/>
-      <child link="${suffix}_rotation_link" />
-    </joint>
-    
-    <link name="${suffix}_rotation_link">
-      <inertial>
-        <mass value="${caster_mass}"/>
-        <origin xyz="0 0 0" />
-        <inertia  ixx="0.04" ixy="-0.0007" ixz="0.0"
-            iyy="0.02" iyz="-0.000004" izz="0.05" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_base/caster.stl"/>
-        </geometry>
-        <material name="IPA/LightGrey" />
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
-    </link>    
-
-    <!-- extensions -->
-  <xacro:cob_caster_transmission suffix="${suffix}" />
-  </xacro:macro>
-
-  <xacro:macro name="cob_caster" params="suffix parent *origin ref_position">
-    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" ref_position="${ref_position}" >
-      <insert_block name="origin" />
-    </xacro:cob_caster_hub>
-
-    <!-- wheel macros -->
-    <!--xacro:cob_wheel parent="${suffix}_caster" suffix="l" reflect="1" /--> <!--### modified by jie ###-->
-    <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1" />
-
-    <!-- extensions -->
-    <xacro:cob_caster_gazebo suffix="${suffix}" />
-  </xacro:macro>
 </robot>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <!-- specs from mesa Swiss Ranger SR400001 http://www.mesa-imaging.ch/prodview4k.php -->
   <xacro:macro name="cob_tof_gazebo_v0" params="name ros_topic">
     <gazebo reference="${name}_frame">
@@ -26,7 +26,7 @@
           </scan>
           <range>
             <min>0.80</min>    <!--0.8m min calibrated range-->
-            <max>5.0</max>    <!--5.0m max calibrated range--> 
+            <max>5.0</max>    <!--5.0m max calibrated range-->
             <resolution>0.010</resolution>
           </range>
           <noise>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <xacro:macro name="softkinetic_gazebo" params="name ros_topic">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">
@@ -33,6 +33,7 @@
           <depthImageCameraInfoTopicName>depth_registered/camera_info</depthImageCameraInfoTopicName>
           <frameName>${name}_optical_frame</frameName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
+          <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
           <distortionK1>0.0</distortionK1>
           <distortionK2>0.0</distortionK2>
           <distortionK3>0.0</distortionK3>

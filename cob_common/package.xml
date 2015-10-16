@@ -1,8 +1,7 @@
-<package>
+<package format="2">
   <name>cob_common</name>
-  <version>0.5.4</version>
+  <version>0.6.4</version>
   <description>The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc. Also the urdf desciption of the robot is located in this stack.</description>
-  <license>BSD</license>
   <license>LGPL</license>
 
   <url type="website">http://ros.org/wiki/cob_common</url>
@@ -12,18 +11,12 @@
   <maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 
-  
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>brics_actuator</run_depend>
-  <run_depend>cob_description</run_depend>
-  <run_depend>cob_msgs</run_depend>
-  <run_depend>cob_srvs</run_depend>
-  <run_depend>desire_description</run_depend>
-  <run_depend>raw_description</run_depend>
 
-
-
-
+  <exec_depend>cob_description</exec_depend>
+  <exec_depend>cob_msgs</exec_depend>
+  <exec_depend>cob_srvs</exec_depend>
+  <exec_depend>raw_description</exec_depend>
 
   <export>
     <metapackage/>

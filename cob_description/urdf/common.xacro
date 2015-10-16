@@ -3,12 +3,6 @@
 
   <property name="M_PI" value="3.1415926535897931" />
 
-  <!-- Casters -->
-  <property name="cal_caster_fl" value="0.0" />
-  <property name="cal_caster_fr" value="0.0" />
-  <property name="cal_caster_bl" value="0.0" />
-  <property name="cal_caster_br" value="0.0" />
-
   <!-- see https://secure.wikimedia.org/wikipedia/en/wiki/List_of_moment_of_inertia_tensors -->
   <xacro:macro name="sphere_inertial" params="radius mass *origin">
     <inertial>
@@ -39,7 +33,7 @@
         izz="${0.0833333 * mass * (x*x + y*y)}" />
     </inertial>
   </xacro:macro>
-  
+
   <xacro:macro name="spherical_cap_inertial" params="r h mass *origin">
     <inertial>
       <mass value="${mass}" />
@@ -50,7 +44,7 @@
       <origin></origin>
     </inertial>
   </xacro:macro>
-  
+
   <xacro:macro name="hollow_spherical_cap_inertial" params="r h t mass *origin">
     <inertial>
       <mass value="${mass}" />
@@ -60,7 +54,7 @@
         izz="${mass/(10*(2*t*t-3*r*t-3*h*t+6*h*r))*(-20*h*h*h*r+10*h*h*h*t+60*h*h*r*r-30*h*h*r*t-60*h*r*r*t+60*h*r*t*t-15*h*t*t*t+20*r*r*t*t-25*r*t*t*t+8*t*t*t*t)}" />
     </inertial>
   </xacro:macro>
-  
+
   <xacro:macro name="default_inertial">
     <inertial>
       <mass value="0.01"/>
@@ -69,4 +63,4 @@
     </inertial>
   </xacro:macro>
 
-</robot> 
+</robot>

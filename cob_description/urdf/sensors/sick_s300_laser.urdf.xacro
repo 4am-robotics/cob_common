@@ -4,7 +4,7 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.gazebo.xacro" />
 
   <property name="cylinder_radius" value="0.05" />  <!--simple collision model for the laser -->
-  <property name="cylinder_length" value="0.15" /> 
+  <property name="cylinder_length" value="0.15" />
 
   <xacro:macro name="sick_s300_laser_v0" params="name parent *origin ros_topic update_rate min_angle max_angle">
     <joint name="${name}_joint" type="fixed">
@@ -13,7 +13,7 @@
       <parent link="${parent}_link"/>
       <child link="${name}_link"/>
     </joint>
-    
+
     <link name="${name}_link" type="laser">
       <xacro:cylinder_inertial radius="${cylinder_radius}" length="${cylinder_length}" mass="1.2">
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -33,10 +33,10 @@
         </geometry>
       </collision>
     </link>
-    
+
 
     <!-- gazebo extensions -->
     <xacro:sick_s300_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
   </xacro:macro>
-  
+
 </robot>

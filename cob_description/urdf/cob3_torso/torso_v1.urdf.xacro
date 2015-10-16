@@ -14,11 +14,19 @@
     </joint>
 
     <link name="${name}_base_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.01"/>
-        <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
-      </inertial>
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
 
@@ -28,28 +36,27 @@
       <parent link="${name}_base_link"/>
       <child link="${name}_lower_neck_pan_link"/>
       <axis xyz="0 0 1" />
-      <calibration rising="${torso_lower_neck_pan_ref}"/>
       <dynamics damping="25.0" friction="10.0"/>
       <limit effort="200" lower="-0.1" upper="0.1" velocity="0.5"/>
     </joint>
 
     <link name="${name}_lower_neck_pan_link">
-      <inertial>
+      <xacro:default_inertial/>
+      <!--inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="1.0"/>
         <inertia ixx="0.200549" ixy="0.001322" ixz="-0.000000" iyy="0.123664" iyz="-0.000000" izz="0.104101" />
-      </inertial>
+      </inertial-->
       <visual>
-        <origin xyz="0 0 0.005" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <box size="0.01 0.01 0.01"/>
+          <box size="0.001 0.001 0.001" />
         </geometry>
-        <material name="IPA/LightGrey" />
       </visual>
       <collision>
-        <origin xyz="0 0 0.0005" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <box size="0.001 0.001 0.001"/>
+          <box size="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>
@@ -61,17 +68,17 @@
       <child link="${name}_lower_neck_tilt_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="25.0" friction="10.0"/>
-      <calibration rising="${torso_lower_neck_tilt_ref}"/>
       <limit effort="200" lower="-0.26" upper="0.25" velocity="0.5"/>
     </joint>
-    
+
 
     <link name="${name}_lower_neck_tilt_link">
-      <inertial>
+      <xacro:default_inertial/>
+      <!--inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="6.209720"/>
         <inertia ixx="0.171118" ixy="0.002544" ixz="-0.000000" iyy="0.083077" iyz="0.000000" izz="0.120948" />
-      </inertial>
+      </inertial-->
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -94,27 +101,26 @@
       <child link="${name}_upper_neck_pan_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="25.0" friction="10.0"/>
-      <calibration rising="${torso_upper_neck_pan_ref}"/>
       <limit effort="200" lower="-0.2" upper="0.2" velocity="0.5"/>
     </joint>
 
     <link name="${name}_upper_neck_pan_link">
-      <inertial>
+      <xacro:default_inertial/>
+      <!--inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="1.0"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      </inertial-->
       <visual>
-        <origin xyz="0 0 0.005" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <box size="0.01 0.01 0.01"/>
+          <box size="0.001 0.001 0.001" />
         </geometry>
-        <material name="IPA/LightGrey" />
       </visual>
       <collision>
-        <origin xyz="0 0 0.0005" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <box size="0.001 0.001 0.001"/>
+          <box size="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>
@@ -126,16 +132,16 @@
       <child link="${name}_upper_neck_tilt_link"/>
       <axis xyz="0 0 1" />
       <dynamics damping="25.0" friction="10.0"/>
-      <calibration rising="${torso_upper_neck_tilt_ref}"/>
       <limit effort="200" lower="-0.21" upper="0.3" velocity="0.5"/>
     </joint>
 
     <link name="${name}_upper_neck_tilt_link">
-      <inertial>
+      <xacro:default_inertial/>
+      <!--inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="6.744238"/>
         <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      </inertial-->
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -159,11 +165,7 @@
     </joint>
 
     <link name="head_cover_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.5"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:default_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -184,5 +186,5 @@
     <xacro:torso_transmission name="${name}" />
 
   </xacro:macro>
-  
+
 </robot>

@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.transmission.xacro" />
-  
+
   <xacro:macro name="sensorring" params="parent name *origin">
 
     <joint name="${name}_base_joint" type="fixed">
@@ -11,31 +11,52 @@
       <parent link="${parent}"/>
       <child link="${name}_base_link" />
     </joint>
-    
+
     <link name="${name}_base_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0.1"/>
-        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
-      </inertial>
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
     <joint name="${name}_joint" type="revolute">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${name}_base_link"/>
       <child link="${name}_link" />
-      <calibration rising="${sensorring_ref}"/>
       <axis xyz="0 0 1" />
-      <dynamics damping="5.0" friction="0.5"/>
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="6.28"/>
     </joint>
-    
+
     <link name="${name}_link">
+      <xacro:default_inertial/>
+<!--
       <xacro:cylinder_inertial radius="0.250" length="0.1" mass="1.0">
         <origin xyz="0 0 0" rpy="0 0 0" />
       </xacro:cylinder_inertial>
+-->
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
-    
+
     <!-- extensions -->
     <xacro:sensorring_gazebo name="${name}" />
     <xacro:sensorring_transmission name="${name}" />

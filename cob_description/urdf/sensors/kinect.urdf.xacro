@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
+
   <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.gazebo.xacro" />
 
   <xacro:macro name="cob_kinect_v0" params="name parent *origin ros_topic">
@@ -28,7 +28,7 @@
         </geometry>
       </collision>
     </link>
-    
+
     <joint name="${name}_frame_joint" type="fixed">
       <origin xyz="0 0 0" rpy="${M_PI/2} -${M_PI/2} 0" />
       <parent link="${name}_link"/>
