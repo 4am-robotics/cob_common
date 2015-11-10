@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.transmission.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/sick_3dcs.urdf.xacro" />
+  
+  <xacro:macro name="sensorring" params="parent name *origin">
+
+    <joint name="${name}_base_joint" type="fixed">
+      <insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_base_link" />
+    </joint>
+
+    <link name="${name}_base_link">
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${name}_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${name}_base_link"/>
+      <child link="${name}_link" />
+      <axis xyz="0 0 1" />
+      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="6.28"/>
+    </joint>
+
+    <link name="${name}_link">
+      <xacro:default_inertial/>
+<!--
+      <xacro:cylinder_inertial radius="0.250" length="0.1" mass="1.0">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </xacro:cylinder_inertial>
+-->
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- left camera -->
+    <xacro:sick_3dcs name="${name}_cam3d" ros_topic="sensorring_cam3d" parent="${name}_link">
+      <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
+    </xacro:sick_3dcs>
+
+    <!-- extensions -->
+    <xacro:sensorring_gazebo name="${name}" />
+    <xacro:sensorring_transmission name="${name}" />
+
+  </xacro:macro>
+
+</robot>
