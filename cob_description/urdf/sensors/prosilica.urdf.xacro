@@ -4,7 +4,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/prosilica.gazebo.xacro" />
 
-  <xacro:macro name="cob_prosilica_v0" params="name parent *origin ros_topic">
+  <xacro:macro name="cob_prosilica_v0" params="name parent *origin">
 
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
@@ -41,7 +41,7 @@
 
     <link name="${name}_frame"/>
 
-    <xacro:cob_prosilica_gazebo_v0 name="${name}" ros_topic="${ros_topic}"/>
+    <xacro:cob_prosilica_gazebo_v0 name="${name}"/>
 
   </xacro:macro>
 

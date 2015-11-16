@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="softkinetic_gazebo" params="name ros_topic">
+  <xacro:macro name="softkinetic_gazebo" params="name">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">
         <always_on>true</always_on>
@@ -25,7 +25,7 @@
         </camera>
         <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
           <updateRate>25.0</updateRate>
-          <cameraName>${ros_topic}</cameraName>
+          <cameraName>${name}</cameraName>
           <imageTopicName>rgb/image_raw</imageTopicName>
           <depthImageTopicName>depth/image_raw</depthImageTopicName>
           <pointCloudTopicName>depth_registered/points</pointCloudTopicName>

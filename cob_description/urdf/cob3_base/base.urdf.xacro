@@ -67,17 +67,17 @@
 
 
     <!-- base laser front -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}">
       <origin xyz="${laser_front_x} ${laser_front_y} ${laser_front_z}" rpy="${laser_front_roll} ${laser_front_pitch} ${laser_front_yaw}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser rear -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}">
       <origin xyz="${laser_rear_x} ${laser_rear_y} ${laser_rear_z}" rpy="${laser_rear_roll} ${laser_rear_pitch} ${laser_rear_yaw}" />
     </xacro:sick_s300_laser_v0>
 
     <!-- base laser top -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}" ros_topic="scan_top_raw" update_rate="10" min_angle="-2.3562" max_angle="2.3562" >
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_laser_top" parent="${name}">
       <origin xyz="${laser_top_x} ${laser_top_y} ${laser_top_z}" rpy="${laser_top_roll} ${laser_top_pitch} ${laser_top_yaw}" />
     </xacro:hokuyo_lx30_laser_v0>
 

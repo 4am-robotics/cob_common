@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="cob_kinect_gazebo_v0" params="name ros_topic">
+  <xacro:macro name="cob_kinect_gazebo_v0" params="name">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">
         <always_on>true</always_on>
@@ -25,7 +25,7 @@
         </camera>
         <plugin name="${name}_controller" filename="libgazebo_ros_openni_kinect.so">
           <updateRate>20.0</updateRate>
-          <cameraName>${ros_topic}</cameraName>
+          <cameraName>${name}</cameraName>
           <frameName>${name}_link</frameName>
           <imageTopicName>rgb/image_raw</imageTopicName>
           <depthImageTopicName>depth/image_raw</depthImageTopicName>
