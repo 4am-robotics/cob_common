@@ -58,7 +58,7 @@
       </collision>
     </link>
 
-    <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="{name}_cam3d" parent="${name}_link">
+    <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="${name}_cam3d" parent="${name}_link">
       <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
     </xacro:cob_kinect_v0>
 
