@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.gazebo.xacro" />
 
-  <xacro:macro name="hokuyo_lx30_laser_v0" params="name parent *origin ros_topic update_rate min_angle max_angle">
+  <xacro:macro name="hokuyo_lx30_laser_v0" params="name parent *origin">
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0" />
       <insert_block name="origin" />
@@ -14,7 +14,7 @@
     <link name="${name}_link" type="laser"/>
 
     <!-- gazebo extensions -->
-    <xacro:hokuyo_lx30_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
+    <xacro:hokuyo_lx30_laser_gazebo_v0 name="${name}"/>
   </xacro:macro>
 
 </robot>
