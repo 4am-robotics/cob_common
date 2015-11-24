@@ -6,7 +6,7 @@
   <property name="cylinder_radius" value="0.05" />  <!--simple collision model for the laser -->
   <property name="cylinder_length" value="0.15" />
 
-  <xacro:macro name="sick_s300_laser_v0" params="name parent *origin ros_topic update_rate min_angle max_angle">
+  <xacro:macro name="sick_s300_laser_v0" params="name parent *origin">
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0" />
       <insert_block name="origin" />
@@ -36,7 +36,7 @@
 
 
     <!-- gazebo extensions -->
-    <xacro:sick_s300_laser_gazebo_v0 name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
+    <xacro:sick_s300_laser_gazebo_v0 name="${name}"/>
   </xacro:macro>
 
 </robot>

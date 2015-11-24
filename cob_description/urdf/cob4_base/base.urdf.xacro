@@ -78,15 +78,15 @@
 
 
     <!-- sensors -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}" ros_topic="scan_front_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}">
       <origin xyz="${laser_front_x} ${laser_front_y} ${laser_front_z}" rpy="${laser_front_roll} ${laser_front_pitch} ${laser_front_yaw}" />
     </xacro:sick_s300_laser_v0>
 
-    <xacro:sick_s300_laser_v0 name="${name}_laser_left" parent="${name}" ros_topic="scan_left_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_left" parent="${name}">
       <origin xyz="${laser_left_x} ${laser_left_y} ${laser_left_z}" rpy="${laser_left_roll} ${laser_left_pitch} ${laser_left_yaw}" />
     </xacro:sick_s300_laser_v0>
 
-    <xacro:sick_s300_laser_v0 name="${name}_laser_right" parent="${name}" ros_topic="scan_right_raw" update_rate="12" min_angle="-2.094" max_angle="2.094" >
+    <xacro:sick_s300_laser_v0 name="${name}_laser_right" parent="${name}">
       <origin xyz="${laser_right_x} ${laser_right_y} ${laser_right_z}" rpy="${laser_right_roll} ${laser_right_pitch} ${laser_right_yaw}" />
     </xacro:sick_s300_laser_v0>
 
