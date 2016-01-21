@@ -1,22 +1,16 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cob_msgs)
-find_package(catkin REQUIRED COMPONENTS message_generation std_msgs)
+find_package(catkin REQUIRED COMPONENTS diagnostic_msgs message_generation std_msgs)
 
-add_message_files(
-  FILES
+add_message_files(FILES
   AccessPoint.msg
-  BatteryServer2.msg
-  BatteryServer.msg
-  BatteryState2.msg
-  BatteryState.msg
   DashboardState.msg
   EmergencyStopState.msg
-  PowerBoardState.msg
-  PowerState.msg
   Network.msg
+  PowerState.msg
   SiteSurvey.msg
 )
 
-generate_messages(DEPENDENCIES std_msgs)
+generate_messages(DEPENDENCIES diagnostic_msgs std_msgs)
 
-catkin_package(CATKIN_DEPENDS message_runtime std_msgs)
+catkin_package(CATKIN_DEPENDS diagnostic_msgs message_runtime std_msgs)

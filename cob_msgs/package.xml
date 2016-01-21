@@ -7,18 +7,19 @@
   </description>
 
   <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
-  <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
+  <maintainer email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</maintainer>
 
   <license>BSD</license>
 
   <author>Eric Berger and many others</author>
-  <author>Austin Hendrix</author>
+  <author email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
 
+  <depend>diagnostic_msgs</depend>
   <depend>std_msgs</depend>
 
 </package>
