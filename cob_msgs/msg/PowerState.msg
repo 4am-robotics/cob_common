@@ -1,7 +1,10 @@
-# This message communicates the state of the PR2's power system.
+# This message communicates the state of the power system.
 Header header
-float64 power_consumption ## Watts
-duration time_remaining ## estimated time to empty or full
-string prediction_method ## how time_remaining is being calculated
-int8  relative_capacity ## percent of capacity
-int8  AC_present ## number of packs detecting AC power, > 0 means plugged in
+float64 voltage                     # [V]
+float64 current                     # [A]
+float64 power_consumption           # [W] can only be calculated if not charging
+float64 remaining_capacity          # [Ah]
+float64 relative_remaining_capacity # [0..100] percent of maximum capacity (parameter max_capacity)
+bool charging                       # flag if robot is connected to external power or not
+float64 time_remaining              # [h] estimated time to empty or fully charged
+float64 temperature                 # [Celsius] temperature of the battery
