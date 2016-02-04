@@ -133,16 +133,16 @@
     </link>
 
     <!-- phidgets distance sensors -->
-    <xacro:phidgets_distance_v0 name="${name}_phidgets_1" ros_topic="/tray_sensors/range_1_sim" update_rate="10" parent="${name}_left">
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_1" ros_topic="/tray_sensors/range_1_sim" parent="${name}_left_link">
       <origin xyz="0.04 -0.02424 0.07  " rpy="0 0 ${M_PI/2}" />
     </xacro:phidgets_distance_v0>
-    <xacro:phidgets_distance_v0 name="${name}_phidgets_2" ros_topic="/tray_sensors/range_2_sim" update_rate="10" parent="${name}_left">
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_2" ros_topic="/tray_sensors/range_2_sim" parent="${name}_left_link">
       <origin xyz="0.09 -0.02424 0.07" rpy="0 0 ${M_PI/2}" />
     </xacro:phidgets_distance_v0>
-    <xacro:phidgets_distance_v0 name="${name}_phidgets_3" ros_topic="/tray_sensors/range_3_sim" update_rate="10" parent="${name}_left">
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_3" ros_topic="/tray_sensors/range_3_sim" parent="${name}_left_link">
       <origin xyz="0.14 -0.02424 0.07" rpy="0 0 ${M_PI/2}" />
     </xacro:phidgets_distance_v0>
-    <xacro:phidgets_distance_v0 name="${name}_phidgets_4" ros_topic="/tray_sensors/range_4_sim" update_rate="10" parent="${name}_left">
+    <xacro:phidgets_distance_v0 name="${name}_phidgets_4" ros_topic="/tray_sensors/range_4_sim" parent="${name}_left_link">
       <origin xyz="0.19 -0.02424 0.07" rpy="0 0 ${M_PI/2}" />
     </xacro:phidgets_distance_v0>
 

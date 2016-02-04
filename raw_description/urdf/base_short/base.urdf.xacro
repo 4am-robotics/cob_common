@@ -126,7 +126,7 @@
     </xacro:sick_s300_laser_v0>
 
     <!-- cam3d -->
-    <!--xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_link">
+    <!--xacro:cob_kinect_v0 name="${name}_cam3d" parent="${name}_link">
       <origin xyz="0.51 0.12 0.27" rpy="-${M_PI/2} 0 -${M_PI/2}" />
     </xacro:cob_kinect_v0-->
 
