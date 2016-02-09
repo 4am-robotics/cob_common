@@ -26,12 +26,12 @@
         <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
           <updateRate>25.0</updateRate>
           <cameraName>${ros_topic}</cameraName>
-          <imageTopicName>rgb/image_raw</imageTopicName>
-          <depthImageTopicName>depth/image_raw</depthImageTopicName>
-          <pointCloudTopicName>depth_registered/points</pointCloudTopicName>
-          <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-          <depthImageCameraInfoTopicName>depth_registered/camera_info</depthImageCameraInfoTopicName>
           <frameName>${name}_optical_frame</frameName>
+          <imageTopicName>rgb/image_raw</imageTopicName>
+          <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+          <pointCloudTopicName>depth_registered/points</pointCloudTopicName>
+          <depthImageTopicName>depth_registered/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>depth_registered/camera_info</depthImageCameraInfoTopicName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
           <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
           <distortionK1>0.0</distortionK1>
