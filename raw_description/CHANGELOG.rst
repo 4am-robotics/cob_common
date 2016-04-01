@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.5 (2016-04-01)
+------------------
 * restructure simulated lasers and laser topic names
 * fixed copy paste error for base_short laser mounting position
 * Contributors: Benjamin Maidel, ipa-fxm

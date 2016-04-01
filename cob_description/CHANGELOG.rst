@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.5 (2016-04-01)
+------------------
 * fix cob3_tray_3dof meshes
 * harmonize simulated cam3d topic namespaces
 * restructure simulated lasers and laser topic names
