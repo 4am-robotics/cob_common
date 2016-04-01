@@ -2,6 +2,12 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* restructure simulated lasers and laser topic names
+* fixed copy paste error for base_short laser mounting position
+* Contributors: Benjamin Maidel, ipa-fxm
+
 0.6.4 (2015-08-29)
 ------------------
 * fix typo in collision mesh file name
