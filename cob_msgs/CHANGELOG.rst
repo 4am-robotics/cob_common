@@ -2,6 +2,14 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.5 (2016-04-01)
+------------------
+* Update package.xml
+* cleanup dashboard message
+* rework messages
+* remove unused messages
+* Contributors: Florian Weisshardt, ipa-fmw
+
 0.6.4 (2015-08-29)
 ------------------
 * remove trailing whitespaces
