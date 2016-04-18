@@ -3,6 +3,25 @@
 
   <property name="M_PI" value="3.1415926535897931" />
 
+  <!-- geometry macros for modeling geometric primitives with according meshes -->
+  <xacro:macro name="sphere_geometry" params="radius">
+    <geometry>
+      <mesh filename="package://cob_description/meshes/unit_sphere.stl" scale="${radius} ${radius} ${radius}"/>
+    </geometry>
+  </xacro:macro>
+
+  <xacro:macro name="cylinder_geometry" params="radius length">
+    <geometry>
+      <mesh filename="package://cob_description/meshes/unit_cylinder.stl" scale="${radius} ${radius} ${length}"/>
+    </geometry>
+  </xacro:macro>
+
+  <xacro:macro name="box_geometry" params="x y z">
+    <geometry>
+      <mesh filename="package://cob_description/meshes/unit_box.stl" scale="${x} ${y} ${z}"/>
+    </geometry>
+  </xacro:macro>
+
   <!-- see https://secure.wikimedia.org/wikipedia/en/wiki/List_of_moment_of_inertia_tensors -->
   <xacro:macro name="sphere_inertial" params="radius mass *origin">
     <inertial>
