@@ -10,15 +10,7 @@
       <child link="${name}_link"/>
     </joint>
 
-    <link name="${name}_link"/>
-
-    <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-M_PI/2} ${-M_PI/2} 0" />
-      <parent link="${name}_link"/>
-      <child link="${name}_frame"/>
-    </joint>
-
-    <link name="${name}_frame">
+    <link name="${name}_link">
       <xacro:box_inertial x="0.105" y="0.03" z="0.023" mass="0.5">
         <origin xyz="0 0 0" rpy="0 0 0" />
       </xacro:box_inertial>
@@ -36,13 +28,38 @@
       </collision>
     </link>
 
-    <joint name="${name}_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
-      <parent link="${name}_frame"/>
-      <child link="${name}_optical_frame"/>
+    <!-- Add frames for RGB and depth optical axes -->
+    <joint name="${name}_rgb_joint" type="fixed">
+      <origin xyz="0.0 0.0125 0.0" rpy="${-M_PI/2} ${-M_PI/2} 0.0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_rgb_frame"/>
     </joint>
 
-    <link name="${name}_optical_frame"/>
+    <link name="${name}_rgb_frame"/>
+
+    <joint name="${name}_rgb_optical_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}"/>
+      <parent link="${name}_rgb_frame"/>
+      <child link="${name}_rgb_optical_frame"/>
+    </joint>
+
+    <link name="${name}_rgb_optical_frame"/>
+    
+    <joint name="${name}_depth_joint" type="fixed">
+      <origin xyz="0.0 -0.0125 0.0" rpy="${-M_PI/2} ${-M_PI/2} 0.0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_depth_frame"/>
+    </joint>
+
+    <link name="${name}_depth_frame"/>
+
+    <joint name="${name}_depth_optical_joint" type="fixed">
+      <origin xyz="0.0 0.0 0.0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}"/>
+      <parent link="${name}_depth_frame"/>
+      <child link="${name}_depth_optical_frame"/>
+    </joint>
+
+    <link name="${name}_depth_optical_frame"/>
 
     <!-- extensions -->
     <xacro:softkinetic_gazebo name="${name}" ros_topic="${ros_topic}" />
