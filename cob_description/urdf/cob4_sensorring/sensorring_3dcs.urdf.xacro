@@ -34,7 +34,7 @@
       <parent link="${name}_base_link"/>
       <child link="${name}_link" />
       <axis xyz="0 0 1" />
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="6.28"/>
+      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="2.62"/>
     </joint>
 
     <link name="${name}_link">
