@@ -3,6 +3,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/cob4_head/head.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_head/head.transmission.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/head_cam.urdf.xacro" />
 
   <xacro:macro name="head" params="parent name *origin">
 
@@ -103,6 +104,10 @@
     </joint>
 
     <link name="${name}_center_link"/>
+
+    <xacro:head_cam name="${name}_cam" parent="${name}_3_link" ros_topic="${name}_cam">
+      <origin xyz="${head_cam_x} ${head_cam_y} ${head_cam_z}" rpy="${head_cam_roll} ${head_cam_pitch} ${head_cam_yaw}" />
+    </xacro:head_cam>
 
   <!-- extensions -->
   <xacro:head_gazebo name="${name}" />
