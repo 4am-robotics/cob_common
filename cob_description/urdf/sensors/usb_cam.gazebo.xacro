@@ -7,7 +7,7 @@
     <sensor type="camera" name="${name}">
       <update_rate>5</update_rate>
       <camera name="${name}">
-        <horizontal_fov>1.3962634</horizontal_fov>
+        <horizontal_fov>2.97</horizontal_fov>
         <image>
           <width>2048</width>
           <height>1536</height>
