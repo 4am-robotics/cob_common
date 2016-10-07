@@ -5,12 +5,12 @@
     <gazebo reference="${name}_frame">
 
     <sensor type="camera" name="${name}">
-      <update_rate>30.0</update_rate>
+      <update_rate>5</update_rate>
       <camera name="${name}">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>1280</width>
-          <height>960</height>
+          <width>2048</width>
+          <height>1536</height>
           <format>R8G8B8</format>
         </image>
         <clip>
