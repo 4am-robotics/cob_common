@@ -28,8 +28,8 @@ Changelog for package cob_description
 * critically review dependencies
 * Contributors: ipa-fxm
 
-Forthcoming
------------
+0.6.6 (2016-10-10)
+------------------
 * review velocity axis limit
 * new torso and sensorring configurations
 * the realsense publishes already the frames, it is a bug

@@ -11,8 +11,8 @@ Changelog for package cob_common
 * critically review dependencies
 * Contributors: ipa-fxm
 
-Forthcoming
------------
+0.6.6 (2016-10-10)
+------------------
 * 0.6.5
 * update changelog
 * 0.6.4

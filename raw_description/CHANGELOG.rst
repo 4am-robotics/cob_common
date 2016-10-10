@@ -20,8 +20,8 @@ Changelog for package raw_description
 * critically review dependencies
 * Contributors: ipa-fxm
 
-Forthcoming
------------
+0.6.6 (2016-10-10)
+------------------
 * fixed inertia and mass for raw3 base long
 * 0.6.5
 * update changelog
