@@ -20,6 +20,25 @@ Changelog for package raw_description
 * critically review dependencies
 * Contributors: ipa-fxm
 
+Forthcoming
+-----------
+* fixed inertia and mass for raw3 base long
+* 0.6.5
+* update changelog
+* restructure simulated lasers and laser topic names
+* fixed copy paste error for base_short laser mounting position
+* 0.6.4
+* update changelog
+* fix typo in collision mesh file name
+* add explicit exec_depend to xacro
+* fix catkin_minimum_required version
+* remove trailing whitespaces
+* remove trailing whitespaces
+* migrate to package format 2
+* sort dependencies
+* critically review dependencies
+* Contributors: Benjamin Maidel, ipa-fxm
+
 0.6.3 (2015-06-17)
 ------------------
 * allow laser calibration
