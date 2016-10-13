@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/cob4_torso/torso.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_torso/torso.transmission.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/softkinetic.urdf.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense.urdf.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
   <xacro:macro name="torso" params="parent name *origin">
@@ -154,9 +154,9 @@
     </xacro:cob_kinect_v0>
 
     <!-- down camera -->
-    <xacro:softkinetic name="${name}_cam3d_down" ros_topic="torso_cam3d_down" parent="${name}_3_link">
+    <xacro:realsense name="${name}_cam3d_down" ros_topic="torso_cam3d_down" parent="${name}_3_link">
       <origin xyz="${torso_cam3d_down_x} ${torso_cam3d_down_y} ${torso_cam3d_down_z}" rpy="${torso_cam3d_down_roll} ${torso_cam3d_down_pitch} ${torso_cam3d_down_yaw}" />
-    </xacro:softkinetic>
+    </xacro:realsense>
 
     <!-- extensions -->
     <xacro:torso_gazebo name="torso" />
