@@ -22,7 +22,7 @@
     <joint name="${prefix}gripper_to_palm" type="fixed">
 		<parent link="${prefix}gripper_frame"/>
 		<child link="${prefix}gripper_body"/>
-		<origin xyz="0 0 ${gripper_height * 0.5}" rpy="0 0 0"/>
+		<origin xyz="0.08015 0.0475 0.0" rpy="1.57079632679 0 3.1415"/>
 	</joint>
 
     <link name="${prefix}gripper_body">
@@ -33,7 +33,7 @@
 				</geometry-->
 				<origin xyz="0 0 -0.048" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://raw_description/meshes/vacuum_gripper/Segmentgreifer.STL" />
+					<mesh filename="package://raw_description/meshes/vacuum_gripper/Segmentgreifer_2.STL" />
 				</geometry>
 				<material name="silver">
 					<color rgba="0.8 0.8 0.8 1"/>
