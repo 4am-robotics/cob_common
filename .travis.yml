@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+dist: xenial
 # Force travis to use its minimal image with default Python settings
 language: generic
 compiler:
@@ -11,7 +11,7 @@ env:
     - CATKIN_WS_SRC=${CATKIN_WS}/src
     - CATKIN_WS_UNDERLAY=~/catkin_ws_underlay
     - CATKIN_WS_UNDERLAY_SRC=${CATKIN_WS_UNDERLAY}/src
-    - CI_ROS_DISTRO="indigo"
+    - CI_ROS_DISTRO="kinetic"
     - DEFAULT_ROSINSTALL="https://raw.githubusercontent.com/ipa320/care-o-bot/${CI_ROS_DISTRO}_dev/.travis.rosinstall"
 
 install:
