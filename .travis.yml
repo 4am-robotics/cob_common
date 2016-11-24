@@ -11,8 +11,8 @@ notifications:
 env:
   global:
     - USE_DEB=true
-    - ROS_DISTRO="indigo"
-    - ADDITIONAL_DEBS="ros-indigo-opencv3"
+    - ROS_DISTRO="kinetic"
+    - ADDITIONAL_DEBS="ros-kinetic-opencv3"
   matrix:
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros/ubuntu
     - ROS_REPOSITORY_PATH=http://packages.ros.org/ros-shadow-fixed/ubuntu
