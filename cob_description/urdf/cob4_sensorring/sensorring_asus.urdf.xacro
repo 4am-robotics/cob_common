@@ -3,8 +3,7 @@
 
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_sensorring/sensorring.transmission.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
-  
+
   <xacro:macro name="sensorring" params="parent name *origin">
 
     <joint name="${name}_base_joint" type="fixed">
@@ -57,10 +56,6 @@
         </geometry>
       </collision>
     </link>
-
-    <xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="${name}_cam3d" parent="${name}_link">
-      <origin xyz="${sensorring_cam3d_x} ${sensorring_cam3d_y} ${sensorring_cam3d_z}" rpy="${sensorring_cam3d_roll} ${sensorring_cam3d_pitch} ${sensorring_cam3d_yaw}" />
-    </xacro:cob_kinect_v0>
 
     <!-- extensions -->
     <xacro:sensorring_gazebo name="${name}" />
