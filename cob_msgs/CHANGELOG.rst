@@ -2,6 +2,9 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.6 (2016-10-10)
+------------------
+
 0.6.5 (2016-04-01)
 ------------------
 * Update package.xml
@@ -18,23 +21,6 @@ Changelog for package cob_msgs
 * sort dependencies
 * critically review dependencies
 * Contributors: ipa-fxm
-
-0.6.6 (2016-10-10)
-------------------
-* 0.6.5
-* update changelog
-* Update package.xml
-* cleanup dashboard message
-* rework messages
-* remove unused messages
-* 0.6.4
-* update changelog
-* remove trailing whitespaces
-* remove trailing whitespaces
-* migrate to package format 2
-* sort dependencies
-* critically review dependencies
-* Contributors: Florian Weisshardt, ipa-fmw, ipa-fxm
 
 0.6.3 (2015-06-17)
 ------------------

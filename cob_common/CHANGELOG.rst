@@ -2,21 +2,14 @@
 Changelog for package cob_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.6 (2016-10-10)
+------------------
+
 0.6.5 (2016-04-01)
 ------------------
 
 0.6.4 (2015-08-29)
 ------------------
-* migrate to package format 2
-* critically review dependencies
-* Contributors: ipa-fxm
-
-0.6.6 (2016-10-10)
-------------------
-* 0.6.5
-* update changelog
-* 0.6.4
-* update changelog
 * migrate to package format 2
 * critically review dependencies
 * Contributors: ipa-fxm
