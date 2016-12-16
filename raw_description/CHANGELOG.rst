@@ -2,6 +2,11 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.6 (2016-10-10)
+------------------
+* fixed inertia and mass for raw3 base long
+* Contributors: Benjamin Maidel
+
 0.6.5 (2016-04-01)
 ------------------
 * restructure simulated lasers and laser topic names

@@ -2,6 +2,20 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.6 (2016-10-10)
+------------------
+* review velocity axis limit
+* new torso and sensorring configurations
+* the realsense publishes already the frames, it is a bug
+* added realsense torso description
+* realsense camera description
+* adapt head urdf to hardware kinematics
+* check head urdf model
+* Update softkinetic.urdf.xacro
+* updated softkinetic urdf
+* add geometry macros with meshes
+* Contributors: Nadia Hammoudeh García, fmw-hb, ipa-cob4-2, ipa-cob4-5, ipa-fxm, ipa-fxm-cm, ipa-nhg
+
 0.6.5 (2016-04-01)
 ------------------
 * fix cob3_tray_3dof meshes
