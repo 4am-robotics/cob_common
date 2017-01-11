@@ -9,7 +9,7 @@
 
     <!-- joint between base_link and tray_link -->
     <joint name="${name}_1_joint" type="revolute">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${name}_1_link"/>
       <axis xyz="0 0 1" />

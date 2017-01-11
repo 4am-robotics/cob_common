@@ -10,11 +10,11 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
 
   <!-- properties -->
-  <property name="caster_offset_x" value="0.24844" />  <!--modify here-->
-  <property name="caster_offset_y" value="0.21515" />
-  <property name="caster_offset_z" value="0.08" />
+  <xacro:property name="caster_offset_x" value="0.24844" />  <!--modify here-->
+  <xacro:property name="caster_offset_y" value="0.21515" />
+  <xacro:property name="caster_offset_z" value="0.08" />
 
-  <property name="base_mass" value="50" />
+  <xacro:property name="base_mass" value="50" />
 
 
   <xacro:macro name="base" params="name use_old_joint_names">

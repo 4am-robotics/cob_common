@@ -4,10 +4,10 @@
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.transmission.xacro" />
 
-  <property name="caster_wheel_offset_y" value="0.0" />
+  <xacro:property name="caster_wheel_offset_y" value="0.0" />
 
-  <property name="caster_mass" value="5.9" />
-  <property name="wheel_mass" value="0.44036" />
+  <xacro:property name="caster_mass" value="5.9" />
+  <xacro:property name="wheel_mass" value="0.44036" />
 
   <xacro:macro name="cob_wheel" params="parent suffix reflect">
 
@@ -50,7 +50,7 @@
   <xacro:macro name="cob_caster_hub" params="*origin parent suffix" >
 
     <joint name="${suffix}_rotation_joint" type="continuous">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${suffix}_rotation_link" />
       <axis xyz="0 0 1" />
@@ -89,7 +89,7 @@
   <xacro:macro name="drive_wheel" params="*origin parent suffix">
 
     <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" >
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
     </xacro:cob_caster_hub>
 
     <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1" />

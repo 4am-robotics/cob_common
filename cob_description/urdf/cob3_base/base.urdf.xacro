@@ -11,11 +11,11 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro"/>
 
   <!-- properties -->
-  <property name="caster_offset_x" value="0.235" />  <!--modify here-->
-  <property name="caster_offset_y" value="0.185" />
-  <property name="caster_offset_z" value="0.075" />
+  <xacro:property name="caster_offset_x" value="0.235" />  <!--modify here-->
+  <xacro:property name="caster_offset_y" value="0.185" />
+  <xacro:property name="caster_offset_z" value="0.075" />
 
-  <property name="base_mass" value="116.0" />
+  <xacro:property name="base_mass" value="116.0" />
 
 
   <xacro:macro name="base" params="name">

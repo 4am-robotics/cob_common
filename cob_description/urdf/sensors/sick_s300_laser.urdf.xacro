@@ -3,13 +3,13 @@
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.gazebo.xacro" />
 
-  <property name="cylinder_radius" value="0.05" />  <!--simple collision model for the laser -->
-  <property name="cylinder_length" value="0.15" />
+  <xacro:property name="cylinder_radius" value="0.05" />  <!--simple collision model for the laser -->
+  <xacro:property name="cylinder_length" value="0.15" />
 
   <xacro:macro name="sick_s300_laser_v0" params="name parent *origin">
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0" />
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}_link"/>
       <child link="${name}_link"/>
     </joint>

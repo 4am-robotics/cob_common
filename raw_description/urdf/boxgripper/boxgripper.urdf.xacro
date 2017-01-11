@@ -7,7 +7,7 @@
 
     <!-- joint between arm_ee_link and raw_boxgripper_link -->
     <joint name="${name}_base_joint" type="fixed" >
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}" />
       <child link="${name}_base_link" />
     </joint>
