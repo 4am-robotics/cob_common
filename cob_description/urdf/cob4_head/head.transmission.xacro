@@ -1,40 +1,19 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="head_transmission" params="name">
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
 
-    <transmission name="${name}_1_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${name}_1_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="${name}_1_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-    </transmission>
+  <xacro:macro name="head_transmission" params="name dof1 dof2 dof3">
 
-    <transmission name="${name}_2_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${name}_2_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="${name}_2_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-    </transmission>
-
-    <transmission name="${name}_3_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${name}_3_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="${name}_3_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-    </transmission>
+    <xacro:if value="${dof1}">
+      <xacro:default_transmission jname="${name}_1"/>
+    </xacro:if>
+    <xacro:if value="${dof2}"> 
+      <xacro:default_transmission jname="${name}_2"/>
+    </xacro:if>
+    <xacro:if value="${dof3}">
+      <xacro:default_transmission jname="${name}_3"/>
+    </xacro:if>
 
   </xacro:macro>
 

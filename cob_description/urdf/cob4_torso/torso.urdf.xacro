@@ -3,10 +3,8 @@
 
   <xacro:include filename="$(find cob_description)/urdf/cob4_torso/torso.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_torso/torso.transmission.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense.urdf.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro" />
 
-  <xacro:macro name="torso" params="parent name *origin">
+  <xacro:macro name="torso" params="parent name *origin" dof1:=false dof2:=false dof3:=false">
 
     <joint name="${name}_base_joint" type="fixed">
       <insert_block name="origin" />
@@ -35,13 +33,22 @@
       </collision>
     </link>
 
-    <joint name="${name}_1_joint" type="revolute">
-      <origin xyz="0 0 0.04642" rpy="0 0 0"/>
-      <parent link="${name}_base_link"/>
-      <child link="${name}_1_link" />
-      <axis xyz="0 0 1" />
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
-    </joint>
+    <xacro:unless value="${dof1}">
+      <joint name="${name}_1_joint" type="fixed">
+        <origin xyz="0 0 0.04642" rpy="0 0 0"/>
+        <parent link="${name}_base_link"/>
+        <child link="${name}_1_link" />
+      </joint>
+    </xacro:unless>
+    <xacro:if value="${dof1}">
+      <joint name="${name}_1_joint" type="revolute">
+        <origin xyz="0 0 0.04642" rpy="0 0 0"/>
+        <parent link="${name}_base_link"/>
+        <child link="${name}_1_link" />
+        <axis xyz="0 0 1" />
+        <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      </joint>
+    </xacro:if>
 
     <link name="${name}_1_link">
       <xacro:default_inertial/>
@@ -64,13 +71,22 @@
       </collision>
     </link>
 
-    <joint name="${name}_2_joint" type="revolute">
-      <origin xyz="0 0.14734 0.07547" rpy="0.5236 0 0" />
-      <parent link="${name}_1_link"/>
-      <child link="${name}_2_link" />
-      <axis xyz="0 0 1" />
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
-    </joint>
+    <xacro:unless value="${dof2}">
+      <joint name="${name}_2_joint" type="fixed">
+        <origin xyz="0 0.14734 0.07547" rpy="0.5236 0 0" />
+        <parent link="${name}_1_link"/>
+        <child link="${name}_2_link" />
+      </joint>
+    </xacro:unless>
+    <xacro:if value="${dof2}">
+      <joint name="${name}_2_joint" type="revolute">
+        <origin xyz="0 0.14734 0.07547" rpy="0.5236 0 0" />
+        <parent link="${name}_1_link"/>
+        <child link="${name}_2_link" />
+        <axis xyz="0 0 1" />
+        <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      </joint>
+    </xacro:if>
 
     <link name="${name}_2_link">
       <xacro:default_inertial/>
@@ -93,13 +109,22 @@
       </collision>
     </link>
 
-    <joint name="${name}_3_joint" type="revolute">
-      <origin xyz="0 -0.09228 0.13477" rpy="-0.5236 0 0" />
-      <parent link="${name}_2_link"/>
-      <child link="${name}_3_link" />
-      <axis xyz="0 0 1" />
-      <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
-    </joint>
+    <xacro:unless value="${dof3}">
+      <joint name="${name}_3_joint" type="fixed">
+        <origin xyz="0 -0.09228 0.13477" rpy="-0.5236 0 0" />
+        <parent link="${name}_2_link"/>
+        <child link="${name}_3_link" />
+      </joint>
+    </xacro:unless>
+    <xacro:if value="${dof3}">
+      <joint name="${name}_3_joint" type="revolute">
+        <origin xyz="0 -0.09228 0.13477" rpy="-0.5236 0 0" />
+        <parent link="${name}_2_link"/>
+        <child link="${name}_3_link" />
+        <axis xyz="0 0 1" />
+        <limit effort="100" lower="-6.2831" upper="6.2831" velocity="1.4"/>
+      </joint>
+    </xacro:if>
 
     <link name="${name}_3_link">
       <xacro:default_inertial/>
@@ -144,25 +169,9 @@
       </collision>
     </link>
 
-
-    <!-- left camera -->
-    <xacro:cob_kinect_v0 name="${name}_cam3d_left" ros_topic="torso_cam3d_left" parent="${name}_3_link">
-      <origin xyz="${torso_cam3d_left_x} ${torso_cam3d_left_y} ${torso_cam3d_left_z}" rpy="${torso_cam3d_left_roll} ${torso_cam3d_left_pitch} ${torso_cam3d_left_yaw}" />
-    </xacro:cob_kinect_v0>
-
-    <!-- right camera -->
-    <xacro:cob_kinect_v0 name="${name}_cam3d_right" ros_topic="torso_cam3d_right" parent="${name}_3_link">
-      <origin xyz="${torso_cam3d_right_x} ${torso_cam3d_right_y} ${torso_cam3d_right_z}" rpy="${torso_cam3d_right_roll} ${torso_cam3d_right_pitch} ${torso_cam3d_right_yaw}" />
-    </xacro:cob_kinect_v0>
-
-    <!-- down camera -->
-    <xacro:realsense name="${name}_cam3d_down" ros_topic="torso_cam3d_down" parent="${name}_3_link">
-      <origin xyz="${torso_cam3d_down_x} ${torso_cam3d_down_y} ${torso_cam3d_down_z}" rpy="${torso_cam3d_down_roll} ${torso_cam3d_down_pitch} ${torso_cam3d_down_yaw}" />
-    </xacro:realsense>
-
     <!-- extensions -->
     <xacro:torso_gazebo name="torso" />
-    <xacro:torso_transmission name="torso" />
+    <xacro:torso_transmission name="torso" dof1="${dof1}" dof2="${dof2}" dof3="${dof3}" />
 
   </xacro:macro>
 
