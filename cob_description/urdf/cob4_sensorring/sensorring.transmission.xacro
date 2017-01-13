@@ -3,9 +3,11 @@
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
 
-  <xacro:macro name="sensorring_transmission" params="name">
+  <xacro:macro name="sensorring_transmission" params="name active">
 
-    <xacro:default_transmission jname="${name}"/>
+    <xacro:if value="${active}">
+      <xacro:default_transmission jname="${name}"/>
+    </xacro:if>
 
   </xacro:macro>
 
