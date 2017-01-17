@@ -12,30 +12,30 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro"/>
 
   <!-- properties -->
-  <property name="caster_offset_x" value="0.368" />  <!--modify here-->
-  <property name="caster_offset_y_bl" value="0.134" />
-  <property name="caster_offset_y_br" value="-0.184" />
-  <property name="caster_offset_y_fl" value="0.184" />
-  <property name="caster_offset_y_fr" value="-0.134" />
-  <property name="caster_offset_z" value="0.09" />
+  <xacro:property name="caster_offset_x" value="0.368" />  <!--modify here-->
+  <xacro:property name="caster_offset_y_bl" value="0.134" />
+  <xacro:property name="caster_offset_y_br" value="-0.184" />
+  <xacro:property name="caster_offset_y_fl" value="0.184" />
+  <xacro:property name="caster_offset_y_fr" value="-0.134" />
+  <xacro:property name="caster_offset_z" value="0.09" />
 
-  <property name="battery_offset_x_f" value="0.141" />
-  <property name="battery_offset_x_r" value="0.139" />
-  <property name="battery_offset_y_f" value="-0.008" />
-  <property name="battery_offset_y_r" value="0.007" />
-  <property name="battery_offset_z" value="0.065" />
+  <xacro:property name="battery_offset_x_f" value="0.141" />
+  <xacro:property name="battery_offset_x_r" value="0.139" />
+  <xacro:property name="battery_offset_y_f" value="-0.008" />
+  <xacro:property name="battery_offset_y_r" value="0.007" />
+  <xacro:property name="battery_offset_z" value="0.065" />
 
-  <property name="base_mass" value="83.1" />
-  <property name="battery_mass" value="25.0" />
+  <xacro:property name="base_mass" value="83.1" />
+  <xacro:property name="battery_mass" value="25.0" />
 
-  <property name="battery_size_x" value="0.5" />
-  <property name="battery_size_y" value="0.148" />
-  <property name="battery_size_z" value="0.26" />
+  <xacro:property name="battery_size_x" value="0.5" />
+  <xacro:property name="battery_size_y" value="0.148" />
+  <xacro:property name="battery_size_z" value="0.26" />
 
   <!-- battery macros-->
   <xacro:macro name="cob_batteries" params="name parent *origin ">
     <joint name="${name}_battery_joint" type="fixed">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${name}_battery" />
     </joint>

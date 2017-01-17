@@ -7,7 +7,7 @@
   <xacro:macro name="raw_head" params="name parent *origin">
     <!-- joint between torso_2_link and head_base_link -->
     <joint name="${name}_base_joint" type="fixed">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${name}_base_link"/>
     </joint>

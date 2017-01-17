@@ -8,7 +8,7 @@
 
     <!-- joint between base_link and arm_0_link -->
     <joint name="${name}_0_joint" type="fixed" >
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}" />
       <child link="${name}_0_link" />
     </joint>
