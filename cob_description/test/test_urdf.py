@@ -26,7 +26,7 @@ class TestUrdf(unittest.TestCase):
 			self.fail('file "' + file_to_test + '" not found')
 
 		# check if xacro can be converted
-		p = subprocess.Popen("`rospack find xacro`/xacro.py " + file_to_test + " > /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		p = subprocess.Popen("`rospack find xacro`/xacro --inorder " + file_to_test + " > /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		if p.returncode != 0 and p.returncode != None:
 			self.fail("cannot convert xacro. file: " + file_to_test + "\n" + p.stderr.read())
 
