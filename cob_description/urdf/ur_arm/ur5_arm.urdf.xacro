@@ -4,8 +4,6 @@
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 
-  <!--property name="wrist_3_length" value="0.0823" /-->
-
   <xacro:macro name="ur5" params="parent name *origin">
 
     <!-- mount the arm to the robot -->
@@ -17,6 +15,14 @@
 
     <!-- include universal_robot arm -->
     <xacro:ur5_robot prefix="${name}_" joint_limited="true"/>
+
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
 
   </xacro:macro>
 

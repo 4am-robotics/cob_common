@@ -106,6 +106,14 @@
     <xacro:raw_torso_gazebo name="${name}" />
     <xacro:raw_torso_transmission name="${name}" />
 
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
+
   </xacro:macro>
 
 </robot>
