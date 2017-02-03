@@ -170,8 +170,18 @@
     </link>
 
     <!-- extensions -->
-    <xacro:torso_gazebo name="torso" />
-    <xacro:torso_transmission name="torso" dof1="${dof1}" dof2="${dof2}" dof3="${dof3}" />
+    <xacro:torso_gazebo name="${name}" />
+    <xacro:torso_transmission name="${name}" dof1="${dof1}" dof2="${dof2}" dof3="${dof3}" />
+
+    <!-- ros_control plugin -->
+    <xacro:if value="${(dof1 == 'true') or (dof2 == 'true') or (dof3 == 'true')}">
+      <gazebo>
+        <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+          <robotNamespace>${name}</robotNamespace>
+          <filterJointsParam>joint_names</filterJointsParam>
+        </plugin>
+      </gazebo>
+    </xacro:if>
 
   </xacro:macro>
 

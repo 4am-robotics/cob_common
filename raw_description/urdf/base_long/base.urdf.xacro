@@ -143,6 +143,14 @@
     <!-- gazebo extensions -->
     <xacro:base_gazebo name="${name}" />
 
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
+
   </xacro:macro>
 
 </robot>
