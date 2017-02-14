@@ -41,9 +41,9 @@
     </joint>
 
     <link name="${name}_battery">
-      <xacro:box_inertial x="${battery_size_x}" y="${battery_size_y}" z="${battery_size_z}" mass="${battery_mass}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:box_inertial>
+      <xacro:box_inertia width="${battery_size_x}" length="${battery_size_y}" height="${battery_size_z}" mass="${battery_mass}">
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      </xacro:box_inertia>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -64,6 +64,15 @@
     <xacro:batteries_gazebo name="${name}" />
   </xacro:macro>
 
+  <xacro:macro name="box_inertia" params="width length height mass *origin">
+    <inertial>
+      <mass value="${mass}" />
+      <xacro:insert_block name="origin" />
+      <inertia ixx="${0.0833333 * mass * (width * width + height * height)}" ixy="0.0" ixz="0.0"
+        iyy="${0.0833333 * mass * (height * height + length * length)}" iyz="0.0"
+        izz="${0.0833333 * mass * (width * width + length * length)}" />
+    </inertial>
+  </xacro:macro>
 
   <xacro:macro name="raw_base" params="name">
 
@@ -76,12 +85,9 @@
     </joint>
 
     <link name="${name}_link">
-      <inertial>
-        <origin xyz="0 0 0" />
-        <mass value="${base_mass}" />
-        <inertia ixx="9.64" ixy="-0.02" ixz="0.44"
-                 iyy="11.33" iyz="-0.007" izz="3.07" />
-      </inertial>
+      <xacro:box_inertia width="1.04" length="0.58" height="0.12" mass="${base_mass}">
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      </xacro:box_inertia>
       <visual>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
