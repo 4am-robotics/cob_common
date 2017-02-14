@@ -42,7 +42,7 @@
         <collision>
             <origin xyz="0 0.03 -0.05"/>
             <geometry>
-                <box size="0.13 0.17 0.11"/>
+                <box size="${gripper_length} ${gripper_width} ${gripper_height}"/>
             </geometry>
             <material name="another_blue2">
                 <color rgba="0.38 0.54 0.83 1"/>
