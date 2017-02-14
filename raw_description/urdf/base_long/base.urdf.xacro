@@ -26,7 +26,7 @@
   <xacro:property name="battery_offset_z" value="0.065" />
 
   <xacro:property name="base_mass" value="83.1" />
-  <xacro:property name="battery_mass" value="25.0" />
+  <xacro:property name="battery_mass" value="50.0" />
 
   <xacro:property name="battery_size_x" value="0.5" />
   <xacro:property name="battery_size_y" value="0.148" />
