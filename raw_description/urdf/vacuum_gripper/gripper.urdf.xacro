@@ -28,9 +28,9 @@
     <link name="${prefix}gripper_body">
         <visual>
             <!--origin xyz="0 0.036 -0.0473" rpy="0 0 0"/-->
-            <!--geometry>
+              <!--geometry>
                 <box size="${gripper_length} ${gripper_width} ${gripper_height}"/>
-            </geometry-->
+              </geometry-->
             <origin xyz="0 0 -0.048" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://raw_description/meshes/vacuum_gripper/Segmentgreifer_2.STL" />
