@@ -33,7 +33,7 @@
               </geometry-->
             <origin xyz="0 0 -0.048" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://raw_description/meshes/vacuum_gripper/Segmentgreifer_2.STL" />
+                <mesh filename="package://raw_description/meshes/vacuum_gripper/segmentgreifer_2.stl" />
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
