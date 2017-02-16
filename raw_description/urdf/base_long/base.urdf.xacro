@@ -26,7 +26,7 @@
   <xacro:property name="battery_offset_z" value="0.065" />
 
   <xacro:property name="base_mass" value="83.1" />
-  <xacro:property name="battery_mass" value="25.0" />
+  <xacro:property name="battery_mass" value="50.0" />
 
   <xacro:property name="battery_size_x" value="0.5" />
   <xacro:property name="battery_size_y" value="0.148" />
@@ -42,7 +42,7 @@
 
     <link name="${name}_battery">
       <xacro:box_inertial x="${battery_size_x}" y="${battery_size_y}" z="${battery_size_z}" mass="${battery_mass}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:box_inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -64,7 +64,6 @@
     <xacro:batteries_gazebo name="${name}" />
   </xacro:macro>
 
-
   <xacro:macro name="raw_base" params="name">
 
     <link name="${name}_footprint"/>
@@ -76,12 +75,9 @@
     </joint>
 
     <link name="${name}_link">
-      <inertial>
-        <origin xyz="0 0 0" />
-        <mass value="${base_mass}" />
-        <inertia ixx="9.64" ixy="-0.02" ixz="0.44"
-                 iyy="11.33" iyz="-0.007" izz="3.07" />
-      </inertial>
+      <xacro:box_inertial x="1.04" y="0.58" z="0.12" mass="${base_mass}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:box_inertial>
       <visual>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
