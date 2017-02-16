@@ -42,7 +42,7 @@
 
     <link name="${name}_battery">
       <xacro:box_inertial x="${battery_size_x}" y="${battery_size_y}" z="${battery_size_z}" mass="${battery_mass}">
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:box_inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -76,7 +76,7 @@
 
     <link name="${name}_link">
       <xacro:box_inertial x="1.04" y="0.58" z="0.12" mass="${base_mass}">
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:box_inertial>
       <visual>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
