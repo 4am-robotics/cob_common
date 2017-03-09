@@ -24,7 +24,7 @@
           </range>
           <noise>
             <type>gaussian</type>
-            <mean>0.2</mean>
+            <mean>0.0</mean>
             <stddev>0.02</stddev>
           </noise>
         </ray>
