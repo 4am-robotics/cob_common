@@ -19,6 +19,9 @@
 
   <xacro:macro name="base" params="name use_old_joint_names">
 
+    <xacro:property name="drive_vel" value="19.95" />
+    <xacro:property name="steer_vel" value="117.81" />
+
     <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
