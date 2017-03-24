@@ -17,7 +17,7 @@
       <child link="${parent}_${suffix}_wheel_link"/>
       <axis xyz="0 1 0" />
       <safety_controller  k_velocity="10" />
-      <limit effort="0" velocity="${drive_vel}"/>
+      <limit effort="100" velocity="${drive_vel}"/>
       <dynamics damping="0.0" friction="0.0" />
     </joint>
 
@@ -55,7 +55,7 @@
       <child link="${suffix}_rotation_link" />
       <axis xyz="0 0 1" />
       <safety_controller  k_velocity="10" />
-      <limit effort="0" velocity="${steer_vel}"/>
+      <limit effort="100" velocity="${steer_vel}"/>
       <dynamics damping="0.0" friction="0.0" />
     </joint>
 
