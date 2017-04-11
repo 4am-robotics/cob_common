@@ -1,18 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="sensorring_transmission" params="name">
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
 
-    <transmission name="${name}_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${name}_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="${name}_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-    </transmission>
+  <xacro:macro name="sensorring_transmission" params="name active">
+
+    <xacro:if value="${active}">
+      <xacro:default_transmission jname="${name}"/>
+    </xacro:if>
 
   </xacro:macro>
 

@@ -4,12 +4,12 @@
   <xacro:include filename="$(find raw_description)/urdf/tower_asymetric/tower.gazebo.xacro" />
 
   <!-- Properties -->
-  <property name="tower_mass" value="6.49" />
+  <xacro:property name="tower_mass" value="6.49" />
 
   <xacro:macro name="tower_asymetric" params="name parent *origin" >
 
     <joint name="${name}_joint" type="fixed">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <!--origin xyz=" 0.36 -0.029 0.48" rpy="0 0 3.14159265" /-->
       <parent link="${parent}"/>
       <child link="${name}_base_link" />

@@ -12,37 +12,37 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro"/>
 
   <!-- properties -->
-  <property name="caster_offset_x" value="0.368" />  <!--modify here-->
-  <property name="caster_offset_y_bl" value="0.134" />
-  <property name="caster_offset_y_br" value="-0.184" />
-  <property name="caster_offset_y_fl" value="0.184" />
-  <property name="caster_offset_y_fr" value="-0.134" />
-  <property name="caster_offset_z" value="0.09" />
+  <xacro:property name="caster_offset_x" value="0.368" />  <!--modify here-->
+  <xacro:property name="caster_offset_y_bl" value="0.134" />
+  <xacro:property name="caster_offset_y_br" value="-0.184" />
+  <xacro:property name="caster_offset_y_fl" value="0.184" />
+  <xacro:property name="caster_offset_y_fr" value="-0.134" />
+  <xacro:property name="caster_offset_z" value="0.09" />
 
-  <property name="battery_offset_x_f" value="0.141" />
-  <property name="battery_offset_x_r" value="0.139" />
-  <property name="battery_offset_y_f" value="-0.008" />
-  <property name="battery_offset_y_r" value="0.007" />
-  <property name="battery_offset_z" value="0.065" />
+  <xacro:property name="battery_offset_x_f" value="0.141" />
+  <xacro:property name="battery_offset_x_r" value="0.139" />
+  <xacro:property name="battery_offset_y_f" value="-0.008" />
+  <xacro:property name="battery_offset_y_r" value="0.007" />
+  <xacro:property name="battery_offset_z" value="0.065" />
 
-  <property name="base_mass" value="83.1" />
-  <property name="battery_mass" value="25.0" />
+  <xacro:property name="base_mass" value="83.1" />
+  <xacro:property name="battery_mass" value="50.0" />
 
-  <property name="battery_size_x" value="0.5" />
-  <property name="battery_size_y" value="0.148" />
-  <property name="battery_size_z" value="0.26" />
+  <xacro:property name="battery_size_x" value="0.5" />
+  <xacro:property name="battery_size_y" value="0.148" />
+  <xacro:property name="battery_size_z" value="0.26" />
 
   <!-- battery macros-->
   <xacro:macro name="cob_batteries" params="name parent *origin ">
     <joint name="${name}_battery_joint" type="fixed">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${name}_battery" />
     </joint>
 
     <link name="${name}_battery">
       <xacro:box_inertial x="${battery_size_x}" y="${battery_size_y}" z="${battery_size_z}" mass="${battery_mass}">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:box_inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -64,7 +64,6 @@
     <xacro:batteries_gazebo name="${name}" />
   </xacro:macro>
 
-
   <xacro:macro name="raw_base" params="name">
 
     <link name="${name}_footprint"/>
@@ -76,12 +75,9 @@
     </joint>
 
     <link name="${name}_link">
-      <inertial>
-        <origin xyz="0 0 0" />
-        <mass value="${base_mass}" />
-        <inertia ixx="9.64" ixy="-0.02" ixz="0.44"
-                 iyy="11.33" iyz="-0.007" izz="3.07" />
-      </inertial>
+      <xacro:box_inertial x="1.04" y="0.58" z="0.12" mass="${base_mass}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:box_inertial>
       <visual>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
@@ -142,6 +138,14 @@
 
     <!-- gazebo extensions -->
     <xacro:base_gazebo name="${name}" />
+
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
 
   </xacro:macro>
 

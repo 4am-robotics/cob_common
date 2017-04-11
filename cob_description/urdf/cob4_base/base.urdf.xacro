@@ -10,14 +10,17 @@
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
 
   <!-- properties -->
-  <property name="caster_offset_x" value="0.24844" />  <!--modify here-->
-  <property name="caster_offset_y" value="0.21515" />
-  <property name="caster_offset_z" value="0.08" />
+  <xacro:property name="caster_offset_x" value="0.24844" />  <!--modify here-->
+  <xacro:property name="caster_offset_y" value="0.21515" />
+  <xacro:property name="caster_offset_z" value="0.08" />
 
-  <property name="base_mass" value="50" />
+  <xacro:property name="base_mass" value="50" />
 
 
   <xacro:macro name="base" params="name use_old_joint_names">
+
+    <xacro:property name="drive_vel" value="19.95" />
+    <xacro:property name="steer_vel" value="117.81" />
 
     <link name="${name}_footprint"/>
 
@@ -93,6 +96,14 @@
 
     <!-- gazebo extensions -->
     <xacro:base_gazebo name="${name}" />
+
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
 
   </xacro:macro>
 

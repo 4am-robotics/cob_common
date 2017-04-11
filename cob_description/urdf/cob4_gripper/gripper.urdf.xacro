@@ -8,7 +8,7 @@
 
     <!-- joint between base_link and gripper_base_link -->
     <joint name="${name}_base_joint" type="fixed" >
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <parent link="${parent}" />
       <child link="${name}_base_link" />
     </joint>
@@ -154,6 +154,14 @@
     <!-- extensions -->
     <xacro:gripper_gazebo name="${name}" />
     <xacro:gripper_transmission name="${name}" />
+
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
 
   </xacro:macro>
 
