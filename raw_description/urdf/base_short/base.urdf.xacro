@@ -7,9 +7,6 @@
   <!-- drive_wheel module -->
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.urdf.xacro" />
 
-  <!-- sensors -->
-  <xacro:include filename="$(find cob_description)/urdf/sensors/sick_s300_laser.urdf.xacro"/>
-  <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.urdf.xacro"/>
 
   <!-- properties -->
   <xacro:property name="caster_offset_x" value="0.228" />  <!--modify here-->
@@ -113,23 +110,6 @@
     <xacro:drive_wheel parent="${name}_link" suffix="br"  >
       <origin xyz="${-caster_offset_x} ${caster_offset_y_br} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:drive_wheel>
-
-
-    <!-- base laser front -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_front" parent="${name}">
-      <origin xyz="${laser_front_x} ${laser_front_y} ${laser_front_z}" rpy="${laser_front_roll} ${laser_front_pitch} ${laser_front_yaw}" />
-    </xacro:sick_s300_laser_v0>
-
-    <!-- base laser rear -->
-    <xacro:sick_s300_laser_v0 name="${name}_laser_rear" parent="${name}">
-      <origin xyz="${laser_rear_x} ${laser_rear_y} ${laser_rear_z}" rpy="${laser_rear_roll} ${laser_rear_pitch} ${laser_rear_yaw}" />
-    </xacro:sick_s300_laser_v0>
-
-    <!-- cam3d -->
-    <!--xacro:cob_kinect_v0 name="${name}_cam3d" ros_topic="cam3d" parent="${name}_link">
-      <origin xyz="0.51 0.12 0.27" rpy="-${M_PI/2} 0 -${M_PI/2}" />
-    </xacro:cob_kinect_v0-->
-
 
     <!-- battery-->
     <xacro:cob_batteries name="${name}_battery" parent="${name}_link">
