@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="realsense_gazebo" params="name ros_topic">
+  <!-- use default values of realsense_camera/r200_nodelet_rgbd -->
+  <xacro:macro name="realsense_gazebo" params="name ros_topic
+                                               depth_fps:=30.0 depth_height:=360 depth_width:=480
+                                               color_fps:=30.0 color_height:=480 color_width:=640" >
     <gazebo reference="${name}_link">
       <sensor type="depth" name="${name}_depth_frame">
         <always_on>true</always_on>
-        <update_rate>25.0</update_rate>
+        <update_rate>${color_fps}</update_rate>
         <camera>
           <horizontal_fov>${74.0*M_PI/180.0}</horizontal_fov>
           <image>
             <format>R8G8B8</format>
-            <width>320</width>
-            <height>240</height>
+            <width>${color_width}</width>
+            <height>${color_height}</height>
           </image>
           <clip>
             <near>0.15</near>
@@ -24,7 +27,7 @@
           </noise>
         </camera>
         <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
-          <updateRate>25.0</updateRate>
+          <updateRate>${color_fps}</updateRate>
           <cameraName>${ros_topic}</cameraName>
           <frameName>${name}_rgb_optical_frame</frameName>
           <imageTopicName>rgb/image_raw</imageTopicName>
