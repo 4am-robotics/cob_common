@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="usb_cam_gazebo" params="name ros_topic">
+  <!-- at 2048x1536 3.6hz is maximum on hw -->
+  <xacro:macro name="usb_cam_gazebo" params="name ros_topic update_rate:=3.5 height:=1536 width:=2048" >
     <gazebo reference="${name}_frame">
 
     <sensor type="camera" name="${name}">
-      <update_rate>5</update_rate>
+      <update_rate>${update_rate}</update_rate>
       <camera name="${name}">
-        <horizontal_fov>2.97</horizontal_fov>
+        <horizontal_fov>${170.0*M_PI/180.0}</horizontal_fov>
         <image>
-          <width>2048</width>
-          <height>1536</height>
           <format>R8G8B8</format>
+          <width>${width}</width>
+          <height>${height}</height>
         </image>
         <clip>
           <near>0.02</near>
@@ -25,7 +26,7 @@
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
+        <updateRate>${update_rate}</updateRate>
         <cameraName>${ros_topic}</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
