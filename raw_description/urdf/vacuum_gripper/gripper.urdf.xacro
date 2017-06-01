@@ -28,6 +28,13 @@
     </joint>
 
     <link name="${name}_body">
+      	<inertial>
+            <mass value="0.04419" />
+            <origin xyz="0.00423 0.00284 0.0" rpy="0 0 0" />
+            <inertia  ixx="0.00000837047" ixy="0.00000583632" ixz="0.0"
+                      iyy="0.00000987067" iyz="0.0"
+                      izz="0.00001541768" />
+      	</inertial>
         <visual>
             <origin xyz="0 0 -0.048" rpy="0 0 0"/>
             <geometry>
