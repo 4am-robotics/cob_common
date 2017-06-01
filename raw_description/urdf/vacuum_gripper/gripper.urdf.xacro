@@ -62,7 +62,7 @@
             <xacro:sphere_geometry radius="${gripper_radius}"/>
         </collision>
      </link>
-
+	
     <!-- extensions -->
     <xacro:vacuum_gripper_gazebo name="${name}"/>
 
