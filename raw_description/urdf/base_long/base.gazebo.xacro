@@ -10,6 +10,7 @@
   </xacro:macro>
 
   <xacro:macro name="base_gazebo" params="name">
+    <!-- -->
     <gazebo reference="${name}_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
@@ -25,7 +26,7 @@
           <bumperTopicName>${name}_bumper</bumperTopicName>
         </plugin>
       </sensor>
-    </gazebo>
+    </gazebo> 
 
     <gazebo>
       <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">

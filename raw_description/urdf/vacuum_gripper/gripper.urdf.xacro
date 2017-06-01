@@ -13,13 +13,23 @@
   <xacro:macro name="vacuum_gripper" params="name parent *origin">
 
     <!-- joint between arm_ee_link and vacuum_gripper_link -->
-    <joint name="${name}_base_joint" type="fixed">
+    <joint name="${name}_base_joint" type="revolute">
         <xacro:insert_block name="origin"/>
         <parent link="${parent}"/>
         <child link="${name}_frame"/>
+        <axis xyz="0 1 0" />
+        <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="54.0" velocity="3.2"/>
+        <dynamics damping="0.0" friction="0.0"/>
     </joint>
 
-    <link name="${name}_frame"/>
+    <link name="${name}_frame">
+      <collision>
+        <geometry>
+          <box size="0.01 0.01 0.01"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="-0.01 0 0"/>
+      </collision>
+    </link>
 
     <joint name="gripper_to_palm" type="fixed">
         <parent link="${name}_frame"/>
@@ -28,13 +38,6 @@
     </joint>
 
     <link name="${name}_body">
-      	<inertial>
-            <mass value="0.04419" />
-            <origin xyz="0.00423 0.00284 0.0" rpy="0 0 0" />
-            <inertia  ixx="0.00000837047" ixy="0.00000583632" ixz="0.0"
-                      iyy="0.00000987067" iyz="0.0"
-                      izz="0.00001541768" />
-      	</inertial>
         <visual>
             <origin xyz="0 0 -0.048" rpy="0 0 0"/>
             <geometry>
@@ -69,7 +72,7 @@
             <xacro:sphere_geometry radius="${gripper_radius}"/>
         </collision>
      </link>
-	
+
     <!-- extensions -->
     <xacro:vacuum_gripper_gazebo name="${name}"/>
 
