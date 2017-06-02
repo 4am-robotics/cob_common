@@ -59,20 +59,20 @@
       </xacro:cylinder_inertial>
     </link>
 
-    <joint name="gripper_to_tcp" type="revolute">
+    <joint name="gripper_to_tcp" type="prismatic">
         <parent link="${name}_frame"/>
         <child link="${name}"/>
         <origin xyz=" 0.1263 0.0 0.0" rpy="0 0 0"/>
         <axis xyz="0 1 0" />
-        <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="54.0" velocity="3.2"/>
-        <dynamics damping="0.0" friction="0.0"/>
+        <limit lower="0.001" upper="0.001" effort="54.0" velocity="0.01"/>
+        <dynamics damping="0.0" friction="10.0"/>
     </joint>
 
     <link name="${name}">
         <visual>
             <xacro:sphere_geometry radius="${gripper_radius}"/>
             <material name="white">
-                <color rgba="1 1 1 0.5"/>
+                <color rgba="1 1 1 1"/>
             </material>
         </visual>
         <collision>
