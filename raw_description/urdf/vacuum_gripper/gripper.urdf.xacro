@@ -24,7 +24,7 @@
     <joint name="gripper_to_palm" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}_body"/>
-        <origin xyz="0.08015 0.0475 0.0" rpy="1.57079632679 0 3.1415"/>
+        <origin xyz="0.08015 -0.0475 0.0" rpy="-1.57079632679 0 3.1415"/>
     </joint>
 
     <link name="${name}_body">
@@ -48,7 +48,7 @@
     <joint name="gripper_to_tcp" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}"/>
-        <origin xyz=" 0.1263 0.0 0.0" rpy="0 0 0"/>
+        <origin xyz=" 0.1263 0.0 0.0" rpy="3.1415 0 0"/>
     </joint>
 
     <link name="${name}">
