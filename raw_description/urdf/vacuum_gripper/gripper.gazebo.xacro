@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
   <xacro:macro name="vacuum_gripper_gazebo" params="name">
     <gazebo reference="${name}">
       <self_collide>false</self_collide>
@@ -9,7 +8,7 @@
         <update_rate>100.0</update_rate>
         <contact>
           <collision>${name}_collision</collision>
-          <topic>${name}_bumper</topic>
+            <topic>${name}_bumper</topic>
         </contact>
         <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <frameName>${name}</frameName>
@@ -18,5 +17,4 @@
       </sensor>
     </gazebo>
   </xacro:macro>
-
 </robot>

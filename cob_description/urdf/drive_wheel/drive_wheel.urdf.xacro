@@ -9,7 +9,7 @@
   <xacro:property name="caster_mass" value="5.9" />
   <xacro:property name="wheel_mass" value="0.44036" />
 
-  <xacro:macro name="cob_wheel" params="parent suffix reflect drive_vel:=1.0">
+  <xacro:macro name="cob_wheel" params="parent suffix reflect drive_vel:=^">
 
     <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
       <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
@@ -47,7 +47,7 @@
   </xacro:macro>
 
   <!-- Macro for Caster hub only -->
-  <xacro:macro name="cob_caster_hub" params="*origin parent suffix steer_vel:=1.0" >
+  <xacro:macro name="cob_caster_hub" params="*origin parent suffix steer_vel:=^" >
 
     <joint name="${suffix}_rotation_joint" type="continuous">
       <xacro:insert_block name="origin" />
@@ -85,7 +85,7 @@
   </xacro:macro>
 
 
-  <xacro:macro name="drive_wheel" params="*origin parent suffix drive_vel:=100.0 steer_vel:=100.0">
+  <xacro:macro name="drive_wheel" params="*origin parent suffix drive_vel:=^|100 steer_vel:=^|100">
 
     <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" >
       <xacro:insert_block name="origin" />
