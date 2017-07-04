@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="vacuum_gripper_gazebo" params="name">
-    <gazebo reference="${name}">
+    <gazebo reference="arm_tool0">
       <self_collide>false</self_collide>
-      <sensor name='${name}_sensor' type='contact'>
+      <sensor name='arm_tool0_sensor' type='contact'>
         <always_on>true</always_on>
         <update_rate>100.0</update_rate>
         <contact>
-          <collision>${name}_collision</collision>
-            <topic>${name}_bumper</topic>
+          <collision>arm_tool0_collision</collision>
+            <topic>arm_tool0_bumper</topic>
         </contact>
-        <plugin name="${name}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <frameName>${name}</frameName>
-          <bumperTopicName>${name}_bumper</bumperTopicName>
+        <plugin name="arm_tool0_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+          <frameName>arm_tool0</frameName>
+          <bumperTopicName>arm_tool0_bumper</bumperTopicName>
         </plugin>
       </sensor>
     </gazebo>

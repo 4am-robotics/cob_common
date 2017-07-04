@@ -11,7 +11,7 @@
   <xacro:property name="gripper_body_height" value="0.14"/>
   <xacro:property name="gripper_radius" value="0.01"/>
 
-  <xacro:macro name="vacuum_gripper" params="name parent *origin">
+  <xacro:macro name="vacuum_gripper" params="name parent *origin sensor_frame">
 
   <!-- joint between arm_ee_link and vacuum_gripper_link -->
   <joint name="${name}_base_joint" type="fixed">
@@ -59,7 +59,7 @@
     </xacro:cylinder_inertial>
   </link>
 
-  <joint name="gripper_to_tcp" type="prismatic">
+  <joint name="gripper_to_tcp" type="fixed">
     <parent link="${name}_frame"/>
     <child link="${name}"/>
     <origin xyz=" 0.1263 0.0 0.0" rpy="0 0 0"/>
@@ -85,7 +85,7 @@
 
   <!-- extensions -->
   <xacro:vacuum_gripper_transmission name="${name}"/>
-  <xacro:vacuum_gripper_gazebo name="${name}"/>
+  <xacro:vacuum_gripper_gazebo name="${sensor_frame}"/>
 
   </xacro:macro>
 
