@@ -1,6 +1,6 @@
 <package format="2">
   <name>cob_srvs</name>
-  <version>0.6.6</version>
+  <version>0.6.7</version>
   <description>This Package contains Care-O-bot specific service definitions.</description>
 
   <license>LGPL</license>

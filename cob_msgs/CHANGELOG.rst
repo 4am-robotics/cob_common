@@ -2,8 +2,8 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.7 (2017-07-17)
+------------------
 * manually fix changelog
 * Contributors: ipa-fxm
 

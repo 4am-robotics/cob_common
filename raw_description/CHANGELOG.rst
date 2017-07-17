@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.7 (2017-07-17)
+------------------
 * Current config gripper (`#221 <https://github.com/ipa320/cob_common/issues/221>`_)
   * added vacuum gripper
   * New STL file for the vacuum gripper

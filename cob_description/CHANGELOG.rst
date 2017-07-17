@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.7 (2017-07-17)
+------------------
 * use asus xtion default values
 * usb_cam default values
 * use realsense default values
