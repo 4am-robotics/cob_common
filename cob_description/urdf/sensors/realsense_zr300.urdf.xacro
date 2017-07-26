@@ -32,7 +32,7 @@
     </link>
 
     <!-- extensions -->
-    <xacro:realsense_gazebo name="${name}" ros_topic="${ros_topic}" />
+    <xacro:realsense_zr300_gazebo name="${name}" ros_topic="${ros_topic}" />
   </xacro:macro>
 
 </robot>
