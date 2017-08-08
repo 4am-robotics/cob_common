@@ -6,7 +6,7 @@
   a variety of other components. Most users will not interact directly
   with this package.</description>
 
-  <license>LGPL</license>
+  <license>Apache 2.0</license>
 
   <url type="website">http://ros.org/wiki/cob_description</url>
   <!-- <url type="bugtracker"></url> -->
