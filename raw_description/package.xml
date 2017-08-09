@@ -10,7 +10,7 @@
   <url type="website">http://ros.org/wiki/cob_description</url>
   <!-- <url type="bugtracker"></url> -->
 
-  <maintainer email="aub@ipa.fhg.de">Alexander Bubeck</maintainer>
+  <maintainer email="jba@ipa.fhg.de">Jannik Abbenseth</maintainer>
   <author email="aub@ipa.fhg.de">Alexander Bubeck</author>
 
   <buildtool_depend>catkin</buildtool_depend>

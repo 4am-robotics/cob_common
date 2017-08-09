@@ -7,10 +7,9 @@
 
   <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
   <maintainer email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</maintainer>
+  <author email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</author>
 
   <license>Apache 2.0</license>
-
-  <author email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
