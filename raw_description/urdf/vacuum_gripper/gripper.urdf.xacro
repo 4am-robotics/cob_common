@@ -38,9 +38,9 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 -0.048" rpy="0 0 0"/>
+            <origin xyz="0.01 0.04 -0.048" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://raw_description/meshes/vacuum_gripper/vacuum_gripper.stl"/>
+                <box size="0.13 0.14 0.071"/>
             </geometry>
         </collision>
     </link>
