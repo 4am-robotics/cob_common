@@ -3,7 +3,7 @@
 
   <!-- at 2048x1536 3.6hz is maximum on hw -->
   <xacro:macro name="usb_cam_gazebo" params="name ros_topic update_rate:=3.5 height:=1536 width:=2048" >
-    <gazebo reference="${name}_optical_frame">
+    <gazebo reference="${name}_link">
 
     <sensor type="camera" name="${name}">
       <update_rate>${update_rate}</update_rate>
