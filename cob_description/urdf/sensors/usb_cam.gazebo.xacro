@@ -10,7 +10,7 @@
       <camera name="${name}">
         <horizontal_fov>${170.0*M_PI/180.0}</horizontal_fov>
         <image>
-          <format>R8G8B8</format>
+          <format>B8G8R8</format>
           <width>${width}</width>
           <height>${height}</height>
         </image>
