@@ -11,11 +11,7 @@
     </joint>
 
     <link name="${name}_link">
-      <inertial>
-        <mass value="0.1" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257" />
-      </inertial>
+      <xacro:default_inertial/>
       <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
