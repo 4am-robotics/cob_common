@@ -11,11 +11,7 @@
     </joint>
 
     <link name="${name}_link">
-      <inertial>
-        <mass value="0.1" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257" />
-      </inertial>
+      <xacro:default_inertial/>
       <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -31,17 +27,26 @@
     </link>
 
     <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${M_PI/2} -${M_PI/2} 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${name}_link"/>
       <child link="${name}_frame"/>
     </joint>
 
     <link name="${name}_frame"/>
+
+    <joint name="${name}_optical_frame_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-${M_PI/2} 0 -${M_PI/2}" />
+      <parent link="${name}_frame"/>
+      <child link="${name}_optical_frame"/>
+    </joint>
+
+    <link name="${name}_optical_frame"/>
+
     <!-- extensions -->
     <xacro:usb_cam_gazebo name="${name}" ros_topic="${ros_topic}"
-									     update_rate="${update_rate}"
-									     height="${height}"
-									     width="${width}"/>
+                                         update_rate="${update_rate}"
+                                         height="${height}"
+                                         width="${width}"/>
   </xacro:macro>
 
 </robot>

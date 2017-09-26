@@ -8,7 +8,6 @@
 
   <xacro:macro name="sick_s300_laser_v0" params="name parent *origin">
     <joint name="${name}_joint" type="fixed">
-      <axis xyz="0 1 0" />
       <xacro:insert_block name="origin" />
       <parent link="${parent}_link"/>
       <child link="${name}_link"/>
@@ -33,7 +32,6 @@
         </geometry>
       </collision>
     </link>
-
 
     <!-- gazebo extensions -->
     <xacro:sick_s300_laser_gazebo_v0 name="${name}"/>
