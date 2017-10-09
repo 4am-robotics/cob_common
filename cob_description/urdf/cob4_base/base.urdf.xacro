@@ -14,7 +14,7 @@
   <xacro:property name="base_mass" value="100" />
 
 
-  <xacro:macro name="base" params="name use_old_joint_names">
+  <xacro:macro name="base" params="name">
 
     <xacro:property name="drive_vel" value="19.95" />
     <xacro:property name="steer_vel" value="117.81" />
@@ -52,29 +52,15 @@
 
 
     <!-- arrangement of the three drive_wheel modules -->
-    <xacro:if value="${use_old_joint_names}">
-      <xacro:drive_wheel parent="${name}_link" suffix="fl" >
-        <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-      </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="bl" >
-        <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
-      </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="br" >
-        <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-      </xacro:drive_wheel>
-    </xacro:if>
-
-    <xacro:unless value="${use_old_joint_names}">
-      <xacro:drive_wheel parent="${name}_link" suffix="fl" >
-        <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-      </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="b" >
-        <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
-      </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_link" suffix="fr" >
-        <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
-      </xacro:drive_wheel>
-    </xacro:unless>
+    <xacro:drive_wheel parent="${name}_link" suffix="fl" >
+      <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+    </xacro:drive_wheel>
+    <xacro:drive_wheel parent="${name}_link" suffix="b" >
+      <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
+    </xacro:drive_wheel>
+    <xacro:drive_wheel parent="${name}_link" suffix="fr" >
+      <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+    </xacro:drive_wheel>
 
 
     <!-- gazebo extensions -->
