@@ -14,29 +14,29 @@
 
     <link name="${name}_0_link">
       <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0.254" rpy="0 0 0"/>
         <mass value="0.57307"/>
         <inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
       </inertial>
 
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.254" rpy="0 0 0" />
         <geometry>
-          <cylinder length="0.521" radius="0.04"/>
+          <cylinder length="0.508" radius="0.04"/>
         </geometry>
         <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.254" rpy="0 0 0" />
         <geometry>
-          <cylinder length="0.521" radius="0.04"/>
+          <cylinder length="0.508" radius="0.04"/>
         </geometry>
       </collision>
     </link>
 
     <xacro:powerball_ERB115 name="torso" parent="${name}_0_link">
-      <origin xyz="0.0 0.0 0.3074" rpy="0.0 0.0 0.0" />
+      <origin xyz="0.0 0.0 0.582" rpy="0.0 0.0 0.0" />
     </xacro:powerball_ERB115>
 
     <!-- ros_control plugin -->
