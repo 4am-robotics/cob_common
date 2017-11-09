@@ -20,7 +20,6 @@ import os
 import unittest
 import subprocess
 
-import rospy
 import rosunit
 
 ## A sample python unit test
