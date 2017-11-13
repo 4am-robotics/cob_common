@@ -32,9 +32,9 @@
           <frameName>${name}_rgb_optical_frame</frameName>
           <imageTopicName>rgb/image_raw</imageTopicName>
           <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-          <pointCloudTopicName>depth_registered/points</pointCloudTopicName>
-          <depthImageTopicName>depth_registered/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>depth_registered/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>depth/points</pointCloudTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
           <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
           <distortionK1>0.0</distortionK1>
