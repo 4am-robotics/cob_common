@@ -1,15 +1,13 @@
 <package format="2">
   <name>cob_common</name>
-  <version>0.6.7</version>
+  <version>0.6.8</version>
   <description>The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc. Also the urdf desciption of the robot is located in this stack.</description>
-  <license>LGPL</license>
+  <license>Apache 2.0</license>
 
   <url type="website">http://ros.org/wiki/cob_common</url>
   <!-- <url type="bugtracker"></url> -->
 
-  <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
-  <maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
-  <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
 

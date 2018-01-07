@@ -9,17 +9,30 @@
   <xacro:property name="caster_mass" value="5.9" />
   <xacro:property name="wheel_mass" value="0.44036" />
 
-  <xacro:macro name="cob_wheel" params="parent suffix reflect drive_vel:=^">
+  <xacro:macro name="cob_wheel" params="parent suffix reflect drive_vel:=^ passive:=false">
 
-    <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
-      <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
-      <parent link="${parent}_rotation_link"/>
-      <child link="${parent}_${suffix}_wheel_link"/>
-      <axis xyz="0 1 0" />
-      <safety_controller  k_velocity="10" />
-      <limit effort="100" velocity="${drive_vel}"/>
-      <dynamics damping="0.0" friction="0.0" />
-    </joint>
+    <xacro:if value="${passive}">
+      <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
+        <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
+        <parent link="${parent}_rotation_link"/>
+        <child link="${parent}_${suffix}_wheel_link"/>
+        <axis xyz="0 1 0" />
+        <safety_controller  k_velocity="10" />
+        <limit effort="0.0" velocity="${drive_vel}"/>
+        <dynamics damping="0.0" friction="0.0" />
+      </joint>
+    </xacro:if>
+    <xacro:unless value="${passive}">
+      <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
+        <origin xyz="0 ${reflect*caster_wheel_offset_y} 0" rpy="0 0 0" />
+        <parent link="${parent}_rotation_link"/>
+        <child link="${parent}_${suffix}_wheel_link"/>
+        <axis xyz="0 1 0" />
+        <safety_controller  k_velocity="10" />
+        <limit effort="100" velocity="${drive_vel}"/>
+        <dynamics damping="0.0" friction="0.0" />
+      </joint>
+    </xacro:unless>
 
     <link name="${parent}_${suffix}_wheel_link">
       <inertial>
@@ -42,22 +55,33 @@
 
     <!-- extensions -->
     <xacro:cob_wheel_gazebo parent="${parent}" suffix="${suffix}" />
-    <xacro:cob_wheel_transmission parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
+    <xacro:unless value="${passive}">
+      <xacro:cob_wheel_transmission parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
+    </xacro:unless>
 
   </xacro:macro>
 
   <!-- Macro for Caster hub only -->
-  <xacro:macro name="cob_caster_hub" params="*origin parent suffix steer_vel:=^" >
+  <xacro:macro name="cob_caster_hub" params="*origin parent suffix steer_vel:=^ passive:=false" >
 
-    <joint name="${suffix}_rotation_joint" type="continuous">
-      <xacro:insert_block name="origin" />
-      <parent link="${parent}"/>
-      <child link="${suffix}_rotation_link" />
-      <axis xyz="0 0 1" />
-      <safety_controller  k_velocity="10" />
-      <limit effort="100" velocity="${steer_vel}"/>
-      <dynamics damping="0.0" friction="0.0" />
-    </joint>
+    <xacro:if value="${passive}">
+      <joint name="${suffix}_rotation_joint" type="fixed">
+        <xacro:insert_block name="origin" />
+        <parent link="${parent}"/>
+        <child link="${suffix}_rotation_link" />
+      </joint>
+    </xacro:if>
+    <xacro:unless value="${passive}">
+      <joint name="${suffix}_rotation_joint" type="continuous">
+        <xacro:insert_block name="origin" />
+        <parent link="${parent}"/>
+        <child link="${suffix}_rotation_link" />
+        <axis xyz="0 0 1" />
+        <safety_controller  k_velocity="10" />
+        <limit effort="100" velocity="${steer_vel}"/>
+        <dynamics damping="0.0" friction="0.0" />
+      </joint>
+    </xacro:unless>
 
     <link name="${suffix}_rotation_link">
       <inertial>
@@ -80,18 +104,20 @@
     </link>
 
     <!-- extensions -->
-    <xacro:cob_caster_transmission suffix="${suffix}" />
+    <xacro:unless value="${passive}">
+      <xacro:cob_caster_transmission suffix="${suffix}" />
+    </xacro:unless>
 
   </xacro:macro>
 
 
-  <xacro:macro name="drive_wheel" params="*origin parent suffix drive_vel:=^|100 steer_vel:=^|100">
+  <xacro:macro name="drive_wheel" params="*origin parent suffix drive_vel:=^|100 steer_vel:=^|100 passive:=false">
 
-    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" >
+    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" passive="${passive}" >
       <xacro:insert_block name="origin" />
     </xacro:cob_caster_hub>
 
-    <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1" />
+    <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1"  passive="${passive}" />
 
     <!-- extensions -->
     <xacro:cob_caster_gazebo suffix="${suffix}" />

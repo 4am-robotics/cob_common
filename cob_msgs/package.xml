@@ -1,16 +1,15 @@
 <package format="2">
   <name>cob_msgs</name>
-  <version>0.6.7</version>
+  <version>0.6.8</version>
   <description>
     Messages for representing state information, such as battery information and emergency stop status.
   </description>
 
   <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
   <maintainer email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</maintainer>
-
-  <license>LGPL</license>
-
   <author email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</author>
+
+  <license>Apache 2.0</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 

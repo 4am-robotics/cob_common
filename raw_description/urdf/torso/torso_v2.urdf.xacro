@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find raw_description)/urdf/powerball/powerball_ERB115.urdf.xacro" />
+
+  <xacro:macro name="raw_torso_v2" params="name parent *origin">
+
+    <!-- joint between base_link and torso_bottom_link -->
+    <joint name="${name}_0_joint" type="fixed" >
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${name}_0_link" />
+    </joint>
+
+    <link name="${name}_0_link">
+      <inertial>
+        <origin xyz="0 0 0.254" rpy="0 0 0"/>
+        <mass value="0.57307"/>
+        <inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0.254" rpy="0 0 0" />
+        <geometry>
+          <cylinder length="0.508" radius="0.04"/>
+        </geometry>
+        <material name="IPA/LightGrey" />
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0.254" rpy="0 0 0" />
+        <geometry>
+          <cylinder length="0.508" radius="0.04"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <xacro:powerball_ERB115 name="torso" parent="${name}_0_link">
+      <origin xyz="0.0 0.0 0.582" rpy="0.0 0.0 0.0" />
+    </xacro:powerball_ERB115>
+
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

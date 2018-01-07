@@ -1,22 +1,25 @@
 <package format="2">
   <name>cob_description</name>
-  <version>0.6.7</version>
+  <version>0.6.8</version>
   <description>This package contains the description (mechanical, kinematic, visual,
   etc.) of the Care-O-bot robot. The files in this package are parsed and used by
   a variety of other components. Most users will not interact directly
   with this package.</description>
 
-  <license>LGPL</license>
+  <license>Apache 2.0</license>
 
   <url type="website">http://ros.org/wiki/cob_description</url>
   <!-- <url type="bugtracker"></url> -->
 
-  <maintainer email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</maintainer>
+  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
+  <author email="nhg@ipa.fhg.de">Nadia Hammoudeh Garcia</author>
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+  <author email="fxm@ipa.fhg.de">Felix Messmer</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>rosbash</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>rosunit</exec_depend>
   <exec_depend>xacro</exec_depend>

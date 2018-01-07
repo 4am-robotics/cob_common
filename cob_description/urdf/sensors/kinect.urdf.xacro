@@ -11,9 +11,7 @@
     </joint>
 
     <link name="${name}_link">
-      <xacro:box_inertial x="0.18" y="0.035" z="0.05" mass="0.3">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-      </xacro:box_inertial>
+      <xacro:default_inertial/>
       <visual>
         <origin xyz="0 0 -0.03" rpy="0 0 0" />
         <geometry>
@@ -29,20 +27,12 @@
       </collision>
     </link>
 
-    <joint name="${name}_frame_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${M_PI/2} -${M_PI/2} 0" />
-      <parent link="${name}_link"/>
-      <child link="${name}_frame"/>
-    </joint>
-
-    <link name="${name}_frame"/>
-
     <!-- extensions -->
     <xacro:cob_kinect_gazebo_v0 name="${name}" ros_topic="${ros_topic}"
-    									       update_rate="${update_rate}"
-    									       data_skip="${data_skip}"
-									           height="${height}"
-									           width="${width}"/>
+                                               update_rate="${update_rate}"
+                                               data_skip="${data_skip}"
+                                               height="${height}"
+                                               width="${width}"/>
   </xacro:macro>
 
 </root>

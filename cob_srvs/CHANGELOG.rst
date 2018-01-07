@@ -2,6 +2,15 @@
 Changelog for package cob_srvs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.8 (2018-01-07)
+------------------
+* Merge pull request `#246 <https://github.com/ipa320/cob_common/issues/246>`_ from ipa320/indigo_release_candidate
+  Indigo release candidate
+* Merge pull request `#224 <https://github.com/ipa320/cob_common/issues/224>`_ from ipa-fxm/APACHE_license
+  use license apache 2.0
+* use license apache 2.0
+* Contributors: Felix Messmer, ipa-uhr-mk
+
 0.6.7 (2017-07-17)
 ------------------
 * manually fix changelog
