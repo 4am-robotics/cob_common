@@ -2,6 +2,46 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.7 (2017-07-17)
+------------------
+* use asus xtion default values
+* usb_cam default values
+* use realsense default values
+* separate laser scanner from base
+* remove static tf frames
+* raise effort limit. fixes https://github.com/ipa320/cob_robots/issues/641
+* change back mean value of noise (caused troubles for close by obstacles)
+* set proper velocity limits for cob4 drive_wheel
+* adjusted laserscan-sensors in simulation
+* proper conditions
+* move gazebo_ros_control plugin
+* use xacro --inorder
+* fix collision mesh for cob4 torso
+* remove obsolete components due to unsupported robots
+* Merge pull request `#200 <https://github.com/ipa320/cob_common/issues/200>`_ from ipa-fxm/latest_xacro_syntax
+  use latest xacro syntax
+* allow static sensorring
+* fix syntax error
+* use latest xacro syntax
+* manually fix changelog
+* unify torso xacros, use default transmission macro
+* move sensors from torso xacro to robot xacro
+* remove unused torso_3dof
+* use default transmission macro
+* unify sensorring xacros
+* move sensors from sensorring xacro to robot xacro
+* remove unused sensorring_3dcs
+* unify head xacros
+* introduce default transmission
+* move sensors from head xacro to robot xacro
+* removed softkinetic description
+* updated resolution for usb camera
+* updated resolution for usb camera
+* renamed xacro and files(head_cam -> usb_cam)
+* check camera resolution
+* added head_cam frame to urdf
+* Contributors: Felix Messmer, Florian Weisshardt, Mathias Lüdtke, fmw-hb, ipa-fxm, ipa-nhg
+
 0.6.6 (2016-10-10)
 ------------------
 * review velocity axis limit

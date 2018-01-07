@@ -2,6 +2,40 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.7 (2017-07-17)
+------------------
+* Current config gripper (`#221 <https://github.com/ipa320/cob_common/issues/221>`_)
+  * added vacuum gripper
+  * New STL file for the vacuum gripper
+  * Vacuum Gripper file description updated
+  * torso and gripper updates
+  * removed obsolete files
+  * orient_gripper
+* fix the wheel radius to meet with the actual hardware radii
+* separate laser scanner from base
+* finalizing
+* changes acoording to pull request
+* origin of the colision mesh corrected according with visual values
+* origin of the colision mesh corrected
+* gripper mesh simplified
+* stable behavior by tweaking the base mass/inertia achieved
+* stable behavior by tweaking the base mass/inertia achieved
+* get a stable behavior by tweaking the base mass/inertia
+* use scalable primitive meshes
+* use the properties at the top for the collision properties
+* file name and suffix all small letters.
+* gripper macro name changed and prefix removed as argument
+* tabs vs spaces solved
+* requested changes
+* torso and gripper updates
+* Vacuum Gripper file description updated
+* New STL file for the vacuum gripper
+* added vacuum gripper
+* move gazebo_ros_control plugin
+* use latest xacro syntax
+* manually fix changelog
+* Contributors: Bruno Brito, Richard Bormann, ipa-bfb-sc, ipa-fxm, ipa-mjp, ipa-raw3-3
+
 0.6.6 (2016-10-10)
 ------------------
 * fixed inertia and mass for raw3 base long
