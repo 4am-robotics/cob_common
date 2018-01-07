@@ -2,6 +2,58 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.8 (2018-01-07)
+------------------
+* Merge pull request `#246 <https://github.com/ipa320/cob_common/issues/246>`_ from ipa320/indigo_release_candidate
+  Indigo release candidate
+* Merge pull request `#244 <https://github.com/ipa320/cob_common/issues/244>`_ from ipa-fxm/fix_depth_registered
+  adjust topic to real hardware
+* adjust topic to real hardware
+* Merge pull request `#243 <https://github.com/ipa320/cob_common/issues/243>`_ from ipa-fxm/fix/test_urdf_travis
+  fix test_urdf for travis
+* fix test_urdf for travis
+* Merge pull request `#240 <https://github.com/ipa320/cob_common/issues/240>`_ from mgruhler/fix/test_urdf
+  cob_common: fix test_urdf.py
+* cob_common: fix test_urdf.py
+  * fix check of return value from subprocess call
+  * use 'rosrun xacro xacro' instead of 'rospack find xacro'/xacro as this does not work in kinetic anymore
+  * clearer error output
+* Merge pull request `#237 <https://github.com/ipa320/cob_common/issues/237>`_ from ipa-fxm/fix/s300-max-range
+  sick_s300: adjust range_max
+* sick_s300: adjust range_max
+* Merge pull request `#235 <https://github.com/ipa320/cob_common/issues/235>`_ from ipa-fxm/cob4_tricycle
+  cob4 tricycle
+* allow tricycle_mode
+* Merge pull request `#236 <https://github.com/ipa320/cob_common/issues/236>`_ from ipa-fxm/remove_use_old_joint_name
+  remove obsolete argument use_old_joint_names
+* remove obsolete argument use_old_joint_names
+* Merge pull request `#233 <https://github.com/ipa320/cob_common/issues/233>`_ from ipa-fxm/fix_asus_coord_frames
+  fix camera coord frames for all cameras for hw and sim
+* adjust sick_3dcs according to hardware driver specs
+* tweak inertia
+* Update usb_cam.gazebo.xacro
+* fix frames of sick_3dcs
+* fix frames of usb_cam
+* fix image color format
+* fix coordinate frames for asus camera
+* Merge pull request `#230 <https://github.com/ipa320/cob_common/issues/230>`_ from ipa-fxm/update_maintainer
+  update maintainer
+* add missing include
+* update maintainer
+* Merge pull request `#224 <https://github.com/ipa320/cob_common/issues/224>`_ from ipa-fxm/APACHE_license
+  use license apache 2.0
+* Merge pull request `#227 <https://github.com/ipa320/cob_common/issues/227>`_ from ipa-fxm/copy_cob4_arm
+  copy cob4_arm description
+* copy cob4_arm description
+* Merge pull request `#226 <https://github.com/ipa320/cob_common/issues/226>`_ from ipa-fxm/zr300_unique_macro_names
+  unique macro name for zr300
+* unique macro name for zr300
+* Merge pull request `#225 <https://github.com/ipa320/cob_common/issues/225>`_ from ipa-fmw/feature/zr300
+  add zr300 cameras
+* add zr300 urdfs
+* use license apache 2.0
+* Contributors: Benjamin Maidel, Felix Messmer, Florian Weisshardt, Matthias Gruhler, Richard Bormann, ipa-fmw, ipa-fxm, ipa-uhr-mk
+
 0.6.7 (2017-07-17)
 ------------------
 * use asus xtion default values
