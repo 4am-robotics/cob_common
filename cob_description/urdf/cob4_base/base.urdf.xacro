@@ -14,7 +14,7 @@
   <xacro:property name="base_mass" value="100" />
 
 
-  <xacro:macro name="base" params="name tricycle_mode:=false">
+  <xacro:macro name="base" params="name tricycle_mode:=false drive_dir_angle:=0">
 
     <xacro:property name="drive_vel" value="19.95" />
     <xacro:property name="steer_vel" value="117.81" />
@@ -30,7 +30,7 @@
     <link name="${name}_link"/>
 
     <joint name="${name}_rotated_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 3.14159" />
+      <origin xyz="0 0 0" rpy="0 0 ${drive_dir_angle}" />
       <parent link="${name}_link"/>
       <child link="${name}_rotated_link" />
     </joint>
