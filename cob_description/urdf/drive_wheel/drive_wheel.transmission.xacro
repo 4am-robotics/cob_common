@@ -22,6 +22,7 @@
     <transmission name="${suffix}_rotation_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${suffix}_rotation_joint" >
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
         <hardwareInterface>VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="${suffix}_rotation_motor" >
