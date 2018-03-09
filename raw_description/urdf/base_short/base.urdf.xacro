@@ -27,6 +27,8 @@
   <xacro:property name="battery_size_y" value="0.148" />
   <xacro:property name="battery_size_z" value="0.26" />
 
+  <xacro:arg name="robot_namespace" default="" />
+
 
   <!-- battery macros-->
   <xacro:macro name="cob_batteries" params="name parent *origin ">
@@ -123,7 +125,7 @@
     <!-- ros_control plugin -->
     <gazebo>
       <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
-        <robotNamespace>${name}</robotNamespace>
+        <robotNamespace>$(arg robot_namespace)/${name}</robotNamespace>
         <filterJointsParam>joint_names</filterJointsParam>
       </plugin>
     </gazebo>
