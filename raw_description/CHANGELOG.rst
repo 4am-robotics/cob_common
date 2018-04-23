@@ -2,6 +2,65 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.8 (2018-01-07)
+------------------
+* Merge pull request `#246 <https://github.com/ipa320/cob_common/issues/246>`_ from ipa320/indigo_release_candidate
+  Indigo release candidate
+* Merge pull request `#239 <https://github.com/ipa320/cob_common/issues/239>`_ from ipa-fxm/indigo_dev_rmb
+  corrected torso definition
+* corrected torso definition
+* Merge pull request `#232 <https://github.com/ipa320/cob_common/issues/232>`_ from bmagyar/simplify_raw_vacuum_gripper_collision_model
+  Replace vacuum gripper collision mesh with bounding box
+* Replace vacuum gripper collision mesh with bounding box
+* Merge pull request `#230 <https://github.com/ipa320/cob_common/issues/230>`_ from ipa-fxm/update_maintainer
+  update maintainer
+* Merge pull request `#231 <https://github.com/ipa320/cob_common/issues/231>`_ from ipa-fxm/update_torso_raw3-1
+  new torso raw3-1
+* add new torso for raw3-1
+* add powerball urdf
+* update maintainer
+* Merge pull request `#224 <https://github.com/ipa320/cob_common/issues/224>`_ from ipa-fxm/APACHE_license
+  use license apache 2.0
+* Merge pull request `#229 <https://github.com/ipa320/cob_common/issues/229>`_ from ipa-fxm/move_ur_arm
+  move ur_arm to raw_description
+* move ur_arm to raw_description
+* use license apache 2.0
+* Contributors: Bence Magyar, Felix Messmer, Richard Bormann, ipa-fxm, ipa-uhr-mk
+
+0.6.7 (2017-07-17)
+------------------
+* Current config gripper (`#221 <https://github.com/ipa320/cob_common/issues/221>`_)
+  * added vacuum gripper
+  * New STL file for the vacuum gripper
+  * Vacuum Gripper file description updated
+  * torso and gripper updates
+  * removed obsolete files
+  * orient_gripper
+* fix the wheel radius to meet with the actual hardware radii
+* separate laser scanner from base
+* finalizing
+* changes acoording to pull request
+* origin of the colision mesh corrected according with visual values
+* origin of the colision mesh corrected
+* gripper mesh simplified
+* stable behavior by tweaking the base mass/inertia achieved
+* stable behavior by tweaking the base mass/inertia achieved
+* get a stable behavior by tweaking the base mass/inertia
+* use scalable primitive meshes
+* use the properties at the top for the collision properties
+* file name and suffix all small letters.
+* gripper macro name changed and prefix removed as argument
+* tabs vs spaces solved
+* requested changes
+* torso and gripper updates
+* Vacuum Gripper file description updated
+* New STL file for the vacuum gripper
+* added vacuum gripper
+* move gazebo_ros_control plugin
+* use latest xacro syntax
+* manually fix changelog
+* Contributors: Bruno Brito, Richard Bormann, ipa-bfb-sc, ipa-fxm, ipa-mjp, ipa-raw3-3
+
 0.6.6 (2016-10-10)
 ------------------
 * fixed inertia and mass for raw3 base long

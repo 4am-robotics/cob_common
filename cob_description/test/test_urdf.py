@@ -20,7 +20,6 @@ import os
 import unittest
 import subprocess
 
-import rospy
 import rosunit
 
 ## A sample python unit test
@@ -41,9 +40,10 @@ class TestUrdf(unittest.TestCase):
 			self.fail('file "' + file_to_test + '" not found')
 
 		# check if xacro can be converted
-		p = subprocess.Popen("`rospack find xacro`/xacro --inorder " + file_to_test + " > /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		p = subprocess.Popen("rosrun xacro xacro --inorder " + file_to_test + " > /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		(out,err) = p.communicate()
 		if p.returncode != 0 and p.returncode != None:
-			self.fail("cannot convert xacro. file: " + file_to_test + "\n" + p.stderr.read())
+			self.fail("cannot convert xacro. file: " + file_to_test + "\nOutput: " + out + "\nError: " + err)
 
 		# check if urdf is correct
 		p = subprocess.Popen("check_urdf /tmp/test.urdf", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
