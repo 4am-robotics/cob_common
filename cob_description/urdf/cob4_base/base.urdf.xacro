@@ -9,7 +9,7 @@
   <!-- properties -->
   <xacro:property name="caster_offset_x" value="0.24844" />  <!--modify here-->
   <xacro:property name="caster_offset_y" value="0.21515" />
-  <xacro:property name="caster_offset_z" value="0.08" />
+  <xacro:property name="caster_offset_z" value="0.0782" />
 
   <xacro:property name="base_mass" value="100" />
 
