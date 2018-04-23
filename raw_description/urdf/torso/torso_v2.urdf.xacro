@@ -19,17 +19,13 @@
 
       <visual>
         <origin xyz="0 0 0.254" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.508" radius="0.04"/>
-        </geometry>
+        <xacro:cylinder_geometry radius="0.04" length="0.508">
         <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
         <origin xyz="0 0 0.254" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.508" radius="0.04"/>
-        </geometry>
+        <xacro:cylinder_geometry radius="0.04" length="0.508">
       </collision>
     </link>
 
