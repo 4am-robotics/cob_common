@@ -41,7 +41,8 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0.01 0.04 -0.048" rpy="0 0 0"/>
+            <!--origin xyz="0.01 0.04 -0.048" rpy="0 0 0"/-->
+            <origin xyz="0.00 0.00 -0.048" rpy="0 0 0"/>
             <geometry>
                 <!--box size="0.13 0.14 0.071"/-->
                 <cylinder radius="${gripper_width + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
@@ -49,7 +50,7 @@
         </collision>
     </link>
 
-    <!--joint name="gripper_to_tcp" type="fixed">
+    <joint name="gripper_to_tcp" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}"/>
         <origin xyz=" 0.1263 0.0 0.0" rpy="3.1415 0 0"/>
@@ -57,15 +58,15 @@
 
     <link name="${name}">
         <visual>
-            <xacro:sphere_geometry radius="${gripper_radius}"/>
+            <xacro:sphere_geometry radius="${gripper_collision_value}"/>
             <material name="white">
                 <color rgba="1 1 1 0.5"/>
             </material>
         </visual>
         <collision>
-            <xacro:sphere_geometry radius="${gripper_radius}"/>
+            <xacro:sphere_geometry radius="${gripper_collision_value}"/>
         </collision>
-     </link-->
+     </link>
 
     <!-- extensions -->
     <xacro:vacuum_gripper_gazebo name="${name}"/>
