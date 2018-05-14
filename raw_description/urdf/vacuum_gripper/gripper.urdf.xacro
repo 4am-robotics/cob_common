@@ -26,31 +26,30 @@
         <parent link="${name}_frame"/>
         <child link="${name}_body"/>
         <!--origin xyz="0.08015 -0.0475 0.0" rpy="-1.57079632679 0 3.1415"/-->
-        <origin xyz="0.00 0.00 0.0" rpy="-1.57079632679 0 1.57079632679"/>
+        <origin xyz="0.200 -0.0750 -0.08" rpy="0.0 0.0 1.57079632679"/>
     </joint>
 
     <link name="${name}_body">
+       <inertial>
+       <!--choose randomly-->
+        <origin xyz="0 0 0" rpy="0.0 0 0.0"/>
+        <mass value="1.57307"/>
+        <inertia ixx="0.819" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+      </inertial>
+    
         <visual>
-            <origin xyz="0 0 -0.048" rpy="0 0 0"/>
+            <origin xyz="0.0 0 0.0" rpy="0.0 0 0"/>
             <geometry>
-                <!--mesh filename="package://raw_description/meshes/vacuum_gripper/vacuum_gripper.stl"/-->
-                <cylinder radius="${gripper_width}" length="${gripper_length}"/>
+                <mesh filename="package://raw_description/meshes/vacuum_gripper/vacuum_gripper.STL" scale="0.001 0.001 0.001"/>
+                <!--cylinder radius="${gripper_width}" length="${gripper_length}"/-->
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
             </material>
         </visual>
-        <collision>
-            <!--origin xyz="0.01 0.04 -0.048" rpy="0 0 0"/-->
-            <origin xyz="0.00 0.00 -0.048" rpy="0 0 0"/>
-            <geometry>
-                <!--box size="0.13 0.14 0.071"/-->
-                <cylinder radius="${gripper_width + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
-            </geometry>
-        </collision>
     </link>
 
-    <joint name="gripper_to_tcp" type="fixed">
+    <!--joint name="gripper_to_tcp" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}"/>
         <origin xyz=" 0.1263 0.0 0.0" rpy="3.1415 0 0"/>
@@ -66,7 +65,7 @@
         <collision>
             <xacro:sphere_geometry radius="${gripper_collision_value}"/>
         </collision>
-     </link>
+     </link-->
 
     <!-- extensions -->
     <xacro:vacuum_gripper_gazebo name="${name}"/>
