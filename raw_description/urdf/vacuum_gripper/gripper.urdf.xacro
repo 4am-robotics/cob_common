@@ -5,7 +5,7 @@
   <xacro:include filename="$(find raw_description)/urdf/vacuum_gripper/gripper.gazebo.xacro" />
 
   <xacro:property name="gripper_length" value="0.22"/>
-  <xacro:property name="gripper_width" value="0.07"/>
+  <xacro:property name="gripper_dia" value="0.07"/>
   <xacro:property name="gripper_collision_value" value="0.01"/>
 
   <xacro:macro name="vacuum_gripper" params="name parent *origin">
@@ -22,7 +22,6 @@
     <joint name="gripper_to_palm" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}_body"/>
-        <!--origin xyz="0.08015 -0.0475 0.0" rpy="-1.57079632679 0 3.1415"/-->
         <origin xyz="0.200 -0.0750 -0.08" rpy="0.0 0.0 1.57079632679"/>
     </joint>
 
@@ -30,7 +29,7 @@
        <inertial>
        <!--choose randomly-->
         <origin xyz="0 0 0" rpy="0.0 0 0.0"/>
-        <mass value="1.57307"/>
+        <mass value="0.57307"/>
         <inertia ixx="0.819" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
       </inertial>
     
@@ -38,17 +37,17 @@
             <origin xyz="0.0 0 0.0" rpy="0.0 0 0"/>
             <geometry>
                 <mesh filename="package://raw_description/meshes/vacuum_gripper/vacuum_gripper.STL" scale="0.001 0.001 0.001"/>
-                <!--cylinder radius="${gripper_width}" length="${gripper_length}"/-->
+                <!--cylinder radius="${gripper_dia}" length="${gripper_length}"/-->
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
             </material>
         </visual>
         <collision>
+        	<!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
             <origin xyz="0.075 0.10 0.08" rpy="1.57079632679 0 0.0"/>
             <geometry>
-                <cylinder radius="${gripper_width + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
-                <!--cylinder radius="0.11" length="0.10"/--> <!--move to center of gripper-->
+                <cylinder radius="${gripper_dia + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
             </geometry>
         </collision>
     </link>
