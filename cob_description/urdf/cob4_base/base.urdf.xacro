@@ -29,13 +29,13 @@
 
     <link name="${name}_link"/>
 
-    <joint name="${name}_rotated_joint" type="fixed">
+    <joint name="${name}_chassis_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 ${drive_dir_angle}" />
       <parent link="${name}_link"/>
-      <child link="${name}_rotated_link" />
+      <child link="${name}_chassis_link" />
     </joint>
 
-    <link name="${name}_rotated_link">
+    <link name="${name}_chassis_link">
       <inertial>
         <origin xyz="0 0 0" />
         <mass value="${base_mass}" />
@@ -60,25 +60,25 @@
 
     <!-- arrangement of the three drive_wheel modules -->
     <xacro:if value="${tricycle_mode}">
-      <xacro:drive_wheel parent="${name}_rotated_link" suffix="fl" passive="true" >
+      <xacro:drive_wheel parent="${name}_chassis_link" suffix="fl" passive="true" >
         <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_rotated_link" suffix="b" >
+      <xacro:drive_wheel parent="${name}_chassis_link" suffix="b" >
         <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_rotated_link" suffix="fr" passive="true">
+      <xacro:drive_wheel parent="${name}_chassis_link" suffix="fr" passive="true">
         <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
     </xacro:if>
 
     <xacro:unless value="${tricycle_mode}">
-      <xacro:drive_wheel parent="${name}_rotated_link" suffix="fl" >
+      <xacro:drive_wheel parent="${name}_chassis_link" suffix="fl" >
         <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_rotated_link" suffix="b" >
+      <xacro:drive_wheel parent="${name}_chassis_link" suffix="b" >
         <origin xyz="${-caster_offset_x} 0.0 ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
-      <xacro:drive_wheel parent="${name}_rotated_link" suffix="fr" >
+      <xacro:drive_wheel parent="${name}_chassis_link" suffix="fr" >
         <origin xyz="${caster_offset_x/2} ${-caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
     </xacro:unless>

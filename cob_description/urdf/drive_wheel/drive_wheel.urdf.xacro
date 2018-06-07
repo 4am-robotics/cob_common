@@ -113,16 +113,8 @@
 
   <xacro:macro name="drive_wheel" params="*origin parent suffix drive_vel:=^|100 steer_vel:=^|100 passive:=false">
 
-    <link name="${suffix}_link"/>
-
-    <joint name="${suffix}_joint" type="fixed">
-        <xacro:insert_block name="origin" />
-        <parent link="${parent}"/>
-        <child link="${suffix}_link" />
-    </joint>
-
-    <xacro:cob_caster_hub parent="${suffix}_link" suffix="${suffix}_caster" passive="${passive}" >
-      <origin xyz="0 0 0" rpy="0 0 0" />
+    <xacro:cob_caster_hub parent="${parent}" suffix="${suffix}_caster" passive="${passive}" >
+      <xacro:insert_block name="origin" />
     </xacro:cob_caster_hub>
 
     <xacro:cob_wheel parent="${suffix}_caster" suffix="r" reflect="-1"  passive="${passive}" />
