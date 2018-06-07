@@ -58,6 +58,14 @@
       </collision>
     </link>
 
+    <joint name="${name}_charger_joint" type="fixed">
+      <origin xyz="0.2992 0.0 0.09089" rpy="0 0 0" />
+      <parent link="${name}_chassis_link"/>
+      <child link="${name}_charger_link" />
+    </joint>
+
+    <link name="${name}_charger_link"/>
+
     <!-- arrangement of the three drive_wheel modules -->
     <xacro:if value="${tricycle_mode}">
       <xacro:drive_wheel parent="${name}_chassis_link" suffix="fl" passive="true" >
