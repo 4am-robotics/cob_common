@@ -54,7 +54,7 @@
     <joint name="${name}_camera_coupling_joint" type="fixed">
         <parent link="${name}_coupling_link"/>
         <child link="${name}_camera_coupling_link"/>
-        <origin xyz=" 0.00 0.0 0.0" rpy="0 0.0 0"/>
+        <origin xyz=" 0.00 0.0 0.0" rpy="0 0.0 0.5"/>
     </joint>
 
     <link name="${name}_camera_coupling_link">
@@ -68,7 +68,7 @@
         <visual>
             <origin xyz="0.083 0 0.0" rpy="0.0 0 0"/>
             <geometry>
-                <box size="0.126 0.170 0.043"/> <!-- hwl-->
+                <box size="0.126 0.170 0.043 "/> <!-- hwl-->
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
@@ -99,7 +99,7 @@
       </inertial>
     
         <visual>
-            <origin xyz="0.0 0 0.0" rpy="0.0 0 0"/>
+            <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://raw_description/meshes/vacuum_gripper/vacuum_gripper.STL" scale="0.001 0.001 0.001"/>
                 <!--cylinder radius="${gripper_dia}" length="${gripper_length}"/-->
