@@ -19,6 +19,7 @@
 
     <link name="${name}_frame"/>
 
+    <!-- camera collision -->
     <joint name="${name}_coupling_joint" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}_coupling_link"/>
@@ -51,10 +52,11 @@
         </collision>
     </link>
 
+    <!-- ====== Camera collision ==== -->
     <joint name="${name}_camera_coupling_joint" type="fixed">
         <parent link="${name}_coupling_link"/>
         <child link="${name}_camera_coupling_link"/>
-        <origin xyz=" 0.00 0.0 0.0" rpy="0 0.0 0.5"/>
+        <origin xyz=" 0.00 0.0 0.0" rpy="0 0.0 0.0"/>
     </joint>
 
     <link name="${name}_camera_coupling_link">
@@ -84,10 +86,14 @@
     </link>
 
 
+
+
+    <!-- ======= Gripper ========-->
+    <!-- with parent link gripper_frame, origin 0.0 1.57079632679 0.0 -->
     <joint name="gripper_to_palm" type="fixed">
-        <parent link="${name}_frame"/>
+        <parent link="${name}_coupling_link"/>
         <child link="${name}_body"/>
-        <origin xyz="0.215 -0.0750 -0.08" rpy="0.0 0.0 1.57079632679"/>
+        <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 -1.57079632679"/> #1.57079632679  0.0 1.57079632679
     </joint>
 
     <link name="${name}_body">
@@ -102,7 +108,6 @@
             <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://raw_description/meshes/vacuum_gripper/vacuum_gripper.STL" scale="0.001 0.001 0.001"/>
-                <!--cylinder radius="${gripper_dia}" length="${gripper_length}"/-->
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
