@@ -113,7 +113,7 @@
         </visual>
         <collision>
                 <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
-            <origin xyz="0.075 0.10 0.08" rpy="1.57079632679 0 0.0"/>
+            <origin xyz="0.00 0.0 0.08" rpy="0.0 0 0.0"/>
             <geometry>
                 <cylinder radius="${gripper_dia + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
             </geometry>
