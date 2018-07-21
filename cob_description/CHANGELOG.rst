@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.9 (2018-07-21)
+------------------
 * update maintainer
 * Merge pull request `#254 <https://github.com/ipa320/cob_common/issues/254>`_ from fmessmer/add_realsense_d435
   add urdf for realsense_d435

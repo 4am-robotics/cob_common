@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.9 (2018-07-21)
+------------------
 * fix syntax
 * fix torso urdf for raw3-1 (`#241 <https://github.com/ipa320/cob_common/issues/241>`_)
   * updated raw3-1 configuration
