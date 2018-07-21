@@ -13,25 +13,19 @@
     </joint>
 
     <link name="${name}_0_link">
-      <inertial>
-        <origin xyz="0 0 0.254" rpy="0 0 0"/>
-        <mass value="0.57307"/>
-        <inertia ixx="1.415" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
-      </inertial>
+      <xacro:cylinder_inertial radius="0.04" length="0.508" mass="1.0">
+        <origin xyz="0 0 0.254" rpy="0 0 0" />
+      </xacro:cylinder_inertial>
 
       <visual>
         <origin xyz="0 0 0.254" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.508" radius="0.04"/>
-        </geometry>
+        <xacro:cylinder_geometry radius="0.04" length="0.508" />
         <material name="IPA/LightGrey" />
       </visual>
 
       <collision>
         <origin xyz="0 0 0.254" rpy="0 0 0" />
-        <geometry>
-          <cylinder length="0.508" radius="0.04"/>
-        </geometry>
+        <xacro:cylinder_geometry radius="0.04" length="0.508" />
       </collision>
     </link>
 

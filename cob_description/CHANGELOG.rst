@@ -2,6 +2,29 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.9 (2018-07-21)
+------------------
+* update maintainer
+* Merge pull request `#254 <https://github.com/ipa320/cob_common/issues/254>`_ from fmessmer/add_realsense_d435
+  add urdf for realsense_d435
+* add urdf for realsense_d435
+* Merge pull request `#253 <https://github.com/ipa320/cob_common/issues/253>`_ from fmessmer/fix_fisheye
+  properly simulate fisheye camera
+* properly simulate fisheye camera
+* Merge pull request `#245 <https://github.com/ipa320/cob_common/issues/245>`_ from floweisshardt/rotate_base_link
+  rotate base link
+* add base_charger_link
+* cleanup and rename links
+* Merge pull request `#252 <https://github.com/ipa320/cob_common/issues/252>`_ from ipa-bnm/fix/wheel_radius
+  fixed wheel radius
+* fixed wheel radius
+* Merge pull request `#249 <https://github.com/ipa320/cob_common/issues/249>`_ from ipa-fxm/position_interface_base_rotation_joints
+  add PositionJointInterface for fdm rotation joints
+* add PositionJointInterface for fdm rotation joints
+* added parameter for drive direction
+* rotate base link (close to working), docking missing
+* Contributors: Benjamin Maidel, Felix Messmer, cob4-13, eva-bonn, fmessmer, ipa-bnm, ipa-fxm
+
 0.6.8 (2018-01-07)
 ------------------
 * Merge pull request `#246 <https://github.com/ipa320/cob_common/issues/246>`_ from ipa320/indigo_release_candidate

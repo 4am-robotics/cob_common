@@ -1,6 +1,6 @@
 <package format="2">
   <name>raw_description</name>
-  <version>0.6.8</version>
+  <version>0.6.9</version>
   <description>This package contains the description (mechanical, kinematic, visual,
   etc.) of the Care-O-bot robot. The files in this package are parsed and used by
   a variety of other components. Most users will not interact directly
