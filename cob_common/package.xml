@@ -7,7 +7,7 @@
   <url type="website">http://ros.org/wiki/cob_common</url>
   <!-- <url type="bugtracker"></url> -->
 
-  <maintainer email="fxm@ipa.fhg.de">Felix Messmer</maintainer>
+  <maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
 

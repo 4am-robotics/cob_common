@@ -8,6 +8,7 @@
   <url type="website">http://ros.org/wiki/cob_srvs</url>
   <!-- <url type="bugtracker"></url> -->
 
+  <maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
   <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 
