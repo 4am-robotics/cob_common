@@ -91,7 +91,7 @@
         <parent link="${name}_coupling_link"/>
         <child link="${name}_body"/>
         # yaw rotation used for rotate gripper or display of gripper upside or roll gripper
-        <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 -1.57079632679"/>  #1.57079632679  0.0 1.57079632679
+        <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 1.57079632679"/> #new: 0.0 0.0 -1.57079632679 #1.57079632679  0.0 1.57079632679
     </joint>
 
     <link name="${name}_body">
