@@ -19,6 +19,16 @@
     <xacro:property name="drive_vel" value="19.95" />
     <xacro:property name="steer_vel" value="117.81" />
 
+    <xacro:if value="${tricycle_mode}">
+      <link name="${name}_pivot_link"/>
+
+      <joint name="${name}_pivot_joint" type="fixed">
+        <origin xyz="${-caster_offset_x/2} 0.0 0.0" rpy="0 0 0" />
+        <parent link="${name}_pivot_link"/>
+        <child link="${name}_footprint" />
+      </joint>
+    </xacro:if>
+
     <link name="${name}_footprint"/>
 
     <joint name="${name}_footprint_joint" type="fixed">
@@ -68,14 +78,6 @@
 
     <!-- arrangement of the three drive_wheel modules -->
     <xacro:if value="${tricycle_mode}">
-      <joint name="${name}_pivot_joint" type="fixed">
-        <origin xyz="${caster_offset_x/2} 0.0 0.0" rpy="0 0 0" />
-        <parent link="${name}_chassis_link"/>
-        <child link="${name}_pivot_link" />
-      </joint>
-
-      <link name="${name}_pivot_link"/>
-
       <xacro:drive_wheel parent="${name}_chassis_link" suffix="fl" passive="true" >
         <origin xyz="${caster_offset_x/2} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
       </xacro:drive_wheel>
