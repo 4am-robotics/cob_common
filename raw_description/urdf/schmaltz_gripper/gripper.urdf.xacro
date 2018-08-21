@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
+  <xacro:include filename="$(find raw_description)/urdf/schmaltz_gripper/gripper.gazebo.xacro" />
+
+  <xacro:property name="gripper_length" value="0.22"/>
+  <xacro:property name="gripper_dia" value="0.07"/>
+  <xacro:property name="gripper_collision_value" value="0.01"/>
+
+  <xacro:macro name="vacuum_gripper" params="name parent *origin">
+
+    <!-- joint between arm_ee_link and vacuum_gripper_link -->
+    <joint name="${name}_base_joint" type="fixed">
+        <xacro:insert_block name="origin"/>
+        <parent link="${parent}"/>
+        <child link="${name}_frame"/>
+    </joint>
+
+    <link name="${name}_frame"/>
+
+    <!-- couplink joint between ee_link and gripper -->
+    <joint name="${name}_coupling_joint" type="fixed">
+        <parent link="${name}_frame"/>
+        <child link="${name}_coupling_link"/>
+        <origin xyz=" 0.0 0.0 0.0" rpy="0 1.57079632679 0"/>
+    </joint>
+
+    <link name="${name}_coupling_link">
+       <inertial>
+       <!--choose randomly-->
+        <origin xyz="0 0 0" rpy="0.0 0 0.0"/>
+        <mass value="0.0057307"/>
+        <inertia ixx="0.819" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+      </inertial>
+
+        <visual>
+            <origin xyz="0.0 0 0.0" rpy="0.0 0 0"/>
+            <geometry>
+                <cylinder radius="${gripper_dia*0.5}" length="0.030"/>
+            </geometry>
+            <material name="silver">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+                <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
+            <origin xyz="0.030 0.00 0.00" rpy="0 0 0.0"/>
+            <geometry>
+                <cylinder radius="${gripper_dia + gripper_collision_value}" length="0.04"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="gripper_to_palm" type="fixed">
+        <parent link="${name}_coupling_link"/>
+        <child link="${name}_body"/>
+        <!-- yaw rotation used for rotate gripper or display of gripper upside or roll gripper -->
+        <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 1.57079632679"/>
+    </joint>
+
+    <link name="${name}_body">
+       <inertial>
+       <!--choose randomly-->
+        <origin xyz="0 0 0" rpy="0.0 0 0.0"/>
+        <mass value="0.57307"/>
+        <inertia ixx="0.819" ixy="0" ixz="0" iyy="0.819" iyz="0" izz="0.819" />
+      </inertial>
+    
+        <visual>
+            <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://raw_description/meshes/schmaltz_gripper/schmaltz_gripper.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="silver">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+                <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
+            <origin xyz="0.00 0.0 0.08" rpy="0.0 0 0.0"/>
+            <geometry>
+                <cylinder radius="${gripper_dia + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="gripper_to_tcp" type="fixed">
+        <parent link="${name}_frame"/>
+        <child link="${name}"/>
+        <origin xyz=" 0.215 0.0 0.03" rpy="3.1415 0 0"/> # pz = 0 -> 0.03 ,  0.0 -> 3.1415
+    </joint>
+
+    <link name="${name}">
+        <visual>
+            <xacro:sphere_geometry radius="${gripper_collision_value}"/>
+            <material name="white">
+                <color rgba="1 1 1 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <xacro:sphere_geometry radius="${gripper_collision_value}"/>
+        </collision>
+     </link>
+
+    <!-- extensions -->
+    <xacro:schmaltz_gripper_gazebo name="${name}"/>
+
+  </xacro:macro>
+
+</robot>
