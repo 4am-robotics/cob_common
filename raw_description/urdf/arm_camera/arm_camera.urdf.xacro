@@ -23,7 +23,7 @@
     <joint name="${name}_joint" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}_link"/>
-        <origin xyz=" 0.00 0.0 0.0" rpy="0 0.0 0.0"/>
+        <origin xyz=" 0.083 0.0 0.0" rpy="0.0 -1.57 -3.1415"/>
     </joint>
 
     <link name="${name}_link">
@@ -35,7 +35,7 @@
       </inertial>
 
         <visual>
-            <origin xyz="0.083 0 0.0" rpy="0.0 0 0"/>
+            <origin xyz="0.00 0 0.0" rpy="0.0 0 0"/>
             <geometry>
                 <box size="${arm_camera_height} ${arm_camera_width} ${arm_camera_length}"/> <!-- hwl-->
             </geometry>
@@ -45,7 +45,7 @@
         </visual>
         <collision>
             <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
-            <origin xyz="0.083 0.00 0.00" rpy="0 0 0.0"/>
+            <origin xyz="0.00 0.00 0.00" rpy="0 0 0.0"/>
             <geometry>
                 <box size="${arm_camera_height} ${arm_camera_width} ${arm_camera_length}"/> <!-- hwl-->
             </geometry>
