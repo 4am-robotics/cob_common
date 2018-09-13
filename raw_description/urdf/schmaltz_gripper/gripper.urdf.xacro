@@ -27,11 +27,11 @@
     </joint>
 
     <link name="${name}_coupling_link">
-		<xacro:box_inertial x="0.002" y="0.04" z="0.26" mass="0.0057307">
-        	<origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-      	</xacro:box_inertial>
+        <xacro:box_inertial x="0.002" y="0.04" z="0.26" mass="0.0057307">
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+        </xacro:box_inertial>
         <visual>
-            <origin xyz="0.0 0 0.0" rpy="0.0 0 0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <cylinder radius="${gripper_dia*0.5}" length="0.030"/>
             </geometry>
@@ -41,9 +41,10 @@
         </visual>
         <collision>
                 <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
-            <origin xyz="0.030 0.00 0.00" rpy="0 0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <cylinder radius="${gripper_dia + gripper_collision_value}" length="0.04"/>
+                <!--cylinder radius="${gripper_dia + gripper_collision_value}" length="0.04"/-->
+                <cylinder radius="${gripper_dia}" length="0.04"/>
             </geometry>
         </collision>
     </link>
@@ -56,11 +57,11 @@
     </joint>
 
     <link name="${name}_body">
-		<xacro:box_inertial x="0.002" y="0.04" z="0.26" mass="0.57307">
-        	<origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+        <xacro:box_inertial x="0.002" y="0.04" z="0.26" mass="0.57307">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
       	</xacro:box_inertial>
         <visual>
-            <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <mesh filename="package://raw_description/meshes/schmaltz_gripper/schmaltz_gripper.STL" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -70,7 +71,7 @@
         </visual>
         <collision>
                 <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
-            <origin xyz="0.00 0.0 0.08" rpy="0.0 0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>   <!-- 0.00 0.0 0.08 -->
             <geometry>
                 <cylinder radius="${gripper_dia + gripper_collision_value}" length="${gripper_length + gripper_collision_value}"/>
             </geometry>
@@ -80,7 +81,7 @@
     <joint name="gripper_to_tcp" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}"/>
-        <origin xyz=" 0.215 0.0 0.03" rpy="3.1415 0 0"/> # pz = 0 -> 0.03 ,  0.0 -> 3.1415
+        <origin xyz=" 0.215 0.0 0.03" rpy="3.1415 0 0"/> <!-- pz = 0 -> 0.03 , roll: 0.0 -> 3.1415 -->
     </joint>
 
     <link name="${name}">
