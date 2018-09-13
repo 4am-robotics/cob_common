@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="arm_camera_gazebo" params="name">
+  <xacro:macro name="camera_collision_gazebo" params="name">
 
     <gazebo reference="${name}">
       <gravity>true</gravity>

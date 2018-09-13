@@ -2,14 +2,14 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
-  <xacro:include filename="$(find raw_description)/urdf/arm_camera/arm_camera.gazebo.xacro" />
+  <xacro:include filename="$(find raw_description)/urdf/camera_collision/camera_collision.gazebo.xacro" />
 
-  <xacro:property name="arm_camera_length" value="0.043"/>
-  <xacro:property name="arm_camera_width" value="0.170"/>
-  <xacro:property name="arm_camera_height" value="0.126"/>
+  <xacro:property name="camera_collision_length" value="0.043"/>
+  <xacro:property name="camera_collision_width" value="0.170"/>
+  <xacro:property name="camera_collision_height" value="0.126"/>
   <xacro:property name="safe_value" value="0.01"/>
 
-  <xacro:macro name="arm_camera" params="name parent *origin">
+  <xacro:macro name="camera_collision" params="name parent *origin">
 
     <joint name="${name}_base_joint" type="fixed">
         <xacro:insert_block name="origin"/>
@@ -19,7 +19,7 @@
 
     <link name="${name}_frame"/>
 
-    <!-- joint between gripper_coupling_link and arm_camera_link -->
+    <!-- joint between gripper_coupling_link and camera_collision_link -->
     <joint name="${name}_joint" type="fixed">
         <parent link="${name}_frame"/>
         <child link="${name}_link"/>
@@ -33,7 +33,7 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="${arm_camera_length} ${arm_camera_width} ${arm_camera_height}"/> <!-- lwh-->
+                <box size="${camera_collision_length} ${camera_collision_width} ${camera_collision_height}"/> <!-- lwh-->
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
@@ -43,13 +43,13 @@
             <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <box size="${arm_camera_length} ${arm_camera_width} ${arm_camera_height}"/> <!-- lwh-->
+                <box size="${camera_collision_length} ${camera_collision_width} ${camera_collision_height}"/> <!-- lwh-->
             </geometry>
         </collision>
     </link>
 
     <!-- extensions -->
-    <xacro:arm_camera_gazebo name="${parent}"/>
+    <xacro:camera_collision_gazebo name="${parent}"/>
 
   </xacro:macro>
 
