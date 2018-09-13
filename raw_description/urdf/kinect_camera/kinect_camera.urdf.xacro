@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
+  <xacro:include filename="$(find raw_description)/urdf/kinect_camera/kinect_camera.gazebo.xacro" />
+
+  <xacro:property name="kinect_camera_length" value="0.043"/>
+  <xacro:property name="kinect_camera_width" value="0.170"/>
+  <xacro:property name="kinect_camera_height" value="0.126"/>
+  <xacro:property name="safe_value" value="0.01"/>
+
+  <xacro:macro name="kinect_camera" params="name parent *origin ros_topic update_rate:=20 data_skip:=0 height:=480 width:=640">
+
+    <joint name="${name}_base_joint" type="fixed">
+        <!--xacro:insert_block name="origin"/-->
+        <parent link="${parent}"/>
+        <child link="${name}_frame"/>
+        <origin xyz=" 0.00 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <link name="${name}_frame"/>
+
+    <!-- joint between gripper_coupling_link and kinect_camera_link -->
+    <joint name="${name}_collision_joint" type="fixed">
+        <parent link="${name}_frame"/>
+        <child link="${name}_collision_link"/>
+        <origin xyz=" 0.083 0.0 0.0" rpy="0.0 -1.57 -3.1415"/>
+    </joint>
+
+    <link name="${name}_collision_link">
+        <xacro:box_inertial x="0.002" y="0.04" z="0.26" mass="0.0057307">
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+        </xacro:box_inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${kinect_camera_length} ${kinect_camera_width} ${kinect_camera_height}"/> <!-- lwh-->
+            </geometry>
+            <material name="silver">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+            <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${kinect_camera_length} ${kinect_camera_width} ${kinect_camera_height}"/> <!-- lwh-->
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- attach kinect camera -->
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+
+    <link name="${name}_link">
+      <xacro:default_inertial/>
+      <visual>
+        <origin xyz="0 0 -0.03" rpy="0 0 0" />
+        <geometry>
+          <box size="0.02 0.02 0.02"/>
+        </geometry>
+        <material name="IPA/LightGrey" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.03" rpy="0 0 0" />
+        <geometry>
+           <box size="0.02 0.02 0.02"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- extensions -->
+    <xacro:kinect_camera_gazebo name="${name}" ros_topic="${ros_topic}"
+                                               update_rate="${update_rate}"
+                                               data_skip="${data_skip}"
+                                               height="${height}"
+                                               width="${width}"/>
+    </xacro:macro>
+</robot>
