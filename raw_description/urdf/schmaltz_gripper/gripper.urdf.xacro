@@ -63,7 +63,7 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://raw_description/meshes/schmaltz_gripper/schmaltz_gripper.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://raw_description/meshes/schmaltz_gripper/schmaltz_gripper.STL"/>
             </geometry>
             <material name="silver">
                 <color rgba="0.8 0.8 0.8 1"/>
