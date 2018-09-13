@@ -36,9 +36,7 @@
             <geometry>
                 <box size="${kinect_camera_length} ${kinect_camera_width} ${kinect_camera_height}"/> <!-- lwh-->
             </geometry>
-            <material name="silver">
-                <color rgba="0.8 0.8 0.8 1"/>
-            </material>
+            <material name="IPA/LightGrey" />
         </visual>
         <collision>
             <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->

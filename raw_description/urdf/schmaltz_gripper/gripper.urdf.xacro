@@ -35,9 +35,7 @@
             <geometry>
                 <cylinder radius="${gripper_dia*0.5}" length="0.030"/>
             </geometry>
-            <material name="silver">
-                <color rgba="0.8 0.8 0.8 1"/>
-            </material>
+            <material name="IPA/LightGrey" />
         </visual>
         <collision>
                 <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
@@ -63,11 +61,9 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://raw_description/meshes/schmaltz_gripper/schmaltz_gripper.STL"/>
+                <mesh filename="package://raw_description/meshes/schmaltz_gripper/schmaltz_gripper.stl"/>
             </geometry>
-            <material name="silver">
-                <color rgba="0.8 0.8 0.8 1"/>
-            </material>
+            <material name="IPA/LightGrey" />
         </visual>
         <collision>
                 <!-- move gripper_body frame to center of gripper and rotate same as arm_ee_link -->
@@ -87,9 +83,7 @@
     <link name="${name}">
         <visual>
             <xacro:sphere_geometry radius="${gripper_collision_value}"/>
-            <material name="white">
-                <color rgba="1 1 1 0.5"/>
-            </material>
+            <material name="IPA/LightGrey" />
         </visual>
         <collision>
             <xacro:sphere_geometry radius="${gripper_collision_value}"/>
