@@ -85,8 +85,8 @@
       <collision>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
-          <!--<mesh filename="package://raw_description/meshes/base/raw_base_long.stl"/>-->
-          <box size="0.93 0.49 0.31" />
+          <mesh filename="package://raw_description/meshes/base/raw_base_long.stl"/>
+          <!--<box size="0.93 0.49 0.31" />-->
         </geometry>
       </collision>
     </link>
