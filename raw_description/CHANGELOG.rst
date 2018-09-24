@@ -2,6 +2,16 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.9 (2018-07-21)
+------------------
+* fix syntax
+* fix torso urdf for raw3-1 (`#241 <https://github.com/ipa320/cob_common/issues/241>`_)
+  * updated raw3-1 configuration
+  * Changed back to collision box
+  * Using inertia macro
+  * Use geometry macro
+* Contributors: Felix Messmer, Richard Bormann
+
 0.6.8 (2018-01-07)
 ------------------
 * Merge pull request `#246 <https://github.com/ipa320/cob_common/issues/246>`_ from ipa320/indigo_release_candidate
