@@ -14,10 +14,29 @@
   <xacro:property name="base_mass" value="100" />
 
 
-  <xacro:macro name="base" params="name tricycle_mode:=false drive_dir_angle:=0">
+  <xacro:macro name="base" params="name tricycle_mode:=false forward:=true">
 
     <xacro:property name="drive_vel" value="19.95" />
     <xacro:property name="steer_vel" value="117.81" />
+
+    <xacro:if value="${tricycle_mode}">
+      <link name="${name}_pivot_link"/>
+      
+      <xacro:if value="${forward}">
+        <joint name="${name}_pivot_joint" type="fixed">
+          <origin xyz="${-caster_offset_x/2} 0.0 0.0" rpy="0 0 0" />
+          <parent link="${name}_pivot_link"/>
+          <child link="${name}_footprint" />
+        </joint>
+      </xacro:if>
+      <xacro:unless value="${forward}">
+        <joint name="${name}_pivot_joint" type="fixed">
+          <origin xyz="${caster_offset_x/2} 0.0 0.0" rpy="0 0 0" />
+          <parent link="${name}_pivot_link"/>
+          <child link="${name}_footprint" />
+        </joint>
+      </xacro:unless>
+    </xacro:if>
 
     <link name="${name}_footprint"/>
 
@@ -29,11 +48,20 @@
 
     <link name="${name}_link"/>
 
-    <joint name="${name}_chassis_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 ${drive_dir_angle}" />
-      <parent link="${name}_link"/>
-      <child link="${name}_chassis_link" />
-    </joint>
+    <xacro:if value="${forward}">
+      <joint name="${name}_chassis_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="${name}_link"/>
+        <child link="${name}_chassis_link" />
+      </joint>
+    </xacro:if>
+    <xacro:unless value="${forward}">
+      <joint name="${name}_chassis_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+        <parent link="${name}_link"/>
+        <child link="${name}_chassis_link" />
+      </joint>
+    </xacro:unless>
 
     <link name="${name}_chassis_link">
       <inertial>
