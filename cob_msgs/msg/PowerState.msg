@@ -1,5 +1,5 @@
 # This message communicates the state of the power system.
-Header header
+std_msgs/Header header
 float64 voltage                     # [V]
 float64 current                     # [A]
 float64 power_consumption           # [W] can only be calculated if not charging

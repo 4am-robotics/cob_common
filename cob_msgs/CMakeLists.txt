@@ -1,16 +1,32 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(cob_msgs)
-find_package(catkin REQUIRED COMPONENTS diagnostic_msgs message_generation std_msgs)
+cmake_minimum_required(VERSION 3.5)
+ project(cob_msgs)
+ # Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-add_message_files(FILES
-  AccessPoint.msg
-  DashboardState.msg
-  EmergencyStopState.msg
-  Network.msg
-  PowerState.msg
-  SiteSurvey.msg
+find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(diagnostic_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+
+set(msg_files
+  "msg/AccessPoint.msg"
+  "msg/DashboardState.msg"
+  "msg/EmergencyStopState.msg"
+  "msg/Network.msg"
+  "msg/PowerState.msg"
+  "msg/SiteSurvey.msg"
+)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  DEPENDENCIES std_msgs diagnostic_msgs
+  ADD_LINTER_TESTS
 )
 
-generate_messages(DEPENDENCIES diagnostic_msgs std_msgs)
-
-catkin_package(CATKIN_DEPENDS diagnostic_msgs message_runtime std_msgs)
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()
