@@ -1,4 +1,4 @@
-<package format="2">
+<package format="3">
   <name>cob_srvs</name>
   <version>0.6.9</version>
   <description>This Package contains Care-O-bot specific service definitions.</description>
@@ -12,9 +12,16 @@
   <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
   <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <build_depend>message_generation</build_depend>
-  <exec_depend>message_runtime</exec_depend>
-
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+   
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  
+  <test_depend>ament_lint_common</test_depend>
+  
+  <member_of_group>rosidl_interface_packages</member_of_group>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

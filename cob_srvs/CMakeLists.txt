@@ -1,18 +1,25 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(cob_srvs)
+cmake_minimum_required(VERSION 3.5)
+ project(cob_srvs)
+ # Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-find_package(catkin REQUIRED COMPONENTS message_generation)
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
-add_service_files(FILES
-  SetFloat.srv
-  SetInt.srv
-  SetString.srv
+set(srv_files
+  "srv/SetFloat.srv"
+  "srv/SetString.srv"
+  "srv/SetInt.srv"
+)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${srv_files}
+  ADD_LINTER_TESTS
 )
 
-generate_messages(
-  DEPENDENCIES
-)
-
-catkin_package(
-    CATKIN_DEPENDS message_runtime
-)
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()
