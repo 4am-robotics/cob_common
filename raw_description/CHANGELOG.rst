@@ -2,6 +2,9 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.9 (2018-07-21)
 ------------------
 * fix syntax
