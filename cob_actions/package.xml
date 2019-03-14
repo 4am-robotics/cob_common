@@ -1,20 +1,20 @@
 <package format="2">
-  <name>cob_srvs</name>
+  <name>cob_actions</name>
   <version>0.6.10</version>
-  <description>This Package contains Care-O-bot specific service definitions.</description>
+  <description>This Package contains Care-O-bot specific action definitions.</description>
 
   <license>Apache 2.0</license>
 
-  <url type="website">http://ros.org/wiki/cob_srvs</url>
+  <url type="website">http://ros.org/wiki/cob_actions</url>
   <!-- <url type="bugtracker"></url> -->
 
   <maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
-  <maintainer email="fmw@ipa.fhg.de">Florian Weisshardt</maintainer>
-  <author email="fmw@ipa.fhg.de">Florian Weisshardt</author>
+  <author email="felixmessmer@gmail.com">Felix Messmer</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
+  <depend>actionlib_msgs</depend>
 
 </package>

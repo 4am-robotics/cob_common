@@ -2,6 +2,17 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.10 (2019-03-14)
+-------------------
+* Merge pull request `#258 <https://github.com/ipa320/cob_common/issues/258>`_ from fmessmer/tricycle_backwards
+  allow drive backwards with tricycle
+* allow drive backwards with tricycle
+* Merge pull request `#257 <https://github.com/ipa320/cob_common/issues/257>`_ from fmessmer/introduce_pivot_link
+  add base_pivot_link for tricycle mode
+* proper tf hierarchy for base_pivot_link
+* add base_pivot_link for tricycle mode
+* Contributors: Felix Messmer, fmessmer
+
 0.6.9 (2018-07-21)
 ------------------
 * update maintainer
