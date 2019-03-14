@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.10 (2019-03-14)
+-------------------
 * Merge pull request `#258 <https://github.com/ipa320/cob_common/issues/258>`_ from fmessmer/tricycle_backwards
   allow drive backwards with tricycle
 * allow drive backwards with tricycle
