@@ -17,7 +17,7 @@
   <xacro:macro name="base" params="name tricycle_mode:=false forward:=true">
 
     <xacro:property name="drive_vel" value="19.95" />
-    <xacro:property name="steer_vel" value="117.81" />
+    <xacro:property name="steer_vel" value="12.00" /> <!-- Controller: 10.0, Driver: 12.0, Elmo: 15.0 -->
 
     <xacro:if value="${tricycle_mode}">
       <link name="${name}_pivot_link"/>
