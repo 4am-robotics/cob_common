@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
+  <xacro:include filename="$(find raw_description)/urdf/raw4_base/raw4_base.gazebo.xacro" />
+
+  <!-- drive_wheel module -->
+  <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.urdf.xacro" />
+
+
+  <!-- properties -->
+  <xacro:property name="caster_offset_x" value="0.350" />  <!--modify here-->
+  <xacro:property name="caster_offset_y_bl" value="0.190" />
+  <xacro:property name="caster_offset_y_br" value="-0.190" />
+  <xacro:property name="caster_offset_y_fl" value="0.190" />
+  <xacro:property name="caster_offset_y_fr" value="-0.190" />
+  <xacro:property name="caster_offset_z" value="0.08" />
+
+  <!-- <xacro:property name="battery_offset_x" value="0.0" />
+  <xacro:property name="battery_offset_y" value="-0.008" />
+  <xacro:property name="battery_offset_z" value="0.065" /> -->
+
+  <xacro:property name="base_mass" value="43.1" />
+  <!-- <xacro:property name="battery_mass" value="40" /> -->
+
+  <!-- <xacro:property name="battery_size_x" value="0.5" />
+  <xacro:property name="battery_size_y" value="0.148" />
+  <xacro:property name="battery_size_z" value="0.26" /> -->
+
+
+  <!-- battery macros-->
+
+  <xacro:macro name="raw4_base" params="name">
+
+    <link name="${name}_footprint"/>
+
+    <joint name="${name}_footprint_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${name}_footprint"/>
+      <child link="${name}_link" />
+    </joint>
+
+    <link name="${name}_link">
+      <xacro:box_inertial x="1.2" y="0.75" z="0.1" mass="${base_mass}">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </xacro:box_inertial>
+      <visual>
+        <origin xyz="0 0 0.25" rpy="0 0 0" />
+        <geometry>
+          <!--mesh filename="package://raw_description/meshes/base/raw_base_short.dae"/-->
+          <box size="1.2 0.75 0.1"/>
+        </geometry>
+        <material name="Grey">
+          <!-- <color rgba="1 1 1 1"/> -->
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.25" rpy="0 0 0" />
+        <geometry>
+          <!-- mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/-->
+          <box size="1.2 0.75 0.1"/>
+        </geometry>
+      </collision>
+    </link>
+
+
+    <!-- arrangement of the four drive_wheel modules -->
+    <xacro:drive_wheel parent="${name}_link" suffix="fl" >
+      <origin xyz="${caster_offset_x} ${caster_offset_y_fl} ${caster_offset_z}" rpy="0 0 0" />
+    </xacro:drive_wheel>
+    <xacro:drive_wheel parent="${name}_link" suffix="fr" >
+      <origin xyz="${caster_offset_x} ${caster_offset_y_fr} ${caster_offset_z}" rpy="0 0 0" />
+    </xacro:drive_wheel>
+    <xacro:drive_wheel parent="${name}_link" suffix="bl" >
+      <origin xyz="${-caster_offset_x} ${caster_offset_y_bl} ${caster_offset_z}" rpy=" 0 0 0" />
+    </xacro:drive_wheel>
+    <xacro:drive_wheel parent="${name}_link" suffix="br"  >
+      <origin xyz="${-caster_offset_x} ${caster_offset_y_br} ${caster_offset_z}" rpy="0 0 0" />
+    </xacro:drive_wheel>
+
+    <!-- battery-->
+    <!-- <xacro:cob_batteries name="${name}_battery" parent="${name}_link">
+      <origin xyz="${-battery_offset_x} ${battery_offset_y} ${battery_offset_z}" rpy="${M_PI/2} 0 ${-M_PI/2}" />
+    </xacro:cob_batteries> -->
+
+
+    <!-- gazebo extensions -->
+    <xacro:base_gazebo name="${name}" />
+
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <robotNamespace>${name}</robotNamespace>
+        <filterJointsParam>joint_names</filterJointsParam>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>
