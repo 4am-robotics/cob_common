@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
-  <xacro:include filename="$(find raw_description)/urdf/raw4_base/raw4_base.gazebo.xacro" />
+  <xacro:include filename="$(find raw_description)/urdf/raw4_base/base.gazebo.xacro" />
 
   <!-- drive_wheel module -->
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.urdf.xacro" />
