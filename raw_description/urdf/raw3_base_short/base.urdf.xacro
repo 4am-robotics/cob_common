@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
-  <xacro:include filename="$(find raw_description)/urdf/base_short/base.gazebo.xacro" />
+  <xacro:include filename="$(find raw_description)/urdf/raw3_base_short/base.gazebo.xacro" />
 
   <!-- drive_wheel module -->
   <xacro:include filename="$(find cob_description)/urdf/drive_wheel/drive_wheel.urdf.xacro" />
@@ -84,13 +84,13 @@
       <visual>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://raw_description/meshes/base/raw_base_short.dae"/>
+          <mesh filename="package://raw_description/meshes/raw3_base/raw3_base_short.dae"/>
         </geometry>
       </visual>
       <collision>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/>
+          <mesh filename="package://raw_description/meshes/raw3_base/raw3_base_short.stl"/>
           <!--box size="0.758 0.573 0.096"/-->
         </geometry>
       </collision>
