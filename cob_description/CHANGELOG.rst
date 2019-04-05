@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.11 (2019-04-05)
+-------------------
 * Merge pull request `#266 <https://github.com/ipa320/cob_common/issues/266>`_ from fmessmer/steer_joint_max_vel
   reduce steer joint max vel
 * reduce steer joint max vel

@@ -1,6 +1,6 @@
 <package format="2">
   <name>cob_actions</name>
-  <version>0.6.10</version>
+  <version>0.6.11</version>
   <description>This Package contains Care-O-bot specific action definitions.</description>
 
   <license>Apache 2.0</license>
