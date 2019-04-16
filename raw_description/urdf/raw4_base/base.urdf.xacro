@@ -16,19 +16,7 @@
   <xacro:property name="caster_offset_y_fr" value="-0.190" />
   <xacro:property name="caster_offset_z" value="0.08" />
 
-  <!-- <xacro:property name="battery_offset_x" value="0.0" />
-  <xacro:property name="battery_offset_y" value="-0.008" />
-  <xacro:property name="battery_offset_z" value="0.065" /> -->
-
   <xacro:property name="base_mass" value="43.1" />
-  <!-- <xacro:property name="battery_mass" value="40" /> -->
-
-  <!-- <xacro:property name="battery_size_x" value="0.5" />
-  <xacro:property name="battery_size_y" value="0.148" />
-  <xacro:property name="battery_size_z" value="0.26" /> -->
-
-
-  <!-- battery macros-->
 
   <xacro:macro name="raw4_base" params="name">
 
@@ -45,24 +33,21 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
       </xacro:box_inertial>
       <visual>
-        <origin xyz="0 0 0.25" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://raw_description/meshes/raw4_base/raw4_base.dae"/>
-          <!-- <box size="1.2 0.75 0.1"/> -->
+          <mesh filename="package://raw_description/meshes/raw4_base/raw4_base.stl"/>
         </geometry>
         <material name="Grey">
           <!-- <color rgba="1 1 1 1"/> -->
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0.25" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://raw_description/meshes/raw4_base/raw4_base.stl"/>
-          <!-- <box size="1.2 0.75 0.1"/> -->
         </geometry>
       </collision>
     </link>
-
 
     <!-- arrangement of the four drive_wheel modules -->
     <xacro:drive_wheel parent="${name}_link" suffix="fl" >
@@ -77,11 +62,6 @@
     <xacro:drive_wheel parent="${name}_link" suffix="br"  >
       <origin xyz="${-caster_offset_x} ${caster_offset_y_br} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:drive_wheel>
-
-    <!-- battery-->
-    <!-- <xacro:cob_batteries name="${name}_battery" parent="${name}_link">
-      <origin xyz="${-battery_offset_x} ${battery_offset_y} ${battery_offset_z}" rpy="${M_PI/2} 0 ${-M_PI/2}" />
-    </xacro:cob_batteries> -->
 
 
     <!-- gazebo extensions -->

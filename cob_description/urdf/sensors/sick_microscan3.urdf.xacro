@@ -3,8 +3,8 @@
 
   <xacro:include filename="$(find cob_description)/urdf/sensors/sick_microscan3.gazebo.xacro" />
 
-  <xacro:property name="cylinder_radius" value="0.05" />  <!--simple collision model for the laser -->
-  <xacro:property name="cylinder_length" value="0.15" />
+  <xacro:property name="cylinder_radius" value="0.056" />  <!--simple collision model for the laser -->
+  <xacro:property name="cylinder_length" value="0.150" />
 
   <xacro:macro name="sick_microscan3" params="name parent *origin">
     <joint name="${name}_joint" type="fixed">
@@ -20,15 +20,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser.dae"/> <!-- microscan mesh -->
-          <!--box size="0.001 0.001 0.001" /-->
+          <mesh filename="package://cob_description/meshes/sensors/sick_microscan3.stl"/>
         </geometry>
         <material name="IPA/LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cob_description/meshes/sensors/sick_s300_laser_collision.stl"/> <!-- microscan mesh -->
+          <mesh filename="package://cob_description/meshes/sensors/sick_microscan3_collision.stl"/>
         </geometry>
       </collision>
     </link>
