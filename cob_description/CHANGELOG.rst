@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.12 (2019-05-20)
+-------------------
 * Merge pull request `#269 <https://github.com/ipa320/cob_common/issues/269>`_ from fmessmer/fixed_link_helper_macro
   add helper macro for fixed links
 * add helper macro for fixed links
