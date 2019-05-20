@@ -3,6 +3,15 @@
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
+  <xacro:macro name="fixed_link" params="name parent *origin">
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}_link" />
+    </joint>
+    <link name="${name}_link"/>
+  </xacro:macro>
+
   <!-- geometry macros for modeling geometric primitives with according meshes -->
   <xacro:macro name="sphere_geometry" params="radius">
     <geometry>
