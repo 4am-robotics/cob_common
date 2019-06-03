@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="sick_micorscan3_gazebo" params="name">
+  <xacro:macro name="sick_microscan3_gazebo" params="name">
     <gazebo reference="${name}_link">
       <sensor name="${name}" type="ray">
         <always_on>true</always_on>

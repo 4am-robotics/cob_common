@@ -33,7 +33,7 @@
     </link>
 
     <!-- gazebo extensions -->
-    <xacro:sick_micorscan3_gazebo name="${name}"/>
+    <xacro:sick_microscan3_gazebo name="${name}"/>
   </xacro:macro>
 
 </robot>
