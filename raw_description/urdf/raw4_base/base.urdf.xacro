@@ -10,10 +10,10 @@
 
   <!-- properties -->
   <xacro:property name="caster_offset_x" value="0.350" />  <!--modify here-->
-  <xacro:property name="caster_offset_y_bl" value="0.190" />
-  <xacro:property name="caster_offset_y_br" value="-0.190" />
-  <xacro:property name="caster_offset_y_fl" value="0.190" />
-  <xacro:property name="caster_offset_y_fr" value="-0.190" />
+  <xacro:property name="caster_offset_y_bl" value="0.188" />
+  <xacro:property name="caster_offset_y_br" value="-0.188" />
+  <xacro:property name="caster_offset_y_fl" value="0.188" />
+  <xacro:property name="caster_offset_y_fr" value="-0.188" />
   <xacro:property name="caster_offset_z" value="0.08" />
 
   <xacro:property name="base_mass" value="43.1" />
