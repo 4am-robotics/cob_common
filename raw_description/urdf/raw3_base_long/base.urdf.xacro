@@ -83,7 +83,7 @@
       <collision>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://raw_description/meshes/raw2_base/raw3_base_long.stl"/>
+          <mesh filename="package://raw_description/meshes/raw3_base/raw3_base_long.stl"/>
           <!--box size="1.04 0.58 0.31" /-->
         </geometry>
       </collision>
