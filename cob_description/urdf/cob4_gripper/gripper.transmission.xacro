@@ -6,7 +6,7 @@
     <transmission name="${name}_finger_1_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_finger_1_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         <!--hardwareInterface>VelocityJointInterface</hardwareInterface-->
       </joint>
       <actuator name="${name}_finger_1_motor">
@@ -17,7 +17,7 @@
     <transmission name="${name}_finger_2_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}_finger_2_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         <!--hardwareInterface>VelocityJointInterface</hardwareInterface-->
       </joint>
       <actuator name="${name}_finger_2_motor">
