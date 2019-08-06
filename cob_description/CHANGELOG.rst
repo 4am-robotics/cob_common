@@ -2,6 +2,16 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#271 <https://github.com/ipa320/cob_common/issues/271>`_ from benmaidel/feature/melodify
+  [Melodic]
+* fix default value
+* more hardware_interface prefixing
+* fixed xacro:if condition for melodic
+* added hardware_interface prefix for transmission (melodic's cob_gazebo_ros_control plugin expects it)
+* Contributors: Benjamin Maidel, Felix Messmer, fmessmer
+
 0.6.12 (2019-05-20)
 -------------------
 * Merge pull request `#269 <https://github.com/ipa320/cob_common/issues/269>`_ from fmessmer/fixed_link_helper_macro
