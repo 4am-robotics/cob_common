@@ -95,9 +95,9 @@
     <transmission name="${jname}_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jname}_joint">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
-        <!--hardwareInterface>EffortJointInterface</hardwareInterface-->
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <!--hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface-->
       </joint>
       <actuator name="${jname}_motor">
         <mechanicalReduction>1</mechanicalReduction>
