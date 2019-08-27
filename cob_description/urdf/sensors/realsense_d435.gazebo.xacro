@@ -30,8 +30,8 @@
           <updateRate>${color_fps}</updateRate>
           <cameraName>${name}</cameraName>
           <frameName>${name}_color_optical_frame</frameName>
-          <imageTopicName>color/image_raw</imageTopicName>
-          <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
+          <imageTopicName>rgb/image_raw</imageTopicName>
+          <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
           <pointCloudTopicName>depth/points</pointCloudTopicName>
           <depthImageTopicName>depth/image_raw</depthImageTopicName>
           <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
