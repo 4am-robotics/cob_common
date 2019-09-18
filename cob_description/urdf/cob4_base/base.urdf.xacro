@@ -13,6 +13,8 @@
 
   <xacro:property name="base_mass" value="100" />
 
+  <xacro:arg name="robot_namespace" default="" />
+
 
   <xacro:macro name="base" params="name tricycle_mode:=false forward:=true">
 
@@ -126,7 +128,7 @@
     <!-- ros_control plugin -->
     <gazebo>
       <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
-        <robotNamespace>${name}</robotNamespace>
+        <robotNamespace>$(arg robot_namespace)/${name}</robotNamespace>
         <filterJointsParam>joint_names</filterJointsParam>
       </plugin>
     </gazebo>

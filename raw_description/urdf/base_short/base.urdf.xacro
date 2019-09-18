@@ -27,6 +27,8 @@
   <xacro:property name="battery_size_y" value="0.148" />
   <xacro:property name="battery_size_z" value="0.26" />
 
+  <xacro:arg name="robot_namespace" default="" />
+
 
   <!-- battery macros-->
   <xacro:macro name="cob_batteries" params="name parent *origin ">
@@ -85,13 +87,14 @@
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_base_short.dae"/>
+          <!--<box size="0.688 0.503 0.096"/>-->
         </geometry>
       </visual>
       <collision>
         <origin xyz="0 0 0.209" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_base_short.stl"/>
-          <!--box size="0.758 0.573 0.096"/-->
+          <!--<box size="0.678 0.493 0.096"/>-->
         </geometry>
       </collision>
     </link>
@@ -123,7 +126,7 @@
     <!-- ros_control plugin -->
     <gazebo>
       <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
-        <robotNamespace>${name}</robotNamespace>
+        <robotNamespace>$(arg robot_namespace)/${name}</robotNamespace>
         <filterJointsParam>joint_names</filterJointsParam>
       </plugin>
     </gazebo>
