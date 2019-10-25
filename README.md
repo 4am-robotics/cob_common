@@ -11,7 +11,7 @@ cob_common
 
 ## Travis - Continuous Integration
 
-Status: [![Build Status](https://travis-ci.org/ipa320/cob_common.svg?branch=kinetic_dev)](https://travis-ci.org/ipa320/cob_common)
+Status: [![Build Status](https://travis-ci.com/ipa320/cob_common.svg?branch=kinetic_dev)](https://travis-ci.com/ipa320/cob_common)
 
 ## ROS Buildfarm
 
