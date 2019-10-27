@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
+  <!-- This is a ELP-USBFHD01M-L21 or very similar board-level camera -->
   <xacro:include filename="$(find cob_description)/urdf/sensors/usb_cam.gazebo.xacro" />
 
   <xacro:macro name="usb_cam" params="name parent *origin ros_topic update_rate height width">
@@ -15,13 +15,13 @@
       <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.002 0.002 0.002"/>
+          <box size="0.038 0.038 0.03"/>
         </geometry>
       </visual>
       <collision>
         <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.007 0.130 0.0118"/>
+          <box size="0.038 0.038 0.03"/>
         </geometry>
       </collision>
     </link>
