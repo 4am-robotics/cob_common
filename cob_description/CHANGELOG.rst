@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.1 (2019-11-07)
+------------------
 * Merge pull request `#274 <https://github.com/ipa320/cob_common/issues/274>`_ from LoyVanBeek/feature/usb-cam-model
   Put in true dimensions of usb-camera according to datasheet
 * Put in true dimensions of usb-camera according to datasheet
