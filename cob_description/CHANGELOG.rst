@@ -2,6 +2,18 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#274 <https://github.com/ipa320/cob_common/issues/274>`_ from LoyVanBeek/feature/usb-cam-model
+  Put in true dimensions of usb-camera according to datasheet
+* Put in true dimensions of usb-camera according to datasheet
+* Merge pull request `#272 <https://github.com/ipa320/cob_common/issues/272>`_ from fmessmer/copy_pg70_description
+  copy schunk_pg70
+* fix simulated camera_info topic name of d435
+* fake inertia for pg70
+* copy schunk_pg70
+* Contributors: Felix Messmer, Florian Weisshardt, Loy van Beek, fmessmer
+
 0.7.0 (2019-08-06)
 ------------------
 * Merge pull request `#271 <https://github.com/ipa320/cob_common/issues/271>`_ from benmaidel/feature/melodify
