@@ -9,6 +9,6 @@ install(DIRECTORY Media meshes urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(PROGRAMS test/test_urdf.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/test
+catkin_install_python(PROGRAMS test/test_urdf.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
