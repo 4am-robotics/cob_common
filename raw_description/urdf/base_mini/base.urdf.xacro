@@ -72,4 +72,5 @@
     </xacro:mecanum_wheel>
   </xacro:macro>
 
+  <xacro:base_gazebo name="base"/>
 </robot>
