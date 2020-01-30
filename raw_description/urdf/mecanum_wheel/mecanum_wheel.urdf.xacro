@@ -18,7 +18,6 @@
       <visual>
         <geometry>
           <mesh filename="package://raw_description/meshes/base/mecanum.dae"/>
-          <!--box size="0.758 0.573 0.096"/-->
         </geometry>
       </visual>
 

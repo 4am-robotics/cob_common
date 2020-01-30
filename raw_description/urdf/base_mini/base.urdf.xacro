@@ -39,7 +39,6 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://raw_description/meshes/base/raw_mini_base.dae"/>
-          <!--box size="0.758 0.573 0.096"/-->
         </geometry>
       </collision>
     </link>
