@@ -26,14 +26,14 @@ import rosunit
 class TestUrdf(unittest.TestCase):
 
 	def test_correct_format(self):
-		print sys.argv
-		print len(sys.argv)
+		print(sys.argv)
+		print(len(sys.argv))
 
 		if len(sys.argv) < 2:
 			self.fail("no urdf file given, usage: " + os.path.basename(sys.argv[0]) + " file.urdf.xacro. \ninput parameters are: " + str(sys.argv))
 
 		file_to_test = sys.argv[1]
-		print "testing " + file_to_test
+		print("testing " + file_to_test)
 
 		# check if file exists
 		if not os.path.exists(file_to_test):
