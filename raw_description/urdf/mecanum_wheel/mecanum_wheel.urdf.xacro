@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro"/>
+
+  <xacro:macro name="mecanum_wheel" params="parent suffix *origin">
+
+
+    <joint name="${suffix}_wheel_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${suffix}_wheel_link"/>
+    </joint>
+    <link name="${suffix}_wheel_link">
+
+      <xacro:cylinder_inertial radius="0.05" length="0.05" mass="0.1">
+        <origin xyz="0 0 0"/>
+      </xacro:cylinder_inertial>
+      <visual>
+        <geometry>
+          <mesh filename="package://raw_description/meshes/base/mecanum.dae"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <geometry>
+          <cylinder length="0.05" radius="0.05"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>
