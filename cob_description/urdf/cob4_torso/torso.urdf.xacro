@@ -4,7 +4,7 @@
   <xacro:include filename="$(find cob_description)/urdf/cob4_torso/torso.gazebo.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/cob4_torso/torso.transmission.xacro" />
 
-  <xacro:macro name="torso" params="parent name *origin dof1:=False dof2:=False dof3:=False">
+  <xacro:macro name="torso" params="parent name *origin dof1:=False dof2:=False dof3:=False full_body:=True">
 
     <joint name="${name}_base_joint" type="fixed">
       <xacro:insert_block name="origin" />
@@ -135,15 +135,25 @@
 -->
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_torso/torso_link.dae"/>
-        </geometry>
+        <xacro:if value="${full_body}">
+          <geometry>
+            <mesh filename="package://cob_description/meshes/cob4_torso/torso_link.dae"/>
+          </geometry>
+        </xacro:if>
+        <xacro:unless value="${full_body}">
+          <xacro:cylinder_geometry radius="0.4" length="0.02"/>
+        </xacro:unless>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://cob_description/meshes/cob4_torso/torso_link_collision.stl"/>
-        </geometry>
+        <xacro:if value="${full_body}">
+          <geometry>
+            <mesh filename="package://cob_description/meshes/cob4_torso/torso_link_collision.stl"/>
+          </geometry>
+        </xacro:if>
+        <xacro:unless value="${full_body}">
+          <xacro:cylinder_geometry radius="0.4" length="0.02"/>
+        </xacro:unless>
       </collision>
     </link>
 
