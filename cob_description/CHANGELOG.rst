@@ -2,8 +2,8 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.2 (2020-03-18)
+------------------
 * Merge pull request `#282 <https://github.com/ipa320/cob_common/issues/282>`_ from fmessmer/torso_no_body
   allow torso without full body
 * allow torso without full body

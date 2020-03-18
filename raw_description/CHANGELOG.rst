@@ -2,8 +2,8 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.2 (2020-03-18)
+------------------
 * Merge pull request `#281 <https://github.com/ipa320/cob_common/issues/281>`_ from ipa-jba/feature/raw-mini
   Feature/raw mini
 * nitpick
