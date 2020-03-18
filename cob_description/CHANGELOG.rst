@@ -2,6 +2,24 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#282 <https://github.com/ipa320/cob_common/issues/282>`_ from fmessmer/torso_no_body
+  allow torso without full body
+* allow torso without full body
+* Merge pull request `#278 <https://github.com/ipa320/cob_common/issues/278>`_ from LoyVanBeek/feature/python3_compatibility
+  [ci_updates] pylint + Python3 compatibility
+* python3 compatibility via 2to3
+* Merge pull request `#281 <https://github.com/ipa320/cob_common/issues/281>`_ from ipa-jba/feature/raw-mini
+  Feature/raw mini
+* nitpick
+* add rplidar for gazebo
+* Added files for raw-mini
+* Merge pull request `#277 <https://github.com/ipa320/cob_common/issues/277>`_ from fmessmer/ci_updates
+  [travis] ci updates
+* catkin_lint fixes
+* Contributors: Felix Messmer, Jannik Abbenseth, Loy van Beek, flg-vs, fmessmer
+
 0.7.1 (2019-11-07)
 ------------------
 * Merge pull request `#274 <https://github.com/ipa320/cob_common/issues/274>`_ from LoyVanBeek/feature/usb-cam-model

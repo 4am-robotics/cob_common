@@ -2,6 +2,22 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#281 <https://github.com/ipa320/cob_common/issues/281>`_ from ipa-jba/feature/raw-mini
+  Feature/raw mini
+* nitpick
+* remove unneeded values
+* add a planar move plugin for raw-mini (no mecanum)
+* use updated meshes
+* add a mecanum wheel (5cm wide 5cm radius)
+* Updated config for raw-mini
+* Added files for raw-mini
+* Merge pull request `#277 <https://github.com/ipa320/cob_common/issues/277>`_ from fmessmer/ci_updates
+  [travis] ci updates
+* catkin_lint fixes
+* Contributors: Felix Messmer, Jannik Abbenseth, flg-vs, fmessmer
+
 0.7.1 (2019-11-07)
 ------------------
 
