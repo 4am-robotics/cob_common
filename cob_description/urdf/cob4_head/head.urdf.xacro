@@ -4,8 +4,8 @@
   <xacro:include filename="$(find cob_description)/urdf/cob4_head/head.gazebo.xacro"/>
   <xacro:include filename="$(find cob_description)/urdf/cob4_head/head.transmission.xacro"/>
 
+  <!-- torso_2_joint is on the right side of the robot (different from CAD) -->
   <xacro:macro name="head" params="parent name *origin dof1:=false dof2:=false dof3:=false">
-
     <xacro:property name="origin_1_joint">
       <origin xyz="0 0 0.0305" rpy="0 0 0"/>
     </xacro:property>
@@ -15,7 +15,31 @@
     <xacro:property name="origin_3_joint">
       <origin xyz="0 0.09849 0.04476" rpy="-0.349 0 0"/>
     </xacro:property>
+    <xacro:head_template name="${name}" parent="${parent}" dof1="${dof1}" dof2="${dof2}" dof3="${dof3}">
+      <xacro:insert_block name="origin"/>
+    </xacro:head_template>
+  </xacro:macro>
 
+  <!-- torso_2_joint is on the left side of the robot (same as in CAD) -->
+  <xacro:macro name="head_cad" params="parent name *origin dof1:=false dof2:=false dof3:=false">
+    <xacro:property name="origin_1_joint">
+      <origin xyz="0 0 1.0305" rpy="0 0 0"/>
+    </xacro:property>
+    <xacro:property name="origin_2_joint">
+      <origin xyz="0 -0.07725 0.00439" rpy="0.349 0 0"/>
+    </xacro:property>
+    <xacro:property name="origin_3_joint">
+      <origin xyz="0 0.09849 0.04476" rpy="-0.349 0 0"/>
+    </xacro:property>
+    <xacro:head_template name="${name}" parent="${parent}" dof1="${dof1}" dof2="${dof2}" dof3="${dof3}">
+      <xacro:insert_block name="origin"/>
+    </xacro:head_template>
+  </xacro:macro>
+
+
+
+  <!-- configurable template -->
+  <xacro:macro name="head_template" params="parent name *origin dof1:=false dof2:=false dof3:=false">
 
     <joint name="${name}_base_joint" type="fixed">
       <xacro:insert_block name="origin"/>
