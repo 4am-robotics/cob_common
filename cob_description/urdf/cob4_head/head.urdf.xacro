@@ -23,13 +23,13 @@
   <!-- torso_2_joint is on the left side of the robot (same as in CAD) -->
   <xacro:macro name="head_cad" params="parent name *origin dof1:=false dof2:=false dof3:=false">
     <xacro:property name="origin_1_joint">
-      <origin xyz="0 0 1.0305" rpy="0 0 0"/>
+      <origin xyz="0 0 0.0305" rpy="0 0 0"/>
     </xacro:property>
     <xacro:property name="origin_2_joint">
-      <origin xyz="0 -0.07725 0.00439" rpy="0.349 0 0"/>
+      <origin xyz="0 0.07725 0.00439" rpy="0.349 0 ${M_PI}"/>
     </xacro:property>
     <xacro:property name="origin_3_joint">
-      <origin xyz="0 0.09849 0.04476" rpy="-0.349 0 0"/>
+      <origin xyz="0 0.09849 0.04476" rpy="0.349 0 -${M_PI}"/>
     </xacro:property>
     <xacro:head_template name="${name}" parent="${parent}" dof1="${dof1}" dof2="${dof2}" dof3="${dof3}">
       <xacro:insert_block name="origin"/>
