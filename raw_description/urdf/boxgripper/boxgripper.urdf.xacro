@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find raw_description)/urdf/boxgripper/boxgripper.gazebo.xacro" />
 
   <xacro:macro name="raw_boxgripper" params="name parent *origin">
