@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_zr300.gazebo.xacro" />
 
   <xacro:macro name="realsense_zr300" params="name parent ros_topic *origin">

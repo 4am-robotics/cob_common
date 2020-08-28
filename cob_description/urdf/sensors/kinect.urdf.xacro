@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <root xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
   <xacro:include filename="$(find cob_description)/urdf/sensors/kinect.gazebo.xacro" />
 
   <xacro:macro name="cob_kinect_v0" params="name parent *origin ros_topic update_rate:=20 data_skip:=0 height:=480 width:=640">
