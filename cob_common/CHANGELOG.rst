@@ -2,6 +2,13 @@
 Changelog for package cob_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#288 <https://github.com/ipa320/cob_common/issues/288>`_ from fmessmer/test_noetic
+  test noetic
+* Bump CMake version to avoid CMP0048 warning
+* Contributors: Felix Messmer, fmessmer
+
 0.7.2 (2020-03-18)
 ------------------
 

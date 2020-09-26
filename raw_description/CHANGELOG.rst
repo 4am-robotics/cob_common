@@ -2,6 +2,19 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#288 <https://github.com/ipa320/cob_common/issues/288>`_ from fmessmer/test_noetic
+  test noetic
+* Bump CMake version to avoid CMP0048 warning
+* Merge pull request `#287 <https://github.com/ipa320/cob_common/issues/287>`_ from fmessmer/fix/include_common_xacro
+  add missing common xacro includes
+* more missing common.xacro for intertial macros
+* Merge pull request `#279 <https://github.com/ipa320/cob_common/issues/279>`_ from fmessmer/fix_xacro_test
+  [travis] xacro test
+* comment ur_description bits
+* Contributors: Felix Messmer, fmessmer
+
 0.7.2 (2020-03-18)
 ------------------
 * Merge pull request `#281 <https://github.com/ipa320/cob_common/issues/281>`_ from ipa-jba/feature/raw-mini

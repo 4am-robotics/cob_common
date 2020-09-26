@@ -2,6 +2,25 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#288 <https://github.com/ipa320/cob_common/issues/288>`_ from fmessmer/test_noetic
+  test noetic
+* Bump CMake version to avoid CMP0048 warning
+* Merge pull request `#287 <https://github.com/ipa320/cob_common/issues/287>`_ from fmessmer/fix/include_common_xacro
+  add missing common xacro includes
+* more missing common.xacro for intertial macros
+* missing common.xacro for default intertia
+* Merge pull request `#279 <https://github.com/ipa320/cob_common/issues/279>`_ from fmessmer/fix_xacro_test
+  [travis] xacro test
+* add ROS_DISTRO condition for --inorder
+* Merge pull request `#284 <https://github.com/ipa320/cob_common/issues/284>`_ from fmessmer/left_right_heads
+  support various available head variants
+* correct property values for head_cad version
+* prepare structure
+* use property_blocks for joint origins
+* Contributors: Felix Messmer, fmessmer, ipa-mjp
+
 0.7.2 (2020-03-18)
 ------------------
 * Merge pull request `#282 <https://github.com/ipa320/cob_common/issues/282>`_ from fmessmer/torso_no_body
