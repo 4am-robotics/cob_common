@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(cob_actions)
 
-find_package(catkin REQUIRED COMPONENTS actionlib_msgs message_generation)
+find_package(catkin REQUIRED COMPONENTS actionlib_msgs geometry_msgs message_generation)
 
 add_action_files(FILES
+  Dock.action
   SetBool.action
   SetFloat.action
   SetInt.action
@@ -11,9 +12,9 @@ add_action_files(FILES
 )
 
 generate_messages(
-  DEPENDENCIES actionlib_msgs
+  DEPENDENCIES actionlib_msgs geometry_msgs
 )
 
 catkin_package(
-    CATKIN_DEPENDS actionlib_msgs message_runtime
+    CATKIN_DEPENDS actionlib_msgs geometry_msgs message_runtime
 )
