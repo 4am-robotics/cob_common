@@ -1,0 +1,9 @@
+string frame_id
+geometry_msgs/Pose[] poses
+string stop_topic
+string stop_message_field
+bool stop_compare_value
+float32 dist_threshold
+---
+bool success
+string message
