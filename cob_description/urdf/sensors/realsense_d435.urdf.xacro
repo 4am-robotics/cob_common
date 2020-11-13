@@ -2,7 +2,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
-  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435.gazebo.xacro" />
+  <!--xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435.gazebo.xacro" /-->
+  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435_pal.gazebo.xacro" />
 
   <xacro:macro name="realsense_d435" params="name parent *origin">
 
@@ -37,7 +38,8 @@
     </link>
 
     <!-- extensions -->
-    <xacro:realsense_d435_gazebo name="${name}"/>
+    <!--xacro:realsense_d435_gazebo name="${name}"/-->
+    <xacro:gazebo_d435 camera_name="${name}" reference_link="${name}_link" topics_ns="${name}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame"/>
   </xacro:macro>
 
 </robot>
