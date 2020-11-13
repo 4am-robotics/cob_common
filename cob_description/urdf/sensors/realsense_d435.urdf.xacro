@@ -39,8 +39,7 @@
 
     <!-- extensions -->
     <!--xacro:realsense_d435_gazebo name="${name}"/-->
-    <xacro:gazebo_d435 camera_name="${name}" reference_link="${name}_link" topics_ns="${name}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame"/>
+    <xacro:gazebo_d435 camera_name="${name}" reference_link="${name}_link" topics_ns="${name}" depth_optical_frame="${name}_depth_optical_frame" color_optical_frame="${name}_color_optical_frame" infrared1_optical_frame="${name}_left_ir_optical_frame" infrared2_optical_frame="${name}_right_ir_optical_frame" depth_fps="15.0" depth_height="480" depth_width="640" color_fps="15.0" color_height="720" color_width="1280" />
   </xacro:macro>
 
 </robot>
-
