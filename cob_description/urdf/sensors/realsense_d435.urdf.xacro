@@ -2,8 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find cob_description)/urdf/common.xacro" />
-  <!--xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435.gazebo.xacro" /-->
-  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435_pal.gazebo.xacro" />
+  <xacro:include filename="$(find cob_description)/urdf/sensors/realsense_d435.gazebo.xacro" />
 
   <xacro:macro name="realsense_d435" params="name parent *origin">
 
