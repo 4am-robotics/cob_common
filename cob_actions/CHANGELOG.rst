@@ -2,6 +2,13 @@
 Changelog for package cob_actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#289 <https://github.com/ipa320/cob_common/issues/289>`_ from HannesBachter/feature/dock_service_action
+  add Dock service and -action
+* add Dock service and action
+* Contributors: Felix Messmer, hyb
+
 0.7.3 (2020-09-26)
 ------------------
 * Merge pull request `#288 <https://github.com/ipa320/cob_common/issues/288>`_ from fmessmer/test_noetic
