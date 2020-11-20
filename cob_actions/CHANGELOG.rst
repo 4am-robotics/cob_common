@@ -2,8 +2,8 @@
 Changelog for package cob_actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.4 (2020-11-20)
+------------------
 * Merge pull request `#289 <https://github.com/ipa320/cob_common/issues/289>`_ from HannesBachter/feature/dock_service_action
   add Dock service and -action
 * add Dock service and action
