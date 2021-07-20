@@ -8,6 +8,7 @@ add_message_files(FILES
   EmergencyStopState.msg
   Network.msg
   PowerState.msg
+  SafetyControllerState.msg
   SiteSurvey.msg
 )
 
