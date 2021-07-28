@@ -3,6 +3,7 @@ bool has_wireless_emstop
 bool has_fall_sensors
 bool has_magnetic_safety_switch
 
+bool ack_needed
 bool emergency_button_stop
 bool brake_button_stop
 bool laser_stop
