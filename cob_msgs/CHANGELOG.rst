@@ -2,6 +2,16 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#292 <https://github.com/ipa320/cob_common/issues/292>`_ from benmaidel/feature/add_ack_needed
+  add ack_needed to SafetyControllerState
+* add ack_needed to SafetyControllerState
+* Merge pull request `#291 <https://github.com/ipa320/cob_common/issues/291>`_ from benmaidel/feature/safety_controller_state
+  add SafetyControllerState message
+* add SafetyControllerState message
+* Contributors: Benjamin Maidel, Felix Messmer
+
 0.7.5 (2021-07-01)
 ------------------
 
