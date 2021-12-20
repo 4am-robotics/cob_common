@@ -98,6 +98,14 @@
       <mimic joint="${name}_finger_left_joint" multiplier="1" offset="0"/>
       <limit effort="10" lower="-0.001" upper="0.0301" velocity="0.041"/>
     </joint>
+    <gazebo>
+      <plugin name="${name}_finger_right_joint_gazebo" filename="libgazebo_ros_mimic_joint.so">
+        <jointName>${name}_finger_right_joint</jointName>
+        <mimicJoint>${name}_finger_left_joint</mimicJoint>
+        <multiplier>1.0</multiplier>
+        <offset>0.0</offset>
+      </plugin>
+    </gazebo>
 
     <link name="${name}_finger_right_link">
       <xacro:default_inertial/>
@@ -125,7 +133,7 @@
 
     <!-- ros_control plugin -->
     <gazebo>
-      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+      <plugin name="${name}_ros_control" filename="libhwi_switch_gazebo_ros_control.so">
         <robotNamespace>${name}</robotNamespace>
         <filterJointsParam>joint_names</filterJointsParam>
       </plugin>

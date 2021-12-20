@@ -180,7 +180,7 @@
     <!-- ros_control plugin -->
     <xacro:if value="${(dof1 == True) or (dof2 == True) or (dof3 == True)}">
       <gazebo>
-        <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+        <plugin name="${name}_ros_control" filename="libhwi_switch_gazebo_ros_control.so">
           <robotNamespace>${name}</robotNamespace>
           <filterJointsParam>joint_names</filterJointsParam>
         </plugin>
