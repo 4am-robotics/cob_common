@@ -120,7 +120,7 @@
 
     <!-- ros_control plugin -->
     <gazebo>
-      <plugin name="ros_control" filename="libhwi_switch_gazebo_ros_control.so">
+      <plugin name="${name}_ros_control" filename="libhwi_switch_gazebo_ros_control.so">
         <robotNamespace>${name}</robotNamespace>
         <filterJointsParam>joint_names</filterJointsParam>
       </plugin>
