@@ -27,7 +27,7 @@
         <plugin name="${name}_controller" filename="libgazebo_ros_openni_kinect.so">
           <updateRate>${update_rate/(data_skip+1)}</updateRate>
           <cameraName>${ros_topic}</cameraName>
-          <frameName>${name}_optical_frame</frameName>
+          <frameName>${name}_color_optical_frame</frameName>
           <imageTopicName>rgb/image_raw</imageTopicName>
           <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
           <pointCloudTopicName>depth_registered/points</pointCloudTopicName>
