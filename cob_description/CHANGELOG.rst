@@ -2,6 +2,17 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#295 <https://github.com/ipa320/cob_common/issues/295>`_ from ipa-fog/fix/kinect_frame_id
+  adjusted frames of kinect topics to tf-tree
+* adjusted frames of kinect topics to tf-tree
+* Merge pull request `#294 <https://github.com/ipa320/cob_common/issues/294>`_ from fmessmer/unique_control_plugin
+  guarantee unique plugin name for hwi_switch_gazebo_ros_control
+* add plugins for mimic joints
+* guarantee unique plugin name for hwi_switch_gazebo_ros_control
+* Contributors: Felix Messmer, fmessmer, fog
+
 0.7.6 (2021-08-02)
 ------------------
 

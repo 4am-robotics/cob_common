@@ -2,6 +2,9 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.7.6 (2021-08-02)
 ------------------
 * Merge pull request `#292 <https://github.com/ipa320/cob_common/issues/292>`_ from benmaidel/feature/add_ack_needed
