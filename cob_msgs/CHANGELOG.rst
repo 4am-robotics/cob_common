@@ -2,6 +2,13 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#297 <https://github.com/ipa320/cob_common/issues/297>`_ from floweisshardt/feature/power_state_connected
+  add explicit power_state.connected
+* add explicit power_state.connected
+* Contributors: Felix Messmer, floweisshardt
+
 0.7.7 (2021-12-23)
 ------------------
 

@@ -2,6 +2,9 @@
 Changelog for package cob_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.7.7 (2021-12-23)
 ------------------
 * Merge pull request `#295 <https://github.com/ipa320/cob_common/issues/295>`_ from ipa-fog/fix/kinect_frame_id
