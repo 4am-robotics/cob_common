@@ -1,21 +1,29 @@
-<package format="2">
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>cob_actions</name>
   <version>0.7.8</version>
   <description>This Package contains Care-O-bot specific action definitions.</description>
 
   <license>Apache 2.0</license>
 
-  <url type="website">http://ros.org/wiki/cob_actions</url>
-  <!-- <url type="bugtracker"></url> -->
-
   <maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
   <author email="felixmessmer@gmail.com">Felix Messmer</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
-  <build_depend>message_generation</build_depend>
-  <exec_depend>message_runtime</exec_depend>
-  <depend>actionlib_msgs</depend>
+  <depend>action_msgs</depend>
+  <depend>builtin_interfaces</depend>
   <depend>geometry_msgs</depend>
 
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <test_depend>ament_lint_common</test_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
