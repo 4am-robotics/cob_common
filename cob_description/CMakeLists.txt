@@ -13,7 +13,7 @@ install(PROGRAMS test/test_urdf.py
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
+  #ament_lint_auto_find_test_dependencies()
 endif()
 
 ament_package()
