@@ -1,4 +1,4 @@
-Header header
+std_msgs/Header header
 bool has_wireless_emstop
 bool has_fall_sensors
 bool has_magnetic_safety_switch

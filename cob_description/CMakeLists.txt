@@ -1,14 +1,19 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project(cob_description)
 
-find_package(catkin REQUIRED COMPONENTS)
-
-catkin_package()
+find_package(ament_cmake REQUIRED)
 
 install(DIRECTORY Media meshes urdf
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION share/${PROJECT_NAME}
 )
 
-catkin_install_python(PROGRAMS test/test_urdf.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+install(PROGRAMS test/test_urdf.py
+  DESTINATION share/${PROJECT_NAME}/test
 )
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  #ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()
