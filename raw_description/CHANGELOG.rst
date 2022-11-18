@@ -2,6 +2,14 @@
 Changelog for package raw_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#299 <https://github.com/ipa320/cob_common/issues/299>`_ from fmessmer/foxy_port_ros2
+  [foxy] port packages
+* port raw_description
+* add COLCON_IGNORE
+* Contributors: Felix Messmer, fmessmer
+
 0.7.8 (2022-07-29)
 ------------------
 

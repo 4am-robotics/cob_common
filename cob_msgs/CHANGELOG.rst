@@ -2,6 +2,15 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#299 <https://github.com/ipa320/cob_common/issues/299>`_ from fmessmer/foxy_port_ros2
+  [foxy] port packages
+* harmonize packages
+* port cob_msgs
+* add COLCON_IGNORE
+* Contributors: Felix Messmer, fmessmer
+
 0.7.8 (2022-07-29)
 ------------------
 * Merge pull request `#297 <https://github.com/ipa320/cob_common/issues/297>`_ from floweisshardt/feature/power_state_connected
