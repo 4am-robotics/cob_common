@@ -2,6 +2,13 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge pull request `#301 <https://github.com/ipa320/cob_common/issues/301>`_ from omar-ihab-ali/update/emergency_stop_state_msg
+  update EmergencyStopState Msg to include other states sent from PLC
+* update EmergencyStopState Msg to include other states sent from PLC
+* Contributors: Benjamin Maidel, omar-ihab-ali
+
 0.7.8 (2022-07-29)
 ------------------
 * Merge pull request `#297 <https://github.com/ipa320/cob_common/issues/297>`_ from floweisshardt/feature/power_state_connected
