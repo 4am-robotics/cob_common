@@ -2,6 +2,9 @@
 Changelog for package cob_actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.7.8 (2022-11-18)
 ------------------
 * add dependency action_msgs
