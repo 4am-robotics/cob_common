@@ -2,8 +2,8 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.7.9 (2023-11-06)
+------------------
 * Merge pull request `#303 <https://github.com/ipa320/cob_common/issues/303>`_ from omar-ihab-ali/update/emergency_stop_state_msg_foxy
   update EmergencyStopState Msg to include other states sent by PLC
 * update implementation for EmergencyStopState Msg to include other states sent by PLC
