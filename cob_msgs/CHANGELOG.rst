@@ -2,8 +2,8 @@
 Changelog for package cob_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.9 (2023-11-06)
+------------------
 * Merge pull request `#301 <https://github.com/ipa320/cob_common/issues/301>`_ from omar-ihab-ali/update/emergency_stop_state_msg
   update EmergencyStopState Msg to include other states sent from PLC
 * update EmergencyStopState Msg to include other states sent from PLC
