@@ -2,10 +2,13 @@ cmake_minimum_required(VERSION 3.0.2)
 project(cob_msgs)
 find_package(catkin REQUIRED COMPONENTS diagnostic_msgs message_generation std_msgs)
 
-add_message_files(FILES
+add_message_files(
+  DIRECTORY msg
+  FILES
   AccessPoint.msg
   DashboardState.msg
   EmergencyStopState.msg
+  HornMode.msg
   Network.msg
   PowerState.msg
   SafetyControllerState.msg
