@@ -25,6 +25,7 @@ set(msg_files
   "msg/AccessPoint.msg"
   "msg/DashboardState.msg"
   "msg/EmergencyStopState.msg"
+  "msg/HornMode.msg"
   "msg/Network.msg"
   "msg/PowerState.msg"
   "msg/SafetyControllerState.msg"

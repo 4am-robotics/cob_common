@@ -1,0 +1,4 @@
+cob_msgs/HornMode mode
+---
+bool success
+string message

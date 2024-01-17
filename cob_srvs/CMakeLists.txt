@@ -18,16 +18,18 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(builtin_interfaces REQUIRED)
+find_package(cob_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
 set(srv_files
   "srv/SetFloat.srv"
   "srv/SetInt.srv"
+  "srv/SetHornMode.srv"
   "srv/SetString.srv"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${srv_files}
-  DEPENDENCIES builtin_interfaces geometry_msgs
+  DEPENDENCIES builtin_interfaces cob_msgs geometry_msgs
   ADD_LINTER_TESTS
 )
 
