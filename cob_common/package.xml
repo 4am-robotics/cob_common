@@ -15,7 +15,6 @@
   <exec_depend>cob_description</exec_depend>
   <exec_depend>cob_msgs</exec_depend>
   <exec_depend>cob_srvs</exec_depend>
-  <exec_depend>raw_description</exec_depend>
 
   <export>
     <metapackage/>
