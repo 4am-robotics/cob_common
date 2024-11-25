@@ -5,6 +5,8 @@
     Messages for representing state information, such as battery information and emergency stop status.
   </description>
 
+  <maintainer email="benjamin.maidel@4am-robotics.com">Benjamin Maidel</maintainer>
+  <maintainer email="denis.lehmann@4am-robotics.com">Denis Lehmann</maintainer>
   <maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
   <maintainer email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</maintainer>
   <author email="florian.weisshardt@ipa.fraunhofer.de">Florian Weisshardt</author>
