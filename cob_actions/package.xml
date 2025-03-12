@@ -1,23 +1,19 @@
-<package format="2">
+<?xml version="1.0"?>
+<package format="3">
   <name>cob_actions</name>
   <version>0.8.12</version>
-  <description>This Package contains Care-O-bot specific action definitions.</description>
-
-  <license>Apache 2.0</license>
-
+  <description>This package contains Care-O-bot specific action definitions.</description>
+  <license>Apache-2.0</license>
   <url type="website">http://ros.org/wiki/cob_actions</url>
-  <!-- <url type="bugtracker"></url> -->
-
   <maintainer email="benjamin.maidel@4am-robotics.com">Benjamin Maidel</maintainer>
   <maintainer email="denis.lehmann@4am-robotics.com">Denis Lehmann</maintainer>
   <maintainer email="felixmessmer@gmail.com">Felix Messmer</maintainer>
-  <author email="felixmessmer@gmail.com">Felix Messmer</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <build_depend>message_generation</build_depend>
-  <exec_depend>message_runtime</exec_depend>
-  <depend>actionlib_msgs</depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+  
   <depend>geometry_msgs</depend>
-
+  <depend>action_msgs</depend>
+  
+  <exec_depend>rosidl_default_runtime</exec_depend>
 </package>

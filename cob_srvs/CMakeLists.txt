@@ -1,19 +1,17 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8)
 project(cob_srvs)
 
-find_package(catkin REQUIRED COMPONENTS geometry_msgs message_generation)
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
-add_service_files(FILES
-  Dock.srv
-  SetFloat.srv
-  SetInt.srv
-  SetString.srv
-)
-
-generate_messages(
+# Assuming your service files are now in the "srv" directory.
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/Dock.srv"
+  "srv/SetFloat.srv"
+  "srv/SetInt.srv"
+  "srv/SetString.srv"
   DEPENDENCIES geometry_msgs
 )
 
-catkin_package(
-    CATKIN_DEPENDS geometry_msgs message_runtime
-)
+ament_package()
