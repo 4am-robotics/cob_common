@@ -17,6 +17,8 @@
   <exec_depend>cob_actions</exec_depend>
   <exec_depend>cob_msgs</exec_depend>
   <exec_depend>cob_srvs</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
   
   <export>
     <metapackage/>
