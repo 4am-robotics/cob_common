@@ -19,7 +19,6 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(action_msgs REQUIRED)
-find_package(actionlib_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
 set(action_files
@@ -32,7 +31,7 @@ set(action_files
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${action_files}
-  DEPENDENCIES builtin_interfaces action_msgs actionlib_msgs geometry_msgs
+  DEPENDENCIES builtin_interfaces action_msgs geometry_msgs
   ADD_LINTER_TESTS
 )
 

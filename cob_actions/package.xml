@@ -17,7 +17,6 @@
 
   <depend>builtin_interfaces</depend>
   <depend>action_msgs</depend>
-  <depend>actionlib_msgs</depend>
   <depend>geometry_msgs</depend>
 
   <exec_depend>rosidl_default_runtime</exec_depend>
