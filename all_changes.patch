@@ -1,0 +1,122 @@
+diff --git a/.ci.xacro_test.sh b/.ci.xacro_test.sh
+index d53f97b..a80e8a6 100644
+--- a/.ci.xacro_test.sh
++++ b/.ci.xacro_test.sh
+@@ -1,7 +1,13 @@
+ #!/bin/sh
+ status=0
+-[ "$ROS_DISTRO" \< "melodic" ] && xacro_args='--inorder'
+-for x in $(find "$TARGET_REPO_PATH" -name '*.xacro'|sort); do
++# Only set --inorder if running on older ROS 1 distros; for ROS 2 (Humble) we don't need it.
++if [ -n "$ROS_DISTRO" ] && { [ "$ROS_DISTRO" = "indigo" ] || [ "$ROS_DISTRO" = "jade" ] || [ "$ROS_DISTRO" = "kinetic" ]; }; then
++    xacro_args='--inorder'
++else
++    xacro_args=''
++fi
++
++for x in $(find "$TARGET_REPO_PATH" -name '*.xacro' | sort); do
+     echo "Testing $x"
+     xacro $xacro_args "$x" > /dev/null || status=1
+ done
+diff --git a/cob_actions/package.xml b/cob_actions/package.xml
+index 47261e4..be05704 100644
+--- a/cob_actions/package.xml
++++ b/cob_actions/package.xml
+@@ -16,4 +16,5 @@
+   <depend>action_msgs</depend>
+   
+   <exec_depend>rosidl_default_runtime</exec_depend>
++  <member_of_group>rosidl_interface_packages</member_of_group>
+ </package>
+diff --git a/cob_common/CMakeLists.txt b/cob_common/CMakeLists.txt
+index edffff6..402eafb 100644
+--- a/cob_common/CMakeLists.txt
++++ b/cob_common/CMakeLists.txt
+@@ -1,5 +1,7 @@
+ cmake_minimum_required(VERSION 3.8)
+ project(cob_common)
+ 
++# Make the ament_metapackage() command available.
+ find_package(ament_cmake REQUIRED)
+-ament_metapackage()
++
++ament_package()
+diff --git a/cob_common/package.xml b/cob_common/package.xml
+index 9999397..63bbd3c 100644
+--- a/cob_common/package.xml
++++ b/cob_common/package.xml
+@@ -17,8 +17,6 @@
+   <exec_depend>cob_actions</exec_depend>
+   <exec_depend>cob_msgs</exec_depend>
+   <exec_depend>cob_srvs</exec_depend>
+-  
+-  <export>
+-    <metapackage/>
+-  </export>
++  <member_of_group>rosidl_interface_packages</member_of_group>
++
+ </package>
+diff --git a/cob_msgs/msg/AccessPoint.msg b/cob_msgs/msg/AccessPoint.msg
+index da7d9bd..84c5de9 100644
+--- a/cob_msgs/msg/AccessPoint.msg
++++ b/cob_msgs/msg/AccessPoint.msg
+@@ -1,5 +1,5 @@
+ # This message communicates the state of the PR2's wifi access point.
+-Header header
++std_msgs/Header header
+ string essid
+ string macaddr
+ int32 signal
+diff --git a/cob_msgs/msg/PowerState.msg b/cob_msgs/msg/PowerState.msg
+index 47cf00d..d15d711 100644
+--- a/cob_msgs/msg/PowerState.msg
++++ b/cob_msgs/msg/PowerState.msg
+@@ -1,5 +1,5 @@
+ # This message communicates the state of the power system.
+-Header header
++std_msgs/Header header   
+ float64 voltage                     # [V]
+ float64 current                     # [A]
+ float64 power_consumption           # [W] can only be calculated if not charging
+diff --git a/cob_msgs/msg/SafetyControllerState.msg b/cob_msgs/msg/SafetyControllerState.msg
+index 04a8e81..12b8d97 100644
+--- a/cob_msgs/msg/SafetyControllerState.msg
++++ b/cob_msgs/msg/SafetyControllerState.msg
+@@ -1,4 +1,4 @@
+-Header header
++std_msgs/Header header 
+ bool has_wireless_emstop
+ bool has_fall_sensors
+ bool has_magnetic_safety_switch
+diff --git a/cob_msgs/msg/SiteSurvey.msg b/cob_msgs/msg/SiteSurvey.msg
+index fadf87b..5d57c98 100644
+--- a/cob_msgs/msg/SiteSurvey.msg
++++ b/cob_msgs/msg/SiteSurvey.msg
+@@ -1,2 +1,2 @@
+-Header header
++std_msgs/Header header    
+ Network[] networks
+diff --git a/cob_msgs/package.xml b/cob_msgs/package.xml
+index 0575133..34a48cd 100644
+--- a/cob_msgs/package.xml
++++ b/cob_msgs/package.xml
+@@ -19,4 +19,5 @@
+   <depend>std_msgs</depend>
+ 
+   <exec_depend>rosidl_default_runtime</exec_depend>
++  <member_of_group>rosidl_interface_packages</member_of_group>
+ </package>
+diff --git a/cob_srvs/package.xml b/cob_srvs/package.xml
+index a51c8a3..24be9a6 100644
+--- a/cob_srvs/package.xml
++++ b/cob_srvs/package.xml
+@@ -13,8 +13,7 @@
+ 
+   <buildtool_depend>ament_cmake</buildtool_depend>
+   <buildtool_depend>rosidl_default_generators</buildtool_depend>
+-
+   <depend>geometry_msgs</depend>
+-
+   <exec_depend>rosidl_default_runtime</exec_depend>
++  <member_of_group>rosidl_interface_packages</member_of_group>
+ </package>
